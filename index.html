@@ -336,6 +336,10 @@
       <input type="number" id="acuerdoPago" value="75000" onchange="actualizarFactura()" onkeyup="actualizarFactura()">
     </div>
     <div class="form-group">
+      <label>📅 Cuota mes</label>
+      <input type="number" id="cuotaMes" value="150000" onchange="actualizarFactura()" onkeyup="actualizarFactura()">
+    </div>
+    <div class="form-group">
       <label>📊 Admón acumulada</label>
       <input type="number" id="admAcumulada" value="1000000" onchange="actualizarFactura()" onkeyup="actualizarFactura()">
     </div>
@@ -445,7 +449,7 @@
     const cuotaExtra = c('cuotaExtra');
     const sanciones = c('sanciones');
     const acuerdoPago = c('acuerdoPago');
-    const cuotaMes = 150000; // Valor fijo
+    const cuotaMes = c('cuotaMes'); // ← AHORA ES EDITABLE
     const admAcum = c('admAcumulada');
     const extraAcum = c('extraAcumulada');
     const abonos = c('abonos');
