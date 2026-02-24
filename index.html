@@ -312,7 +312,7 @@
     <div class="form-row">
       <div class="form-group">
         <label>N° Factura</label>
-        <input type="text" id="facturaNum" value="5000" onchange="actualizarFactura()">
+        <input type="text" id="facturaNum" value="5000" onchange="actualizarFactura()" onkeyup="actualizarFactura()">
       </div>
       <div class="form-group">
         <label>Fecha</label>
@@ -321,31 +321,31 @@
     </div>
     <div class="form-group">
       <label>💰 Cuota admón</label>
-      <input type="number" id="cuotaAdmon" value="375000" onchange="actualizarFactura()">
+      <input type="number" id="cuotaAdmon" value="375000" onchange="actualizarFactura()" onkeyup="actualizarFactura()">
     </div>
     <div class="form-group">
       <label>💰 Cuota extra</label>
-      <input type="number" id="cuotaExtra" value="100000" onchange="actualizarFactura()">
+      <input type="number" id="cuotaExtra" value="100000" onchange="actualizarFactura()" onkeyup="actualizarFactura()">
     </div>
     <div class="form-group">
       <label>⚠️ Sanciones</label>
-      <input type="number" id="sanciones" value="50000" onchange="actualizarFactura()">
+      <input type="number" id="sanciones" value="50000" onchange="actualizarFactura()" onkeyup="actualizarFactura()">
     </div>
     <div class="form-group">
       <label>🤝 Acuerdo pago</label>
-      <input type="number" id="acuerdoPago" value="75000" onchange="actualizarFactura()">
+      <input type="number" id="acuerdoPago" value="75000" onchange="actualizarFactura()" onkeyup="actualizarFactura()">
     </div>
     <div class="form-group">
       <label>📊 Admón acumulada</label>
-      <input type="number" id="admAcumulada" value="1000000" onchange="actualizarFactura()">
+      <input type="number" id="admAcumulada" value="1000000" onchange="actualizarFactura()" onkeyup="actualizarFactura()">
     </div>
     <div class="form-group">
       <label>💰 Extra acumulada</label>
-      <input type="number" id="extraAcumulada" value="1000000" onchange="actualizarFactura()">
+      <input type="number" id="extraAcumulada" value="1000000" onchange="actualizarFactura()" onkeyup="actualizarFactura()">
     </div>
     <div class="form-group">
       <label>💵 Abonos</label>
-      <input type="number" id="abonos" value="1800000" onchange="actualizarFactura()">
+      <input type="number" id="abonos" value="1800000" onchange="actualizarFactura()" onkeyup="actualizarFactura()">
     </div>
   </div>
 
@@ -425,6 +425,7 @@
   }
 
   function actualizarFactura() {
+    // Actualizar fecha
     let fechaRaw = document.getElementById('fechaFactura').value;
     if (!fechaRaw) {
       const hoy = new Date();
@@ -434,17 +435,27 @@
     const f = new Date(fechaRaw + 'T12:00:00');
     document.getElementById('displayFecha').innerText = f.toLocaleDateString('es-CO', { year:'numeric', month:'long', day:'numeric' });
 
+    // Actualizar número de factura
     document.getElementById('displayFacturaNum').innerText = document.getElementById('facturaNum').value;
 
+    // Obtener todos los valores numéricos
     const c = id => parseFloat(document.getElementById(id).value) || 0;
-    const cuotaAdmon = c('cuotaAdmon'), cuotaExtra = c('cuotaExtra'), sanciones = c('sanciones');
-    const acuerdoPago = c('acuerdoPago'), cuotaMes = 150000;
-    const admAcum = c('admAcumulada'), extraAcum = c('extraAcumulada'), abonos = c('abonos');
+    
+    const cuotaAdmon = c('cuotaAdmon');
+    const cuotaExtra = c('cuotaExtra');
+    const sanciones = c('sanciones');
+    const acuerdoPago = c('acuerdoPago');
+    const cuotaMes = 150000; // Valor fijo
+    const admAcum = c('admAcumulada');
+    const extraAcum = c('extraAcumulada');
+    const abonos = c('abonos');
 
+    // Calcular totales
     const totalConceptos = cuotaAdmon + cuotaExtra + sanciones + acuerdoPago + cuotaMes;
     const totalGeneral = totalConceptos + admAcum + extraAcum;
     const saldo = totalGeneral - abonos;
 
+    // Actualizar todos los campos de la factura
     document.getElementById('displayCuotaAdmon').innerText = formatoMoneda(cuotaAdmon);
     document.getElementById('displayCuotaExtra').innerText = formatoMoneda(cuotaExtra);
     document.getElementById('displaySanciones').innerText = formatoMoneda(sanciones);
@@ -496,7 +507,7 @@
         return response.json();
       })
       .then(data => {
-        // ✅ CORREGIDO: data es DIRECTAMENTE el array
+        // data es DIRECTAMENTE el array
         propietariosData = data;
 
         if (!propietariosData || propietariosData.length === 0) {
@@ -507,7 +518,6 @@
         propietariosData.forEach(p => {
           const option = document.createElement('option');
           option.value = p.id;
-          // ✅ CORREGIDO: Usar 'propietario' en lugar de 'nombre'
           option.textContent = `${p.manzana || ''} ${p.interior || ''} - ${p.propietario || 'Sin nombre'}`.trim();
           select.appendChild(option);
         });
