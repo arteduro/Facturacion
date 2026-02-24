@@ -471,13 +471,14 @@
       return;
     }
 
-    const prop = propietariosData.find(p => p.id === id);
+    // Convertir a número porque los IDs en JSON son números
+    const prop = propietariosData.find(p => p.id === parseInt(id));
     if (prop) {
-      document.getElementById('displayNombre').innerText = prop.nombre || '---';
-      document.getElementById('displayDireccion').innerText = prop.direccion || '---';
+      document.getElementById('displayNombre').innerText = prop.propietario || '---';
+      document.getElementById('displayDireccion').innerText = `${prop.manzana || ''} ${prop.interior || ''}`.trim() || '---';
       document.getElementById('displayManzana').innerText = prop.manzana || '---';
       document.getElementById('displayInterior').innerText = prop.interior || '---';
-      document.getElementById('displayMatricula').innerText = prop.matricula || '---';
+      document.getElementById('displayMatricula').innerText = prop.matricula_inmobiliaria || '---';
       document.getElementById('displayCodigoCatastral').innerText = prop.codigo_catastral || '---';
     }
   }
@@ -495,12 +496,10 @@
         return response.json();
       })
       .then(data => {
-        if (!data.propietarios) {
-          throw new Error('El JSON no tiene la propiedad "propietarios"');
-        }
-        propietariosData = data.propietarios;
+        // ✅ CORREGIDO: data es DIRECTAMENTE el array
+        propietariosData = data;
 
-        if (propietariosData.length === 0) {
+        if (!propietariosData || propietariosData.length === 0) {
           throw new Error('El archivo JSON está vacío');
         }
 
@@ -508,7 +507,8 @@
         propietariosData.forEach(p => {
           const option = document.createElement('option');
           option.value = p.id;
-          option.textContent = `${p.manzana} ${p.interior} - ${p.nombre}`;
+          // ✅ CORREGIDO: Usar 'propietario' en lugar de 'nombre'
+          option.textContent = `${p.manzana || ''} ${p.interior || ''} - ${p.propietario || 'Sin nombre'}`.trim();
           select.appendChild(option);
         });
 
