@@ -1,354 +1,3215 @@
-{
-  "propietarios": [
-    { "id": "MZ-01-INT-01", "nombre": "ALVARO DIAZ LAGUADO", "manzana": "MZ-01", "interior": "INT-01", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-140971", "codigo_catastral": "01-04-0511-0001-000" },
-    { "id": "MZ-01-INT-02", "nombre": "CESAR WILLIAM PINZON", "manzana": "MZ-01", "interior": "INT-02", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-140972", "codigo_catastral": "01-04-0511-0002-000" },
-    { "id": "MZ-01-INT-03", "nombre": "CRUZDELINA GARCIA GARCIA", "manzana": "MZ-01", "interior": "INT-03", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-140973", "codigo_catastral": "01-04-0511-0003-000" },
-    { "id": "MZ-01-INT-04", "nombre": "MARTHA INES TOBON", "manzana": "MZ-01", "interior": "INT-04", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-140974", "codigo_catastral": "01-04-0511-0004-000" },
-    { "id": "MZ-01-INT-05", "nombre": "REINADO ROJAS RIVERA", "manzana": "MZ-01", "interior": "INT-05", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-140975", "codigo_catastral": "01-04-0511-0005-000" },
-    { "id": "MZ-01-INT-06", "nombre": "MARIA GLORIA TORRES GALVIS", "manzana": "MZ-01", "interior": "INT-06", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-140976", "codigo_catastral": "01-04-0511-0006-000" },
-    { "id": "MZ-01-INT-07", "nombre": "MARIA GLORIA TORRES GALVIS", "manzana": "MZ-01", "interior": "INT-07", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-140977", "codigo_catastral": "01-04-0511-0007-000" },
-    { "id": "MZ-01-INT-08", "nombre": "MISAEL ARMANDO CRUZ SIERRA", "manzana": "MZ-01", "interior": "INT-08", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-140978", "codigo_catastral": "01-04-0511-0008-000" },
-    { "id": "MZ-01-INT-09", "nombre": "MANUEL DOLORES RODRIGUEZ PATIÑO", "manzana": "MZ-01", "interior": "INT-09", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-140979", "codigo_catastral": "01-04-0511-0009-000" },
-    { "id": "MZ-02-INT-01", "nombre": "HENRRY TOMAS LOPEZ PALACIOS", "manzana": "MZ-02", "interior": "INT-01", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-36140980", "codigo_catastral": "01-04-0425-0036-000" },
-    { "id": "MZ-02-INT-02", "nombre": "SOLANGEL PRADO PARADA", "manzana": "MZ-02", "interior": "INT-02", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-37140981", "codigo_catastral": "01-04-0425-0037-000" },
-    { "id": "MZ-02-INT-03", "nombre": "JANETH CAROLINA RODRIGUEZ MOLINA", "manzana": "MZ-02", "interior": "INT-03", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-38140982", "codigo_catastral": "01-04-0425-0038-000" },
-    { "id": "MZ-02-INT-04", "nombre": "GLORIA HELENA REYES ALGARRA", "manzana": "MZ-02", "interior": "INT-04", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-39140983", "codigo_catastral": "01-04-0425-0039-000" },
-    { "id": "MZ-02-INT-05", "nombre": "PABLO ANTONIO SANABRIA RODRIGUEZ", "manzana": "MZ-02", "interior": "INT-05", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-40140984", "codigo_catastral": "01-04-0425-0040-000" },
-    { "id": "MZ-02-INT-06", "nombre": "LEONOR GALVIS ORTEGA", "manzana": "MZ-02", "interior": "INT-06", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-41140985", "codigo_catastral": "01-04-0425-0041-000" },
-    { "id": "MZ-02-INT-07", "nombre": "MARIA CONSUELO BECERRA PARADA", "manzana": "MZ-02", "interior": "INT-07", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-42140986", "codigo_catastral": "01-04-0425-0042-000" },
-    { "id": "MZ-02-INT-08", "nombre": "DORIS CECILIA CASTELLANOS RODRIGUEZ", "manzana": "MZ-02", "interior": "INT-08", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-43140987", "codigo_catastral": "01-04-0425-0043-000" },
-    { "id": "MZ-02-INT-09", "nombre": "DIOCELINA CACERES CRUZ", "manzana": "MZ-02", "interior": "INT-09", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-44140988", "codigo_catastral": "01-04-0425-0044-000" },
-    { "id": "MZ-02-INT-10", "nombre": "MIGUEL ALBERTO GOMEZ JAIMES", "manzana": "MZ-02", "interior": "INT-10", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-45140989", "codigo_catastral": "01-04-0425-0045-000" },
-    { "id": "MZ-02-INT-11", "nombre": "ORLANDO CONTRERAS GOMEZ", "manzana": "MZ-02", "interior": "INT-11", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-46140990", "codigo_catastral": "01-04-0425-0046-000" },
-    { "id": "MZ-02-INT-12", "nombre": "EDWARD ANTONIO GOMEZ ARENAS", "manzana": "MZ-02", "interior": "INT-12", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-47140991", "codigo_catastral": "01-04-0425-0047-000" },
-    { "id": "MZ-02-INT-13", "nombre": "ADELSO CPRTES AGUIRRE", "manzana": "MZ-02", "interior": "INT-13", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-48140992", "codigo_catastral": "01-04-0425-0048-000" },
-    { "id": "MZ-02-INT-14", "nombre": "IDALID SUELTA NAVARRO", "manzana": "MZ-02", "interior": "INT-14", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-49140993", "codigo_catastral": "01-04-0425-0049-000" },
-    { "id": "MZ-02-INT-15", "nombre": "LUCY IRENE CASTELLANOS BOTELLO", "manzana": "MZ-02", "interior": "INT-15", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-50140994", "codigo_catastral": "01-04-0425-0050-000" },
-    { "id": "MZ-02-INT-16", "nombre": "ALICIA ROJAS ARAQUE", "manzana": "MZ-02", "interior": "INT-16", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-51140995", "codigo_catastral": "01-04-0425-0051-000" },
-    { "id": "MZ-02-INT-17", "nombre": "ROSA ELVA CABALLERO", "manzana": "MZ-02", "interior": "INT-17", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-52140996", "codigo_catastral": "01-04-0425-0052-000" },
-    { "id": "MZ-02-INT-18", "nombre": "NANCY BLANCO BADILLO", "manzana": "MZ-02", "interior": "INT-18", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-53140997", "codigo_catastral": "01-04-0425-0053-000" },
-    { "id": "MZ-02-INT-19", "nombre": "CARMEN CRIS RODRIGUEZ BALLESTEROS", "manzana": "MZ-02", "interior": "INT-19", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-54140998", "codigo_catastral": "01-04-0425-0054-000" },
-    { "id": "MZ-02-INT-20", "nombre": "REINALDO SANCHEZ VERA", "manzana": "MZ-02", "interior": "INT-20", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-55140999", "codigo_catastral": "01-04-0425-0055-000" },
-    { "id": "MZ-02-INT-21", "nombre": "ROSA ELCIDA CASTELLANOS VEGA", "manzana": "MZ-02", "interior": "INT-21", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-56141000", "codigo_catastral": "01-04-0425-0056-000" },
-    { "id": "MZ-02-INT-22", "nombre": "ZENAIDA BOTELLO PARADA", "manzana": "MZ-02", "interior": "INT-22", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-57141001", "codigo_catastral": "01-04-0425-0057-000" },
-    { "id": "MZ-02-INT-23", "nombre": "GRACIELA BUSTOS LINDARTE", "manzana": "MZ-02", "interior": "INT-23", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-58141002", "codigo_catastral": "01-04-0425-0058-000" },
-    { "id": "MZ-02-INT-24", "nombre": "MARINA CELINA GAMBOA CAICEDO", "manzana": "MZ-02", "interior": "INT-24", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-59141003", "codigo_catastral": "01-04-0425-0059-000" },
-    { "id": "MZ-02-INT-25", "nombre": "ANGELICA MARIA TORRES GALVIS", "manzana": "MZ-02", "interior": "INT-25", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-60141004", "codigo_catastral": "01-04-0425-0060-000" },
-    { "id": "MZ-02-INT-26", "nombre": "OSCAR IVAN CHACON RIVERA", "manzana": "MZ-02", "interior": "INT-26", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-61141005", "codigo_catastral": "01-04-0425-0061-000" },
-    { "id": "MZ-02-INT-27", "nombre": "CARLOS ALEX GRANADOS VILLARRAGA", "manzana": "MZ-02", "interior": "INT-27", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-62141006", "codigo_catastral": "01-04-0425-0062-000" },
-    { "id": "MZ-02-INT-28", "nombre": "LUIS ANTONIO PINILLA RODRIGUEZ", "manzana": "MZ-02", "interior": "INT-28", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-63141007", "codigo_catastral": "01-04-0425-0063-000" },
-    { "id": "MZ-02-INT-29", "nombre": "RAFAEL ANTONIO FLOREZ ESCALANTE", "manzana": "MZ-02", "interior": "INT-29", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-64141008", "codigo_catastral": "01-04-0425-0064-000" },
-    { "id": "MZ-03-INT-01", "nombre": "JHOVANNA ISABEL HIGUERA MALDONADO", "manzana": "MZ-03", "interior": "INT-01", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141009", "codigo_catastral": "01-04-0512-0001-000" },
-    { "id": "MZ-03-INT-02", "nombre": "NANCY AMPARO CONTRERAS BUITRAGO", "manzana": "MZ-03", "interior": "INT-02", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141010", "codigo_catastral": "01-04-0512-0002-000" },
-    { "id": "MZ-03-INT-03", "nombre": "JOSE URBANO BECERRA", "manzana": "MZ-03", "interior": "INT-03", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141011", "codigo_catastral": "01-04-0512-0003-000" },
-    { "id": "MZ-03-INT-04", "nombre": "JORGE ELIAS RANGEL RANGEL", "manzana": "MZ-03", "interior": "INT-04", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141012", "codigo_catastral": "01-04-0512-0004-000" },
-    { "id": "MZ-03-INT-05", "nombre": "GLADYS MELO VILLAMIZAR", "manzana": "MZ-03", "interior": "INT-05", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141013", "codigo_catastral": "01-04-0512-0005-000" },
-    { "id": "MZ-03-INT-06", "nombre": "CLAUDIA PATRICIA CARVAJALINO PINEDA", "manzana": "MZ-03", "interior": "INT-06", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141014", "codigo_catastral": "01-04-0512-0006-000" },
-    { "id": "MZ-04-INT-01", "nombre": "JOSE GREGORIO SIERRA ROJAS", "manzana": "MZ-04", "interior": "INT-01", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141016", "codigo_catastral": "01-04-0513-0001-000" },
-    { "id": "MZ-04-INT-02", "nombre": "CARLOS ANDRES CAMACHO VELASQUEZ", "manzana": "MZ-04", "interior": "INT-02", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141017", "codigo_catastral": "01-04-0513-0002-000" },
-    { "id": "MZ-04-INT-03", "nombre": "RAUL ALFONSO PEÑARANDA MEJIA", "manzana": "MZ-04", "interior": "INT-03", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141018", "codigo_catastral": "01-04-0513-0003-000" },
-    { "id": "MZ-04-INT-04", "nombre": "SAMUEL ANTONIO MARTINEZ RODRIGUEZ", "manzana": "MZ-04", "interior": "INT-04", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141019", "codigo_catastral": "01-04-0513-0004-000" },
-    { "id": "MZ-04-INT-05", "nombre": "IDULFO TARAZONA PABON", "manzana": "MZ-04", "interior": "INT-05", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141020", "codigo_catastral": "01-04-0513-0005-000" },
-    { "id": "MZ-04-INT-06", "nombre": "LUIS ENRIQUE GALINDO", "manzana": "MZ-04", "interior": "INT-06", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141021", "codigo_catastral": "01-04-0513-0006-000" },
-    { "id": "MZ-04-INT-07", "nombre": "SEBASTIAN VILLAMIZAR ANTOLINEZ", "manzana": "MZ-04", "interior": "INT-07", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141022", "codigo_catastral": "01-04-0513-0007-000" },
-    { "id": "MZ-04-INT-08", "nombre": "GENTIL CAICEDO CARABALI", "manzana": "MZ-04", "interior": "INT-08", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141023", "codigo_catastral": "01-04-0513-0008-000" },
-    { "id": "MZ-04-INT-09", "nombre": "MARIA CONSUELO BECERRA PARADA", "manzana": "MZ-04", "interior": "INT-09", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141024", "codigo_catastral": "01-04-0513-0009-000" },
-    { "id": "MZ-04-INT-10", "nombre": "HARVEIRY MELO MACHADO", "manzana": "MZ-04", "interior": "INT-10", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141025", "codigo_catastral": "01-04-0513-0010-000" },
-    { "id": "MZ-05-INT-01", "nombre": "MATILDE VIUDA CASADIEGOS", "manzana": "MZ-05", "interior": "INT-01", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141026", "codigo_catastral": "01-04-0514-0001-000" },
-    { "id": "MZ-05-INT-02", "nombre": "JUDITH TORCOROMA SANGUINO TARAZONA", "manzana": "MZ-05", "interior": "INT-02", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141027", "codigo_catastral": "01-04-0514-0002-000" },
-    { "id": "MZ-05-INT-03", "nombre": "LUIS FERNANDO ORTEGA GALVIS", "manzana": "MZ-05", "interior": "INT-03", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141028", "codigo_catastral": "01-04-0514-0003-000" },
-    { "id": "MZ-05-INT-04", "nombre": "", "manzana": "MZ-05", "interior": "INT-04", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141029", "codigo_catastral": "01-04-0514-0004-000" },
-    { "id": "MZ-05-INT-05", "nombre": "VICTOR JULIO CASTELLANOS MOLINA", "manzana": "MZ-05", "interior": "INT-05", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141030", "codigo_catastral": "01-04-0514-0005-000" },
-    { "id": "MZ-05-INT-06", "nombre": "PATRICIA LAZARO CONTRERAS", "manzana": "MZ-05", "interior": "INT-06", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141031", "codigo_catastral": "01-04-0514-0006-000" },
-    { "id": "MZ-05-INT-07", "nombre": "FREDDY DIAZ PEÑARANDA", "manzana": "MZ-05", "interior": "INT-07", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141032", "codigo_catastral": "01-04-0514-0007-000" },
-    { "id": "MZ-05-INT-08", "nombre": "GABINO ANTONIO AREVALO", "manzana": "MZ-05", "interior": "INT-08", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141033", "codigo_catastral": "01-04-0514-0008-000" },
-    { "id": "MZ-05-INT-09", "nombre": "SANDRA HELENA MUÑOZ OCAMPO", "manzana": "MZ-05", "interior": "INT-09", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141034", "codigo_catastral": "01-04-0514-0009-000" },
-    { "id": "MZ-06-INT-01", "nombre": "JULIAN GELVES OYOLA", "manzana": "MZ-06", "interior": "INT-01", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141036", "codigo_catastral": "01-04-0515-0001-000" },
-    { "id": "MZ-06-INT-02", "nombre": "MARVIN FRANKLIN GONZALEZ MORA", "manzana": "MZ-06", "interior": "INT-02", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141037", "codigo_catastral": "01-04-0515-0002-000" },
-    { "id": "MZ-06-INT-03", "nombre": "RAUL CLADERON VILLAMIZAR", "manzana": "MZ-06", "interior": "INT-03", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141038", "codigo_catastral": "01-04-0515-0003-000" },
-    { "id": "MZ-06-INT-04", "nombre": "ROSALBA LOPEZ SUESCUN", "manzana": "MZ-06", "interior": "INT-04", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141039", "codigo_catastral": "01-04-0515-0004-000" },
-    { "id": "MZ-06-INT-05", "nombre": "FRANCY EDITH MONTAÑO GARCIA", "manzana": "MZ-06", "interior": "INT-05", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141040", "codigo_catastral": "01-04-0515-0005-000" },
-    { "id": "MZ-06-INT-06", "nombre": "ISMAEL DAVID CALIXTO REYES", "manzana": "MZ-06", "interior": "INT-06", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141041", "codigo_catastral": "01-04-0515-0006-000" },
-    { "id": "MZ-06-INT-07", "nombre": "SAIDA STELLA DAVILA FLOREZ", "manzana": "MZ-06", "interior": "INT-07", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141042", "codigo_catastral": "01-04-0515-0007-000" },
-    { "id": "MZ-06-INT-08", "nombre": "CIRO ALFONSO MENDOZA LOPEZ", "manzana": "MZ-06", "interior": "INT-08", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141043", "codigo_catastral": "01-04-0515-0008-000" },
-    { "id": "MZ-06-INT-09", "nombre": "MARTHA LUCIA LOPEZ JAIMES", "manzana": "MZ-06", "interior": "INT-09", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141044", "codigo_catastral": "01-04-0515-0009-000" },
-    { "id": "MZ-07-INT-01", "nombre": "MARTHA LUCIA LOPEZ JAIMES", "manzana": "MZ-07", "interior": "INT-01", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141045", "codigo_catastral": "01-04-0431-0001-000" },
-    { "id": "MZ-07-INT-02", "nombre": "CARLOS LUIS MEDINA BECERRA", "manzana": "MZ-07", "interior": "INT-02", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141046", "codigo_catastral": "01-04-0431-0002-000" },
-    { "id": "MZ-07-INT-03", "nombre": "CIRO ALFONSO ORTIZ TORRES", "manzana": "MZ-07", "interior": "INT-03", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141047", "codigo_catastral": "01-04-0431-0003-000" },
-    { "id": "MZ-07-INT-04", "nombre": "JOSE GREGORIO GELVES SANCHEZ", "manzana": "MZ-07", "interior": "INT-04", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141048", "codigo_catastral": "01-04-0431-0004-000" },
-    { "id": "MZ-07-INT-05", "nombre": "MARIELA MENESES PORTILLA", "manzana": "MZ-07", "interior": "INT-05", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141049", "codigo_catastral": "01-04-0431-0005-000" },
-    { "id": "MZ-07-INT-06", "nombre": "", "manzana": "MZ-07", "interior": "INT-06", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141050", "codigo_catastral": "01-04-0431-0006-000" },
-    { "id": "MZ-07-INT-07", "nombre": "BTSABE MOROS GAMBOA", "manzana": "MZ-07", "interior": "INT-07", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141051", "codigo_catastral": "01-04-0431-0007-000" },
-    { "id": "MZ-07-INT-08", "nombre": "TERESA BUITRAGO GAMBOA", "manzana": "MZ-07", "interior": "INT-08", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141052", "codigo_catastral": "01-04-0431-0008-000" },
-    { "id": "MZ-07-INT-09", "nombre": "ISMAEL ASCANIO SOLANO", "manzana": "MZ-07", "interior": "INT-09", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141053", "codigo_catastral": "01-04-0431-0009-000" },
-    { "id": "MZ-07-INT-10", "nombre": "HERNANDO VANEGAS CUENCA", "manzana": "MZ-07", "interior": "INT-10", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141054", "codigo_catastral": "01-04-0431-0010-000" },
-    { "id": "MZ-08-INT-01", "nombre": "SONIA CECILIA AYALA DURAN", "manzana": "MZ-08", "interior": "INT-01", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141055", "codigo_catastral": "01-04-0432-0001-000" },
-    { "id": "MZ-08-INT-02", "nombre": "JESUS MARIA RUIZ CALDERON", "manzana": "MZ-08", "interior": "INT-02", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141056", "codigo_catastral": "01-04-0432-0002-000" },
-    { "id": "MZ-08-INT-03", "nombre": "", "manzana": "MZ-08", "interior": "INT-03", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141057", "codigo_catastral": "01-04-0432-0003-000" },
-    { "id": "MZ-08-INT-04", "nombre": "VLADIMIR GALVIS CARDENAS", "manzana": "MZ-08", "interior": "INT-04", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141058", "codigo_catastral": "01-04-0432-0004-000" },
-    { "id": "MZ-08-INT-05", "nombre": "MARIA EDILIA CARRILLO RODRIGUEZ", "manzana": "MZ-08", "interior": "INT-05", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141059", "codigo_catastral": "01-04-0432-0005-000" },
-    { "id": "MZ-08-INT-06", "nombre": "CARMENZA VELANDIA HERRERA", "manzana": "MZ-08", "interior": "INT-06", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141060", "codigo_catastral": "01-04-0432-0006-000" },
-    { "id": "MZ-08-INT-07", "nombre": "CRISTIAN FABIO TORRES", "manzana": "MZ-08", "interior": "INT-07", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141061", "codigo_catastral": "01-04-0432-0007-000" },
-    { "id": "MZ-08-INT-08", "nombre": "ROSA TULIA PAEZ PEREZ", "manzana": "MZ-08", "interior": "INT-08", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141062", "codigo_catastral": "01-04-0432-0008-000" },
-    { "id": "MZ-08-INT-09", "nombre": "ROBERTO ARMANDO GELVEZ ACOSTA", "manzana": "MZ-08", "interior": "INT-09", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141063", "codigo_catastral": "01-04-0432-0009-000" },
-    { "id": "MZ-08-INT-10", "nombre": "VICTOR URIEL ALVAREZ RODRIGUEZ", "manzana": "MZ-08", "interior": "INT-10", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141064", "codigo_catastral": "01-04-0432-0010-000" },
-    { "id": "MZ-09-INT-01", "nombre": "WILMER RAMIREZ RAMOS", "manzana": "MZ-09", "interior": "INT-01", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141065", "codigo_catastral": "01-04-0433-0001-000" },
-    { "id": "MZ-09-INT-02", "nombre": "ALIRIO VELASQUEZ SALAZAR", "manzana": "MZ-09", "interior": "INT-02", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141066", "codigo_catastral": "01-04-0433-0002-000" },
-    { "id": "MZ-09-INT-03", "nombre": "ISMAEL ENRIQUE TORRADO MANRIQUE", "manzana": "MZ-09", "interior": "INT-03", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141067", "codigo_catastral": "01-04-0433-0003-000" },
-    { "id": "MZ-09-INT-04", "nombre": "CIRO ANTONIO BALMACEDA CASTILLA", "manzana": "MZ-09", "interior": "INT-04", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-141068", "codigo_catastral": "01-04-0433-0004-000" },
-    { "id": "MZ-11-INT-01", "nombre": "JORGE HELI GOMEZ PRADA", "manzana": "MZ-11", "interior": "INT-01", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142443", "codigo_catastral": "01-04-0266-0001-000" },
-    { "id": "MZ-11-INT-02", "nombre": "GUSTAVO CASTILLA DURAN", "manzana": "MZ-11", "interior": "INT-02", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142444", "codigo_catastral": "01-04-0266-0002-000" },
-    { "id": "MZ-11-INT-03", "nombre": "", "manzana": "MZ-11", "interior": "INT-03", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142445", "codigo_catastral": "01-04-0266-0003-000" },
-    { "id": "MZ-11-INT-04", "nombre": "MERCEDEZ CORREA HERNANDEZ", "manzana": "MZ-11", "interior": "INT-04", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142446", "codigo_catastral": "01-04-0266-0004-000" },
-    { "id": "MZ-11-INT-05", "nombre": "MARIA DE LOS ANGELES ORTIZ DURAN", "manzana": "MZ-11", "interior": "INT-05", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142447", "codigo_catastral": "01-04-0266-0005-000" },
-    { "id": "MZ-11-INT-06", "nombre": "CARLOS IVAN ALVAREZ ARCHILA", "manzana": "MZ-11", "interior": "INT-06", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142448", "codigo_catastral": "01-04-0266-0006-000" },
-    { "id": "MZ-11-INT-07", "nombre": "LUDY AMIRA COTE PORTILLA", "manzana": "MZ-11", "interior": "INT-07", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142449", "codigo_catastral": "01-04-0266-0007-000" },
-    { "id": "MZ-11-INT-08", "nombre": "CLARA BEATRIZ BUITRAGO JAUREGUI", "manzana": "MZ-11", "interior": "INT-08", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142450", "codigo_catastral": "01-04-0266-0008-000" },
-    { "id": "MZ-11-INT-09", "nombre": "ROBIN ALBERTO KELIN CONTRERAS", "manzana": "MZ-11", "interior": "INT-09", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142451", "codigo_catastral": "01-04-0266-0009-000" },
-    { "id": "MZ-11-INT-10", "nombre": "ANGEL IGNACIO BUITRAGO JAURGUI", "manzana": "MZ-11", "interior": "INT-10", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142452", "codigo_catastral": "01-04-0266-0010-000" },
-    { "id": "MZ-11-INT-11", "nombre": "MARIA CONCEPCION CARVAJAL BELTRAN", "manzana": "MZ-11", "interior": "INT-11", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142453", "codigo_catastral": "01-04-0266-0011-000" },
-    { "id": "MZ-11-INT-12", "nombre": "ROSA MIRIAM HERNANDEZ RAMIREZ", "manzana": "MZ-11", "interior": "INT-12", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142454", "codigo_catastral": "01-04-0266-0012-000" },
-    { "id": "MZ-11-INT-13", "nombre": "DIEGO ALEJANDRO DUQUE CARO", "manzana": "MZ-11", "interior": "INT-13", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142455", "codigo_catastral": "01-04-0266-0013-000" },
-    { "id": "MZ-12-INT-01", "nombre": "AZUCENA JAIMES PAREDES", "manzana": "MZ-12", "interior": "INT-01", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142457", "codigo_catastral": "01-04-0435-0001-000" },
-    { "id": "MZ-12-INT-02", "nombre": "CINDY ALEXANDRA ACEVEDO HERRERA", "manzana": "MZ-12", "interior": "INT-02", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142458", "codigo_catastral": "01-04-0435-0002-000" },
-    { "id": "MZ-12-INT-03", "nombre": "NYDIA PEREZ TARAZONA", "manzana": "MZ-12", "interior": "INT-03", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142459", "codigo_catastral": "01-04-0435-0003-000" },
-    { "id": "MZ-12-INT-04", "nombre": "JACQUELINE CAÑON HERNANDEZ", "manzana": "MZ-12", "interior": "INT-04", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142460", "codigo_catastral": "01-04-0435-0004-000" },
-    { "id": "MZ-12-INT-05", "nombre": "CARMEN STELLA CARDENAS CONTRERAS", "manzana": "MZ-12", "interior": "INT-05", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142461", "codigo_catastral": "01-04-0435-0005-000" },
-    { "id": "MZ-12-INT-06", "nombre": "LUCY IRENE CASTELLANO BOTELLO", "manzana": "MZ-12", "interior": "INT-06", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142462", "codigo_catastral": "01-04-0435-0006-000" },
-    { "id": "MZ-12-INT-07", "nombre": "MARIA AYDE MORALES ROLON", "manzana": "MZ-12", "interior": "INT-07", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142463", "codigo_catastral": "01-04-0435-0007-000" },
-    { "id": "MZ-12-INT-08", "nombre": "BELCY JUDITH PEÑALOZA ROZO", "manzana": "MZ-12", "interior": "INT-08", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142464", "codigo_catastral": "01-04-0435-0008-000" },
-    { "id": "MZ-12-INT-09", "nombre": "FANNY RANGEL VACA", "manzana": "MZ-12", "interior": "INT-09", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142465", "codigo_catastral": "01-04-0435-0009-000" },
-    { "id": "MZ-12-INT-10", "nombre": "TIMOLEON GOMEZ DIAZ *", "manzana": "MZ-12", "interior": "INT-10", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142466", "codigo_catastral": "01-04-0435-0010-000" },
-    { "id": "MZ-12-INT-11", "nombre": "RODOLFO APONTE ROLON", "manzana": "MZ-12", "interior": "INT-11", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142467", "codigo_catastral": "01-04-0435-0011-000" },
-    { "id": "MZ-12-INT-12", "nombre": "MARIA CONSUELO BECERRA PARADA", "manzana": "MZ-12", "interior": "INT-12", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142468", "codigo_catastral": "01-04-0435-0012-000" },
-    { "id": "MZ-12-INT-13", "nombre": "ALIRIO PEREZ BECERRA", "manzana": "MZ-12", "interior": "INT-13", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142469", "codigo_catastral": "01-04-0435-0013-000" },
-    { "id": "MZ-12-INT-14", "nombre": "RUDTH MARGARITA SANCHEZ MOJICA", "manzana": "MZ-12", "interior": "INT-14", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142470", "codigo_catastral": "01-04-0435-0014-000" },
-    { "id": "MZ-12-INT-15", "nombre": "LUIS DAVID NIÑO QUINTANA", "manzana": "MZ-12", "interior": "INT-15", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142471", "codigo_catastral": "01-04-0435-0015-000" },
-    { "id": "MZ-12-INT-16", "nombre": "", "manzana": "MZ-12", "interior": "INT-16", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142472", "codigo_catastral": "01-04-0435-0016-000" },
-    { "id": "MZ-13-INT-01", "nombre": "", "manzana": "MZ-13", "interior": "INT-01", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142473", "codigo_catastral": "01-04-0436-0001-000" },
-    { "id": "MZ-13-INT-02", "nombre": "ROXANA LOZANO FERNANDEZ", "manzana": "MZ-13", "interior": "INT-02", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142474", "codigo_catastral": "01-04-0436-0002-000" },
-    { "id": "MZ-13-INT-03", "nombre": "LAURA RODRIGUEZ QUINTERO", "manzana": "MZ-13", "interior": "INT-03", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142475", "codigo_catastral": "01-04-0436-0003-000" },
-    { "id": "MZ-13-INT-04", "nombre": "ANA MARIA RAMIREZ SUAREZ", "manzana": "MZ-13", "interior": "INT-04", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142476", "codigo_catastral": "01-04-0436-0004-000" },
-    { "id": "MZ-13-INT-05", "nombre": "FERLEY DURAN DURAN", "manzana": "MZ-13", "interior": "INT-05", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142477", "codigo_catastral": "01-04-0436-0005-000" },
-    { "id": "MZ-13-INT-06", "nombre": "LEYDI AMPARO PEÑALOZA RODRIGUEZ", "manzana": "MZ-13", "interior": "INT-06", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142478", "codigo_catastral": "01-04-0436-0006-000" },
-    { "id": "MZ-13-INT-07", "nombre": "CARMEN CECILIA SANCHEZ GARCIA", "manzana": "MZ-13", "interior": "INT-07", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142479", "codigo_catastral": "01-04-0436-0007-000" },
-    { "id": "MZ-13-INT-08", "nombre": "ROSALBA CASTILLO ORTEGA", "manzana": "MZ-13", "interior": "INT-08", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142480", "codigo_catastral": "01-04-0436-0008-000" },
-    { "id": "MZ-13-INT-09", "nombre": "LUIS ENRIQUE HERNANDEZ REYES", "manzana": "MZ-13", "interior": "INT-09", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142481", "codigo_catastral": "01-04-0436-0009-000" },
-    { "id": "MZ-14-INT-01", "nombre": "CARLOS OMAR MENDOZA MELENDEZ", "manzana": "MZ-14", "interior": "INT-01", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142483", "codigo_catastral": "01-04-0437-0001-000" },
-    { "id": "MZ-14-INT-02", "nombre": "CRUZ DELIA CAICEDO SIERRA", "manzana": "MZ-14", "interior": "INT-02", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142484", "codigo_catastral": "01-04-0437-0002-000" },
-    { "id": "MZ-14-INT-03", "nombre": "GLADYS SOLIS OMAÑA", "manzana": "MZ-14", "interior": "INT-03", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142485", "codigo_catastral": "01-04-0437-0003-000" },
-    { "id": "MZ-14-INT-04", "nombre": "MANUEL PINEDA CARREÑÑO", "manzana": "MZ-14", "interior": "INT-04", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142486", "codigo_catastral": "01-04-0437-0004-000" },
-    { "id": "MZ-14-INT-05", "nombre": "RAUL EUGENIO BLANCO", "manzana": "MZ-14", "interior": "INT-05", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142487", "codigo_catastral": "01-04-0437-0005-000" },
-    { "id": "MZ-14-INT-06", "nombre": "JOSE JAIRO AGUDELO GOMEZ", "manzana": "MZ-14", "interior": "INT-06", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142488", "codigo_catastral": "01-04-0437-0006-000" },
-    { "id": "MZ-14-INT-07", "nombre": "IRWIN ALFONSO RODRIGUEZ SANCHEZ", "manzana": "MZ-14", "interior": "INT-07", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142489", "codigo_catastral": "01-04-0437-0007-000" },
-    { "id": "MZ-14-INT-08", "nombre": "FABIO VELANDIA COTE", "manzana": "MZ-14", "interior": "INT-08", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142490", "codigo_catastral": "01-04-0437-0008-000" },
-    { "id": "MZ-14-INT-09", "nombre": "JOEL CORTES AGUIRRE", "manzana": "MZ-14", "interior": "INT-09", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142491", "codigo_catastral": "01-04-0437-0009-000" },
-    { "id": "MZ-14-INT-10", "nombre": "ALIRIO PEREZ BEVERRA", "manzana": "MZ-14", "interior": "INT-10", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142492", "codigo_catastral": "01-04-0437-0010-000" },
-    { "id": "MZ-14-INT-11", "nombre": "EMILCE SANCHEZ MOJICA", "manzana": "MZ-14", "interior": "INT-11", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142493", "codigo_catastral": "01-04-0437-0011-000" },
-    { "id": "MZ-14-INT-12", "nombre": "SARA LILIANA HERNANDEZ ESPITIA", "manzana": "MZ-14", "interior": "INT-12", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142494", "codigo_catastral": "01-04-0437-0012-000" },
-    { "id": "MZ-14-INT-13", "nombre": "CARLOS JAVIER JIMENEZ CARREÑO", "manzana": "MZ-14", "interior": "INT-13", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142495", "codigo_catastral": "01-04-0437-0013-000" },
-    { "id": "MZ-14-INT-14", "nombre": "YANETH DEL CARMEN TORRADO AVENDAÑO", "manzana": "MZ-14", "interior": "INT-14", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142496", "codigo_catastral": "01-04-0437-0014-000" },
-    { "id": "MZ-14-INT-15", "nombre": "YANETH DEL CARMEN TORRADO AVENDAÑO", "manzana": "MZ-14", "interior": "INT-15", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142497", "codigo_catastral": "01-04-0437-0015-000" },
-    { "id": "MZ-14-INT-16", "nombre": "ANGIE DAYANNA PINEDA HERNANDEZ", "manzana": "MZ-14", "interior": "INT-16", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142498", "codigo_catastral": "01-04-0437-0016-000" },
-    { "id": "MZ-15-INT-01", "nombre": "PAOLA ANDREA LIZCANO CACERES", "manzana": "MZ-15", "interior": "INT-01", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142500", "codigo_catastral": "01-04-0438-0001-000" },
-    { "id": "MZ-15-INT-02", "nombre": "", "manzana": "MZ-15", "interior": "INT-02", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142501", "codigo_catastral": "01-04-0438-0002-000" },
-    { "id": "MZ-15-INT-03", "nombre": "MARYI CELINA VILLAMIZAR CABALLERO", "manzana": "MZ-15", "interior": "INT-03", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142502", "codigo_catastral": "01-04-0438-0003-000" },
-    { "id": "MZ-15-INT-04", "nombre": "JESUS IVAN RIVERA PABON", "manzana": "MZ-15", "interior": "INT-04", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142503", "codigo_catastral": "01-04-0438-0004-000" },
-    { "id": "MZ-15-INT-05", "nombre": "SANCHEZ", "manzana": "MZ-15", "interior": "INT-05", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142504", "codigo_catastral": "01-04-0438-0005-000" },
-    { "id": "MZ-15-INT-06", "nombre": "JOSE JAIRO AGUDELO GOMEZ", "manzana": "MZ-15", "interior": "INT-06", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142505", "codigo_catastral": "01-04-0438-0006-000" },
-    { "id": "MZ-15-INT-07", "nombre": "MARIA ESPERANZA PARADA LEAL", "manzana": "MZ-15", "interior": "INT-07", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142506", "codigo_catastral": "01-04-0438-0007-000" },
-    { "id": "MZ-15-INT-08", "nombre": "JHON HEILER GUTIERREZ HOLGUIN", "manzana": "MZ-15", "interior": "INT-08", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142507", "codigo_catastral": "01-04-0438-0008-000" },
-    { "id": "MZ-15-INT-09", "nombre": "WILLIAM JOSE SUESCUN DUARTE", "manzana": "MZ-15", "interior": "INT-09", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142508", "codigo_catastral": "01-04-0438-0009-000" },
-    { "id": "MZ-15-INT-10", "nombre": "PABON", "manzana": "MZ-15", "interior": "INT-10", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142509", "codigo_catastral": "01-04-0438-0010-000" },
-    { "id": "MZ-16-INT-01", "nombre": "MARILCE PEREZ GALLEGO", "manzana": "MZ-16", "interior": "INT-01", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142510", "codigo_catastral": "01-04-0378-0001-000" },
-    { "id": "MZ-16-INT-02", "nombre": "CONSEJO MARTINEZ LARA", "manzana": "MZ-16", "interior": "INT-02", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142511", "codigo_catastral": "01-04-0378-0002-000" },
-    { "id": "MZ-16-INT-03", "nombre": "SARA LLILIANA HERNANDEZ ESPITIA", "manzana": "MZ-16", "interior": "INT-03", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142512", "codigo_catastral": "01-04-0378-0003-000" },
-    { "id": "MZ-16-INT-04", "nombre": "ELIANA MARCELA GOMEZ ACEVEDO", "manzana": "MZ-16", "interior": "INT-04", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142513", "codigo_catastral": "01-04-0378-0004-000" },
-    { "id": "MZ-16-INT-05", "nombre": "LUIS RAMON HERNANDEZ RESTREPO", "manzana": "MZ-16", "interior": "INT-05", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142514", "codigo_catastral": "01-04-0378-0005-000" },
-    { "id": "MZ-16-INT-06", "nombre": "OCTAVIANO POLENTINO MONTES", "manzana": "MZ-16", "interior": "INT-06", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142515", "codigo_catastral": "01-04-0378-0006-000" },
-    { "id": "MZ-16-INT-07", "nombre": "SAUL GREGORIO CONTRERAS JAIMES", "manzana": "MZ-16", "interior": "INT-07", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142516", "codigo_catastral": "01-04-0378-0007-000" },
-    { "id": "MZ-16-INT-08", "nombre": "FRANCELINA RAMIREZ TORRES", "manzana": "MZ-16", "interior": "INT-08", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142517", "codigo_catastral": "01-04-0378-0008-000" },
-    { "id": "MZ-16-INT-09", "nombre": "PEDRO MARIA MORA MORA", "manzana": "MZ-16", "interior": "INT-09", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142518", "codigo_catastral": "01-04-0378-0009-000" },
-    { "id": "MZ-16-INT-10", "nombre": "ISMAEL DAVID CALIXTO REYES", "manzana": "MZ-16", "interior": "INT-10", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142519", "codigo_catastral": "01-04-0378-0010-000" },
-    { "id": "MZ-16-INT-11", "nombre": "GRACIELA RINCON RAMIREZ", "manzana": "MZ-16", "interior": "INT-11", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142520", "codigo_catastral": "01-04-0378-0011-000" },
-    { "id": "MZ-16-INT-12", "nombre": "", "manzana": "MZ-16", "interior": "INT-12", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142521", "codigo_catastral": "01-04-0378-0012-000" },
-    { "id": "MZ-16-INT-13", "nombre": "JANETH MARTINEZ MUÑOZ", "manzana": "MZ-16", "interior": "INT-13", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142522", "codigo_catastral": "01-04-0378-0013-000" },
-    { "id": "MZ-16-INT-14", "nombre": "FRANEY LOREIDY SANCHEZ FORERO", "manzana": "MZ-16", "interior": "INT-14", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142523", "codigo_catastral": "01-04-0378-0014-000" },
-    { "id": "MZ-16-INT-15", "nombre": "JHON SEBASTIAN BLANCO PEREZ", "manzana": "MZ-16", "interior": "INT-15", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142524", "codigo_catastral": "01-04-0378-0015-000" },
-    { "id": "MZ-16-INT-16", "nombre": "ZENAIDA TORRES GARCIA", "manzana": "MZ-16", "interior": "INT-16", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142525", "codigo_catastral": "01-04-0378-0016-000" },
-    { "id": "MZ-17-INT-01", "nombre": "JIAME VILLAMIL", "manzana": "MZ-17", "interior": "INT-01", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142526", "codigo_catastral": "01-04-0750-0001-000" },
-    { "id": "MZ-17-INT-02", "nombre": "NOHEMI MONCADA", "manzana": "MZ-17", "interior": "INT-02", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142527", "codigo_catastral": "01-04-0750-0002-000" },
-    { "id": "MZ-17-INT-03", "nombre": "CARMEN MARIA PEREZ GUERRERO", "manzana": "MZ-17", "interior": "INT-03", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142528", "codigo_catastral": "01-04-0750-0003-000" },
-    { "id": "MZ-17-INT-04", "nombre": "CIRO ALFONZO DIAZ RODRIGUEZ", "manzana": "MZ-17", "interior": "INT-04", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142529", "codigo_catastral": "01-04-0750-0004-000" },
-    { "id": "MZ-17-INT-05", "nombre": "CIRO ALFONZO DIAZ RODRIGUEZ", "manzana": "MZ-17", "interior": "INT-05", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142530", "codigo_catastral": "01-04-0750-0005-000" },
-    { "id": "MZ-17-INT-06", "nombre": "JOSE ANTONI ALBARRACIN GELVES", "manzana": "MZ-17", "interior": "INT-06", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142531", "codigo_catastral": "01-04-0750-0006-000" },
-    { "id": "MZ-17-INT-07", "nombre": "SANTOS EGIDIO RMAIREZ CAÑIZAREZ", "manzana": "MZ-17", "interior": "INT-07", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142532", "codigo_catastral": "01-04-0750-0007-000" },
-    { "id": "MZ-17-INT-08", "nombre": "ADRIANA DURAN LEON", "manzana": "MZ-17", "interior": "INT-08", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142533", "codigo_catastral": "01-04-0750-0008-000" },
-    { "id": "MZ-17-INT-09", "nombre": "EDINSON ARDUEY CONTRERAS TRIGOS", "manzana": "MZ-17", "interior": "INT-09", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142534", "codigo_catastral": "01-04-0750-0009-000" },
-    { "id": "MZ-17-INT-10", "nombre": "GENTIL CAICEDO CARABALI", "manzana": "MZ-17", "interior": "INT-10", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142535", "codigo_catastral": "01-04-0750-0010-000" },
-    { "id": "MZ-18-INT-01", "nombre": "CLAUDIA MARITZA QUIROZ", "manzana": "MZ-18", "interior": "INT-01", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142537", "codigo_catastral": "01-04-0751-0001-000" },
-    { "id": "MZ-18-INT-02", "nombre": "YESICA YULIETH MENDEZ ARCE", "manzana": "MZ-18", "interior": "INT-02", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142538", "codigo_catastral": "01-04-0751-0002-000" },
-    { "id": "MZ-18-INT-03", "nombre": "AURA MARIA SANTIAGO VILLABA", "manzana": "MZ-18", "interior": "INT-03", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142539", "codigo_catastral": "01-04-0751-0003-000" },
-    { "id": "MZ-18-INT-04", "nombre": "MAYRA ALEJANDRA SERRANO SERRANO", "manzana": "MZ-18", "interior": "INT-04", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142540", "codigo_catastral": "01-04-0751-0004-000" },
-    { "id": "MZ-18-INT-05", "nombre": "GLORIA LUCIA ROMERO NOSSA", "manzana": "MZ-18", "interior": "INT-05", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142541", "codigo_catastral": "01-04-0751-0005-000" },
-    { "id": "MZ-18-INT-06", "nombre": "ANIBAL VER VILLAMIZAR", "manzana": "MZ-18", "interior": "INT-06", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142542", "codigo_catastral": "01-04-0751-0006-000" },
-    { "id": "MZ-18-INT-07", "nombre": "CLAUDIA LILOIANA FLOREZ ROSALES", "manzana": "MZ-18", "interior": "INT-07", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142543", "codigo_catastral": "01-04-0751-0007-000" },
-    { "id": "MZ-18-INT-08", "nombre": "ANA DOLORES REYES SARMIENTO", "manzana": "MZ-18", "interior": "INT-08", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142544", "codigo_catastral": "01-04-0751-0008-000" },
-    { "id": "MZ-18-INT-09", "nombre": "CRUZDELINA ALBARRACIN ATUESTA", "manzana": "MZ-18", "interior": "INT-09", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142545", "codigo_catastral": "01-04-0751-0009-000" },
-    { "id": "MZ-18-INT-10", "nombre": "ZAIDA MARINA TAMARA RIVERA", "manzana": "MZ-18", "interior": "INT-10", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142546", "codigo_catastral": "01-04-0751-0010-000" },
-    { "id": "MZ-18-INT-11", "nombre": "WILLIAM ARLEY TORRES GOMEZ", "manzana": "MZ-18", "interior": "INT-11", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142547", "codigo_catastral": "01-04-0751-0011-000" },
-    { "id": "MZ-18-INT-12", "nombre": "ALVARO DELGADO CACUA", "manzana": "MZ-18", "interior": "INT-12", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142548", "codigo_catastral": "01-04-0751-0012-000" },
-    { "id": "MZ-18-INT-13", "nombre": "OTILIA CACUA GUTIERREZ", "manzana": "MZ-18", "interior": "INT-13", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142549", "codigo_catastral": "01-04-0751-0013-000" },
-    { "id": "MZ-18-INT-14", "nombre": "GLORIA JUDITH QUIÑONEZ QUINTERO", "manzana": "MZ-18", "interior": "INT-14", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142550", "codigo_catastral": "01-04-0751-0014-000" },
-    { "id": "MZ-18-INT-15", "nombre": "HERNAN ALFONSO ARIZA ALVAREZ", "manzana": "MZ-18", "interior": "INT-15", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142551", "codigo_catastral": "01-04-0751-0015-000" },
-    { "id": "MZ-18-INT-16", "nombre": "ELIZABETH CABANILLA TORRES", "manzana": "MZ-18", "interior": "INT-16", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142552", "codigo_catastral": "01-04-0751-0016-000" },
-    { "id": "MZ-19-INT-01", "nombre": "MARIA EUGENIA RODRIGUEZ PABON", "manzana": "MZ-19", "interior": "INT-01", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142553", "codigo_catastral": "01-04-0752-0000-000" },
-    { "id": "MZ-19-INT-02", "nombre": "MARIA ESPERANZA VILLAMIZAR PRADA", "manzana": "MZ-19", "interior": "INT-02", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142554", "codigo_catastral": "01-04-0752-0001-000" },
-    { "id": "MZ-19-INT-03", "nombre": "CARMEN ELVIRA GONZALEZ BLANCO", "manzana": "MZ-19", "interior": "INT-03", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142555", "codigo_catastral": "01-04-0752-0002-000" },
-    { "id": "MZ-19-INT-04", "nombre": "PASCUAL ROJAS RUBIO", "manzana": "MZ-19", "interior": "INT-04", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142556", "codigo_catastral": "01-04-0752-0003-000" },
-    { "id": "MZ-19-INT-05", "nombre": "OLGA ESTHER FUENTES ROJAS", "manzana": "MZ-19", "interior": "INT-05", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142557", "codigo_catastral": "01-04-0752-0004-000" },
-    { "id": "MZ-19-INT-06", "nombre": "NELYELY KATHINE TORRES CONTRERAS", "manzana": "MZ-19", "interior": "INT-06", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142558", "codigo_catastral": "01-04-0752-0005-000" },
-    { "id": "MZ-19-INT-07", "nombre": "LUIS IVAN MORA CONTRERAS", "manzana": "MZ-19", "interior": "INT-07", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142559", "codigo_catastral": "01-04-0752-0006-000" },
-    { "id": "MZ-19-INT-08", "nombre": "LUIS RAMON PALENCIA RAMIREZ", "manzana": "MZ-19", "interior": "INT-08", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142560", "codigo_catastral": "01-04-0752-0007-000" },
-    { "id": "MZ-19-INT-09", "nombre": "YESID MARTINEZ LOPEZ *", "manzana": "MZ-19", "interior": "INT-09", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142561", "codigo_catastral": "01-04-0752-0008-000" },
-    { "id": "MZ-19-INT-10", "nombre": "ZULEIMA RODRIGUEZ DIAZ", "manzana": "MZ-19", "interior": "INT-10", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142562", "codigo_catastral": "01-04-0752-0009-000" },
-    { "id": "MZ-19-INT-11", "nombre": "EMERSON ELIAN SUELTA SUESCUN", "manzana": "MZ-19", "interior": "INT-11", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142563", "codigo_catastral": "01-04-0752-0010-000" },
-    { "id": "MZ-19-INT-12", "nombre": "ROSA MAGALY ROLON YAÑEZ", "manzana": "MZ-19", "interior": "INT-12", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142564", "codigo_catastral": "01-04-0752-0011-000" },
-    { "id": "MZ-19-INT-13", "nombre": "ROSA AMINTA DURAN RAMIREZ", "manzana": "MZ-19", "interior": "INT-13", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142565", "codigo_catastral": "01-04-0752-0012-000" },
-    { "id": "MZ-19-INT-14", "nombre": "JONATHAN FERNANDO CASADIEGOS GONZALEZ", "manzana": "MZ-19", "interior": "INT-14", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142566", "codigo_catastral": "01-04-0752-0013-000" },
-    { "id": "MZ-19-INT-15", "nombre": "ISMAEL DAVID CALIXTO REYES", "manzana": "MZ-19", "interior": "INT-15", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142567", "codigo_catastral": "01-04-0752-0014-000" },
-    { "id": "MZ-19-INT-16", "nombre": "MARIA CONSUELO BECERRA PARADA", "manzana": "MZ-19", "interior": "INT-16", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142568", "codigo_catastral": "01-04-0752-0015-000" },
-    { "id": "MZ-20-INT-01", "nombre": "JAIRO JAVIER AGRINZONES VILLEGAS", "manzana": "MZ-20", "interior": "INT-01", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-185360", "codigo_catastral": "01-04-1082-0001-000" },
-    { "id": "MZ-20-INT-02", "nombre": "BEATRIZ CASTELLANOS VELOZA", "manzana": "MZ-20", "interior": "INT-02", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-185361", "codigo_catastral": "01-04-1082-0002-000" },
-    { "id": "MZ-20-INT-03", "nombre": "LUIS ALFREDO OMAÑA GOMEZ", "manzana": "MZ-20", "interior": "INT-03", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-185362", "codigo_catastral": "01-04-1082-0003-000" },
-    { "id": "MZ-20-INT-04", "nombre": "HENRY BOADA RINCON", "manzana": "MZ-20", "interior": "INT-04", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-185363", "codigo_catastral": "01-04-1082-0004-000" },
-    { "id": "MZ-20-INT-05", "nombre": "LUISA BOLIVAR", "manzana": "MZ-20", "interior": "INT-05", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-185364", "codigo_catastral": "01-04-1082-0005-000" },
-    { "id": "MZ-20-INT-06", "nombre": "YOLIMAR MONCADA", "manzana": "MZ-20", "interior": "INT-06", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-185365", "codigo_catastral": "01-04-1082-0006-000" },
-    { "id": "MZ-20-INT-07", "nombre": "MARCELINA RODRIGUEZ", "manzana": "MZ-20", "interior": "INT-07", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-185366", "codigo_catastral": "01-04-1082-0007-000" },
-    { "id": "MZ-21-INT-01", "nombre": "EUCARIS JUDITH CAMPOS GRANADOS", "manzana": "MZ-21", "interior": "INT-01", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142594", "codigo_catastral": "01-04-1084-0001-000" },
-    { "id": "MZ-21-INT-02", "nombre": "LUIS EVELIO ARIAS URIBE", "manzana": "MZ-21", "interior": "INT-02", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142595", "codigo_catastral": "01-04-1084-0002-000" },
-    { "id": "MZ-21-INT-03", "nombre": "LUIS ROBERTO GALVIS NOVOA", "manzana": "MZ-21", "interior": "INT-03", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142596", "codigo_catastral": "01-04-1084-0003-000" },
-    { "id": "MZ-21-INT-04", "nombre": "HECTOR VIVAS TURMEQUE", "manzana": "MZ-21", "interior": "INT-04", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142597", "codigo_catastral": "01-04-1084-0004-000" },
-    { "id": "MZ-21-INT-05", "nombre": "AURA MERCEDES ROJAS QUINTERO", "manzana": "MZ-21", "interior": "INT-05", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142598", "codigo_catastral": "01-04-1084-0005-000" },
-    { "id": "MZ-21-INT-06", "nombre": "CARMEN ROSA PARADA CARRILLO", "manzana": "MZ-21", "interior": "INT-06", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142599", "codigo_catastral": "01-04-1084-0006-000" },
-    { "id": "MZ-21-INT-07", "nombre": "DIANA LAUDITH CALIXTO SANGUINO", "manzana": "MZ-21", "interior": "INT-07", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142600", "codigo_catastral": "01-04-1084-0007-000" },
-    { "id": "MZ-21-INT-08", "nombre": "EDGAR ACOSTA TORRADO", "manzana": "MZ-21", "interior": "INT-08", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142601", "codigo_catastral": "01-04-1084-0008-000" },
-    { "id": "MZ-21-INT-09", "nombre": "BEATRIZ CASTELLANOS VELOZA", "manzana": "MZ-21", "interior": "INT-09", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142602", "codigo_catastral": "01-04-1084-0009-000" },
-    { "id": "MZ-21-INT-10", "nombre": "MARIA DEL CARMEN GUEVARA CARRILLO", "manzana": "MZ-21", "interior": "INT-10", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142603", "codigo_catastral": "01-04-1084-0010-000" },
-    { "id": "MZ-21-INT-11", "nombre": "WILDER DANILO OCHOA MORALES", "manzana": "MZ-21", "interior": "INT-11", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142604", "codigo_catastral": "01-04-1084-0011-000" },
-    { "id": "MZ-21-INT-12", "nombre": "ARACELIS MARGARITA MERCHAN HERNANDEZ", "manzana": "MZ-21", "interior": "INT-12", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142605", "codigo_catastral": "01-04-1084-0012-000" },
-    { "id": "MZ-21-INT-13", "nombre": "CARLOS JULIO CHAUSTRE PARRA", "manzana": "MZ-21", "interior": "INT-13", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142606", "codigo_catastral": "01-04-1084-0013-000" },
-    { "id": "MZ-22-INT-01", "nombre": "JORGE MARIO DELOSRIOS TRIANA", "manzana": "MZ-22", "interior": "INT-01", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142604", "codigo_catastral": "01-04-1085-0001-000" },
-    { "id": "MZ-22-INT-02", "nombre": "MARIA BALVINA VERA VILLAMIZAR", "manzana": "MZ-22", "interior": "INT-02", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142605", "codigo_catastral": "01-04-1085-0002-000" },
-    { "id": "MZ-22-INT-03", "nombre": "CARLOS JULIO ALVAREZ NIÑO", "manzana": "MZ-22", "interior": "INT-03", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142606", "codigo_catastral": "01-04-1085-0003-000" },
-    { "id": "MZ-22-INT-04", "nombre": "ANDRES LOPEZ B", "manzana": "MZ-22", "interior": "INT-04", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142607", "codigo_catastral": "01-04-1085-0004-000" },
-    { "id": "MZ-22-INT-05", "nombre": "JOSE EDUARDO ROLON MORA", "manzana": "MZ-22", "interior": "INT-05", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142608", "codigo_catastral": "01-04-1085-0005-000" },
-    { "id": "MZ-22-INT-06", "nombre": "JOSE OCTAVIO GRISALES ORTIZ", "manzana": "MZ-22", "interior": "INT-06", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142609", "codigo_catastral": "01-04-1085-0006-000" },
-    { "id": "MZ-22-INT-07", "nombre": "CRISTHIAN JAVIER GRANADOS VELASQUEZ", "manzana": "MZ-22", "interior": "INT-07", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142610", "codigo_catastral": "01-04-1085-0007-000" },
-    { "id": "MZ-22-INT-08", "nombre": "JOVANY REY QUIÑONEZ", "manzana": "MZ-22", "interior": "INT-08", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142611", "codigo_catastral": "01-04-1085-0008-000" },
-    { "id": "MZ-22-INT-09", "nombre": "VANESSA SANTIAGO MELO", "manzana": "MZ-22", "interior": "INT-09", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142612", "codigo_catastral": "01-04-1085-0009-000" },
-    { "id": "MZ-22-INT-10", "nombre": "JORGE ELIECER SANTIAGO GALEANO", "manzana": "MZ-22", "interior": "INT-10", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142614", "codigo_catastral": "01-04-1085-0010-000" },
-    { "id": "MZ-22-INT-11", "nombre": "MARTHA CECILIA SANCHEZ GALEANO", "manzana": "MZ-22", "interior": "INT-11", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142615", "codigo_catastral": "01-04-1085-0011-000" },
-    { "id": "MZ-22-INT-12", "nombre": "NUVIA MARIA SANOVAL CAICEDO", "manzana": "MZ-22", "interior": "INT-12", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142616", "codigo_catastral": "01-04-1085-0012-000" },
-    { "id": "MZ-23-INT-01", "nombre": "DORIS CAICEDO GONZALEZ", "manzana": "MZ-23", "interior": "INT-01", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142614", "codigo_catastral": "01-04-1086-0001-000" },
-    { "id": "MZ-23-INT-02", "nombre": "CARLOS FLOREZ JAIMES", "manzana": "MZ-23", "interior": "INT-02", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142615", "codigo_catastral": "01-04-1086-0002-000" },
-    { "id": "MZ-23-INT-03", "nombre": "CARMEN ROSA CALIXTO GONZALEZ", "manzana": "MZ-23", "interior": "INT-03", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142616", "codigo_catastral": "01-04-1086-0003-000" },
-    { "id": "MZ-23-INT-04", "nombre": "JOSE MARIA VARGAS NORIEGA", "manzana": "MZ-23", "interior": "INT-04", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142617", "codigo_catastral": "01-04-1086-0004-000" },
-    { "id": "MZ-23-INT-05", "nombre": "ELIADES YAÑEZ ARDILA", "manzana": "MZ-23", "interior": "INT-05", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142618", "codigo_catastral": "01-04-1086-0005-000" },
-    { "id": "MZ-23-INT-06", "nombre": "ZAIDA SANCHEZ QUINTERO", "manzana": "MZ-23", "interior": "INT-06", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142619", "codigo_catastral": "01-04-1086-0006-000" },
-    { "id": "MZ-23-INT-07", "nombre": "ORLANDO DELGADO RODRIGUEZ", "manzana": "MZ-23", "interior": "INT-07", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142620", "codigo_catastral": "01-04-1086-0007-000" },
-    { "id": "MZ-23-INT-08", "nombre": "ROSENDO MORA RINCON", "manzana": "MZ-23", "interior": "INT-08", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142621", "codigo_catastral": "01-04-1086-0008-000" },
-    { "id": "MZ-23-INT-09", "nombre": "DALGIE GOMEZ LAZARO", "manzana": "MZ-23", "interior": "INT-09", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142622", "codigo_catastral": "01-04-1086-0009-000" },
-    { "id": "MZ-23-INT-10", "nombre": "SANDRA PATRICIA DUARTE ALVARADO", "manzana": "MZ-23", "interior": "INT-10", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142623", "codigo_catastral": "01-04-1086-0010-000" },
-    { "id": "MZ-23-INT-11", "nombre": "MOLINA", "manzana": "MZ-23", "interior": "INT-11", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142624", "codigo_catastral": "01-04-1086-0011-000" },
-    { "id": "MZ-23-INT-12", "nombre": "MARIA MARLENY CONTRERAS LEAL", "manzana": "MZ-23", "interior": "INT-12", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142625", "codigo_catastral": "01-04-1086-0012-000" },
-    { "id": "MZ-24-INT-01", "nombre": "LUISA BOLIVAR", "manzana": "MZ-24", "interior": "INT-01", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142624", "codigo_catastral": "01-04-1087-0001-000" },
-    { "id": "MZ-24-INT-02", "nombre": "CLARA INES RAMON VILLAMIZAR", "manzana": "MZ-24", "interior": "INT-02", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142625", "codigo_catastral": "01-04-1087-0002-000" },
-    { "id": "MZ-24-INT-03", "nombre": "VICTORIA ELISA MIRANDA CADAVID", "manzana": "MZ-24", "interior": "INT-03", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142626", "codigo_catastral": "01-04-1087-0003-000" },
-    { "id": "MZ-24-INT-04", "nombre": "OMAIRA MERCEDES CASTELLANOS", "manzana": "MZ-24", "interior": "INT-04", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142627", "codigo_catastral": "01-04-1087-0004-000" },
-    { "id": "MZ-24-INT-05", "nombre": "MARVELUZ SUAREZ MONTEROSA", "manzana": "MZ-24", "interior": "INT-05", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142628", "codigo_catastral": "01-04-1087-0005-000" },
-    { "id": "MZ-24-INT-06", "nombre": "ADDA SANTOS ANGULO MONTAÑO", "manzana": "MZ-24", "interior": "INT-06", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142629", "codigo_catastral": "01-04-1087-0006-000" },
-    { "id": "MZ-24-INT-07", "nombre": "ERIKA XIOMARA CARRILLO SOLANO", "manzana": "MZ-24", "interior": "INT-07", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142630", "codigo_catastral": "01-04-1087-0007-000" },
-    { "id": "MZ-24-INT-08", "nombre": "CARMEN EMILIA VELASCO LAYTON", "manzana": "MZ-24", "interior": "INT-08", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142631", "codigo_catastral": "01-04-1087-0008-000" },
-    { "id": "MZ-24-INT-09", "nombre": "WILLIAM RODOLFO SARMIENTO", "manzana": "MZ-24", "interior": "INT-09", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142632", "codigo_catastral": "01-04-1087-0009-000" },
-    { "id": "MZ-24-INT-10", "nombre": "ARMEN LORENA PEREZ BOTELLO", "manzana": "MZ-24", "interior": "INT-10", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142633", "codigo_catastral": "01-04-1087-0010-000" },
-    { "id": "MZ-24-INT-11", "nombre": "GLADYS MOLINA SANDOVAL", "manzana": "MZ-24", "interior": "INT-11", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142634", "codigo_catastral": "01-04-1087-0011-000" },
-    { "id": "MZ-24-INT-12", "nombre": "DOMINGO ANTONIO CASTELLANOS", "manzana": "MZ-24", "interior": "INT-12", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142635", "codigo_catastral": "01-04-1087-0012-000" },
-    { "id": "MZ-24-INT-13", "nombre": "DOMINGO ANTONIO CASTELLANOS", "manzana": "MZ-24", "interior": "INT-13", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142636", "codigo_catastral": "01-04-1087-0013-000" },
-    { "id": "MZ-25-INT-01", "nombre": "JOSIMAR BUENDIA CONTRERAS", "manzana": "MZ-25", "interior": "INT-01", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142637", "codigo_catastral": "01-04-1088-0000-000" },
-    { "id": "MZ-25-INT-02", "nombre": "TERESA SARMIENTO CARVAJALINO", "manzana": "MZ-25", "interior": "INT-02", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142638", "codigo_catastral": "01-04-1088-0001-000" },
-    { "id": "MZ-25-INT-03", "nombre": "ANA LUCIA RANGEL ROZO", "manzana": "MZ-25", "interior": "INT-03", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142639", "codigo_catastral": "01-04-1088-0002-000" },
-    { "id": "MZ-25-INT-04", "nombre": "PATRICIA DEL PILAR CACIQUE ARIAS", "manzana": "MZ-25", "interior": "INT-04", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142640", "codigo_catastral": "01-04-1088-0003-000" },
-    { "id": "MZ-25-INT-05", "nombre": "EMIRA ROSA RODRIGUEZ MORA", "manzana": "MZ-25", "interior": "INT-05", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142641", "codigo_catastral": "01-04-1088-0004-000" },
-    { "id": "MZ-25-INT-06", "nombre": "ALICIA MARIA QUINTERO", "manzana": "MZ-25", "interior": "INT-06", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142642", "codigo_catastral": "01-04-1088-0005-000" },
-    { "id": "MZ-26-INT-01", "nombre": "MARINA ESPERANZA GONZALEZ BRICEÑO", "manzana": "MZ-26", "interior": "INT-01", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142643", "codigo_catastral": "01-04-0371-0001-000" },
-    { "id": "MZ-26-INT-02", "nombre": "JORGE ELIECER SANTIAGO MELO", "manzana": "MZ-26", "interior": "INT-02", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142645", "codigo_catastral": "01-04-0371-0002-000" },
-    { "id": "MZ-26-INT-03", "nombre": "CRISTOBAL MONCADA LEAL", "manzana": "MZ-26", "interior": "INT-03", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142646", "codigo_catastral": "01-04-0371-0003-000" },
-    { "id": "MZ-26-INT-04", "nombre": "MARIA EUGENIA GONZALEZ ARENAS", "manzana": "MZ-26", "interior": "INT-04", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142647", "codigo_catastral": "01-04-0371-0004-000" },
-    { "id": "MZ-26-INT-05", "nombre": "CAMILO ESTEVEZ TAMARA", "manzana": "MZ-26", "interior": "INT-05", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142648", "codigo_catastral": "01-04-0371-0005-000" },
-    { "id": "MZ-26-INT-06", "nombre": "FERNANDO GOMEZ VALENCIA", "manzana": "MZ-26", "interior": "INT-06", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142649", "codigo_catastral": "01-04-0371-0006-000" },
-    { "id": "MZ-26-INT-07", "nombre": "MARIA GRACIELA DUQE VALENCIA", "manzana": "MZ-26", "interior": "INT-07", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142650", "codigo_catastral": "01-04-0371-0007-000" },
-    { "id": "MZ-26-INT-08", "nombre": "EVANGELINA VASQUEZ VILLAMIZAR", "manzana": "MZ-26", "interior": "INT-08", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142651", "codigo_catastral": "01-04-0371-0008-000" },
-    { "id": "MZ-26-INT-09", "nombre": "", "manzana": "MZ-26", "interior": "INT-09", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142652", "codigo_catastral": "01-04-0371-0009-000" },
-    { "id": "MZ-26-INT-10", "nombre": "GERMAN CELIS RANGEL", "manzana": "MZ-26", "interior": "INT-10", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142654", "codigo_catastral": "01-04-0371-0010-000" },
-    { "id": "MZ-26-INT-11", "nombre": "MARIA FERNANDA RAMIREZ ROZO", "manzana": "MZ-26", "interior": "INT-11", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142655", "codigo_catastral": "01-04-0371-0011-000" },
-    { "id": "MZ-26-INT-12", "nombre": "ISMAEL CALIXTO REYES", "manzana": "MZ-26", "interior": "INT-12", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142656", "codigo_catastral": "01-04-0371-0012-000" },
-    { "id": "MZ-27-INT-01", "nombre": "NELCY SEPULVEDA PINTO", "manzana": "MZ-27", "interior": "INT-01", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142659", "codigo_catastral": "01-04-0497-0001-000" },
-    { "id": "MZ-27-INT-02", "nombre": "YOLEIMA MONROY RINCON", "manzana": "MZ-27", "interior": "INT-02", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142660", "codigo_catastral": "01-04-0497-0002-000" },
-    { "id": "MZ-27-INT-03", "nombre": "KAREN YUSMEIDI RINCON ORTIZ", "manzana": "MZ-27", "interior": "INT-03", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142661", "codigo_catastral": "01-04-0497-0003-000" },
-    { "id": "MZ-27-INT-04", "nombre": "MAGDA LORENA TORRES RAMIREZ", "manzana": "MZ-27", "interior": "INT-04", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142662", "codigo_catastral": "01-04-0497-0004-000" },
-    { "id": "MZ-27-INT-05", "nombre": "PEDRO ENRIQUE SANCHEZ GONZALEZ", "manzana": "MZ-27", "interior": "INT-05", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142663", "codigo_catastral": "01-04-0497-0005-000" },
-    { "id": "MZ-27-INT-06", "nombre": "HELI LIZARAZO DURAN", "manzana": "MZ-27", "interior": "INT-06", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142664", "codigo_catastral": "01-04-0497-0006-000" },
-    { "id": "MZ-27-INT-07", "nombre": "HANNY JENNIFER BRACHU LARIOTA", "manzana": "MZ-27", "interior": "INT-07", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142665", "codigo_catastral": "01-04-0497-0007-000" },
-    { "id": "MZ-27-INT-08", "nombre": "PEREZ", "manzana": "MZ-27", "interior": "INT-08", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142666", "codigo_catastral": "01-04-0497-0008-000" },
-    { "id": "MZ-27-INT-09", "nombre": "EFIGENIA BENAVIDES ALBARRACIN", "manzana": "MZ-27", "interior": "INT-09", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142667", "codigo_catastral": "01-04-0497-0009-000" },
-    { "id": "MZ-28-INT-01", "nombre": "MAYLI YULIETH BAYONA GALAN", "manzana": "MZ-28", "interior": "INT-01", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142669", "codigo_catastral": "01-04-0498-0001-000" },
-    { "id": "MZ-28-INT-02", "nombre": "MARIA CRISTINA FLOREZ LIZCANO", "manzana": "MZ-28", "interior": "INT-02", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142670", "codigo_catastral": "01-04-0498-0002-000" },
-    { "id": "MZ-28-INT-03", "nombre": "OLGA LUCIA MALPICA CELY", "manzana": "MZ-28", "interior": "INT-03", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142671", "codigo_catastral": "01-04-0498-0003-000" },
-    { "id": "MZ-28-INT-04", "nombre": "CLEOTILDE VILLAMIZAR CORTES", "manzana": "MZ-28", "interior": "INT-04", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142672", "codigo_catastral": "01-04-0498-0004-000" },
-    { "id": "MZ-28-INT-05", "nombre": "OFELIA ROSA HERNANDEZ RESTREPO", "manzana": "MZ-28", "interior": "INT-05", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142673", "codigo_catastral": "01-04-0498-0005-000" },
-    { "id": "MZ-28-INT-06", "nombre": "MARIA DEL ROSARIO SUESCUN DUARTE", "manzana": "MZ-28", "interior": "INT-06", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142674", "codigo_catastral": "01-04-0498-0006-000" },
-    { "id": "MZ-28-INT-07", "nombre": "LUIS ANDRES TORRES RODRIGUEZ", "manzana": "MZ-28", "interior": "INT-07", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142675", "codigo_catastral": "01-04-0498-0007-000" },
-    { "id": "MZ-28-INT-08", "nombre": "TERESA FLOREZ ESCALANTE", "manzana": "MZ-28", "interior": "INT-08", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142676", "codigo_catastral": "01-04-0498-0008-000" },
-    { "id": "MZ-28-INT-09", "nombre": "SIERRA", "manzana": "MZ-28", "interior": "INT-09", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142677", "codigo_catastral": "01-04-0498-0009-000" },
-    { "id": "MZ-28-INT-10", "nombre": "LUZ MARINA HERRERA CARRILLO", "manzana": "MZ-28", "interior": "INT-10", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142678", "codigo_catastral": "01-04-0498-0010-000" },
-    { "id": "MZ-28-INT-11", "nombre": "EMERITA PUENTES", "manzana": "MZ-28", "interior": "INT-11", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142679", "codigo_catastral": "01-04-0498-0011-000" },
-    { "id": "MZ-28-INT-12", "nombre": "MARIELA SOLANO GUEVARA", "manzana": "MZ-28", "interior": "INT-12", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142680", "codigo_catastral": "01-04-0498-0012-000" },
-    { "id": "MZ-28-INT-13", "nombre": "JOE NICHOLS ROMERO SANTIAGO", "manzana": "MZ-28", "interior": "INT-13", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142681", "codigo_catastral": "01-04-0498-0013-000" },
-    { "id": "MZ-29-INT-01", "nombre": "OMAR AVELLANEDA MORENO", "manzana": "MZ-29", "interior": "INT-01", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142683", "codigo_catastral": "01-04-0499-0001-000" },
-    { "id": "MZ-29-INT-02", "nombre": "MARIA ANTONIA RAMIREZ GUALTEROZ", "manzana": "MZ-29", "interior": "INT-02", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142684", "codigo_catastral": "01-04-0499-0002-000" },
-    { "id": "MZ-29-INT-03", "nombre": "JOSE VICENTE CORTES SANCHEZ", "manzana": "MZ-29", "interior": "INT-03", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142685", "codigo_catastral": "01-04-0499-0003-000" },
-    { "id": "MZ-29-INT-04", "nombre": "GUSTAVO SOLANO SOLANO", "manzana": "MZ-29", "interior": "INT-04", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142686", "codigo_catastral": "01-04-0499-0004-000" },
-    { "id": "MZ-29-INT-05", "nombre": "ALEXANDER CASTRO GALVIS", "manzana": "MZ-29", "interior": "INT-05", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142687", "codigo_catastral": "01-04-0499-0005-000" },
-    { "id": "MZ-29-INT-06", "nombre": "MARLENY VELASQUEZ ALVAREZ", "manzana": "MZ-29", "interior": "INT-06", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142688", "codigo_catastral": "01-04-0499-0006-000" },
-    { "id": "MZ-29-INT-07", "nombre": "ANA CRISTINA PEREZ CONTRERAS", "manzana": "MZ-29", "interior": "INT-07", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142689", "codigo_catastral": "01-04-0499-0007-000" },
-    { "id": "MZ-29-INT-08", "nombre": "EDGAR JOSE AREVALO CONTRERAS", "manzana": "MZ-29", "interior": "INT-08", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142690", "codigo_catastral": "01-04-0499-0008-000" },
-    { "id": "MZ-29-INT-09", "nombre": "GRACIELA BEVERRA BARON", "manzana": "MZ-29", "interior": "INT-09", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142691", "codigo_catastral": "01-04-0499-0009-000" },
-    { "id": "MZ-29-INT-10", "nombre": "SIMON BOLIVAR BERNAL", "manzana": "MZ-29", "interior": "INT-10", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142692", "codigo_catastral": "01-04-0499-0010-000" },
-    { "id": "MZ-29-INT-11", "nombre": "ANA DELIA CARDENAS JIMENEZ", "manzana": "MZ-29", "interior": "INT-11", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142693", "codigo_catastral": "01-04-0499-0011-000" },
-    { "id": "MZ-29-INT-12", "nombre": "CLARA NUBIA ROLON RODRIGUEZ", "manzana": "MZ-29", "interior": "INT-12", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142694", "codigo_catastral": "01-04-0499-0012-000" },
-    { "id": "MZ-29-INT-13", "nombre": "NUBIA ESPERANZA COMBARIZA ROMERO", "manzana": "MZ-29", "interior": "INT-13", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142695", "codigo_catastral": "01-04-0499-0013-000" },
-    { "id": "MZ-30-INT-01", "nombre": "ELIODORO RODRIGUEZ PABON", "manzana": "MZ-30", "interior": "INT-01", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142696", "codigo_catastral": "01-04-0500-0001-000" },
-    { "id": "MZ-30-INT-02", "nombre": "AURA JESLENDY VALENCIA MENDOZA", "manzana": "MZ-30", "interior": "INT-02", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-178447", "codigo_catastral": "01-04-0500-0002-000" },
-    { "id": "MZ-30-INT-03", "nombre": "MARIA CARMNESA CALVO NOVA", "manzana": "MZ-30", "interior": "INT-03", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-178448", "codigo_catastral": "01-04-0500-0003-000" },
-    { "id": "MZ-30-INT-04", "nombre": "ESPERANZA LEONOR MEDINA MENDEZ", "manzana": "MZ-30", "interior": "INT-04", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-178449", "codigo_catastral": "01-04-0500-0004-000" },
-    { "id": "MZ-30-INT-05", "nombre": "JOCKSHON MIZRAIM AGUIAR SANABRIA", "manzana": "MZ-30", "interior": "INT-05", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-178450", "codigo_catastral": "01-04-0500-0005-000" },
-    { "id": "MZ-30-INT-06", "nombre": "CLAUDIA DEL PILAR CARRILLO MONCADA", "manzana": "MZ-30", "interior": "INT-06", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-178451", "codigo_catastral": "01-04-0500-0006-000" },
-    { "id": "MZ-30-INT-07", "nombre": "GUSTAVO TRUJILLO PAEZ", "manzana": "MZ-30", "interior": "INT-07", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-178452", "codigo_catastral": "01-04-0500-0007-000" },
-    { "id": "MZ-30-INT-08", "nombre": "DANIEL FERNANDEZ PEDRAZA", "manzana": "MZ-30", "interior": "INT-08", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-178453", "codigo_catastral": "01-04-0500-0008-000" },
-    { "id": "MZ-30-INT-09", "nombre": "JAVIER SANDOVAL MARTINEZ", "manzana": "MZ-30", "interior": "INT-09", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-178454", "codigo_catastral": "01-04-0500-0009-000" },
-    { "id": "MZ-30-INT-10", "nombre": "LUZ ESTLLA NIÑO GALLARDO", "manzana": "MZ-30", "interior": "INT-10", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-178455", "codigo_catastral": "01-04-0500-0010-000" },
-    { "id": "MZ-30-INT-11", "nombre": "NOHORA ISABEL RINCON RINCON", "manzana": "MZ-30", "interior": "INT-11", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-178456", "codigo_catastral": "01-04-0500-0011-000" },
-    { "id": "MZ-30-INT-12", "nombre": "DIANA LAUDITH CALIXTO SANGUINO", "manzana": "MZ-30", "interior": "INT-12", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-178457", "codigo_catastral": "01-04-0500-0012-000" },
-    { "id": "MZ-30-INT-13", "nombre": "CRISTIAN FABIAN  CORREA ROJAS", "manzana": "MZ-30", "interior": "INT-13", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-178458", "codigo_catastral": "01-04-0500-0013-000" },
-    { "id": "MZ-31-INT-01", "nombre": "JOSE ALEXANDER JIMENEZ HIGUERA", "manzana": "MZ-31", "interior": "INT-01", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142702", "codigo_catastral": "01-04-0393-0001-000" },
-    { "id": "MZ-31-INT-02", "nombre": "IVAN CRIOLLO LOZANO", "manzana": "MZ-31", "interior": "INT-02", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142703", "codigo_catastral": "01-04-0393-0002-000" },
-    { "id": "MZ-31-INT-03", "nombre": "LINA MARIA PIFFANO ESPITIA", "manzana": "MZ-31", "interior": "INT-03", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142704", "codigo_catastral": "01-04-0393-0003-000" },
-    { "id": "MZ-31-INT-04", "nombre": "NIDIA ROSA AMAYA QUINTERO", "manzana": "MZ-31", "interior": "INT-04", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142705", "codigo_catastral": "01-04-0393-0004-000" },
-    { "id": "MZ-31-INT-05", "nombre": "DIEGO FABIAN CAICEDO FUENTES", "manzana": "MZ-31", "interior": "INT-05", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142706", "codigo_catastral": "01-04-0393-0005-000" },
-    { "id": "MZ-31-INT-06", "nombre": "TALIA INES CAICEDO GONZALEZ", "manzana": "MZ-31", "interior": "INT-06", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142707", "codigo_catastral": "01-04-0393-0006-000" },
-    { "id": "MZ-31-INT-07", "nombre": "TERESA GARCIA GALVIS", "manzana": "MZ-31", "interior": "INT-07", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142708", "codigo_catastral": "01-04-0393-0007-000" },
-    { "id": "MZ-31-INT-08", "nombre": "KARLA PIERINA VERGEL BETANCUORT", "manzana": "MZ-31", "interior": "INT-08", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142709", "codigo_catastral": "01-04-0393-0008-000" },
-    { "id": "MZ-31-INT-09", "nombre": "", "manzana": "MZ-31", "interior": "INT-09", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-142710", "codigo_catastral": "01-04-0393-0009-000" }
-  ]
-}
+[
+  {
+    "id": 1,
+    "manzana": "MZ-01",
+    "interior": "INT-01",
+    "propietario": "WILLIAM PINZON",
+    "matricula_inmobiliaria": "260-140971",
+    "codigo_catastral": "01-04-0511-0001-000",
+    "novedad": ""
+  },
+  {
+    "id": 2,
+    "manzana": "MZ-01",
+    "interior": "INT-02",
+    "propietario": "NOHEMI PEREZ",
+    "matricula_inmobiliaria": "260-140972",
+    "codigo_catastral": "01-04-0511-0002-000",
+    "novedad": ""
+  },
+  {
+    "id": 3,
+    "manzana": "MZ-01",
+    "interior": "INT-03",
+    "propietario": "OFFIR FLOREZ",
+    "matricula_inmobiliaria": "260-140973",
+    "codigo_catastral": "01-04-0511-0003-000",
+    "novedad": ""
+  },
+  {
+    "id": 4,
+    "manzana": "MZ-01",
+    "interior": "INT-04",
+    "propietario": "CRUZ GARCIA",
+    "matricula_inmobiliaria": "260-140974",
+    "codigo_catastral": "01-04-0511-0004-000",
+    "novedad": ""
+  },
+  {
+    "id": 5,
+    "manzana": "MZ-01",
+    "interior": "INT-05",
+    "propietario": "LUIS JESUS BOTELLO",
+    "matricula_inmobiliaria": "260-140975",
+    "codigo_catastral": "01-04-0511-0005-000",
+    "novedad": ""
+  },
+  {
+    "id": 6,
+    "manzana": "MZ-01",
+    "interior": "INT-06",
+    "propietario": "LUIS JESUS BOTELLO",
+    "matricula_inmobiliaria": "260-140976",
+    "codigo_catastral": "01-04-0511-0006-000",
+    "novedad": ""
+  },
+  {
+    "id": 7,
+    "manzana": "MZ-01",
+    "interior": "INT-07",
+    "propietario": "REINALDO ROJAS",
+    "matricula_inmobiliaria": "260-140977",
+    "codigo_catastral": "01-04-0511-0007-000",
+    "novedad": ""
+  },
+  {
+    "id": 8,
+    "manzana": "MZ-01",
+    "interior": "INT-08",
+    "propietario": "EDINSON CARRASCAL",
+    "matricula_inmobiliaria": "260-140978",
+    "codigo_catastral": "01-04-0511-0008-000",
+    "novedad": ""
+  },
+  {
+    "id": 9,
+    "manzana": "MZ-01",
+    "interior": "INT-09",
+    "propietario": "ALVARO DIAZ LAGUADO",
+    "matricula_inmobiliaria": "260-140979",
+    "codigo_catastral": "01-04-0511-0009-000",
+    "novedad": ""
+  },
+  {
+    "id": 10,
+    "manzana": "MZ-01",
+    "interior": "INT-10",
+    "propietario": "JOHANA OSORIO",
+    "matricula_inmobiliaria": null,
+    "codigo_catastral": null,
+    "novedad": ""
+  },
+  {
+    "id": 11,
+    "manzana": "MZ-02",
+    "interior": "INT-01",
+    "propietario": "ABELARDO MARQUEZ",
+    "matricula_inmobiliaria": "260-36 140980",
+    "codigo_catastral": "01-04-0425-0036-000",
+    "novedad": ""
+  },
+  {
+    "id": 12,
+    "manzana": "MZ-02",
+    "interior": "INT-02",
+    "propietario": "NOHEMI MONCADA",
+    "matricula_inmobiliaria": "260-37 140981",
+    "codigo_catastral": "01-04-0425-0037-000",
+    "novedad": ""
+  },
+  {
+    "id": 13,
+    "manzana": "MZ-02",
+    "interior": "INT-03",
+    "propietario": "ELICINIA ROLON",
+    "matricula_inmobiliaria": "260-38 140982",
+    "codigo_catastral": "01-04-0425-0038-000",
+    "novedad": ""
+  },
+  {
+    "id": 14,
+    "manzana": "MZ-02",
+    "interior": "INT-04",
+    "propietario": "PABLO SANABRIA",
+    "matricula_inmobiliaria": "260-39 140983",
+    "codigo_catastral": "01-04-0425-0039-000",
+    "novedad": ""
+  },
+  {
+    "id": 15,
+    "manzana": "MZ-02",
+    "interior": "INT-05",
+    "propietario": "CRISTIAN TORRES",
+    "matricula_inmobiliaria": "260-40 140984",
+    "codigo_catastral": "01-04-0425-0040-000",
+    "novedad": ""
+  },
+  {
+    "id": 16,
+    "manzana": "MZ-02",
+    "interior": "INT-06",
+    "propietario": "CONSUELO BECERRA",
+    "matricula_inmobiliaria": "260-41 140985",
+    "codigo_catastral": "01-04-0425-0041-000",
+    "novedad": ""
+  },
+  {
+    "id": 17,
+    "manzana": "MZ-02",
+    "interior": "INT-07",
+    "propietario": "DORIS CASTELLANOS",
+    "matricula_inmobiliaria": "260-42 140986",
+    "codigo_catastral": "01-04-0425-0042-000",
+    "novedad": ""
+  },
+  {
+    "id": 18,
+    "manzana": "MZ-02",
+    "interior": "INT-08",
+    "propietario": "DIOSELINA CACERES",
+    "matricula_inmobiliaria": "260-43 140987",
+    "codigo_catastral": "01-04-0425-0043-000",
+    "novedad": ""
+  },
+  {
+    "id": 19,
+    "manzana": "MZ-02",
+    "interior": "INT-09",
+    "propietario": "MIGUEL GOMEZ",
+    "matricula_inmobiliaria": "260-44 140988",
+    "codigo_catastral": "01-04-0425-0044-000",
+    "novedad": ""
+  },
+  {
+    "id": 20,
+    "manzana": "MZ-02",
+    "interior": "INT-10",
+    "propietario": "NOHEMI MONCADA",
+    "matricula_inmobiliaria": "260-45 140989",
+    "codigo_catastral": "01-04-0425-0045-000",
+    "novedad": ""
+  },
+  {
+    "id": 21,
+    "manzana": "MZ-02",
+    "interior": "INT-11",
+    "propietario": "EDUARDO GOMEZ",
+    "matricula_inmobiliaria": "260-46 140990",
+    "codigo_catastral": "01-04-0425-0046-000",
+    "novedad": ""
+  },
+  {
+    "id": 22,
+    "manzana": "MZ-02",
+    "interior": "INT-12",
+    "propietario": "ADELSO CORTES",
+    "matricula_inmobiliaria": "260-47 140991",
+    "codigo_catastral": "01-04-0425-0047-000",
+    "novedad": ""
+  },
+  {
+    "id": 23,
+    "manzana": "MZ-02",
+    "interior": "INT-13",
+    "propietario": "IDALID SUELTA / MARLON VELASQUEZ",
+    "matricula_inmobiliaria": "260-48 140992",
+    "codigo_catastral": "01-04-0425-0048-000",
+    "novedad": ""
+  },
+  {
+    "id": 24,
+    "manzana": "MZ-02",
+    "interior": "INT-14",
+    "propietario": "DIEGO BERNAL",
+    "matricula_inmobiliaria": "260-49 140993",
+    "codigo_catastral": "01-04-0425-0049-000",
+    "novedad": ""
+  },
+  {
+    "id": 25,
+    "manzana": "MZ-02",
+    "interior": "INT-15",
+    "propietario": "JOSUE LUGO",
+    "matricula_inmobiliaria": "260-50 140994",
+    "codigo_catastral": "01-04-0425-0050-000",
+    "novedad": ""
+  },
+  {
+    "id": 26,
+    "manzana": "MZ-02",
+    "interior": "INT-16",
+    "propietario": "ABEL ANTONIO PARADA",
+    "matricula_inmobiliaria": "260-51 140995",
+    "codigo_catastral": "01-04-0425-0051-000",
+    "novedad": ""
+  },
+  {
+    "id": 27,
+    "manzana": "MZ-02",
+    "interior": "INT-17",
+    "propietario": "NANCY BLANCO",
+    "matricula_inmobiliaria": "260-52 140996",
+    "codigo_catastral": "01-04-0425-0052-000",
+    "novedad": ""
+  },
+  {
+    "id": 28,
+    "manzana": "MZ-02",
+    "interior": "INT-18",
+    "propietario": "CARMEN RODRIGUEZ",
+    "matricula_inmobiliaria": "260-53 140997",
+    "codigo_catastral": "01-04-0425-0053-000",
+    "novedad": ""
+  },
+  {
+    "id": 29,
+    "manzana": "MZ-02",
+    "interior": "INT-19",
+    "propietario": "GRACIELA RIVERA / REINALDO VERA",
+    "matricula_inmobiliaria": "260-54 140998",
+    "codigo_catastral": "01-04-0425-0054-000",
+    "novedad": ""
+  },
+  {
+    "id": 30,
+    "manzana": "MZ-02",
+    "interior": "INT-20",
+    "propietario": "ROSA ELCIDA CASTELLANOS",
+    "matricula_inmobiliaria": "260-55 140999",
+    "codigo_catastral": "01-04-0425-0055-000",
+    "novedad": ""
+  },
+  {
+    "id": 31,
+    "manzana": "MZ-02",
+    "interior": "INT-21",
+    "propietario": "ZENAIDA BOTELLO",
+    "matricula_inmobiliaria": "260-56 141000",
+    "codigo_catastral": "01-04-0425-0056-000",
+    "novedad": ""
+  },
+  {
+    "id": 32,
+    "manzana": "MZ-02",
+    "interior": "INT-22",
+    "propietario": "SULAY BUSTOS",
+    "matricula_inmobiliaria": "260-57 141001",
+    "codigo_catastral": "01-04-0425-0057-000",
+    "novedad": ""
+  },
+  {
+    "id": 33,
+    "manzana": "MZ-02",
+    "interior": "INT-23",
+    "propietario": "TERESA GARCIA",
+    "matricula_inmobiliaria": "260-58 141002",
+    "codigo_catastral": "01-04-0425-0058-000",
+    "novedad": ""
+  },
+  {
+    "id": 34,
+    "manzana": "MZ-02",
+    "interior": "INT-24",
+    "propietario": "RUBEN GOMEZ",
+    "matricula_inmobiliaria": "260-59 141003",
+    "codigo_catastral": "01-04-0425-0059-000",
+    "novedad": ""
+  },
+  {
+    "id": 35,
+    "manzana": "MZ-02",
+    "interior": "INT-25",
+    "propietario": "OSCAR IVAN CHACON",
+    "matricula_inmobiliaria": "260-60 141004",
+    "codigo_catastral": "01-04-0425-0060-000",
+    "novedad": ""
+  },
+  {
+    "id": 36,
+    "manzana": "MZ-02",
+    "interior": "INT-26",
+    "propietario": "CARLOS GRANADOS",
+    "matricula_inmobiliaria": "260-61 141005",
+    "codigo_catastral": "01-04-0425-0061-000",
+    "novedad": ""
+  },
+  {
+    "id": 37,
+    "manzana": "MZ-02",
+    "interior": "INT-27",
+    "propietario": "LUIS PINILLA",
+    "matricula_inmobiliaria": "260-62 141006",
+    "codigo_catastral": "01-04-0425-0062-000",
+    "novedad": ""
+  },
+  {
+    "id": 38,
+    "manzana": "MZ-02",
+    "interior": "INT-28",
+    "propietario": "RAFAEL FLORES",
+    "matricula_inmobiliaria": "260-63 141007",
+    "codigo_catastral": "01-04-0425-0063-000",
+    "novedad": ""
+  },
+  {
+    "id": 39,
+    "manzana": "MZ-02",
+    "interior": "INT-29",
+    "propietario": null,
+    "matricula_inmobiliaria": "260-64 141008",
+    "codigo_catastral": "01-04-0425-0064-000",
+    "novedad": "Casa sin propietario"
+  },
+  {
+    "id": 40,
+    "manzana": "MZ-03",
+    "interior": "INT-01",
+    "propietario": "CARLOS IGUERA",
+    "matricula_inmobiliaria": "260-141009",
+    "codigo_catastral": "01-04-0512-0001-000",
+    "novedad": ""
+  },
+  {
+    "id": 41,
+    "manzana": "MZ-03",
+    "interior": "INT-02",
+    "propietario": "NANCY CONTRERAS",
+    "matricula_inmobiliaria": "260-141010",
+    "codigo_catastral": "01-04-0512-0002-000",
+    "novedad": ""
+  },
+  {
+    "id": 42,
+    "manzana": "MZ-03",
+    "interior": "INT-03",
+    "propietario": "CRUZ DELINA PARADA",
+    "matricula_inmobiliaria": "260-141011",
+    "codigo_catastral": "01-04-0512-0003-000",
+    "novedad": ""
+  },
+  {
+    "id": 43,
+    "manzana": "MZ-03",
+    "interior": "INT-04",
+    "propietario": "JORGE RANGEL",
+    "matricula_inmobiliaria": "260-141012",
+    "codigo_catastral": "01-04-0512-0004-000",
+    "novedad": ""
+  },
+  {
+    "id": 44,
+    "manzana": "MZ-03",
+    "interior": "INT-05",
+    "propietario": "GLADYS MELO",
+    "matricula_inmobiliaria": "260-141013",
+    "codigo_catastral": "01-04-0512-0005-000",
+    "novedad": ""
+  },
+  {
+    "id": 45,
+    "manzana": "MZ-03",
+    "interior": "INT-06",
+    "propietario": "ARBEY SARMIENTO",
+    "matricula_inmobiliaria": "260-141014",
+    "codigo_catastral": "01-04-0512-0006-000",
+    "novedad": ""
+  },
+  {
+    "id": 46,
+    "manzana": "MZ-04",
+    "interior": "INT-01",
+    "propietario": "JOSE GREGORIO SIERRA",
+    "matricula_inmobiliaria": "260-141016",
+    "codigo_catastral": "01-04-0513-0001-000",
+    "novedad": ""
+  },
+  {
+    "id": 47,
+    "manzana": "MZ-04",
+    "interior": "INT-02",
+    "propietario": "ANGELA RAMIREZ",
+    "matricula_inmobiliaria": "260-141017",
+    "codigo_catastral": "01-04-0513-0002-000",
+    "novedad": ""
+  },
+  {
+    "id": 48,
+    "manzana": "MZ-04",
+    "interior": "INT-03",
+    "propietario": "RAUL PEÑARANDA",
+    "matricula_inmobiliaria": "260-141018",
+    "codigo_catastral": "01-04-0513-0003-000",
+    "novedad": ""
+  },
+  {
+    "id": 49,
+    "manzana": "MZ-04",
+    "interior": "INT-04",
+    "propietario": "SAMUEL MARTINEZ",
+    "matricula_inmobiliaria": "260-141019",
+    "codigo_catastral": "01-04-0513-0004-000",
+    "novedad": ""
+  },
+  {
+    "id": 50,
+    "manzana": "MZ-04",
+    "interior": "INT-05",
+    "propietario": "IDULFO TARAZONA",
+    "matricula_inmobiliaria": "260-141020",
+    "codigo_catastral": "01-04-0513-0005-000",
+    "novedad": ""
+  },
+  {
+    "id": 51,
+    "manzana": "MZ-04",
+    "interior": "INT-06",
+    "propietario": "NUBIA TORRES",
+    "matricula_inmobiliaria": "260-141021",
+    "codigo_catastral": "01-04-0513-0006-000",
+    "novedad": ""
+  },
+  {
+    "id": 52,
+    "manzana": "MZ-04",
+    "interior": "INT-07",
+    "propietario": "SEBASTIAN VILLAMIZAR",
+    "matricula_inmobiliaria": "260-141022",
+    "codigo_catastral": "01-04-0513-0007-000",
+    "novedad": ""
+  },
+  {
+    "id": 53,
+    "manzana": "MZ-04",
+    "interior": "INT-08",
+    "propietario": "LUDY TRUJILLO",
+    "matricula_inmobiliaria": "260-141023",
+    "codigo_catastral": "01-04-0513-0008-000",
+    "novedad": ""
+  },
+  {
+    "id": 54,
+    "manzana": "MZ-04",
+    "interior": "INT-09",
+    "propietario": "CONSUELO BECERRA",
+    "matricula_inmobiliaria": "260-141024",
+    "codigo_catastral": "01-04-0513-0009-000",
+    "novedad": ""
+  },
+  {
+    "id": 55,
+    "manzana": "MZ-04",
+    "interior": "INT-10",
+    "propietario": "ANA RAMOS",
+    "matricula_inmobiliaria": "260-141025",
+    "codigo_catastral": "01-04-0513-0010-000",
+    "novedad": ""
+  },
+  {
+    "id": 56,
+    "manzana": "MZ-05",
+    "interior": "INT-01",
+    "propietario": "VALENTINA COTAMO",
+    "matricula_inmobiliaria": "260-141026",
+    "codigo_catastral": "01-04-0514-0001-000",
+    "novedad": ""
+  },
+  {
+    "id": 57,
+    "manzana": "MZ-05",
+    "interior": "INT-02",
+    "propietario": "JUDITH SANGUINO",
+    "matricula_inmobiliaria": "260-141027",
+    "codigo_catastral": "01-04-0514-0002-000",
+    "novedad": ""
+  },
+  {
+    "id": 58,
+    "manzana": "MZ-05",
+    "interior": "INT-03",
+    "propietario": "LUIS FERNANDO ORTEGA",
+    "matricula_inmobiliaria": "260-141028",
+    "codigo_catastral": "01-04-0514-0003-000",
+    "novedad": ""
+  },
+  {
+    "id": 59,
+    "manzana": "MZ-05",
+    "interior": "INT-04",
+    "propietario": "BLANCA HERNANDEZ",
+    "matricula_inmobiliaria": "260-141029",
+    "codigo_catastral": "01-04-0514-0004-000",
+    "novedad": ""
+  },
+  {
+    "id": 60,
+    "manzana": "MZ-05",
+    "interior": "INT-05",
+    "propietario": "LEIDY KARINA VANEGAS",
+    "matricula_inmobiliaria": "260-141030",
+    "codigo_catastral": "01-04-0514-0005-000",
+    "novedad": ""
+  },
+  {
+    "id": 61,
+    "manzana": "MZ-05",
+    "interior": "INT-06",
+    "propietario": "PATRICIA LAZARO CONTRERAS",
+    "matricula_inmobiliaria": "260-141031",
+    "codigo_catastral": "01-04-0514-0006-000",
+    "novedad": ""
+  },
+  {
+    "id": 62,
+    "manzana": "MZ-05",
+    "interior": "INT-07",
+    "propietario": "FREDDY DIAZ / NUBIA LOBO",
+    "matricula_inmobiliaria": "260-141032",
+    "codigo_catastral": "01-04-0514-0007-000",
+    "novedad": ""
+  },
+  {
+    "id": 63,
+    "manzana": "MZ-05",
+    "interior": "INT-08",
+    "propietario": "CARLOS AREVALO",
+    "matricula_inmobiliaria": "260-141033",
+    "codigo_catastral": "01-04-0514-0008-000",
+    "novedad": ""
+  },
+  {
+    "id": 64,
+    "manzana": "MZ-05",
+    "interior": "INT-09",
+    "propietario": "FABIO BARRIOS",
+    "matricula_inmobiliaria": "260-141034",
+    "codigo_catastral": "01-04-0514-0009-000",
+    "novedad": ""
+  },
+  {
+    "id": 65,
+    "manzana": "MZ-06",
+    "interior": "INT-01",
+    "propietario": "JULIAN GELVES",
+    "matricula_inmobiliaria": "260-141036",
+    "codigo_catastral": "01-04-0515-0001-000",
+    "novedad": ""
+  },
+  {
+    "id": 66,
+    "manzana": "MZ-06",
+    "interior": "INT-02",
+    "propietario": "MARLENI GONZALES",
+    "matricula_inmobiliaria": "260-141037",
+    "codigo_catastral": "01-04-0515-0002-000",
+    "novedad": ""
+  },
+  {
+    "id": 67,
+    "manzana": "MZ-06",
+    "interior": "INT-03",
+    "propietario": "RAUL CALDERON",
+    "matricula_inmobiliaria": "260-141038",
+    "codigo_catastral": "01-04-0515-0003-000",
+    "novedad": ""
+  },
+  {
+    "id": 68,
+    "manzana": "MZ-06",
+    "interior": "INT-04",
+    "propietario": "ROSALBA LOPEZ",
+    "matricula_inmobiliaria": "260-141039",
+    "codigo_catastral": "01-04-0515-0004-000",
+    "novedad": ""
+  },
+  {
+    "id": 69,
+    "manzana": "MZ-06",
+    "interior": "INT-05",
+    "propietario": "FRANCY MONTAÑO",
+    "matricula_inmobiliaria": "260-141040",
+    "codigo_catastral": "01-04-0515-0005-000",
+    "novedad": ""
+  },
+  {
+    "id": 70,
+    "manzana": "MZ-06",
+    "interior": "INT-05-202",
+    "propietario": "FRANCY MONTAÑO",
+    "matricula_inmobiliaria": "260-141040",
+    "codigo_catastral": "01-04-0515-0005-000",
+    "novedad": "Comparte matrícula con MZ-06 INT-05"
+  },
+  {
+    "id": 71,
+    "manzana": "MZ-06",
+    "interior": "INT-06",
+    "propietario": "ERIKA BLANCO",
+    "matricula_inmobiliaria": "260-141041",
+    "codigo_catastral": "01-04-0515-0006-000",
+    "novedad": ""
+  },
+  {
+    "id": 72,
+    "manzana": "MZ-06",
+    "interior": "INT-07",
+    "propietario": "ZAIDA DAVILA FLOREZ",
+    "matricula_inmobiliaria": "260-141042",
+    "codigo_catastral": "01-04-0515-0007-000",
+    "novedad": ""
+  },
+  {
+    "id": 73,
+    "manzana": "MZ-06",
+    "interior": "INT-08",
+    "propietario": "CIRO MENDOZA",
+    "matricula_inmobiliaria": "260-141043",
+    "codigo_catastral": "01-04-0515-0008-000",
+    "novedad": ""
+  },
+  {
+    "id": 74,
+    "manzana": "MZ-06",
+    "interior": "INT-09",
+    "propietario": "LUIS CARLOS RODRIGUEZ",
+    "matricula_inmobiliaria": "260-141044",
+    "codigo_catastral": "01-04-0515-0009-000",
+    "novedad": ""
+  },
+  {
+    "id": 75,
+    "manzana": "MZ-07",
+    "interior": "INT-01",
+    "propietario": "ALEJANDRA MARTINEZ",
+    "matricula_inmobiliaria": "260-141045",
+    "codigo_catastral": "01-04-0431-0001-000",
+    "novedad": ""
+  },
+  {
+    "id": 76,
+    "manzana": "MZ-07",
+    "interior": "INT-02",
+    "propietario": "MARITZA PANQUEVA",
+    "matricula_inmobiliaria": "260-141046",
+    "codigo_catastral": "01-04-0431-0002-000",
+    "novedad": ""
+  },
+  {
+    "id": 77,
+    "manzana": "MZ-07",
+    "interior": "INT-03",
+    "propietario": "LEIDY XIOMARA PACHECO",
+    "matricula_inmobiliaria": "260-141047",
+    "codigo_catastral": "01-04-0431-0003-000",
+    "novedad": ""
+  },
+  {
+    "id": 78,
+    "manzana": "MZ-07",
+    "interior": "INT-04",
+    "propietario": "JOSE GREGORIO GELVEZ",
+    "matricula_inmobiliaria": "260-141048",
+    "codigo_catastral": "01-04-0431-0004-000",
+    "novedad": ""
+  },
+  {
+    "id": 79,
+    "manzana": "MZ-07",
+    "interior": "INT-05",
+    "propietario": "MARIELA MENESES",
+    "matricula_inmobiliaria": "260-141049",
+    "codigo_catastral": "01-04-0431-0005-000",
+    "novedad": ""
+  },
+  {
+    "id": 80,
+    "manzana": "MZ-07",
+    "interior": "INT-06",
+    "propietario": "GUILLERMINA CAMPOS",
+    "matricula_inmobiliaria": "260-141050",
+    "codigo_catastral": "01-04-0431-0006-000",
+    "novedad": ""
+  },
+  {
+    "id": 81,
+    "manzana": "MZ-07",
+    "interior": "INT-07",
+    "propietario": "GIOVANNY RAMIREZ",
+    "matricula_inmobiliaria": "260-141051",
+    "codigo_catastral": "01-04-0431-0007-000",
+    "novedad": ""
+  },
+  {
+    "id": 82,
+    "manzana": "MZ-07",
+    "interior": "INT-08",
+    "propietario": "JAIME DE LOS RIOS",
+    "matricula_inmobiliaria": "260-141052",
+    "codigo_catastral": "01-04-0431-0008-000",
+    "novedad": ""
+  },
+  {
+    "id": 83,
+    "manzana": "MZ-07",
+    "interior": "INT-09",
+    "propietario": "EMISAEL ASCANIO",
+    "matricula_inmobiliaria": "260-141053",
+    "codigo_catastral": "01-04-0431-0009-000",
+    "novedad": ""
+  },
+  {
+    "id": 84,
+    "manzana": "MZ-07",
+    "interior": "INT-10",
+    "propietario": "JESUS RANGEL",
+    "matricula_inmobiliaria": "260-141054",
+    "codigo_catastral": "01-04-0431-0010-000",
+    "novedad": ""
+  },
+  {
+    "id": 85,
+    "manzana": "MZ-08",
+    "interior": "INT-01",
+    "propietario": "GIOVANNI GARCIA",
+    "matricula_inmobiliaria": "260-141055",
+    "codigo_catastral": "01-04-0432-0001-000",
+    "novedad": ""
+  },
+  {
+    "id": 86,
+    "manzana": "MZ-08",
+    "interior": "INT-02",
+    "propietario": "JESUS DE MARIA RUIZ",
+    "matricula_inmobiliaria": "260-141056",
+    "codigo_catastral": "01-04-0432-0002-000",
+    "novedad": ""
+  },
+  {
+    "id": 87,
+    "manzana": "MZ-08",
+    "interior": "INT-03",
+    "propietario": "LORENA BOTELLO",
+    "matricula_inmobiliaria": "260-141057",
+    "codigo_catastral": "01-04-0432-0003-000",
+    "novedad": ""
+  },
+  {
+    "id": 88,
+    "manzana": "MZ-08",
+    "interior": "INT-04",
+    "propietario": "NIDIA JORDAN",
+    "matricula_inmobiliaria": "260-141058",
+    "codigo_catastral": "01-04-0432-0004-000",
+    "novedad": ""
+  },
+  {
+    "id": 89,
+    "manzana": "MZ-08",
+    "interior": "INT-05",
+    "propietario": "MARIA CARRILLO",
+    "matricula_inmobiliaria": "260-141059",
+    "codigo_catastral": "01-04-0432-0005-000",
+    "novedad": ""
+  },
+  {
+    "id": 90,
+    "manzana": "MZ-08",
+    "interior": "INT-06",
+    "propietario": "ANDREA FLOREZ",
+    "matricula_inmobiliaria": "260-141060",
+    "codigo_catastral": "01-04-0432-0006-000",
+    "novedad": ""
+  },
+  {
+    "id": 91,
+    "manzana": "MZ-08",
+    "interior": "INT-07",
+    "propietario": "LEONOR GALVIS",
+    "matricula_inmobiliaria": "260-141061",
+    "codigo_catastral": "01-04-0432-0007-000",
+    "novedad": ""
+  },
+  {
+    "id": 92,
+    "manzana": "MZ-08",
+    "interior": "INT-08",
+    "propietario": "MARTHA CECILIA MAYORGA",
+    "matricula_inmobiliaria": "260-141062",
+    "codigo_catastral": "01-04-0432-0008-000",
+    "novedad": ""
+  },
+  {
+    "id": 93,
+    "manzana": "MZ-08",
+    "interior": "INT-09",
+    "propietario": "ROBERTO ARMANDO GELVEZ",
+    "matricula_inmobiliaria": "260-141063",
+    "codigo_catastral": "01-04-0432-0009-000",
+    "novedad": ""
+  },
+  {
+    "id": 94,
+    "manzana": "MZ-08",
+    "interior": "INT-10",
+    "propietario": "VICTOR ALVAREZ",
+    "matricula_inmobiliaria": "260-141064",
+    "codigo_catastral": "01-04-0432-0010-000",
+    "novedad": ""
+  },
+  {
+    "id": 95,
+    "manzana": "MZ-09",
+    "interior": "INT-01",
+    "propietario": "WILMER RAMIREZ",
+    "matricula_inmobiliaria": "260-141065",
+    "codigo_catastral": "01-04-0433-0001-000",
+    "novedad": ""
+  },
+  {
+    "id": 96,
+    "manzana": "MZ-09",
+    "interior": "INT-02",
+    "propietario": "ESMERALDA ALVARADO",
+    "matricula_inmobiliaria": "260-141066",
+    "codigo_catastral": "01-04-0433-0002-000",
+    "novedad": ""
+  },
+  {
+    "id": 97,
+    "manzana": "MZ-09",
+    "interior": "INT-03",
+    "propietario": "ISMAEL ENRIQUE TORRADO",
+    "matricula_inmobiliaria": "260-141067",
+    "codigo_catastral": "01-04-0433-0003-000",
+    "novedad": ""
+  },
+  {
+    "id": 98,
+    "manzana": "MZ-09",
+    "interior": "INT-04",
+    "propietario": "CIRO BALMACEDA CASTILLA",
+    "matricula_inmobiliaria": "260-141068",
+    "codigo_catastral": "01-04-0433-0004-000",
+    "novedad": ""
+  },
+  {
+    "id": 99,
+    "manzana": "MZ-11",
+    "interior": "INT-01",
+    "propietario": "EDELFINA GIL",
+    "matricula_inmobiliaria": "260-142443",
+    "codigo_catastral": "01-04-0266-0001-000",
+    "novedad": ""
+  },
+  {
+    "id": 100,
+    "manzana": "MZ-11",
+    "interior": "INT-02",
+    "propietario": "GUSTAVO CASTILLA",
+    "matricula_inmobiliaria": "260-142444",
+    "codigo_catastral": "01-04-0266-0002-000",
+    "novedad": ""
+  },
+  {
+    "id": 101,
+    "manzana": "MZ-11",
+    "interior": "INT-03",
+    "propietario": "CARLOS QUINTERO",
+    "matricula_inmobiliaria": "260-142445",
+    "codigo_catastral": "01-04-0266-0003-000",
+    "novedad": ""
+  },
+  {
+    "id": 102,
+    "manzana": "MZ-11",
+    "interior": "INT-03-1",
+    "propietario": "JORGE JIMENEZ",
+    "matricula_inmobiliaria": "260-142445",
+    "codigo_catastral": "01-04-0266-0003-000",
+    "novedad": "Comparte matrícula con MZ-11 INT-03"
+  },
+  {
+    "id": 103,
+    "manzana": "MZ-11",
+    "interior": "INT-03-201",
+    "propietario": "JORGE JIMENEZ",
+    "matricula_inmobiliaria": "260-142445",
+    "codigo_catastral": "01-04-0266-0003-000",
+    "novedad": "Comparte matrícula con MZ-11 INT-03"
+  },
+  {
+    "id": 104,
+    "manzana": "MZ-11",
+    "interior": "INT-04",
+    "propietario": "MARIA DE LOS ANGELES ORTIZ",
+    "matricula_inmobiliaria": "260-142446",
+    "codigo_catastral": "01-04-0266-0004-000",
+    "novedad": ""
+  },
+  {
+    "id": 105,
+    "manzana": "MZ-11",
+    "interior": "INT-05",
+    "propietario": "JULIO HERNANDEZ",
+    "matricula_inmobiliaria": "260-142447",
+    "codigo_catastral": "01-04-0266-0005-000",
+    "novedad": ""
+  },
+  {
+    "id": 106,
+    "manzana": "MZ-11",
+    "interior": "INT-06",
+    "propietario": "LUDY COTE",
+    "matricula_inmobiliaria": "260-142448",
+    "codigo_catastral": "01-04-0266-0006-000",
+    "novedad": ""
+  },
+  {
+    "id": 107,
+    "manzana": "MZ-11",
+    "interior": "INT-07",
+    "propietario": "RUBEN ALBA",
+    "matricula_inmobiliaria": "260-142449",
+    "codigo_catastral": "01-04-0266-0007-000",
+    "novedad": ""
+  },
+  {
+    "id": 108,
+    "manzana": "MZ-11",
+    "interior": "INT-08",
+    "propietario": "CLARA BUITRAGO",
+    "matricula_inmobiliaria": "260-142450",
+    "codigo_catastral": "01-04-0266-0008-000",
+    "novedad": ""
+  },
+  {
+    "id": 109,
+    "manzana": "MZ-11",
+    "interior": "INT-09",
+    "propietario": "ANA CONTRERAS / ROBIN KELIN",
+    "matricula_inmobiliaria": "260-142451",
+    "codigo_catastral": "01-04-0266-0009-000",
+    "novedad": ""
+  },
+  {
+    "id": 110,
+    "manzana": "MZ-11",
+    "interior": "INT-10",
+    "propietario": "ANGEL BUITRAGO",
+    "matricula_inmobiliaria": "260-142452",
+    "codigo_catastral": "01-04-0266-0010-000",
+    "novedad": ""
+  },
+  {
+    "id": 111,
+    "manzana": "MZ-11",
+    "interior": "INT-11",
+    "propietario": "JOSE VALOIS",
+    "matricula_inmobiliaria": "260-142453",
+    "codigo_catastral": "01-04-0266-0011-000",
+    "novedad": ""
+  },
+  {
+    "id": 112,
+    "manzana": "MZ-11",
+    "interior": "INT-12",
+    "propietario": "MIRIAM HERNANDEZ",
+    "matricula_inmobiliaria": "260-142454",
+    "codigo_catastral": "01-04-0266-0012-000",
+    "novedad": ""
+  },
+  {
+    "id": 113,
+    "manzana": "MZ-11",
+    "interior": "INT-13",
+    "propietario": "MARIA ALEJANDRA MONCADA",
+    "matricula_inmobiliaria": "260-142455",
+    "codigo_catastral": "01-04-0266-0013-000",
+    "novedad": ""
+  },
+  {
+    "id": 114,
+    "manzana": "MZ-12",
+    "interior": "INT-01",
+    "propietario": "AZUCENA JAIMES",
+    "matricula_inmobiliaria": "260-142457",
+    "codigo_catastral": "01-04-0435-0001-000",
+    "novedad": ""
+  },
+  {
+    "id": 115,
+    "manzana": "MZ-12",
+    "interior": "INT-02",
+    "propietario": "CANDY ALEXANDRA ACEVEDO HERRERA",
+    "matricula_inmobiliaria": "260-142458",
+    "codigo_catastral": "01-04-0435-0002-000",
+    "novedad": ""
+  },
+  {
+    "id": 116,
+    "manzana": "MZ-12",
+    "interior": "INT-03",
+    "propietario": "MARITZA DUARTE",
+    "matricula_inmobiliaria": "260-142459",
+    "codigo_catastral": "01-04-0435-0003-000",
+    "novedad": ""
+  },
+  {
+    "id": 117,
+    "manzana": "MZ-12",
+    "interior": "INT-04",
+    "propietario": "DIANA AMAYA",
+    "matricula_inmobiliaria": "260-142460",
+    "codigo_catastral": "01-04-0435-0004-000",
+    "novedad": ""
+  },
+  {
+    "id": 118,
+    "manzana": "MZ-12",
+    "interior": "INT-05",
+    "propietario": "ESTELA CARDENAS",
+    "matricula_inmobiliaria": "260-142461",
+    "codigo_catastral": "01-04-0435-0005-000",
+    "novedad": ""
+  },
+  {
+    "id": 119,
+    "manzana": "MZ-12",
+    "interior": "INT-06",
+    "propietario": "LUCY CASTELLANOS",
+    "matricula_inmobiliaria": "260-142462",
+    "codigo_catastral": "01-04-0435-0006-000",
+    "novedad": ""
+  },
+  {
+    "id": 120,
+    "manzana": "MZ-12",
+    "interior": "INT-07",
+    "propietario": "MANUEL GONZALES",
+    "matricula_inmobiliaria": "260-142463",
+    "codigo_catastral": "01-04-0435-0007-000",
+    "novedad": ""
+  },
+  {
+    "id": 121,
+    "manzana": "MZ-12",
+    "interior": "INT-08",
+    "propietario": "BELCY PEÑALOZA",
+    "matricula_inmobiliaria": "260-142464",
+    "codigo_catastral": "01-04-0435-0008-000",
+    "novedad": ""
+  },
+  {
+    "id": 122,
+    "manzana": "MZ-12",
+    "interior": "INT-09",
+    "propietario": "FANNY RANGEL",
+    "matricula_inmobiliaria": "260-142465",
+    "codigo_catastral": "01-04-0435-0009-000",
+    "novedad": ""
+  },
+  {
+    "id": 123,
+    "manzana": "MZ-12",
+    "interior": "INT-10",
+    "propietario": "ALIRIO BELTRAN",
+    "matricula_inmobiliaria": "260-142466",
+    "codigo_catastral": "01-04-0435-0010-000",
+    "novedad": ""
+  },
+  {
+    "id": 124,
+    "manzana": "MZ-12",
+    "interior": "INT-11",
+    "propietario": "WILSON DURAN",
+    "matricula_inmobiliaria": "260-142467",
+    "codigo_catastral": "01-04-0435-0011-000",
+    "novedad": ""
+  },
+  {
+    "id": 125,
+    "manzana": "MZ-12",
+    "interior": "INT-12",
+    "propietario": "CONSUELO BECERRA",
+    "matricula_inmobiliaria": "260-142468",
+    "codigo_catastral": "01-04-0435-0012-000",
+    "novedad": ""
+  },
+  {
+    "id": 126,
+    "manzana": "MZ-12",
+    "interior": "INT-13",
+    "propietario": "ALIRIO PEREZ",
+    "matricula_inmobiliaria": "260-142469",
+    "codigo_catastral": "01-04-0435-0013-000",
+    "novedad": ""
+  },
+  {
+    "id": 127,
+    "manzana": "MZ-12",
+    "interior": "INT-14",
+    "propietario": "RUTH MARGARITA SANCHEZ",
+    "matricula_inmobiliaria": "260-142470",
+    "codigo_catastral": "01-04-0435-0014-000",
+    "novedad": ""
+  },
+  {
+    "id": 128,
+    "manzana": "MZ-12",
+    "interior": "INT-15",
+    "propietario": "MARIELA MENESES",
+    "matricula_inmobiliaria": "260-142471",
+    "codigo_catastral": "01-04-0435-0015-000",
+    "novedad": ""
+  },
+  {
+    "id": 129,
+    "manzana": "MZ-12",
+    "interior": "INT-16",
+    "propietario": "YANETH MANRIQUE",
+    "matricula_inmobiliaria": "260-142472",
+    "codigo_catastral": "01-04-0435-0016-000",
+    "novedad": ""
+  },
+  {
+    "id": 130,
+    "manzana": "MZ-13",
+    "interior": "INT-01",
+    "propietario": "DORIS MALAVER",
+    "matricula_inmobiliaria": "260-142473",
+    "codigo_catastral": "01-04-0436-0001-000",
+    "novedad": ""
+  },
+  {
+    "id": 131,
+    "manzana": "MZ-13",
+    "interior": "INT-02",
+    "propietario": "ROXANA LOZANO",
+    "matricula_inmobiliaria": "260-142474",
+    "codigo_catastral": "01-04-0436-0002-000",
+    "novedad": ""
+  },
+  {
+    "id": 132,
+    "manzana": "MZ-13",
+    "interior": "INT-03",
+    "propietario": "MARIA ISABEL RODRIGUEZ",
+    "matricula_inmobiliaria": "260-142475",
+    "codigo_catastral": "01-04-0436-0003-000",
+    "novedad": ""
+  },
+  {
+    "id": 133,
+    "manzana": "MZ-13",
+    "interior": "INT-04",
+    "propietario": "JAVIER GARZON",
+    "matricula_inmobiliaria": "260-142476",
+    "codigo_catastral": "01-04-0436-0004-000",
+    "novedad": ""
+  },
+  {
+    "id": 134,
+    "manzana": "MZ-13",
+    "interior": "INT-05",
+    "propietario": "MARIA DE LA CRUZ TORRES GARCIA",
+    "matricula_inmobiliaria": "260-142477",
+    "codigo_catastral": "01-04-0436-0005-000",
+    "novedad": ""
+  },
+  {
+    "id": 135,
+    "manzana": "MZ-13",
+    "interior": "INT-06",
+    "propietario": "LEIDY PEÑALOZA",
+    "matricula_inmobiliaria": "260-142478",
+    "codigo_catastral": "01-04-0436-0006-000",
+    "novedad": ""
+  },
+  {
+    "id": 136,
+    "manzana": "MZ-13",
+    "interior": "INT-07",
+    "propietario": "CARMEN CECILIA SANCHEZ",
+    "matricula_inmobiliaria": "260-142479",
+    "codigo_catastral": "01-04-0436-0007-000",
+    "novedad": ""
+  },
+  {
+    "id": 137,
+    "manzana": "MZ-13",
+    "interior": "INT-08",
+    "propietario": "IDULFO TARAZONA",
+    "matricula_inmobiliaria": "260-142480",
+    "codigo_catastral": "01-04-0436-0008-000",
+    "novedad": ""
+  },
+  {
+    "id": 138,
+    "manzana": "MZ-13",
+    "interior": "INT-09",
+    "propietario": "YESID HERNANDEZ",
+    "matricula_inmobiliaria": "260-142481",
+    "codigo_catastral": "01-04-0436-0009-000",
+    "novedad": ""
+  },
+  {
+    "id": 139,
+    "manzana": "MZ-14",
+    "interior": "INT-01",
+    "propietario": "CARLOS MENDOZA",
+    "matricula_inmobiliaria": "260-142483",
+    "codigo_catastral": "01-04-0437-0001-000",
+    "novedad": ""
+  },
+  {
+    "id": 140,
+    "manzana": "MZ-14",
+    "interior": "INT-02",
+    "propietario": "ROBERTO GALVIS",
+    "matricula_inmobiliaria": "260-142484",
+    "codigo_catastral": "01-04-0437-0002-000",
+    "novedad": ""
+  },
+  {
+    "id": 141,
+    "manzana": "MZ-14",
+    "interior": "INT-03",
+    "propietario": "GLADIS SOLIS",
+    "matricula_inmobiliaria": "260-142485",
+    "codigo_catastral": "01-04-0437-0003-000",
+    "novedad": ""
+  },
+  {
+    "id": 142,
+    "manzana": "MZ-14",
+    "interior": "INT-04",
+    "propietario": "MANUEL PINEDA",
+    "matricula_inmobiliaria": "260-142486",
+    "codigo_catastral": "01-04-0437-0004-000",
+    "novedad": ""
+  },
+  {
+    "id": 143,
+    "manzana": "MZ-14",
+    "interior": "INT-05",
+    "propietario": "ORLANDO FUYA",
+    "matricula_inmobiliaria": "260-142487",
+    "codigo_catastral": "01-04-0437-0005-000",
+    "novedad": ""
+  },
+  {
+    "id": 144,
+    "manzana": "MZ-14",
+    "interior": "INT-06",
+    "propietario": "SONIA LEON",
+    "matricula_inmobiliaria": "260-142488",
+    "codigo_catastral": "01-04-0437-0006-000",
+    "novedad": ""
+  },
+  {
+    "id": 145,
+    "manzana": "MZ-14",
+    "interior": "INT-07",
+    "propietario": "NUVIA ESTELLA GOMEZ SANDOVAL",
+    "matricula_inmobiliaria": "260-142489",
+    "codigo_catastral": "01-04-0437-0007-000",
+    "novedad": ""
+  },
+  {
+    "id": 146,
+    "manzana": "MZ-14",
+    "interior": "INT-08",
+    "propietario": "FABIO VELANDIA",
+    "matricula_inmobiliaria": "260-142490",
+    "codigo_catastral": "01-04-0437-0008-000",
+    "novedad": ""
+  },
+  {
+    "id": 147,
+    "manzana": "MZ-14",
+    "interior": "INT-09",
+    "propietario": "JOEL CORTEZ",
+    "matricula_inmobiliaria": "260-142491",
+    "codigo_catastral": "01-04-0437-0009-000",
+    "novedad": ""
+  },
+  {
+    "id": 148,
+    "manzana": "MZ-14",
+    "interior": "INT-10",
+    "propietario": "RUTH PEREZ",
+    "matricula_inmobiliaria": "260-142492",
+    "codigo_catastral": "01-04-0437-0010-000",
+    "novedad": ""
+  },
+  {
+    "id": 149,
+    "manzana": "MZ-14",
+    "interior": "INT-11",
+    "propietario": "EMILSE SANCHEZ",
+    "matricula_inmobiliaria": "260-142493",
+    "codigo_catastral": "01-04-0437-0011-000",
+    "novedad": ""
+  },
+  {
+    "id": 150,
+    "manzana": "MZ-14",
+    "interior": "INT-12",
+    "propietario": "MANUEL PINEDA",
+    "matricula_inmobiliaria": "260-142494",
+    "codigo_catastral": "01-04-0437-0012-000",
+    "novedad": ""
+  },
+  {
+    "id": 151,
+    "manzana": "MZ-14",
+    "interior": "INT-13",
+    "propietario": "DIOCELINA AYALA",
+    "matricula_inmobiliaria": "260-142495",
+    "codigo_catastral": "01-04-0437-0013-000",
+    "novedad": ""
+  },
+  {
+    "id": 152,
+    "manzana": "MZ-14",
+    "interior": "INT-14",
+    "propietario": "YANETH TORRADO",
+    "matricula_inmobiliaria": "260-142496",
+    "codigo_catastral": "01-04-0437-0014-000",
+    "novedad": ""
+  },
+  {
+    "id": 153,
+    "manzana": "MZ-14",
+    "interior": "INT-15",
+    "propietario": "ALFREDO AMAYA",
+    "matricula_inmobiliaria": "260-142497",
+    "codigo_catastral": "01-04-0437-0015-000",
+    "novedad": ""
+  },
+  {
+    "id": 154,
+    "manzana": "MZ-14",
+    "interior": "INT-16",
+    "propietario": "MANUEL PINEDA",
+    "matricula_inmobiliaria": "260-142498",
+    "codigo_catastral": "01-04-0437-0016-000",
+    "novedad": ""
+  },
+  {
+    "id": 155,
+    "manzana": "MZ-15",
+    "interior": "INT-01",
+    "propietario": "MARILCE PEREZ",
+    "matricula_inmobiliaria": "260-142500",
+    "codigo_catastral": "01-04-0438-0001-000",
+    "novedad": ""
+  },
+  {
+    "id": 156,
+    "manzana": "MZ-15",
+    "interior": "INT-02",
+    "propietario": "OSCAR CONTRERAS",
+    "matricula_inmobiliaria": "260-142501",
+    "codigo_catastral": "01-04-0438-0002-000",
+    "novedad": ""
+  },
+  {
+    "id": 157,
+    "manzana": "MZ-15",
+    "interior": "INT-03",
+    "propietario": "MARIBEL CABALLERO",
+    "matricula_inmobiliaria": "260-142502",
+    "codigo_catastral": "01-04-0438-0003-000",
+    "novedad": ""
+  },
+  {
+    "id": 158,
+    "manzana": "MZ-15",
+    "interior": "INT-04",
+    "propietario": "JESUS RIVERA",
+    "matricula_inmobiliaria": "260-142503",
+    "codigo_catastral": "01-04-0438-0004-000",
+    "novedad": ""
+  },
+  {
+    "id": 159,
+    "manzana": "MZ-15",
+    "interior": "INT-05",
+    "propietario": "ISABEL SANCHEZ SANCHEZ",
+    "matricula_inmobiliaria": "260-142504",
+    "codigo_catastral": "01-04-0438-0005-000",
+    "novedad": ""
+  },
+  {
+    "id": 160,
+    "manzana": "MZ-15",
+    "interior": "INT-06",
+    "propietario": "SONIA LEON MARTINEZ",
+    "matricula_inmobiliaria": "260-142505",
+    "codigo_catastral": "01-04-0438-0006-000",
+    "novedad": ""
+  },
+  {
+    "id": 161,
+    "manzana": "MZ-15",
+    "interior": "INT-07",
+    "propietario": "ESPERANZA LEAL",
+    "matricula_inmobiliaria": "260-142506",
+    "codigo_catastral": "01-04-0438-0007-000",
+    "novedad": ""
+  },
+  {
+    "id": 162,
+    "manzana": "MZ-15",
+    "interior": "INT-08",
+    "propietario": "ANA MARTINEZ",
+    "matricula_inmobiliaria": "260-142507",
+    "codigo_catastral": "01-04-0438-0008-000",
+    "novedad": ""
+  },
+  {
+    "id": 163,
+    "manzana": "MZ-15",
+    "interior": "INT-09",
+    "propietario": "WILLIAM SUESCUM",
+    "matricula_inmobiliaria": "260-142508",
+    "codigo_catastral": "01-04-0438-0009-000",
+    "novedad": ""
+  },
+  {
+    "id": 164,
+    "manzana": "MZ-15",
+    "interior": "INT-10",
+    "propietario": "ANA ROSA RIVERA PABON",
+    "matricula_inmobiliaria": "260-142509",
+    "codigo_catastral": "01-04-0438-0010-000",
+    "novedad": ""
+  },
+  {
+    "id": 165,
+    "manzana": "MZ-16",
+    "interior": "INT-01",
+    "propietario": "MARILCE PEREZ",
+    "matricula_inmobiliaria": "260-142510",
+    "codigo_catastral": "01-04-0378-0001-000",
+    "novedad": ""
+  },
+  {
+    "id": 166,
+    "manzana": "MZ-16",
+    "interior": "INT-02",
+    "propietario": "CONSUELO MARTINEZ/ARMANDO GUZMAN",
+    "matricula_inmobiliaria": "260-142511",
+    "codigo_catastral": "01-04-0378-0002-000",
+    "novedad": ""
+  },
+  {
+    "id": 167,
+    "manzana": "MZ-16",
+    "interior": "INT-03",
+    "propietario": "EDITH ESPITIA",
+    "matricula_inmobiliaria": "260-142512",
+    "codigo_catastral": "01-04-0378-0003-000",
+    "novedad": ""
+  },
+  {
+    "id": 168,
+    "manzana": "MZ-16",
+    "interior": "INT-04",
+    "propietario": "ELIANA GOMEZ",
+    "matricula_inmobiliaria": "260-142513",
+    "codigo_catastral": "01-04-0378-0004-000",
+    "novedad": ""
+  },
+  {
+    "id": 169,
+    "manzana": "MZ-16",
+    "interior": "INT-05",
+    "propietario": "LUIS HERNANDEZ",
+    "matricula_inmobiliaria": "260-142514",
+    "codigo_catastral": "01-04-0378-0005-000",
+    "novedad": ""
+  },
+  {
+    "id": 170,
+    "manzana": "MZ-16",
+    "interior": "INT-06",
+    "propietario": "OCTAVIO POLENTINO",
+    "matricula_inmobiliaria": "260-142515",
+    "codigo_catastral": "01-04-0378-0006-000",
+    "novedad": ""
+  },
+  {
+    "id": 171,
+    "manzana": "MZ-16",
+    "interior": "INT-07",
+    "propietario": "GREGORIO CONTRERAS",
+    "matricula_inmobiliaria": "260-142516",
+    "codigo_catastral": "01-04-0378-0007-000",
+    "novedad": ""
+  },
+  {
+    "id": 172,
+    "manzana": "MZ-16",
+    "interior": "INT-08",
+    "propietario": "FRANCELINA RAMIREZ",
+    "matricula_inmobiliaria": "260-142517",
+    "codigo_catastral": "01-04-0378-0008-000",
+    "novedad": ""
+  },
+  {
+    "id": 173,
+    "manzana": "MZ-16",
+    "interior": "INT-09",
+    "propietario": "PEDRO MORA",
+    "matricula_inmobiliaria": "260-142518",
+    "codigo_catastral": "01-04-0378-0009-000",
+    "novedad": ""
+  },
+  {
+    "id": 174,
+    "manzana": "MZ-16",
+    "interior": "INT-10",
+    "propietario": "ISMAEL CALIXTO",
+    "matricula_inmobiliaria": "260-142519",
+    "codigo_catastral": "01-04-0378-0010-000",
+    "novedad": ""
+  },
+  {
+    "id": 175,
+    "manzana": "MZ-16",
+    "interior": "INT-11",
+    "propietario": "JORGE VILLAMIL VILLAMIZAR",
+    "matricula_inmobiliaria": "260-142520",
+    "codigo_catastral": "01-04-0378-0011-000",
+    "novedad": ""
+  },
+  {
+    "id": 176,
+    "manzana": "MZ-16",
+    "interior": "INT-12",
+    "propietario": "OSCAR CONTRERAS",
+    "matricula_inmobiliaria": "260-142521",
+    "codigo_catastral": "01-04-0378-0012-000",
+    "novedad": ""
+  },
+  {
+    "id": 177,
+    "manzana": "MZ-16",
+    "interior": "INT-13",
+    "propietario": "JAVIER CONTRERAS",
+    "matricula_inmobiliaria": "260-142522",
+    "codigo_catastral": "01-04-0378-0013-000",
+    "novedad": ""
+  },
+  {
+    "id": 178,
+    "manzana": "MZ-16",
+    "interior": "INT-14",
+    "propietario": "FRANCY LOREIDEY SANCHEZ",
+    "matricula_inmobiliaria": "260-142523",
+    "codigo_catastral": "01-04-0378-0014-000",
+    "novedad": ""
+  },
+  {
+    "id": 179,
+    "manzana": "MZ-16",
+    "interior": "INT-15",
+    "propietario": "NORALBA PEREZ",
+    "matricula_inmobiliaria": "260-142524",
+    "codigo_catastral": "01-04-0378-0015-000",
+    "novedad": ""
+  },
+  {
+    "id": 180,
+    "manzana": "MZ-16",
+    "interior": "INT-16",
+    "propietario": "ZENAIDA TORRES",
+    "matricula_inmobiliaria": "260-142525",
+    "codigo_catastral": "01-04-0378-0016-000",
+    "novedad": ""
+  },
+  {
+    "id": 181,
+    "manzana": "MZ-17",
+    "interior": "INT-01",
+    "propietario": "ELBA CASTRO",
+    "matricula_inmobiliaria": "260-142526",
+    "codigo_catastral": "01-04-0750-0001-000",
+    "novedad": ""
+  },
+  {
+    "id": 182,
+    "manzana": "MZ-17",
+    "interior": "INT-02",
+    "propietario": "NOHEMI MONCADA",
+    "matricula_inmobiliaria": "260-142527",
+    "codigo_catastral": "01-04-0750-0002-000",
+    "novedad": ""
+  },
+  {
+    "id": 183,
+    "manzana": "MZ-17",
+    "interior": "INT-03",
+    "propietario": "CARMEN PEREZ",
+    "matricula_inmobiliaria": "260-142528",
+    "codigo_catastral": "01-04-0750-0003-000",
+    "novedad": ""
+  },
+  {
+    "id": 184,
+    "manzana": "MZ-17",
+    "interior": "INT-04",
+    "propietario": "CIRO DIAZ RODRIGUEZ",
+    "matricula_inmobiliaria": "260-142529",
+    "codigo_catastral": "01-04-0750-0004-000",
+    "novedad": ""
+  },
+  {
+    "id": 185,
+    "manzana": "MZ-17",
+    "interior": "INT-05",
+    "propietario": "LUCY PAYARES",
+    "matricula_inmobiliaria": "260-142530",
+    "codigo_catastral": "01-04-0750-0005-000",
+    "novedad": ""
+  },
+  {
+    "id": 186,
+    "manzana": "MZ-17",
+    "interior": "INT-06",
+    "propietario": "LINA ALBARRACIN",
+    "matricula_inmobiliaria": "260-142531",
+    "codigo_catastral": "01-04-0750-0006-000",
+    "novedad": ""
+  },
+  {
+    "id": 187,
+    "manzana": "MZ-17",
+    "interior": "INT-07",
+    "propietario": "MARIA ROSARIO RIZO",
+    "matricula_inmobiliaria": "260-142532",
+    "codigo_catastral": "01-04-0750-0007-000",
+    "novedad": ""
+  },
+  {
+    "id": 188,
+    "manzana": "MZ-17",
+    "interior": "INT-08",
+    "propietario": "ADRIANA DURAN",
+    "matricula_inmobiliaria": "260-142533",
+    "codigo_catastral": "01-04-0750-0008-000",
+    "novedad": ""
+  },
+  {
+    "id": 189,
+    "manzana": "MZ-17",
+    "interior": "INT-09",
+    "propietario": "EMELINDA TRIGOS",
+    "matricula_inmobiliaria": "260-142534",
+    "codigo_catastral": "01-04-0750-0009-000",
+    "novedad": ""
+  },
+  {
+    "id": 190,
+    "manzana": "MZ-17",
+    "interior": "INT-10",
+    "propietario": "ISABEL QUINTERO",
+    "matricula_inmobiliaria": "260-142535",
+    "codigo_catastral": null,
+    "novedad": "Código catastral incompleto"
+  },
+  {
+    "id": 191,
+    "manzana": "MZ-18",
+    "interior": "INT-01",
+    "propietario": "CLAUDIA QUIROZ",
+    "matricula_inmobiliaria": "260-142537",
+    "codigo_catastral": "01-04-0751-0001-000",
+    "novedad": ""
+  },
+  {
+    "id": 192,
+    "manzana": "MZ-18",
+    "interior": "INT-02",
+    "propietario": "JUAN PABLO AMAYA",
+    "matricula_inmobiliaria": "260-142538",
+    "codigo_catastral": "01-04-0751-0002-000",
+    "novedad": ""
+  },
+  {
+    "id": 193,
+    "manzana": "MZ-18",
+    "interior": "INT-03",
+    "propietario": "AURA MARIA SANTIAGO",
+    "matricula_inmobiliaria": "260-142539",
+    "codigo_catastral": "01-04-0751-0003-000",
+    "novedad": ""
+  },
+  {
+    "id": 194,
+    "manzana": "MZ-18",
+    "interior": "INT-04",
+    "propietario": "MAYRA SERRANO",
+    "matricula_inmobiliaria": "260-142540",
+    "codigo_catastral": "01-04-0751-0004-000",
+    "novedad": ""
+  },
+  {
+    "id": 195,
+    "manzana": "MZ-18",
+    "interior": "INT-05",
+    "propietario": "GREICY VILLAN",
+    "matricula_inmobiliaria": "260-142541",
+    "codigo_catastral": "01-04-0751-0005-000",
+    "novedad": ""
+  },
+  {
+    "id": 196,
+    "manzana": "MZ-18",
+    "interior": "INT-06",
+    "propietario": "ANIBAL VERA",
+    "matricula_inmobiliaria": "260-142542",
+    "codigo_catastral": "01-04-0751-0006-000",
+    "novedad": ""
+  },
+  {
+    "id": 197,
+    "manzana": "MZ-18",
+    "interior": "INT-07",
+    "propietario": "JUAN CARLOS CAMACHO",
+    "matricula_inmobiliaria": "260-142543",
+    "codigo_catastral": "01-04-0751-0007-000",
+    "novedad": ""
+  },
+  {
+    "id": 198,
+    "manzana": "MZ-18",
+    "interior": "INT-08",
+    "propietario": "ANA DOLORES REYES",
+    "matricula_inmobiliaria": "260-142544",
+    "codigo_catastral": "01-04-0751-0008-000",
+    "novedad": ""
+  },
+  {
+    "id": 199,
+    "manzana": "MZ-18",
+    "interior": "INT-09",
+    "propietario": "LINA ALBARRACIN",
+    "matricula_inmobiliaria": "260-142545",
+    "codigo_catastral": "01-04-0751-0009-000",
+    "novedad": ""
+  },
+  {
+    "id": 200,
+    "manzana": "MZ-18",
+    "interior": "INT-10",
+    "propietario": "MARTHA CANO",
+    "matricula_inmobiliaria": "260-142546",
+    "codigo_catastral": "01-04-0751-0010-000",
+    "novedad": ""
+  },
+  {
+    "id": 201,
+    "manzana": "MZ-18",
+    "interior": "INT-11",
+    "propietario": "WILLIAM TORRES",
+    "matricula_inmobiliaria": "260-142547",
+    "codigo_catastral": "01-04-0751-0011-000",
+    "novedad": ""
+  },
+  {
+    "id": 202,
+    "manzana": "MZ-18",
+    "interior": "INT-12",
+    "propietario": "ALVARO DELGADO",
+    "matricula_inmobiliaria": "260-142548",
+    "codigo_catastral": "01-04-0751-0012-000",
+    "novedad": ""
+  },
+  {
+    "id": 203,
+    "manzana": "MZ-18",
+    "interior": "INT-13",
+    "propietario": "ALVARO DELGADO",
+    "matricula_inmobiliaria": "260-142549",
+    "codigo_catastral": null,
+    "novedad": "Código catastral incompleto"
+  },
+  {
+    "id": 204,
+    "manzana": "MZ-18",
+    "interior": "INT-14",
+    "propietario": "JUAN LEON",
+    "matricula_inmobiliaria": "260-142550",
+    "codigo_catastral": null,
+    "novedad": "Código catastral incompleto"
+  },
+  {
+    "id": 205,
+    "manzana": "MZ-18",
+    "interior": "INT-15",
+    "propietario": "HERNAN ALFONSO ARIZA",
+    "matricula_inmobiliaria": "260-142551",
+    "codigo_catastral": null,
+    "novedad": "Código catastral incompleto"
+  },
+  {
+    "id": 206,
+    "manzana": "MZ-18",
+    "interior": "INT-16",
+    "propietario": "GLADIS BELEN IBARRA",
+    "matricula_inmobiliaria": "260-142552",
+    "codigo_catastral": null,
+    "novedad": "Código catastral incompleto"
+  },
+  {
+    "id": 207,
+    "manzana": "MZ-19",
+    "interior": "INT-01",
+    "propietario": "MARIA EUGENIA RODRIGUEZ",
+    "matricula_inmobiliaria": "260-142553",
+    "codigo_catastral": "01-04-0752-0000-000",
+    "novedad": ""
+  },
+  {
+    "id": 208,
+    "manzana": "MZ-19",
+    "interior": "INT-02",
+    "propietario": "ESPERANZA VILLAMIZAR",
+    "matricula_inmobiliaria": "260-142554",
+    "codigo_catastral": "01-04-0752-0001-000",
+    "novedad": ""
+  },
+  {
+    "id": 209,
+    "manzana": "MZ-19",
+    "interior": "INT-03",
+    "propietario": "CARMEN ELVIRA GONZALEZ",
+    "matricula_inmobiliaria": "260-142555",
+    "codigo_catastral": "01-04-0752-0002-000",
+    "novedad": ""
+  },
+  {
+    "id": 210,
+    "manzana": "MZ-19",
+    "interior": "INT-04",
+    "propietario": "ELIODORO RODRIGUEZ PABON",
+    "matricula_inmobiliaria": "260-142556",
+    "codigo_catastral": "01-04-0752-0003-000",
+    "novedad": ""
+  },
+  {
+    "id": 211,
+    "manzana": "MZ-19",
+    "interior": "INT-05",
+    "propietario": "MICHEL TRUJILLO",
+    "matricula_inmobiliaria": "260-142557",
+    "codigo_catastral": "01-04-0752-0004-000",
+    "novedad": ""
+  },
+  {
+    "id": 212,
+    "manzana": "MZ-19",
+    "interior": "INT-06",
+    "propietario": "KATHERINE TORRES",
+    "matricula_inmobiliaria": "260-142558",
+    "codigo_catastral": "01-04-0752-0005-000",
+    "novedad": ""
+  },
+  {
+    "id": 213,
+    "manzana": "MZ-19",
+    "interior": "INT-07",
+    "propietario": "GLADIS CHONA",
+    "matricula_inmobiliaria": "260-142559",
+    "codigo_catastral": "01-04-0752-0006-000",
+    "novedad": ""
+  },
+  {
+    "id": 214,
+    "manzana": "MZ-19",
+    "interior": "INT-08",
+    "propietario": "LUIS RAMON PALENCIA",
+    "matricula_inmobiliaria": "260-142560",
+    "codigo_catastral": "01-04-0752-0007-000",
+    "novedad": ""
+  },
+  {
+    "id": 215,
+    "manzana": "MZ-19",
+    "interior": "INT-09",
+    "propietario": "JAIRO LOBO",
+    "matricula_inmobiliaria": "260-142561",
+    "codigo_catastral": "01-04-0752-0008-000",
+    "novedad": ""
+  },
+  {
+    "id": 216,
+    "manzana": "MZ-19",
+    "interior": "INT-10",
+    "propietario": "ANA ELBA DIAZ",
+    "matricula_inmobiliaria": "260-142562",
+    "codigo_catastral": "01-04-0752-0009-000",
+    "novedad": ""
+  },
+  {
+    "id": 217,
+    "manzana": "MZ-19",
+    "interior": "INT-11",
+    "propietario": "YANET SUESCUM",
+    "matricula_inmobiliaria": "260-142563",
+    "codigo_catastral": "01-04-0752-0010-000",
+    "novedad": ""
+  },
+  {
+    "id": 218,
+    "manzana": "MZ-19",
+    "interior": "INT-12",
+    "propietario": "DAGOBERTO AMAYA",
+    "matricula_inmobiliaria": "260-142564",
+    "codigo_catastral": "01-04-0752-0011-000",
+    "novedad": ""
+  },
+  {
+    "id": 219,
+    "manzana": "MZ-19",
+    "interior": "INT-13",
+    "propietario": "ROSA DURAN",
+    "matricula_inmobiliaria": "260-142565",
+    "codigo_catastral": "01-04-0752-0012-000",
+    "novedad": ""
+  },
+  {
+    "id": 220,
+    "manzana": "MZ-19",
+    "interior": "INT-14",
+    "propietario": "DORIS GONZALES",
+    "matricula_inmobiliaria": "260-142566",
+    "codigo_catastral": null,
+    "novedad": "Código catastral incompleto"
+  },
+  {
+    "id": 221,
+    "manzana": "MZ-19",
+    "interior": "INT-15",
+    "propietario": "ANA OLIVA RAMOS",
+    "matricula_inmobiliaria": "260-142567",
+    "codigo_catastral": null,
+    "novedad": "Código catastral incompleto"
+  },
+  {
+    "id": 222,
+    "manzana": "MZ-19",
+    "interior": "INT-16",
+    "propietario": "CONSUELO BECERRA",
+    "matricula_inmobiliaria": "260-142568",
+    "codigo_catastral": null,
+    "novedad": "Código catastral incompleto"
+  },
+  {
+    "id": 223,
+    "manzana": "MZ-20",
+    "interior": "INT-01",
+    "propietario": "JAIRO AGRINZONES",
+    "matricula_inmobiliaria": "260-185360",
+    "codigo_catastral": "01-04-1082-0001-000",
+    "novedad": ""
+  },
+  {
+    "id": 224,
+    "manzana": "MZ-20",
+    "interior": "INT-02",
+    "propietario": "BEATRIZ CASTELLANOS",
+    "matricula_inmobiliaria": "260-185361",
+    "codigo_catastral": null,
+    "novedad": "Código catastral incompleto"
+  },
+  {
+    "id": 225,
+    "manzana": "MZ-20",
+    "interior": "INT-03",
+    "propietario": "ALFREDO OMAÑA",
+    "matricula_inmobiliaria": "260-185362",
+    "codigo_catastral": null,
+    "novedad": "Código catastral incompleto"
+  },
+  {
+    "id": 226,
+    "manzana": "MZ-20",
+    "interior": "INT-04",
+    "propietario": "CRISTIAN VERA",
+    "matricula_inmobiliaria": "260-185363",
+    "codigo_catastral": null,
+    "novedad": "Código catastral incompleto"
+  },
+  {
+    "id": 227,
+    "manzana": "MZ-20",
+    "interior": "INT-05",
+    "propietario": "WILSON BOLIVAR",
+    "matricula_inmobiliaria": "260-185364",
+    "codigo_catastral": null,
+    "novedad": "Código catastral incompleto"
+  },
+  {
+    "id": 228,
+    "manzana": "MZ-20",
+    "interior": "INT-06",
+    "propietario": "YOLIMAR MONCADA",
+    "matricula_inmobiliaria": "260-185365",
+    "codigo_catastral": null,
+    "novedad": "Código catastral incompleto"
+  },
+  {
+    "id": 229,
+    "manzana": "MZ-20",
+    "interior": "INT-07",
+    "propietario": "MARCELINA RIDRIGUEZ",
+    "matricula_inmobiliaria": "260-185366",
+    "codigo_catastral": null,
+    "novedad": "Código catastral incompleto"
+  },
+  {
+    "id": 230,
+    "manzana": "MZ-21",
+    "interior": "INT-01",
+    "propietario": "EUCARIS CAMPO",
+    "matricula_inmobiliaria": "260-142594",
+    "codigo_catastral": "01-04-1084-0001-000",
+    "novedad": ""
+  },
+  {
+    "id": 231,
+    "manzana": "MZ-21",
+    "interior": "INT-02",
+    "propietario": "ELIZABETH ANTELIZ",
+    "matricula_inmobiliaria": "260-142595",
+    "codigo_catastral": "01-04-1084-0002-000",
+    "novedad": ""
+  },
+  {
+    "id": 232,
+    "manzana": "MZ-21",
+    "interior": "INT-03",
+    "propietario": "ALBERTO DUQUE",
+    "matricula_inmobiliaria": "260-142596",
+    "codigo_catastral": "01-04-1084-0003-000",
+    "novedad": ""
+  },
+  {
+    "id": 233,
+    "manzana": "MZ-21",
+    "interior": "INT-04",
+    "propietario": "NEHEMIAS GUTIERREZ",
+    "matricula_inmobiliaria": "260-142597",
+    "codigo_catastral": "01-04-1084-0004-000",
+    "novedad": ""
+  },
+  {
+    "id": 234,
+    "manzana": "MZ-21",
+    "interior": "INT-05",
+    "propietario": "HUGO BRICEÑO",
+    "matricula_inmobiliaria": "260-142598",
+    "codigo_catastral": "01-04-1084-0005-000",
+    "novedad": ""
+  },
+  {
+    "id": 235,
+    "manzana": "MZ-21",
+    "interior": "INT-06",
+    "propietario": "CARMEN ROSA PARADA C",
+    "matricula_inmobiliaria": "260-142599",
+    "codigo_catastral": "01-04-1084-0006-000",
+    "novedad": ""
+  },
+  {
+    "id": 236,
+    "manzana": "MZ-21",
+    "interior": "INT-07",
+    "propietario": "DIANA CALIXTO",
+    "matricula_inmobiliaria": "260-142600",
+    "codigo_catastral": "01-04-1084-0007-000",
+    "novedad": ""
+  },
+  {
+    "id": 237,
+    "manzana": "MZ-21",
+    "interior": "INT-08",
+    "propietario": "JULIE DISNEY PORTILLO",
+    "matricula_inmobiliaria": "260-142601",
+    "codigo_catastral": "01-04-1084-0008-000",
+    "novedad": ""
+  },
+  {
+    "id": 238,
+    "manzana": "MZ-21",
+    "interior": "INT-09",
+    "propietario": "ALIX CASTELLANOS",
+    "matricula_inmobiliaria": "260-142602",
+    "codigo_catastral": "01-04-1084-0009-000",
+    "novedad": ""
+  },
+  {
+    "id": 239,
+    "manzana": "MZ-21",
+    "interior": "INT-10",
+    "propietario": "HUGO LEON",
+    "matricula_inmobiliaria": "260-142603",
+    "codigo_catastral": "01-04-1084-0010-000",
+    "novedad": ""
+  },
+  {
+    "id": 240,
+    "manzana": "MZ-21",
+    "interior": "INT-11",
+    "propietario": "ANA OLIVA RAMOS",
+    "matricula_inmobiliaria": null,
+    "codigo_catastral": "01-04-1084-0011-000",
+    "novedad": ""
+  },
+  {
+    "id": 241,
+    "manzana": "MZ-21",
+    "interior": "INT-12",
+    "propietario": "ARACELI MERCHAN",
+    "matricula_inmobiliaria": null,
+    "codigo_catastral": "01-04-1084-0012-000",
+    "novedad": ""
+  },
+  {
+    "id": 242,
+    "manzana": "MZ-21",
+    "interior": "INT-13",
+    "propietario": "ALBA SILVA",
+    "matricula_inmobiliaria": null,
+    "codigo_catastral": "01-04-1084-0013-000",
+    "novedad": ""
+  },
+  {
+    "id": 243,
+    "manzana": "MZ-22",
+    "interior": "INT-01",
+    "propietario": "MARINA OJEDA",
+    "matricula_inmobiliaria": "260-142604",
+    "codigo_catastral": "01-04-1085-0001-000",
+    "novedad": ""
+  },
+  {
+    "id": 244,
+    "manzana": "MZ-22",
+    "interior": "INT-02",
+    "propietario": "MARIA VALVINA VERA",
+    "matricula_inmobiliaria": "260-142605",
+    "codigo_catastral": "01-04-1085-0002-000",
+    "novedad": ""
+  },
+  {
+    "id": 245,
+    "manzana": "MZ-22",
+    "interior": "INT-03",
+    "propietario": "CARLOS JULIO ALVARES",
+    "matricula_inmobiliaria": "260-142606",
+    "codigo_catastral": "01-04-1085-0003-000",
+    "novedad": ""
+  },
+  {
+    "id": 246,
+    "manzana": "MZ-22",
+    "interior": "INT-04",
+    "propietario": "ANDRES LOPEZ",
+    "matricula_inmobiliaria": "260-142607",
+    "codigo_catastral": "01-04-1085-0004-000",
+    "novedad": ""
+  },
+  {
+    "id": 247,
+    "manzana": "MZ-22",
+    "interior": "INT-05",
+    "propietario": "EDUARDO ROLON",
+    "matricula_inmobiliaria": "260-142608",
+    "codigo_catastral": "01-04-1085-0005-000",
+    "novedad": ""
+  },
+  {
+    "id": 248,
+    "manzana": "MZ-22",
+    "interior": "INT-06",
+    "propietario": "GRACIELA DUQUE",
+    "matricula_inmobiliaria": "260-142609",
+    "codigo_catastral": "01-04-1085-0006-000",
+    "novedad": ""
+  },
+  {
+    "id": 249,
+    "manzana": "MZ-22",
+    "interior": "INT-07",
+    "propietario": "CRISTIAN GRANADOS",
+    "matricula_inmobiliaria": "260-142610",
+    "codigo_catastral": "01-04-1085-0007-000",
+    "novedad": ""
+  },
+  {
+    "id": 250,
+    "manzana": "MZ-22",
+    "interior": "INT-08",
+    "propietario": "ESPERANZA CORDERO",
+    "matricula_inmobiliaria": "260-142611",
+    "codigo_catastral": "01-04-1085-0008-000",
+    "novedad": ""
+  },
+  {
+    "id": 251,
+    "manzana": "MZ-22",
+    "interior": "INT-09",
+    "propietario": "VANESSA SANTIAGO / RONNY AVENDAÑO",
+    "matricula_inmobiliaria": "260-142612",
+    "codigo_catastral": "01-04-1085-0009-000",
+    "novedad": ""
+  },
+  {
+    "id": 252,
+    "manzana": "MZ-22",
+    "interior": "INT-10",
+    "propietario": "JORGE SANTIAGO",
+    "matricula_inmobiliaria": "260-142614",
+    "codigo_catastral": "01-04-1085-0010-000",
+    "novedad": ""
+  },
+  {
+    "id": 253,
+    "manzana": "MZ-22",
+    "interior": "INT-11",
+    "propietario": "MARTHA SANCHEZ",
+    "matricula_inmobiliaria": "260-142615",
+    "codigo_catastral": "01-04-1085-0011-000",
+    "novedad": ""
+  },
+  {
+    "id": 254,
+    "manzana": "MZ-22",
+    "interior": "INT-12",
+    "propietario": "NUBIA MARIA SANDOVAL",
+    "matricula_inmobiliaria": "260-142616",
+    "codigo_catastral": "01-04-1085-0012-000",
+    "novedad": ""
+  },
+  {
+    "id": 255,
+    "manzana": "MZ-23",
+    "interior": "INT-01",
+    "propietario": "ALFONSO ZAMBRANO",
+    "matricula_inmobiliaria": "260-142614",
+    "codigo_catastral": "01-04-1086-0001-000",
+    "novedad": ""
+  },
+  {
+    "id": 256,
+    "manzana": "MZ-23",
+    "interior": "INT-02",
+    "propietario": "CARLOS FLOREZ",
+    "matricula_inmobiliaria": "260-142615",
+    "codigo_catastral": "01-04-1086-0002-000",
+    "novedad": ""
+  },
+  {
+    "id": 257,
+    "manzana": "MZ-23",
+    "interior": "INT-03",
+    "propietario": "CARMEN ROSA CALIXTO",
+    "matricula_inmobiliaria": "260-142616",
+    "codigo_catastral": "01-04-1086-0003-000",
+    "novedad": ""
+  },
+  {
+    "id": 258,
+    "manzana": "MZ-23",
+    "interior": "INT-03-201",
+    "propietario": "CARMEN ROSA CALIXTO",
+    "matricula_inmobiliaria": "260-142616",
+    "codigo_catastral": "01-04-1086-0003-000",
+    "novedad": "Comparte matrícula con MZ-23 INT-03"
+  },
+  {
+    "id": 259,
+    "manzana": "MZ-23",
+    "interior": "INT-03-301",
+    "propietario": "ING CELIS",
+    "matricula_inmobiliaria": "260-142616",
+    "codigo_catastral": "01-04-1086-0003-000",
+    "novedad": "Comparte matrícula con MZ-23 INT-03"
+  },
+  {
+    "id": 260,
+    "manzana": "MZ-23",
+    "interior": "INT-04",
+    "propietario": "JOSE VARGAS",
+    "matricula_inmobiliaria": "260-142617",
+    "codigo_catastral": "01-04-1086-0004-000",
+    "novedad": ""
+  },
+  {
+    "id": 261,
+    "manzana": "MZ-23",
+    "interior": "INT-05",
+    "propietario": "JOSE ALIRIO PEDRAZA",
+    "matricula_inmobiliaria": "260-142618",
+    "codigo_catastral": "01-04-1086-0005-000",
+    "novedad": ""
+  },
+  {
+    "id": 262,
+    "manzana": "MZ-23",
+    "interior": "INT-06",
+    "propietario": "ELIECER JACOME",
+    "matricula_inmobiliaria": "260-142619",
+    "codigo_catastral": "01-04-1086-0006-000",
+    "novedad": ""
+  },
+  {
+    "id": 263,
+    "manzana": "MZ-23",
+    "interior": "INT-07",
+    "propietario": "ORLANDO DELGADO",
+    "matricula_inmobiliaria": "260-142620",
+    "codigo_catastral": "01-04-1086-0007-000",
+    "novedad": ""
+  },
+  {
+    "id": 264,
+    "manzana": "MZ-23",
+    "interior": "INT-08",
+    "propietario": "NORAIMA GOMEZ",
+    "matricula_inmobiliaria": "260-142621",
+    "codigo_catastral": "01-04-1086-0008-000",
+    "novedad": ""
+  },
+  {
+    "id": 265,
+    "manzana": "MZ-23",
+    "interior": "INT-09",
+    "propietario": "LEIDY KARINA VANEGAS",
+    "matricula_inmobiliaria": "260-142622",
+    "codigo_catastral": "01-04-1086-0009-000",
+    "novedad": ""
+  },
+  {
+    "id": 266,
+    "manzana": "MZ-23",
+    "interior": "INT-10",
+    "propietario": "SANDRA DUARTE",
+    "matricula_inmobiliaria": "260-142623",
+    "codigo_catastral": "01-04-1086-0010-000",
+    "novedad": ""
+  },
+  {
+    "id": 267,
+    "manzana": "MZ-23",
+    "interior": "INT-11",
+    "propietario": "NUBIA CASTELLANOS",
+    "matricula_inmobiliaria": "260-142624",
+    "codigo_catastral": "01-04-1086-0011-000",
+    "novedad": ""
+  },
+  {
+    "id": 268,
+    "manzana": "MZ-23",
+    "interior": "INT-12",
+    "propietario": "MARLENE CONTRERAS",
+    "matricula_inmobiliaria": "260-142625",
+    "codigo_catastral": "01-04-1086-0012-000",
+    "novedad": ""
+  },
+  {
+    "id": 269,
+    "manzana": "MZ-24",
+    "interior": "INT-01",
+    "propietario": "YULLI BOLIVAR",
+    "matricula_inmobiliaria": "260-142624",
+    "codigo_catastral": "01-04-1087-0001-000",
+    "novedad": ""
+  },
+  {
+    "id": 270,
+    "manzana": "MZ-24",
+    "interior": "INT-02",
+    "propietario": "HUMBERTO MEZA",
+    "matricula_inmobiliaria": "260-142625",
+    "codigo_catastral": "01-04-1087-0002-000",
+    "novedad": ""
+  },
+  {
+    "id": 271,
+    "manzana": "MZ-24",
+    "interior": "INT-03",
+    "propietario": "ADRIANA ZAMBRANO",
+    "matricula_inmobiliaria": "260-142626",
+    "codigo_catastral": "01-04-1087-0003-000",
+    "novedad": ""
+  },
+  {
+    "id": 272,
+    "manzana": "MZ-24",
+    "interior": "INT-04",
+    "propietario": "OMAIRA CASTELLANOS",
+    "matricula_inmobiliaria": "260-142627",
+    "codigo_catastral": "01-04-1087-0004-000",
+    "novedad": ""
+  },
+  {
+    "id": 273,
+    "manzana": "MZ-24",
+    "interior": "INT-05",
+    "propietario": "LUIS CORREA",
+    "matricula_inmobiliaria": "260-142628",
+    "codigo_catastral": "01-04-1087-0005-000",
+    "novedad": ""
+  },
+  {
+    "id": 274,
+    "manzana": "MZ-24",
+    "interior": "INT-06",
+    "propietario": "JORGE ENRIQUE MENDOZA",
+    "matricula_inmobiliaria": "260-142629",
+    "codigo_catastral": "01-04-1087-0006-000",
+    "novedad": ""
+  },
+  {
+    "id": 275,
+    "manzana": "MZ-24",
+    "interior": "INT-07",
+    "propietario": "ANA CECILIA SOLANO",
+    "matricula_inmobiliaria": "260-142630",
+    "codigo_catastral": "01-04-1087-0007-000",
+    "novedad": ""
+  },
+  {
+    "id": 276,
+    "manzana": "MZ-24",
+    "interior": "INT-08",
+    "propietario": "CARMEN EMILIA VELASCO",
+    "matricula_inmobiliaria": "260-142631",
+    "codigo_catastral": "01-04-1087-0008-000",
+    "novedad": ""
+  },
+  {
+    "id": 277,
+    "manzana": "MZ-24",
+    "interior": "INT-09",
+    "propietario": "WILLIAN SARMIENTO",
+    "matricula_inmobiliaria": "260-142632",
+    "codigo_catastral": "01-04-1087-0009-000",
+    "novedad": ""
+  },
+  {
+    "id": 278,
+    "manzana": "MZ-24",
+    "interior": "INT-10",
+    "propietario": "LORENA PEREZ",
+    "matricula_inmobiliaria": "260-142633",
+    "codigo_catastral": "01-04-1087-0010-000",
+    "novedad": ""
+  },
+  {
+    "id": 279,
+    "manzana": "MZ-24",
+    "interior": "INT-11",
+    "propietario": "GLADIS MOLINA",
+    "matricula_inmobiliaria": "260-142634",
+    "codigo_catastral": "01-04-1087-0011-000",
+    "novedad": ""
+  },
+  {
+    "id": 280,
+    "manzana": "MZ-24",
+    "interior": "INT-12",
+    "propietario": "NUBIA CASTELLANOS",
+    "matricula_inmobiliaria": "260-142635",
+    "codigo_catastral": "01-04-1087-0012-000",
+    "novedad": ""
+  },
+  {
+    "id": 281,
+    "manzana": "MZ-24",
+    "interior": "INT-13",
+    "propietario": "VICTOR CASTELLANOS",
+    "matricula_inmobiliaria": "260-142636",
+    "codigo_catastral": "01-04-1087-0013-000",
+    "novedad": ""
+  },
+  {
+    "id": 282,
+    "manzana": "MZ-25",
+    "interior": "INT-01",
+    "propietario": "ANA CONTRERAS",
+    "matricula_inmobiliaria": "260-142637",
+    "codigo_catastral": "01-04-1088-0000-000",
+    "novedad": ""
+  },
+  {
+    "id": 283,
+    "manzana": "MZ-25",
+    "interior": "INT-02",
+    "propietario": "TERESA SARMIENTO",
+    "matricula_inmobiliaria": "260-142638",
+    "codigo_catastral": null,
+    "novedad": "Código catastral incompleto"
+  },
+  {
+    "id": 284,
+    "manzana": "MZ-25",
+    "interior": "INT-03",
+    "propietario": "LIGIA CONTRERAS",
+    "matricula_inmobiliaria": "260-142639",
+    "codigo_catastral": null,
+    "novedad": "Código catastral incompleto"
+  },
+  {
+    "id": 285,
+    "manzana": "MZ-25",
+    "interior": "INT-04",
+    "propietario": "PATRICIA CACIQUE",
+    "matricula_inmobiliaria": "260-142640",
+    "codigo_catastral": null,
+    "novedad": "Código catastral incompleto"
+  },
+  {
+    "id": 286,
+    "manzana": "MZ-25",
+    "interior": "INT-05",
+    "propietario": "JOSE DE LA CRUZ DIAZ",
+    "matricula_inmobiliaria": "260-142641",
+    "codigo_catastral": null,
+    "novedad": "Código catastral incompleto"
+  },
+  {
+    "id": 287,
+    "manzana": "MZ-25",
+    "interior": "INT-06",
+    "propietario": "GLIDO GUIZA",
+    "matricula_inmobiliaria": "260-142642",
+    "codigo_catastral": null,
+    "novedad": "Código catastral incompleto"
+  },
+  {
+    "id": 288,
+    "manzana": "MZ-26",
+    "interior": "INT-01",
+    "propietario": "MARIA ALEJANDRA SILVA",
+    "matricula_inmobiliaria": "260-142643",
+    "codigo_catastral": "01-04-0371-0001-000",
+    "novedad": ""
+  },
+  {
+    "id": 289,
+    "manzana": "MZ-26",
+    "interior": "INT-02",
+    "propietario": "MARIAM SANTIAGO",
+    "matricula_inmobiliaria": "260-142645",
+    "codigo_catastral": "01-04-0371-0002-000",
+    "novedad": ""
+  },
+  {
+    "id": 290,
+    "manzana": "MZ-26",
+    "interior": "INT-03",
+    "propietario": "CRISTOBAL MONCADA",
+    "matricula_inmobiliaria": "260-142646",
+    "codigo_catastral": "01-04-0371-0003-000",
+    "novedad": ""
+  },
+  {
+    "id": 291,
+    "manzana": "MZ-26",
+    "interior": "INT-04",
+    "propietario": "MARIA FERNANDA GONZALEZ",
+    "matricula_inmobiliaria": "260-142647",
+    "codigo_catastral": "01-04-0371-0004-000",
+    "novedad": ""
+  },
+  {
+    "id": 292,
+    "manzana": "MZ-26",
+    "interior": "INT-05",
+    "propietario": "LUZ ELENA DIAZ",
+    "matricula_inmobiliaria": "260-142648",
+    "codigo_catastral": "01-04-0371-0005-000",
+    "novedad": ""
+  },
+  {
+    "id": 293,
+    "manzana": "MZ-26",
+    "interior": "INT-06",
+    "propietario": "NANCY RODRIGUEZ",
+    "matricula_inmobiliaria": "260-142649",
+    "codigo_catastral": "01-04-0371-0006-000",
+    "novedad": ""
+  },
+  {
+    "id": 294,
+    "manzana": "MZ-26",
+    "interior": "INT-07",
+    "propietario": "INGRI GRISALES",
+    "matricula_inmobiliaria": "260-142650",
+    "codigo_catastral": "01-04-0371-0007-000",
+    "novedad": ""
+  },
+  {
+    "id": 295,
+    "manzana": "MZ-26",
+    "interior": "INT-08",
+    "propietario": "EVA VASQUEZ",
+    "matricula_inmobiliaria": "260-142651",
+    "codigo_catastral": "01-04-0371-0008-000",
+    "novedad": ""
+  },
+  {
+    "id": 296,
+    "manzana": "MZ-26",
+    "interior": "INT-09",
+    "propietario": "ASTRID ORTEGA",
+    "matricula_inmobiliaria": "260-142652",
+    "codigo_catastral": "01-04-0371-0009-000",
+    "novedad": ""
+  },
+  {
+    "id": 297,
+    "manzana": "MZ-26",
+    "interior": "INT-10",
+    "propietario": "GERMAN CELIS",
+    "matricula_inmobiliaria": "260-142654",
+    "codigo_catastral": "01-04-0371-0010-000",
+    "novedad": ""
+  },
+  {
+    "id": 298,
+    "manzana": "MZ-26",
+    "interior": "INT-11",
+    "propietario": "ROSA ELENA ROSO",
+    "matricula_inmobiliaria": "260-142655",
+    "codigo_catastral": "01-04-0371-0011-000",
+    "novedad": ""
+  },
+  {
+    "id": 299,
+    "manzana": "MZ-26",
+    "interior": "INT-12",
+    "propietario": "ISMAEL CALIXTO",
+    "matricula_inmobiliaria": "260-142656",
+    "codigo_catastral": "01-04-0371-0012-000",
+    "novedad": ""
+  },
+  {
+    "id": 300,
+    "manzana": "MZ-27",
+    "interior": "INT-01",
+    "propietario": "OSCAR ALBERTO PEÑARANDA",
+    "matricula_inmobiliaria": "260-142659",
+    "codigo_catastral": "01-04-0497-0001-000",
+    "novedad": ""
+  },
+  {
+    "id": 301,
+    "manzana": "MZ-27",
+    "interior": "INT-02",
+    "propietario": "LEONOR PEREZ",
+    "matricula_inmobiliaria": "260-142660",
+    "codigo_catastral": "01-04-0497-0002-000",
+    "novedad": ""
+  },
+  {
+    "id": 302,
+    "manzana": "MZ-27",
+    "interior": "INT-03",
+    "propietario": "SANDRA VELASQUEZ",
+    "matricula_inmobiliaria": "260-142661",
+    "codigo_catastral": "01-04-0497-0003-000",
+    "novedad": ""
+  },
+  {
+    "id": 303,
+    "manzana": "MZ-27",
+    "interior": "INT-04",
+    "propietario": "LORENA TORRES RAMIRES",
+    "matricula_inmobiliaria": "260-142662",
+    "codigo_catastral": "01-04-0497-0004-000",
+    "novedad": ""
+  },
+  {
+    "id": 304,
+    "manzana": "MZ-27",
+    "interior": "INT-05",
+    "propietario": "PEDRO SANCHEZ GONZALES",
+    "matricula_inmobiliaria": "260-142663",
+    "codigo_catastral": "01-04-0497-0005-000",
+    "novedad": ""
+  },
+  {
+    "id": 305,
+    "manzana": "MZ-27",
+    "interior": "INT-06",
+    "propietario": "ROSALBA PARADA",
+    "matricula_inmobiliaria": "260-142664",
+    "codigo_catastral": "01-04-0497-0006-000",
+    "novedad": ""
+  },
+  {
+    "id": 306,
+    "manzana": "MZ-27",
+    "interior": "INT-07",
+    "propietario": "MARY LUZ LARROTA",
+    "matricula_inmobiliaria": "260-142665",
+    "codigo_catastral": "01-04-0497-0007-000",
+    "novedad": ""
+  },
+  {
+    "id": 307,
+    "manzana": "MZ-27",
+    "interior": "INT-08",
+    "propietario": "CARLOS CASTILLO",
+    "matricula_inmobiliaria": "260-142666",
+    "codigo_catastral": "01-04-0497-0008-000",
+    "novedad": ""
+  },
+  {
+    "id": 308,
+    "manzana": "MZ-27",
+    "interior": "INT-09",
+    "propietario": "EFIGENIA BENAVIDES",
+    "matricula_inmobiliaria": "260-142667",
+    "codigo_catastral": "01-04-0497-0009-000",
+    "novedad": ""
+  },
+  {
+    "id": 309,
+    "manzana": "MZ-28",
+    "interior": "INT-01",
+    "propietario": "MILLER FERNANDO RINCON",
+    "matricula_inmobiliaria": "260-142669",
+    "codigo_catastral": "01-04-0498-0001-000",
+    "novedad": ""
+  },
+  {
+    "id": 310,
+    "manzana": "MZ-28",
+    "interior": "INT-02",
+    "propietario": "MARIA CRISTINA FLOREZ",
+    "matricula_inmobiliaria": "260-142670",
+    "codigo_catastral": "01-04-0498-0002-000",
+    "novedad": ""
+  },
+  {
+    "id": 311,
+    "manzana": "MZ-28",
+    "interior": "INT-03",
+    "propietario": "CASILDA CELIS",
+    "matricula_inmobiliaria": "260-142671",
+    "codigo_catastral": "01-04-0498-0003-000",
+    "novedad": ""
+  },
+  {
+    "id": 312,
+    "manzana": "MZ-28",
+    "interior": "INT-04",
+    "propietario": "OSCAR MORANTES",
+    "matricula_inmobiliaria": "260-142672",
+    "codigo_catastral": "01-04-0498-0004-000",
+    "novedad": ""
+  },
+  {
+    "id": 313,
+    "manzana": "MZ-28",
+    "interior": "INT-05",
+    "propietario": "OFELIA / ROBERTO GALVIS ACTUALIZAR",
+    "matricula_inmobiliaria": "260-142673",
+    "codigo_catastral": "01-04-0498-0005-000",
+    "novedad": ""
+  },
+  {
+    "id": 314,
+    "manzana": "MZ-28",
+    "interior": "INT-06",
+    "propietario": "CARMEN PEREZ",
+    "matricula_inmobiliaria": "260-142674",
+    "codigo_catastral": "01-04-0498-0006-000",
+    "novedad": ""
+  },
+  {
+    "id": 315,
+    "manzana": "MZ-28",
+    "interior": "INT-07",
+    "propietario": "GERALDIN RODRIGUEZ",
+    "matricula_inmobiliaria": "260-142675",
+    "codigo_catastral": "01-04-0498-0007-000",
+    "novedad": ""
+  },
+  {
+    "id": 316,
+    "manzana": "MZ-28",
+    "interior": "INT-08",
+    "propietario": "TERESA FLORES",
+    "matricula_inmobiliaria": "260-142676",
+    "codigo_catastral": "01-04-0498-0008-000",
+    "novedad": ""
+  },
+  {
+    "id": 317,
+    "manzana": "MZ-28",
+    "interior": "INT-09",
+    "propietario": "VICTOR MENDOZA",
+    "matricula_inmobiliaria": "260-142677",
+    "codigo_catastral": "01-04-0498-0009-000",
+    "novedad": ""
+  },
+  {
+    "id": 318,
+    "manzana": "MZ-28",
+    "interior": "INT-10",
+    "propietario": "LUZ MARINA HERRERA",
+    "matricula_inmobiliaria": "260-142678",
+    "codigo_catastral": "01-04-0498-0010-000",
+    "novedad": ""
+  },
+  {
+    "id": 319,
+    "manzana": "MZ-28",
+    "interior": "INT-11",
+    "propietario": "EMERITA PUENTES",
+    "matricula_inmobiliaria": "260-142679",
+    "codigo_catastral": "01-04-0498-0011-000",
+    "novedad": ""
+  },
+  {
+    "id": 320,
+    "manzana": "MZ-28",
+    "interior": "INT-12",
+    "propietario": "ANA CECILIA SOLANO",
+    "matricula_inmobiliaria": "260-142680",
+    "codigo_catastral": "01-04-0498-0012-000",
+    "novedad": ""
+  },
+  {
+    "id": 321,
+    "manzana": "MZ-28",
+    "interior": "INT-13",
+    "propietario": "ALFONSO BECERRA",
+    "matricula_inmobiliaria": "260-142681",
+    "codigo_catastral": "01-04-0498-0013-000",
+    "novedad": ""
+  },
+  {
+    "id": 322,
+    "manzana": "MZ-29",
+    "interior": "INT-01",
+    "propietario": "OMAR AVELLANEDA",
+    "matricula_inmobiliaria": "260-142683",
+    "codigo_catastral": "01-04-0499-0001-000",
+    "novedad": ""
+  },
+  {
+    "id": 323,
+    "manzana": "MZ-29",
+    "interior": "INT-02",
+    "propietario": "MARIA ANTONIA WALTEROS",
+    "matricula_inmobiliaria": "260-142684",
+    "codigo_catastral": "01-04-0499-0002-000",
+    "novedad": ""
+  },
+  {
+    "id": 324,
+    "manzana": "MZ-29",
+    "interior": "INT-03",
+    "propietario": "JOSE VICENTE CORTEZ / AURELIA ORTIZ",
+    "matricula_inmobiliaria": "260-142685",
+    "codigo_catastral": "01-04-0499-0003-000",
+    "novedad": ""
+  },
+  {
+    "id": 325,
+    "manzana": "MZ-29",
+    "interior": "INT-04",
+    "propietario": "GUSTAVO SOLANO",
+    "matricula_inmobiliaria": "260-142686",
+    "codigo_catastral": "01-04-0499-0004-000",
+    "novedad": ""
+  },
+  {
+    "id": 326,
+    "manzana": "MZ-29",
+    "interior": "INT-05",
+    "propietario": "JOSE ROJAS MARTINEZ",
+    "matricula_inmobiliaria": "260-142687",
+    "codigo_catastral": "01-04-0499-0005-000",
+    "novedad": ""
+  },
+  {
+    "id": 327,
+    "manzana": "MZ-29",
+    "interior": "INT-06",
+    "propietario": "MARLENY VELASQUEZ",
+    "matricula_inmobiliaria": "260-142688",
+    "codigo_catastral": "01-04-0499-0006-000",
+    "novedad": ""
+  },
+  {
+    "id": 328,
+    "manzana": "MZ-29",
+    "interior": "INT-07",
+    "propietario": "CRISTINA PEREZ",
+    "matricula_inmobiliaria": "260-142689",
+    "codigo_catastral": "01-04-0499-0007-000",
+    "novedad": ""
+  },
+  {
+    "id": 329,
+    "manzana": "MZ-29",
+    "interior": "INT-08",
+    "propietario": "MARTA STELLA DELGADO",
+    "matricula_inmobiliaria": "260-142690",
+    "codigo_catastral": "01-04-0499-0008-000",
+    "novedad": ""
+  },
+  {
+    "id": 330,
+    "manzana": "MZ-29",
+    "interior": "INT-09",
+    "propietario": "GRICELDA BECERRA",
+    "matricula_inmobiliaria": "260-142691",
+    "codigo_catastral": "01-04-0499-0009-000",
+    "novedad": ""
+  },
+  {
+    "id": 331,
+    "manzana": "MZ-29",
+    "interior": "INT-10",
+    "propietario": "SIMON BOLIVAR",
+    "matricula_inmobiliaria": "260-142692",
+    "codigo_catastral": "01-04-0499-0010-000",
+    "novedad": ""
+  },
+  {
+    "id": 332,
+    "manzana": "MZ-29",
+    "interior": "INT-11",
+    "propietario": "NELSON ADOLFO NUNCIRA CARDENAS",
+    "matricula_inmobiliaria": "260-142693",
+    "codigo_catastral": "01-04-0499-0011-000",
+    "novedad": ""
+  },
+  {
+    "id": 333,
+    "manzana": "MZ-29",
+    "interior": "INT-12",
+    "propietario": "FABIOLA ARENAS",
+    "matricula_inmobiliaria": "260-142694",
+    "codigo_catastral": "01-04-0499-0012-000",
+    "novedad": ""
+  },
+  {
+    "id": 334,
+    "manzana": "MZ-29",
+    "interior": "INT-13",
+    "propietario": "NUBIA COMBARIZA",
+    "matricula_inmobiliaria": "260-142695",
+    "codigo_catastral": "01-04-0499-0013-000",
+    "novedad": ""
+  },
+  {
+    "id": 335,
+    "manzana": "MZ-30",
+    "interior": "INT-01",
+    "propietario": "ELIODORO RODRIGUEZ PABON",
+    "matricula_inmobiliaria": null,
+    "codigo_catastral": "01-04-0500-0001-000",
+    "novedad": ""
+  },
+  {
+    "id": 336,
+    "manzana": "MZ-30",
+    "interior": "INT-02",
+    "propietario": "JESUS MORA",
+    "matricula_inmobiliaria": "260-178447",
+    "codigo_catastral": "01-04-0500-0002-000",
+    "novedad": ""
+  },
+  {
+    "id": 337,
+    "manzana": "MZ-30",
+    "interior": "INT-03",
+    "propietario": "EDUARDO MEDINA",
+    "matricula_inmobiliaria": "260-178448",
+    "codigo_catastral": "01-04-0500-0003-000",
+    "novedad": ""
+  },
+  {
+    "id": 338,
+    "manzana": "MZ-30",
+    "interior": "INT-04",
+    "propietario": "LEONOR MEDINA",
+    "matricula_inmobiliaria": "260-178449",
+    "codigo_catastral": "01-04-0500-0004-000",
+    "novedad": ""
+  },
+  {
+    "id": 339,
+    "manzana": "MZ-30",
+    "interior": "INT-05",
+    "propietario": "JOCKSAN AGUIAR",
+    "matricula_inmobiliaria": "260-178450",
+    "codigo_catastral": "01-04-0500-0005-000",
+    "novedad": ""
+  },
+  {
+    "id": 340,
+    "manzana": "MZ-30",
+    "interior": "INT-06",
+    "propietario": "MARIA OLIVA MORGADO / EDGAR DANIEL ROLON CARRILLO",
+    "matricula_inmobiliaria": "260-178451",
+    "codigo_catastral": "01-04-0500-0006-000",
+    "novedad": ""
+  },
+  {
+    "id": 341,
+    "manzana": "MZ-30",
+    "interior": "INT-07",
+    "propietario": "GUSTAVO TRUJILLO",
+    "matricula_inmobiliaria": "260-178452",
+    "codigo_catastral": "01-04-0500-0007-000",
+    "novedad": ""
+  },
+  {
+    "id": 342,
+    "manzana": "MZ-30",
+    "interior": "INT-08",
+    "propietario": "ZENAIDA LAGOS",
+    "matricula_inmobiliaria": "260-178453",
+    "codigo_catastral": "01-04-0500-0008-000",
+    "novedad": ""
+  },
+  {
+    "id": 343,
+    "manzana": "MZ-30",
+    "interior": "INT-09",
+    "propietario": "JAVIER SANDOVAL",
+    "matricula_inmobiliaria": "260-178454",
+    "codigo_catastral": "01-04-0500-0009-000",
+    "novedad": ""
+  },
+  {
+    "id": 344,
+    "manzana": "MZ-30",
+    "interior": "INT-10",
+    "propietario": "LUZ ESTELA NIÑO",
+    "matricula_inmobiliaria": "260-178455",
+    "codigo_catastral": "01-04-0500-0010-000",
+    "novedad": ""
+  },
+  {
+    "id": 345,
+    "manzana": "MZ-30",
+    "interior": "INT-11",
+    "propietario": "NOHORA RINCON",
+    "matricula_inmobiliaria": "260-178456",
+    "codigo_catastral": "01-04-0500-0011-000",
+    "novedad": ""
+  },
+  {
+    "id": 346,
+    "manzana": "MZ-30",
+    "interior": "INT-12",
+    "propietario": "MARLENY RINCON RAMIREZ",
+    "matricula_inmobiliaria": "260-178457",
+    "codigo_catastral": "01-04-0500-0012-000",
+    "novedad": ""
+  },
+  {
+    "id": 347,
+    "manzana": "MZ-30",
+    "interior": "INT-13",
+    "propietario": "WILMAR JESUS PARADA GOMEZ",
+    "matricula_inmobiliaria": "260-178458",
+    "codigo_catastral": "01-04-0500-0013-000",
+    "novedad": ""
+  },
+  {
+    "id": 348,
+    "manzana": "MZ-31",
+    "interior": "INT-01",
+    "propietario": "LILIANA JARAMILLO",
+    "matricula_inmobiliaria": "260-142702",
+    "codigo_catastral": "01-04-0393-0001-000",
+    "novedad": ""
+  },
+  {
+    "id": 349,
+    "manzana": "MZ-31",
+    "interior": "INT-02",
+    "propietario": "NUBIA LOZANO",
+    "matricula_inmobiliaria": "260-142703",
+    "codigo_catastral": "01-04-0393-0002-000",
+    "novedad": ""
+  },
+  {
+    "id": 350,
+    "manzana": "MZ-31",
+    "interior": "INT-03",
+    "propietario": "RICHARD CASADIEGOS",
+    "matricula_inmobiliaria": "260-142704",
+    "codigo_catastral": "01-04-0393-0003-000",
+    "novedad": ""
+  },
+  {
+    "id": 351,
+    "manzana": "MZ-31",
+    "interior": "INT-04",
+    "propietario": "NIDIA AMAYA",
+    "matricula_inmobiliaria": "260-142705",
+    "codigo_catastral": "01-04-0393-0004-000",
+    "novedad": ""
+  },
+  {
+    "id": 352,
+    "manzana": "MZ-31",
+    "interior": "INT-05",
+    "propietario": "DIEGO CAICEDO",
+    "matricula_inmobiliaria": "260-142706",
+    "codigo_catastral": "01-04-0393-0005-000",
+    "novedad": ""
+  },
+  {
+    "id": 353,
+    "manzana": "MZ-31",
+    "interior": "INT-06",
+    "propietario": "ANA MARIA CONTRERAS GALVIS",
+    "matricula_inmobiliaria": "260-142707",
+    "codigo_catastral": "01-04-0393-0006-000",
+    "novedad": ""
+  },
+  {
+    "id": 354,
+    "manzana": "MZ-31",
+    "interior": "INT-07",
+    "propietario": "SONIA GARCIA",
+    "matricula_inmobiliaria": "260-142708",
+    "codigo_catastral": "01-04-0393-0007-000",
+    "novedad": ""
+  },
+  {
+    "id": 355,
+    "manzana": "MZ-31",
+    "interior": "INT-08",
+    "propietario": "IRENE PALACIO",
+    "matricula_inmobiliaria": "260-142709",
+    "codigo_catastral": "01-04-0393-0008-000",
+    "novedad": ""
+  },
+  {
+    "id": 356,
+    "manzana": "MZ-21",
+    "interior": "INT-03-2",
+    "propietario": null,
+    "matricula_inmobiliaria": null,
+    "codigo_catastral": "01-04-1084-0003-?",
+    "novedad": "Sin propietario y sin matrícula"
+  },
+  {
+    "id": 357,
+    "manzana": "MZ-21",
+    "interior": "INT-03-2",
+    "propietario": null,
+    "matricula_inmobiliaria": null,
+    "codigo_catastral": "01-04-1084-0003-?",
+    "novedad": "Sin propietario y sin matrícula"
+  }
+]
