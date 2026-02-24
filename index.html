@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Factura Electrónica - Brisas del Norte</title>
   <style>
+    /* Mismos estilos que antes */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -82,16 +83,6 @@
 
     .btn-success:hover {
       background: #16633d;
-    }
-
-    .error-message {
-      background: #ffebee;
-      color: #c62828;
-      padding: 10px 15px;
-      margin: 10px 20px;
-      border-radius: 8px;
-      border-left: 4px solid #c62828;
-      font-size: 0.9rem;
     }
 
     .control-panel {
@@ -286,7 +277,7 @@
     }
 
     @media print {
-      .control-panel, .top-bar .btn, .error-message {
+      .control-panel, .top-bar .btn {
         display: none !important;
       }
       .top-bar {
@@ -314,68 +305,64 @@
   <div class="top-bar no-print">
     <h2>FACTURACIÓN <span>Brisas del Norte</span></h2>
     <div>
-      <button class="btn" onclick="cargarJSON()">🔄 Recargar Propietarios</button>
       <button class="btn btn-success" onclick="generarPDF()">📄 Imprimir / PDF</button>
     </div>
   </div>
-
-  <!-- Área para mostrar errores -->
-  <div id="errorContainer" class="error-message no-print" style="display: none;"></div>
 
   <div class="control-panel no-print">
     <div class="form-group">
       <label>👤 Propietario</label>
       <select id="propietarioSelect" onchange="cargarPropietario()">
-        <option value="">Cargando propietarios...</option>
+        <option value="">Seleccione un propietario</option>
       </select>
     </div>
 
     <div class="form-row">
       <div class="form-group">
         <label>🏷️ Factura N°</label>
-        <input type="text" id="facturaNum" value="5000">
+        <input type="text" id="facturaNum" value="5000" onchange="actualizarFactura()">
       </div>
       <div class="form-group">
         <label>📅 Fecha</label>
-        <input type="date" id="fechaFactura" value="2026-03-01">
+        <input type="date" id="fechaFactura" onchange="actualizarFactura()">
       </div>
     </div>
 
     <div class="form-row">
       <div class="form-group">
         <label>💰 Cuota admón</label>
-        <input type="number" id="cuotaAdmon" value="375000">
+        <input type="number" id="cuotaAdmon" value="375000" onchange="actualizarFactura()">
       </div>
       <div class="form-group">
         <label>💰 Cuota extra</label>
-        <input type="number" id="cuotaExtra" value="100000">
+        <input type="number" id="cuotaExtra" value="100000" onchange="actualizarFactura()">
       </div>
     </div>
 
     <div class="form-row">
       <div class="form-group">
         <label>⚠️ Sanciones</label>
-        <input type="number" id="sanciones" value="50000">
+        <input type="number" id="sanciones" value="50000" onchange="actualizarFactura()">
       </div>
       <div class="form-group">
         <label>🤝 Acuerdo pago</label>
-        <input type="number" id="acuerdoPago" value="75000">
+        <input type="number" id="acuerdoPago" value="75000" onchange="actualizarFactura()">
       </div>
     </div>
 
     <div class="form-group">
       <label>📊 Admón acumulada</label>
-      <input type="number" id="admAcumulada" value="1000000">
+      <input type="number" id="admAcumulada" value="1000000" onchange="actualizarFactura()">
     </div>
 
     <div class="form-group">
       <label>💰 Extra acumulada</label>
-      <input type="number" id="extraAcumulada" value="1000000">
+      <input type="number" id="extraAcumulada" value="1000000" onchange="actualizarFactura()">
     </div>
 
     <div class="form-group">
       <label>💵 Abonos</label>
-      <input type="number" id="abonos" value="1800000">
+      <input type="number" id="abonos" value="1800000" onchange="actualizarFactura()">
     </div>
   </div>
 
@@ -397,7 +384,7 @@
       </div>
       <div class="client-item">
         <span class="client-label">Fecha</span>
-        <span class="client-value" id="displayFecha">1 mar 2026</span>
+        <span class="client-value" id="displayFecha"></span>
       </div>
       <div class="client-item">
         <span class="client-label">Propietario</span>
@@ -485,32 +472,37 @@
 </div>
 
 <script>
-  let propietariosData = [];
-
-  function mostrarError(mensaje) {
-    const errorDiv = document.getElementById('errorContainer');
-    errorDiv.style.display = 'block';
-    errorDiv.innerHTML = mensaje;
-  }
-
-  function ocultarError() {
-    document.getElementById('errorContainer').style.display = 'none';
-  }
+  // Datos de ejemplo de propietarios (puedes reemplazar con tu JSON)
+  const propietariosData = [
+    { "id": "MZ-01-INT-01", "nombre": "ALVARO DIAZ LAGUADO", "manzana": "MZ-01", "interior": "INT-01", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-140971", "codigo_catastral": "01-04-0511-0001-000" },
+    { "id": "MZ-01-INT-02", "nombre": "CESAR WILLIAM PINZON", "manzana": "MZ-01", "interior": "INT-02", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-140972", "codigo_catastral": "01-04-0511-0002-000" },
+    { "id": "MZ-01-INT-03", "nombre": "CRUZDELINA GARCIA GARCIA", "manzana": "MZ-01", "interior": "INT-03", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-140973", "codigo_catastral": "01-04-0511-0003-000" }
+  ];
 
   function formatoMoneda(valor) {
     return '$' + Number(valor).toLocaleString('es-CO') + '°°';
   }
 
   function actualizarFactura() {
-    const facturaNum = document.getElementById('facturaNum').value;
-    const fechaRaw = document.getElementById('fechaFactura').value;
+    // Obtener la fecha del campo input
+    let fechaRaw = document.getElementById('fechaFactura').value;
+    
+    // Si no hay fecha seleccionada, usar la fecha actual
+    if (!fechaRaw) {
+      const hoy = new Date();
+      const año = hoy.getFullYear();
+      const mes = String(hoy.getMonth() + 1).padStart(2, '0');
+      const dia = String(hoy.getDate()).padStart(2, '0');
+      fechaRaw = `${año}-${mes}-${dia}`;
+      document.getElementById('fechaFactura').value = fechaRaw;
+    }
 
+    const facturaNum = document.getElementById('facturaNum').value;
     const cuotaAdmon = parseFloat(document.getElementById('cuotaAdmon').value) || 0;
     const cuotaExtra = parseFloat(document.getElementById('cuotaExtra').value) || 0;
     const sanciones = parseFloat(document.getElementById('sanciones').value) || 0;
     const acuerdoPago = parseFloat(document.getElementById('acuerdoPago').value) || 0;
     const cuotaMes = 150000;
-
     const admAcum = parseFloat(document.getElementById('admAcumulada').value) || 0;
     const extraAcum = parseFloat(document.getElementById('extraAcumulada').value) || 0;
     const abonos = parseFloat(document.getElementById('abonos').value) || 0;
@@ -519,9 +511,15 @@
     const totalGeneral = totalConceptos + admAcum + extraAcum;
     const saldo = totalGeneral - abonos;
 
-    const fechaObj = new Date(fechaRaw);
-    const fechaFormateada = fechaObj.toLocaleDateString('es-CO', { year: 'numeric', month: 'short', day: 'numeric' });
+    // Formatear la fecha correctamente
+    const fechaObj = new Date(fechaRaw + 'T12:00:00'); // Evitar problemas de zona horaria
+    const fechaFormateada = fechaObj.toLocaleDateString('es-CO', { 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
+    });
 
+    // Actualizar todos los campos
     document.getElementById('displayFacturaNum').innerText = facturaNum;
     document.getElementById('displayFecha').innerText = fechaFormateada;
     document.getElementById('displayCuotaAdmon').innerText = formatoMoneda(cuotaAdmon);
@@ -553,63 +551,28 @@
     }
   }
 
-  function cargarJSON() {
-    ocultarError();
-    const select = document.getElementById('propietarioSelect');
-    select.innerHTML = '<option value="">Cargando propietarios...</option>';
-
-    fetch('propietarios.json')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`Error HTTP: ${response.status} - No se encontró el archivo propietarios.json en la misma carpeta`);
-        }
-        return response.json();
-      })
-      .then(data => {
-        // Verificar la estructura del JSON
-        if (!data.propietarios) {
-          throw new Error('El JSON no tiene la estructura esperada. Debe tener una propiedad "propietarios"');
-        }
-        
-        propietariosData = data.propietarios;
-        
-        if (propietariosData.length === 0) {
-          throw new Error('El archivo JSON está vacío');
-        }
-
-        select.innerHTML = '<option value="">-- Seleccionar propietario --</option>';
-        
-        propietariosData.forEach(p => {
-          const option = document.createElement('option');
-          option.value = p.id;
-          option.textContent = `${p.manzana} ${p.interior} - ${p.nombre}`;
-          select.appendChild(option);
-        });
-
-        console.log(`✅ ${propietariosData.length} propietarios cargados correctamente desde propietarios.json`);
-      })
-      .catch(error => {
-        console.error('Error detallado:', error);
-        let mensajeError = '❌ ' + error.message;
-        
-        if (error.message.includes('404')) {
-          mensajeError = '❌ No se encontró el archivo propietarios.json. Asegúrate de que esté en la misma carpeta que este HTML.';
-        } else if (error.message.includes('Unexpected token')) {
-          mensajeError = '❌ El archivo JSON tiene un formato incorrecto. Revisa la sintaxis.';
-        }
-        
-        mostrarError(mensajeError);
-        select.innerHTML = '<option value="">Error al cargar JSON</option>';
-      });
-  }
-
   function generarPDF() {
     window.print();
   }
 
+  // Inicializar con la fecha actual al cargar la página
   window.onload = () => {
-    cargarJSON();
+    const hoy = new Date();
+    const año = hoy.getFullYear();
+    const mes = String(hoy.getMonth() + 1).padStart(2, '0');
+    const dia = String(hoy.getDate()).padStart(2, '0');
+    document.getElementById('fechaFactura').value = `${año}-${mes}-${dia}`;
+    
     actualizarFactura();
+    
+    // Llenar el selector de propietarios
+    const select = document.getElementById('propietarioSelect');
+    propietariosData.forEach(p => {
+      const option = document.createElement('option');
+      option.value = p.id;
+      option.textContent = `${p.manzana} ${p.interior} - ${p.nombre}`;
+      select.appendChild(option);
+    });
   };
 </script>
 </body>
