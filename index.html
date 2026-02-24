@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Factura - Una Sola Página</title>
+  <title>Factura - Brisas del Norte</title>
   <style>
     * {
       box-sizing: border-box;
@@ -21,7 +21,6 @@
       min-height: 100vh;
     }
 
-    /* CONFIGURACIÓN CLAVE: UNA SOLA HOJA HORIZONTAL */
     @page {
       size: A4 landscape;
       margin: 0.5cm;
@@ -35,10 +34,9 @@
       border-radius: 16px;
       box-shadow: 0 10px 20px rgba(0,20,40,0.15);
       overflow: hidden;
-      page-break-inside: avoid; /* EVITA CORTES */
+      page-break-inside: avoid;
     }
 
-    /* Barra superior más compacta */
     .top-bar {
       background: #1e3c5c;
       padding: 6px 12px;
@@ -75,7 +73,6 @@
       color: white;
     }
 
-    /* Panel de control ultra compacto */
     .control-panel {
       background: #f8fafd;
       padding: 8px 12px;
@@ -113,12 +110,10 @@
       gap: 4px;
     }
 
-    /* Área de factura - compacta */
     .invoice-area {
       padding: 8px 12px;
     }
 
-    /* Header más pequeño */
     .invoice-header {
       display: flex;
       align-items: center;
@@ -155,7 +150,6 @@
       font-size: 0.55rem;
     }
 
-    /* Datos cliente - más compactos */
     .client-info {
       background: #f0f7ff;
       border-radius: 6px;
@@ -202,7 +196,6 @@
       margin-bottom: 3px;
     }
 
-    /* Tabla ultra compacta */
     .invoice-table {
       width: 100%;
       border-collapse: collapse;
@@ -226,7 +219,6 @@
       background: white;
     }
 
-    /* Resumen compacto */
     .summary-box {
       background: #e5eff9;
       padding: 4px 6px;
@@ -244,7 +236,6 @@
       color: #2c4c6b;
     }
 
-    /* Deuda acumulada compacta */
     .deuda-box {
       background: #f0f5fb;
       border-radius: 6px;
@@ -266,7 +257,6 @@
       font-size: 0.9rem;
     }
 
-    /* Notas más compactas */
     .notas {
       background: #fef8e7;
       border-left: 3px solid #dd9220;
@@ -278,8 +268,18 @@
       page-break-inside: avoid;
     }
 
+    .error-message {
+      background: #ffebee;
+      color: #c62828;
+      padding: 4px 8px;
+      margin: 4px 12px;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      display: none;
+    }
+
     @media print {
-      .control-panel, .top-bar .btn {
+      .control-panel, .top-bar .btn, .error-message {
         display: none !important;
       }
       .top-bar {
@@ -300,11 +300,13 @@
     <button class="btn btn-success" onclick="window.print()">📄 PDF</button>
   </div>
 
+  <div id="errorContainer" class="error-message no-print"></div>
+
   <div class="control-panel no-print">
     <div class="form-group">
       <label>👤 Propietario</label>
       <select id="propietarioSelect" onchange="cargarPropietario()">
-        <option value="">Seleccionar</option>
+        <option value="">Cargando propietarios...</option>
       </select>
     </div>
     <div class="form-row">
@@ -361,12 +363,12 @@
     <div class="client-info">
       <div class="client-item"><span class="client-label">Factura N°</span><span class="client-value" id="displayFacturaNum">5000</span></div>
       <div class="client-item"><span class="client-label">Fecha</span><span class="client-value" id="displayFecha"></span></div>
-      <div class="client-item"><span class="client-label">Propietario</span><span class="client-value" id="displayNombre">ALVARO DIAZ LAGUADO</span></div>
-      <div class="client-item"><span class="client-label">Manzana</span><span class="client-value" id="displayManzana">MZ-01</span></div>
-      <div class="client-item"><span class="client-label">Interior</span><span class="client-value" id="displayInterior">INT-01</span></div>
-      <div class="client-item"><span class="client-label">Matrícula</span><span class="client-value" id="displayMatricula">260-140971</span></div>
-      <div class="client-item"><span class="client-label">Código Catastral</span><span class="client-value" id="displayCodigoCatastral">01-04-0511-0001-000</span></div>
-      <div class="client-item"><span class="client-label">Dirección</span><span class="client-value" id="displayDireccion">AV. LAS AMERICAS # 17-57</span></div>
+      <div class="client-item"><span class="client-label">Propietario</span><span class="client-value" id="displayNombre">---</span></div>
+      <div class="client-item"><span class="client-label">Manzana</span><span class="client-value" id="displayManzana">---</span></div>
+      <div class="client-item"><span class="client-label">Interior</span><span class="client-value" id="displayInterior">---</span></div>
+      <div class="client-item"><span class="client-label">Matrícula</span><span class="client-value" id="displayMatricula">---</span></div>
+      <div class="client-item"><span class="client-label">Código Catastral</span><span class="client-value" id="displayCodigoCatastral">---</span></div>
+      <div class="client-item"><span class="client-label">Dirección</span><span class="client-value" id="displayDireccion">---</span></div>
     </div>
 
     <h3>📋 DETALLE DE FACTURACIÓN - MARZO 2026</h3>
@@ -403,9 +405,20 @@
 </div>
 
 <script>
-  const propietariosData = [
-    { "id": "MZ-01-INT-01", "nombre": "ALVARO DIAZ LAGUADO", "manzana": "MZ-01", "interior": "INT-01", "direccion": "AVENIDA LAS AMERICAS # 17-57 / 17-153", "matricula": "260-140971", "codigo_catastral": "01-04-0511-0001-000" }
-  ];
+  let propietariosData = [];
+
+  function mostrarError(mensaje, esError = true) {
+    const errorDiv = document.getElementById('errorContainer');
+    errorDiv.style.display = 'block';
+    errorDiv.style.background = esError ? '#ffebee' : '#e8f5e8';
+    errorDiv.style.color = esError ? '#c62828' : '#2e7d32';
+    errorDiv.innerHTML = mensaje;
+    if (!esError) setTimeout(() => { errorDiv.style.display = 'none'; }, 3000);
+  }
+
+  function ocultarError() {
+    document.getElementById('errorContainer').style.display = 'none';
+  }
 
   function formatoMoneda(valor) {
     return '$' + Number(valor).toLocaleString('es-CO') + '°°';
@@ -422,10 +435,12 @@
     document.getElementById('displayFecha').innerText = f.toLocaleDateString('es-CO', { year:'numeric', month:'long', day:'numeric' });
 
     document.getElementById('displayFacturaNum').innerText = document.getElementById('facturaNum').value;
-    const c = v => parseFloat(document.getElementById(v).value) || 0;
+
+    const c = id => parseFloat(document.getElementById(id).value) || 0;
     const cuotaAdmon = c('cuotaAdmon'), cuotaExtra = c('cuotaExtra'), sanciones = c('sanciones');
     const acuerdoPago = c('acuerdoPago'), cuotaMes = 150000;
     const admAcum = c('admAcumulada'), extraAcum = c('extraAcumulada'), abonos = c('abonos');
+
     const totalConceptos = cuotaAdmon + cuotaExtra + sanciones + acuerdoPago + cuotaMes;
     const totalGeneral = totalConceptos + admAcum + extraAcum;
     const saldo = totalGeneral - abonos;
@@ -444,28 +459,73 @@
   }
 
   function cargarPropietario() {
-    const id = document.getElementById('propietarioSelect').value;
+    const select = document.getElementById('propietarioSelect');
+    const id = select.value;
+    if (!id) {
+      document.getElementById('displayNombre').innerText = '---';
+      document.getElementById('displayDireccion').innerText = '---';
+      document.getElementById('displayManzana').innerText = '---';
+      document.getElementById('displayInterior').innerText = '---';
+      document.getElementById('displayMatricula').innerText = '---';
+      document.getElementById('displayCodigoCatastral').innerText = '---';
+      return;
+    }
+
     const prop = propietariosData.find(p => p.id === id);
     if (prop) {
-      document.getElementById('displayNombre').innerText = prop.nombre;
-      document.getElementById('displayDireccion').innerText = prop.direccion;
-      document.getElementById('displayManzana').innerText = prop.manzana;
-      document.getElementById('displayInterior').innerText = prop.interior;
-      document.getElementById('displayMatricula').innerText = prop.matricula;
-      document.getElementById('displayCodigoCatastral').innerText = prop.codigo_catastral;
+      document.getElementById('displayNombre').innerText = prop.nombre || '---';
+      document.getElementById('displayDireccion').innerText = prop.direccion || '---';
+      document.getElementById('displayManzana').innerText = prop.manzana || '---';
+      document.getElementById('displayInterior').innerText = prop.interior || '---';
+      document.getElementById('displayMatricula').innerText = prop.matricula || '---';
+      document.getElementById('displayCodigoCatastral').innerText = prop.codigo_catastral || '---';
     }
+  }
+
+  function cargarJSON() {
+    ocultarError();
+    const select = document.getElementById('propietarioSelect');
+    select.innerHTML = '<option value="">Cargando propietarios...</option>';
+
+    fetch('propietarios.json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Error HTTP: ${response.status} - No se encontró propietarios.json`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        if (!data.propietarios) {
+          throw new Error('El JSON no tiene la propiedad "propietarios"');
+        }
+        propietariosData = data.propietarios;
+
+        if (propietariosData.length === 0) {
+          throw new Error('El archivo JSON está vacío');
+        }
+
+        select.innerHTML = '<option value="">-- Seleccionar propietario --</option>';
+        propietariosData.forEach(p => {
+          const option = document.createElement('option');
+          option.value = p.id;
+          option.textContent = `${p.manzana} ${p.interior} - ${p.nombre}`;
+          select.appendChild(option);
+        });
+
+        mostrarError(`✅ ${propietariosData.length} propietarios cargados`, false);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        mostrarError('❌ ' + error.message);
+        select.innerHTML = '<option value="">Error al cargar JSON</option>';
+      });
   }
 
   window.onload = () => {
     const hoy = new Date();
     document.getElementById('fechaFactura').value = `${hoy.getFullYear()}-${String(hoy.getMonth()+1).padStart(2,'0')}-${String(hoy.getDate()).padStart(2,'0')}`;
     actualizarFactura();
-    const select = document.getElementById('propietarioSelect');
-    propietariosData.forEach(p => {
-      const o = document.createElement('option');
-      o.value = p.id; o.textContent = `${p.manzana} ${p.interior} - ${p.nombre}`;
-      select.appendChild(o);
-    });
+    cargarJSON();
   };
 </script>
 </body>
