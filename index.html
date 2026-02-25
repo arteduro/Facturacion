@@ -1,612 +1,348 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Factura - Brisas del Norte</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brisas del Norte - Sistema de Facturación</title>
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: #eef2f6;
-      padding: 5px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0a0f1c 0%, #1a1f2e 100%);
+      color: white;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
     }
 
-    @page {
-      size: A4 landscape;
-      margin: 0.5cm;
-    }
-
-    .app-container {
-      max-width: 1150px;
+    .container {
+      max-width: 1200px;
       width: 100%;
-      margin: 0 auto;
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 10px 20px rgba(0,20,40,0.15);
-      overflow: hidden;
-      page-break-inside: avoid;
-    }
-
-    .top-bar {
-      background: #1e3c5c;
-      padding: 6px 12px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      color: white;
-    }
-
-    .top-bar h2 {
-      font-size: 1.2rem;
-      font-weight: 600;
-    }
-
-    .top-bar h2 span {
-      font-size: 0.7rem;
-      font-weight: 300;
-      display: block;
-    }
-
-    .btn {
-      padding: 5px 10px;
-      border: none;
-      border-radius: 30px;
-      font-weight: 600;
-      font-size: 0.8rem;
-      cursor: pointer;
-      background: white;
-      color: #1e3c5c;
-    }
-
-    .btn-success {
-      background: #1f7b4d;
-      color: white;
-    }
-
-    .btn-primary {
-      background: #1e3c5c;
-      color: white;
-    }
-
-    .control-panel {
-      background: #f8fafd;
-      padding: 8px 12px;
-      border-bottom: 1px solid #d0dfee;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 6px;
-    }
-
-    .form-group {
-      margin-bottom: 0;
-    }
-
-    .form-group label {
-      display: block;
-      font-weight: 600;
-      font-size: 0.6rem;
-      color: #2c4c6b;
-      margin-bottom: 1px;
-      text-transform: uppercase;
-    }
-
-    .form-group input,
-    .form-group select {
-      width: 100%;
-      padding: 4px 6px;
-      border: 1px solid #d0dfee;
-      border-radius: 20px;
-      font-size: 0.7rem;
-      background: white;
-    }
-
-    .form-group input[readonly] {
-      background: #e9ecef;
-      cursor: not-allowed;
-      opacity: 0.8;
-    }
-
-    .form-row {
-      display: flex;
-      gap: 4px;
-    }
-
-    .invoice-area {
-      padding: 8px 12px;
-    }
-
-    .invoice-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 6px;
-      border-bottom: 2px solid #1e3c5c;
-      padding-bottom: 4px;
-    }
-
-    .logo-box {
-      background: white;
-      padding: 4px 8px;
-      border-radius: 8px;
-      border: 1px solid #c8d9e9;
-      min-width: 140px;
       text-align: center;
     }
 
-    .logo-box img {
-      max-width: 100%;
+    .header {
+      margin-bottom: 30px;
+    }
+
+    .logo {
+      margin-bottom: 20px;
+    }
+
+    .logo img {
+      max-width: 280px;
       height: auto;
-      max-height: 40px;
+      border-radius: 15px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+      border: 2px solid rgba(255,215,0,0.3);
+      transition: transform 0.3s;
     }
 
-    .title-box h2 {
-      color: #1e3c5c;
-      font-size: 1rem;
-      margin-bottom: 2px;
-      line-height: 1.1;
+    .logo img:hover {
+      transform: scale(1.02);
     }
 
-    .title-box p {
-      color: #4a6d8c;
-      font-size: 0.55rem;
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      color: #FFD700;
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+      letter-spacing: 2px;
     }
 
-    .client-info {
-      background: #f0f7ff;
-      border-radius: 6px;
-      padding: 6px 8px;
-      margin-bottom: 6px;
+    .subtitle {
+      font-size: 1.3rem;
+      margin-bottom: 40px;
+      color: #a0c0ff;
+      font-weight: 300;
+    }
+
+    .stats-container {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      margin: 40px 0 50px;
+      flex-wrap: wrap;
+      background: rgba(255,255,255,0.05);
+      padding: 25px;
+      border-radius: 50px;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255,215,0,0.2);
+    }
+
+    .stat-item {
+      text-align: center;
+      min-width: 120px;
+    }
+
+    .stat-value {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #FFD700;
+      line-height: 1.2;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: #a0c0ff;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+    }
+
+    .options {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 4px;
-      border: 1px solid #cbdbe9;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      margin: 30px 0 40px;
     }
 
-    .client-item {
+    .card {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 30px;
+      padding: 40px 25px;
+      text-decoration: none;
+      color: white;
+      border: 2px solid rgba(255,255,255,0.1);
+      transition: all 0.4s ease;
+      cursor: pointer;
       display: flex;
       flex-direction: column;
-    }
-
-    .client-label {
-      font-size: 0.5rem;
-      text-transform: uppercase;
-      color: #4a6d8c;
-    }
-
-    .client-value {
-      font-weight: 600;
-      font-size: 0.65rem;
-      color: #102b40;
-      background: white;
-      padding: 2px 4px;
-      border-radius: 20px;
-      border: 1px solid #cbdbe9;
-      white-space: nowrap;
+      align-items: center;
+      position: relative;
       overflow: hidden;
-      text-overflow: ellipsis;
     }
 
-    h3 {
-      font-size: 0.8rem;
-      margin: 6px 0 3px;
-      color: #1d3e5e;
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #FFD700, #FFA500);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
     }
 
-    h4 {
-      font-size: 0.7rem;
-      margin-bottom: 3px;
+    .card:hover::before {
+      transform: scaleX(1);
     }
 
-    .invoice-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 4px 0;
-      border-radius: 6px;
-      overflow: hidden;
-      font-size: 0.65rem;
+    .card:hover {
+      transform: translateY(-15px);
+      background: rgba(255,255,255,0.12);
+      border-color: #FFD700;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.5);
     }
 
-    .invoice-table th {
-      background: #1e3c5c;
-      color: white;
-      font-weight: 600;
-      padding: 4px;
-      text-align: left;
-    }
-
-    .invoice-table td {
-      padding: 3px 4px;
-      border-bottom: 1px solid #d4e0ea;
-      background: white;
-    }
-
-    .summary-box {
-      background: #e5eff9;
-      padding: 4px 6px;
-      border-radius: 6px;
-      margin: 4px 0;
+    .card-icon {
+      font-size: 5rem;
+      margin-bottom: 20px;
+      background: rgba(255,215,0,0.1);
+      width: 120px;
+      height: 120px;
       display: flex;
-      justify-content: space-around;
-      font-size: 0.7rem;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 2px solid rgba(255,215,0,0.3);
+      transition: all 0.3s;
     }
 
-    .summary-item span {
-      display: block;
-      font-size: 0.5rem;
-      font-weight: 400;
-      color: #2c4c6b;
+    .card:hover .card-icon {
+      background: rgba(255,215,0,0.2);
+      border-color: #FFD700;
+      transform: scale(1.1);
     }
 
-    .deuda-box {
-      background: #f0f5fb;
-      border-radius: 6px;
-      padding: 6px;
-      margin: 4px 0;
+    .card h3 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #FFD700;
     }
 
-    .deuda-item {
-      display: flex;
-      justify-content: space-between;
-      padding: 2px 0;
-      border-bottom: 1px dashed #b8cde0;
-      font-size: 0.65rem;
+    .card p {
+      font-size: 1rem;
+      color: #c0d4ff;
+      margin-bottom: 25px;
+      line-height: 1.6;
+      max-width: 280px;
     }
 
-    .total-general {
-      text-align: right;
-      margin: 3px 0;
+    .badge {
+      background: #FFD700;
+      color: #1e3c5c;
+      padding: 8px 20px;
+      border-radius: 50px;
       font-size: 0.9rem;
+      font-weight: 700;
+      display: inline-block;
+      margin: 10px 0;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 10px rgba(255,215,0,0.3);
     }
 
-    .notas {
-      background: #fef8e7;
-      border-left: 3px solid #dd9220;
-      padding: 4px 6px;
-      border-radius: 4px;
-      margin-top: 4px;
-      font-size: 0.55rem;
-      line-height: 1.2;
-      page-break-inside: avoid;
+    .card-features {
+      margin-top: 15px;
+      font-size: 0.85rem;
+      color: #a0c0ff;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
-    .error-message {
-      background: #ffebee;
-      color: #c62828;
-      padding: 4px 8px;
-      margin: 4px 12px;
-      border-radius: 4px;
-      font-size: 0.7rem;
-      display: none;
+    .card-features span {
+      background: rgba(255,255,255,0.05);
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,215,0,0.2);
     }
 
-    @media print {
-      .control-panel, .top-bar .btn, .error-message {
-        display: none !important;
-      }
-      .top-bar {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
-      body {
-        background: white;
-        padding: 0;
-      }
+    .info-box {
+      margin-top: 50px;
+      background: rgba(255,255,255,0.03);
+      padding: 25px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,215,0,0.15);
+      backdrop-filter: blur(5px);
+    }
+
+    .info-box p {
+      color: #FFD700;
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .info-box small {
+      color: #a0c0ff;
+      font-size: 0.95rem;
+      display: block;
+      line-height: 1.6;
+    }
+
+    .footer {
+      margin-top: 60px;
+      font-size: 0.9rem;
+      color: #6d8db0;
+      border-top: 1px solid rgba(255,215,0,0.2);
+      padding-top: 25px;
+    }
+
+    .footer p {
+      margin: 5px 0;
+    }
+
+    .footer .nit {
+      color: #FFD700;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2.2rem; }
+      .subtitle { font-size: 1rem; }
+      .stats-container { gap: 30px; padding: 15px; }
+      .stat-value { font-size: 2rem; }
+      .card { padding: 30px 15px; }
+      .card h3 { font-size: 1.6rem; }
+      .card-icon { width: 100px; height: 100px; font-size: 3.5rem; }
+    }
+
+    @media (max-width: 480px) {
+      .options { grid-template-columns: 1fr; }
+      .stats-container { flex-direction: column; gap: 15px; }
     }
   </style>
 </head>
 <body>
-<div class="app-container">
-  <div class="top-bar no-print">
-    <h2>FACTURACIÓN <span>Brisas del Norte</span></h2>
-    <div>
-      <button class="btn btn-primary" onclick="window.location.href='facturacion-masiva.html'">📦 Facturación Masiva</button>
-      <button class="btn btn-success" onclick="window.print()">📄 PDF</button>
+  <div class="container">
+    <!-- Encabezado con logo -->
+    <div class="header">
+      <div class="logo">
+        <img src="https://i.postimg.cc/2yb3MyY0/LOGO-BRISAS-DEL-NORTE.png" alt="Logo Brisas del Norte">
+      </div>
+      <h1>🏢 BRISAS DEL NORTE</h1>
+      <div class="subtitle">Sistema Integral de Administración y Facturación</div>
+    </div>
+
+    <!-- Estadísticas del conjunto -->
+    <div class="stats-container">
+      <div class="stat-item">
+        <div class="stat-value">357</div>
+        <div class="stat-label">Propietarios</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">31</div>
+        <div class="stat-label">Manzanas</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">$100K</div>
+        <div class="stat-label">Cuota Fija</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">2026</div>
+        <div class="stat-label">Vigencia</div>
+      </div>
+    </div>
+
+    <!-- Opciones de facturación -->
+    <div class="options">
+      <!-- Tarjeta de Factura Individual -->
+      <a href="factura-individual.html" class="card">
+        <div class="card-icon">🧾</div>
+        <h3>Factura Individual</h3>
+        <p>Genere facturas personalizadas para un propietario específico. Ideal para consultas rápidas, ajustes particulares y atención en administración.</p>
+        <span class="badge">💰 Cuota fija $100,000</span>
+        <div class="card-features">
+          <span>⚡ Tiempo real</span>
+          <span>✏️ Editable</span>
+          <span>🖨️ Imprimible</span>
+        </div>
+      </a>
+
+      <!-- Tarjeta de Facturación Masiva -->
+      <a href="facturacion-masiva.html" class="card">
+        <div class="card-icon">📦</div>
+        <h3>Facturación Masiva</h3>
+        <p>Cargue archivo Excel con novedades y genere facturas automáticas para todos los propietarios. Perfecto para cortes mensuales y procesos por lotes.</p>
+        <span class="badge">⚙️ Procesamiento por lotes</span>
+        <div class="card-features">
+          <span>📊 Excel/CSV</span>
+          <span>📄 PDF</span>
+          <span>📈 Reportes</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Información adicional -->
+    <div class="info-box">
+      <p>📌 Sistema de Facturación Marzo 2026</p>
+      <small>
+        • Cuota de administración fija: <strong>$100,000</strong><br>
+        • Cargos variables: cuotas extras, sanciones y acuerdos de pago<br>
+        • Actualización en tiempo real de valores<br>
+        • Exportación a PDF, Excel y CSV disponible en facturación masiva
+      </small>
+    </div>
+
+    <!-- Pie de página -->
+    <div class="footer">
+      <p>© 2026 Conjunto Residencial Cerrado Brisas del Norte</p>
+      <p class="nit">NIT: 807.003.209-3 - Personería Jurídica No.1646 - Dic 17/1993</p>
+      <p>Desarrollado para la Asamblea General de Copropietarios</p>
+      <p style="margin-top: 15px; font-size: 0.8rem;">✨ Transparencia y eficiencia en la gestión financiera ✨</p>
     </div>
   </div>
-
-  <div id="errorContainer" class="error-message no-print"></div>
-
-  <div class="control-panel no-print">
-    <div class="form-group">
-      <label>👤 Propietario</label>
-      <select id="propietarioSelect" onchange="cargarPropietario()">
-        <option value="">Cargando propietarios...</option>
-      </select>
-    </div>
-    <div class="form-row">
-      <div class="form-group">
-        <label>N° Factura</label>
-        <input type="text" id="facturaNum" value="5000" onchange="actualizarFactura()" onkeyup="actualizarFactura()">
-      </div>
-      <div class="form-group">
-        <label>Fecha</label>
-        <input type="date" id="fechaFactura" onchange="actualizarFactura()">
-      </div>
-    </div>
-    <div class="form-group">
-      <label>💰 Cuota admón (FIJA)</label>
-      <input type="number" id="cuotaAdmon" value="100000" readonly>
-    </div>
-    <div class="form-group">
-      <label>💰 Cuota extra</label>
-      <input type="number" id="cuotaExtra" value="0" onchange="actualizarFactura()" onkeyup="actualizarFactura()">
-    </div>
-    <div class="form-group">
-      <label>⚠️ Sanciones</label>
-      <input type="number" id="sanciones" value="0" onchange="actualizarFactura()" onkeyup="actualizarFactura()">
-    </div>
-    <div class="form-group">
-      <label>🤝 Acuerdo pago</label>
-      <input type="number" id="acuerdoPago" value="0" onchange="actualizarFactura()" onkeyup="actualizarFactura()">
-    </div>
-    <div class="form-group">
-      <label>📊 Admón acumulada</label>
-      <input type="number" id="admAcumulada" value="0" onchange="actualizarFactura()" onkeyup="actualizarFactura()">
-    </div>
-    <div class="form-group">
-      <label>💰 Extra acumulada</label>
-      <input type="number" id="extraAcumulada" value="0" onchange="actualizarFactura()" onkeyup="actualizarFactura()">
-    </div>
-    <div class="form-group">
-      <label>💵 Abonos</label>
-      <input type="number" id="abonos" value="0" onchange="actualizarFactura()" onkeyup="actualizarFactura()">
-    </div>
-  </div>
-
-  <div class="invoice-area">
-    <div class="invoice-header">
-      <div class="logo-box">
-        <img src="https://i.postimg.cc/2yb3MyY0/LOGO-BRISAS-DEL-NORTE.png" alt="Logo">
-      </div>
-      <div class="title-box">
-        <h2>CONJUNTO RESIDENCIAL CERRADO<br>BRISAS DEL NORTE</h2>
-        <p>NIT: 807.003.209-3 - Personería Jurídica No.1646 - Dic 17/1993</p>
-      </div>
-    </div>
-
-    <div class="client-info">
-      <div class="client-item"><span class="client-label">Factura N°</span><span class="client-value" id="displayFacturaNum">5000</span></div>
-      <div class="client-item"><span class="client-label">Fecha</span><span class="client-value" id="displayFecha"></span></div>
-      <div class="client-item"><span class="client-label">Propietario</span><span class="client-value" id="displayNombre">---</span></div>
-      <div class="client-item"><span class="client-label">Manzana</span><span class="client-value" id="displayManzana">---</span></div>
-      <div class="client-item"><span class="client-label">Interior</span><span class="client-value" id="displayInterior">---</span></div>
-      <div class="client-item"><span class="client-label">Matrícula</span><span class="client-value" id="displayMatricula">---</span></div>
-      <div class="client-item"><span class="client-label">Código Catastral</span><span class="client-value" id="displayCodigoCatastral">---</span></div>
-      <div class="client-item"><span class="client-label">Dirección</span><span class="client-value" id="displayDireccion">---</span></div>
-    </div>
-
-    <h3>📋 DETALLE DE FACTURACIÓN - MARZO 2026</h3>
-    <table class="invoice-table">
-      <thead>
-        <tr>
-          <th>Concepto</th>
-          <th>Valor</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Cuota de administración</td>
-          <td id="displayCuotaAdmon">$100.000°°</td>
-        </tr>
-        <tr>
-          <td>Cuota extraordinaria</td>
-          <td id="displayCuotaExtra">$0°°</td>
-        </tr>
-        <tr>
-          <td>Sanciones / Multas</td>
-          <td id="displaySanciones">$0°°</td>
-        </tr>
-        <tr>
-          <td>Acuerdo de pago</td>
-          <td id="displayAcuerdoPago">$0°°</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="summary-box">
-      <div class="summary-item">
-        <span>TOTAL MES</span>
-        <strong id="displayTotalMes">$100.000°°</strong>
-      </div>
-      <div class="summary-item">
-        <span>ABONOS</span>
-        <strong id="displayAbonos">$0°°</strong>
-      </div>
-      <div class="summary-item">
-        <span>SALDO MES</span>
-        <strong id="displaySaldoMes">$100.000°°</strong>
-      </div>
-    </div>
-
-    <div class="deuda-box">
-      <h4>📆 DEUDA CON FECHA DE CORTE A FEBRERO</h4>
-      <div class="deuda-item">
-        <span>Administración acumulada</span>
-        <span id="displayAdmAcum">$0°°</span>
-      </div>
-      <div class="deuda-item">
-        <span>Cuota Extraordinaria</span>
-        <span id="displayExtraAcum">$0°°</span>
-      </div>
-      <div class="deuda-item">
-        <span>Intereses</span>
-        <span>$0°°</span>
-      </div>
-    </div>
-
-    <div class="total-general">
-      <strong>DEBE LA SUMA DE: <span id="displayTotal">$100.000°°</span></strong>
-    </div>
-
-    <div class="notas">
-      <strong>📌 NOTA:</strong> Pagos en BANCOLOMBIA AHORRO # 834-000000-00. Interés 2,5% en mora. Tres (03) cuotas atrasadas: cobro jurídico.
-    </div>
-  </div>
-</div>
-
-<script>
-  let propietariosData = [];
-
-  function mostrarError(mensaje, esError = true) {
-    const errorDiv = document.getElementById('errorContainer');
-    errorDiv.style.display = 'block';
-    errorDiv.style.background = esError ? '#ffebee' : '#e8f5e8';
-    errorDiv.style.color = esError ? '#c62828' : '#2e7d32';
-    errorDiv.innerHTML = mensaje;
-    if (!esError) setTimeout(() => { errorDiv.style.display = 'none'; }, 3000);
-  }
-
-  function ocultarError() {
-    document.getElementById('errorContainer').style.display = 'none';
-  }
-
-  function formatoMoneda(valor) {
-    return '$' + Number(valor).toLocaleString('es-CO') + '°°';
-  }
-
-  function actualizarFactura() {
-    // Actualizar fecha
-    let fechaRaw = document.getElementById('fechaFactura').value;
-    if (!fechaRaw) {
-      const hoy = new Date();
-      fechaRaw = `${hoy.getFullYear()}-${String(hoy.getMonth() + 1).padStart(2, '0')}-${String(hoy.getDate()).padStart(2, '0')}`;
-      document.getElementById('fechaFactura').value = fechaRaw;
-    }
-    const f = new Date(fechaRaw + 'T12:00:00');
-    document.getElementById('displayFecha').innerText = f.toLocaleDateString('es-CO', { year: 'numeric', month: 'long', day: 'numeric' });
-
-    // Actualizar número de factura
-    document.getElementById('displayFacturaNum').innerText = document.getElementById('facturaNum').value;
-
-    // Obtener todos los valores numéricos
-    const c = id => parseFloat(document.getElementById(id).value) || 0;
-
-    const cuotaAdmon = 100000; // ✅ FIJA en $100,000
-    const cuotaExtra = c('cuotaExtra');
-    const sanciones = c('sanciones');
-    const acuerdoPago = c('acuerdoPago');
-    const admAcum = c('admAcumulada');
-    const extraAcum = c('extraAcumulada');
-    const abonos = c('abonos');
-
-    // Calcular totales
-    const totalConceptos = cuotaAdmon + cuotaExtra + sanciones + acuerdoPago;
-    const totalGeneral = totalConceptos + admAcum + extraAcum;
-    const saldo = totalGeneral - abonos;
-
-    // Actualizar todos los campos de la factura
-    document.getElementById('displayCuotaAdmon').innerText = formatoMoneda(cuotaAdmon);
-    document.getElementById('displayCuotaExtra').innerText = formatoMoneda(cuotaExtra);
-    document.getElementById('displaySanciones').innerText = formatoMoneda(sanciones);
-    document.getElementById('displayAcuerdoPago').innerText = formatoMoneda(acuerdoPago);
-    document.getElementById('displayTotalMes').innerText = formatoMoneda(totalConceptos);
-    document.getElementById('displayAbonos').innerText = formatoMoneda(abonos);
-    document.getElementById('displaySaldoMes').innerText = formatoMoneda(saldo);
-    document.getElementById('displayAdmAcum').innerText = formatoMoneda(admAcum);
-    document.getElementById('displayExtraAcum').innerText = formatoMoneda(extraAcum);
-    document.getElementById('displayTotal').innerText = formatoMoneda(totalGeneral);
-  }
-
-  function cargarPropietario() {
-    const select = document.getElementById('propietarioSelect');
-    const id = select.value;
-    if (!id) {
-      // Limpiar datos del cliente
-      document.getElementById('displayNombre').innerText = '---';
-      document.getElementById('displayDireccion').innerText = '---';
-      document.getElementById('displayManzana').innerText = '---';
-      document.getElementById('displayInterior').innerText = '---';
-      document.getElementById('displayMatricula').innerText = '---';
-      document.getElementById('displayCodigoCatastral').innerText = '---';
-      
-      // Resetear valores modificables a 0
-      document.getElementById('cuotaExtra').value = 0;
-      document.getElementById('sanciones').value = 0;
-      document.getElementById('acuerdoPago').value = 0;
-      document.getElementById('admAcumulada').value = 0;
-      document.getElementById('extraAcumulada').value = 0;
-      document.getElementById('abonos').value = 0;
-      
-      actualizarFactura();
-      return;
-    }
-
-    // Convertir a número porque los IDs en JSON son números
-    const prop = propietariosData.find(p => p.id === parseInt(id));
-    if (prop) {
-      document.getElementById('displayNombre').innerText = prop.propietario || '---';
-      document.getElementById('displayDireccion').innerText = `${prop.manzana || ''} ${prop.interior || ''}`.trim() || '---';
-      document.getElementById('displayManzana').innerText = prop.manzana || '---';
-      document.getElementById('displayInterior').innerText = prop.interior || '---';
-      document.getElementById('displayMatricula').innerText = prop.matricula_inmobiliaria || '---';
-      document.getElementById('displayCodigoCatastral').innerText = prop.codigo_catastral || '---';
-      
-      // Aquí podrías cargar valores específicos del propietario
-      // si tu JSON tuviera campos como deuda_extra, sanciones, etc.
-      document.getElementById('cuotaExtra').value = 0;
-      document.getElementById('sanciones').value = 0;
-      document.getElementById('acuerdoPago').value = 0;
-      document.getElementById('admAcumulada').value = 0;
-      document.getElementById('extraAcumulada').value = 0;
-      document.getElementById('abonos').value = 0;
-      
-      actualizarFactura();
-    }
-  }
-
-  function cargarJSON() {
-    ocultarError();
-    const select = document.getElementById('propietarioSelect');
-    select.innerHTML = '<option value="">Cargando propietarios...</option>';
-
-    fetch('propietarios.json')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`Error HTTP: ${response.status} - No se encontró propietarios.json`);
-        }
-        return response.json();
-      })
-      .then(data => {
-        // data es DIRECTAMENTE el array
-        propietariosData = data;
-
-        if (!propietariosData || propietariosData.length === 0) {
-          throw new Error('El archivo JSON está vacío');
-        }
-
-        select.innerHTML = '<option value="">-- Seleccionar propietario --</option>';
-        propietariosData.forEach(p => {
-          const option = document.createElement('option');
-          option.value = p.id;
-          option.textContent = `${p.manzana || ''} ${p.interior || ''} - ${p.propietario || 'Sin nombre'}`.trim();
-          select.appendChild(option);
-        });
-
-        mostrarError(`✅ ${propietariosData.length} propietarios cargados`, false);
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        mostrarError('❌ ' + error.message);
-        select.innerHTML = '<option value="">Error al cargar JSON</option>';
-      });
-  }
-
-  window.onload = () => {
-    const hoy = new Date();
-    document.getElementById('fechaFactura').value = `${hoy.getFullYear()}-${String(hoy.getMonth() + 1).padStart(2, '0')}-${String(hoy.getDate()).padStart(2, '0')}`;
-    actualizarFactura();
-    cargarJSON();
-  };
-</script>
 </body>
 </html>
