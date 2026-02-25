@@ -379,7 +379,7 @@
         <tr><td>Cuota extraordinaria</td><td id="displayCuotaExtra">$100.000°°</td></tr>
         <tr><td>Sanciones / Multas</td><td id="displaySanciones">$50.000°°</td></tr>
         <tr><td>Acuerdo de pago</td><td id="displayAcuerdoPago">$75.000°°</td></tr>
-        <tr><td>Cuota mes</td><td id="displayCuotaMes">$375.000°°</td></tr>
+        <!-- ✅ FILA "CUOTA MES" ELIMINADA -->
       </tbody>
     </table>
 
@@ -445,14 +445,13 @@
     const cuotaExtra = c('cuotaExtra');
     const sanciones = c('sanciones');
     const acuerdoPago = c('acuerdoPago');
-    // ✅ LA CUOTA MES ES LA MISMA QUE CUOTA ADMÓN
-    const cuotaMes = cuotaAdmon;
+    // ✅ ELIMINADA LA VARIABLE cuotaMes
     const admAcum = c('admAcumulada');
     const extraAcum = c('extraAcumulada');
     const abonos = c('abonos');
 
-    // Calcular totales
-    const totalConceptos = cuotaAdmon + cuotaExtra + sanciones + acuerdoPago + cuotaMes;
+    // Calcular totales - AHORA SOLO UNA VEZ LA CUOTA ADMÓN
+    const totalConceptos = cuotaAdmon + cuotaExtra + sanciones + acuerdoPago;
     const totalGeneral = totalConceptos + admAcum + extraAcum;
     const saldo = totalGeneral - abonos;
 
@@ -461,7 +460,7 @@
     document.getElementById('displayCuotaExtra').innerText = formatoMoneda(cuotaExtra);
     document.getElementById('displaySanciones').innerText = formatoMoneda(sanciones);
     document.getElementById('displayAcuerdoPago').innerText = formatoMoneda(acuerdoPago);
-    document.getElementById('displayCuotaMes').innerText = formatoMoneda(cuotaMes);
+    // ✅ NO HAY displayCuotaMes QUE ACTUALIZAR
     document.getElementById('displayTotalMes').innerText = formatoMoneda(totalConceptos);
     document.getElementById('displayAbonos').innerText = formatoMoneda(abonos);
     document.getElementById('displaySaldoMes').innerText = formatoMoneda(saldo);
