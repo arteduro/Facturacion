@@ -336,10 +336,6 @@
       <input type="number" id="acuerdoPago" value="75000" onchange="actualizarFactura()" onkeyup="actualizarFactura()">
     </div>
     <div class="form-group">
-      <label>📅 Cuota mes</label>
-      <input type="number" id="cuotaMes" value="150000" onchange="actualizarFactura()" onkeyup="actualizarFactura()">
-    </div>
-    <div class="form-group">
       <label>📊 Admón acumulada</label>
       <input type="number" id="admAcumulada" value="1000000" onchange="actualizarFactura()" onkeyup="actualizarFactura()">
     </div>
@@ -383,7 +379,7 @@
         <tr><td>Cuota extraordinaria</td><td id="displayCuotaExtra">$100.000°°</td></tr>
         <tr><td>Sanciones / Multas</td><td id="displaySanciones">$50.000°°</td></tr>
         <tr><td>Acuerdo de pago</td><td id="displayAcuerdoPago">$75.000°°</td></tr>
-        <tr><td>Cuota mes</td><td id="displayCuotaMes">$150.000°°</td></tr>
+        <tr><td>Cuota mes</td><td id="displayCuotaMes">$375.000°°</td></tr>
       </tbody>
     </table>
 
@@ -449,7 +445,8 @@
     const cuotaExtra = c('cuotaExtra');
     const sanciones = c('sanciones');
     const acuerdoPago = c('acuerdoPago');
-    const cuotaMes = c('cuotaMes'); // ← AHORA ES EDITABLE
+    // ✅ LA CUOTA MES ES LA MISMA QUE CUOTA ADMÓN
+    const cuotaMes = cuotaAdmon;
     const admAcum = c('admAcumulada');
     const extraAcum = c('extraAcumulada');
     const abonos = c('abonos');
