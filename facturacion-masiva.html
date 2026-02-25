@@ -268,7 +268,7 @@
 
     .manzana-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: 15px;
       margin: 20px 0;
     }
@@ -625,16 +625,16 @@
     </div>
   </div>
 
-  <!-- Pestaña 3: Generar por Manzanas (NUEVA) -->
+  <!-- Pestaña 3: Generar por Manzanas (CORREGIDA) -->
   <div id="tab-manzanas" style="display: none;" class="card">
     <div class="card-header">
       <span>🏢 Generar Facturas por Manzanas</span>
-      <span class="badge badge-info">Total: <span id="totalFacturasManzanas">359</span> facturas</span>
+      <span class="badge badge-info">Total: <span id="totalFacturasManzanas">0</span> facturas</span>
     </div>
     <div class="card-body">
       <div style="text-align: center; margin-bottom: 20px;">
         <h3 style="color: #1e3c5c;">Seleccione las manzanas para generar PDFs</h3>
-        <p style="color: #4a6d8c;">Cada manzana generará un ZIP independiente con sus facturas</p>
+        <p style="color: #4a6d8c;">Cada manzana generará un ZIP independiente con TODAS sus facturas en PDF + Excel</p>
       </div>
 
       <!-- Selector de manzanas -->
@@ -651,13 +651,13 @@
         </button>
       </div>
 
-      <!-- Progreso -->
+      <!-- Progreso detallado -->
       <div id="manzanasProgress" style="display: none; margin-top: 30px;">
         <h4 style="color: #1e3c5c;">Generando facturas...</h4>
         <div class="progress-bar" style="height: 25px;">
           <div class="progress-fill" id="manzanasProgressFill" style="width: 0%;"></div>
         </div>
-        <p id="manzanasProgressText" style="margin-top: 10px;">Preparando...</p>
+        <p id="manzanasProgressText" style="margin-top: 10px; font-weight: bold;">Preparando...</p>
         <p id="manzanasProgressDetalle" style="color: #666;"></p>
       </div>
     </div>
@@ -673,7 +673,7 @@
     </div>
     <div class="card-body">
       <div style="margin-bottom: 15px; display: flex; gap: 10px; flex-wrap: wrap;">
-        <button class="btn btn-manzana" onclick="generarZIPVistaSeleccionadas()">📦 ZIP Seleccionadas</button>
+        <button class="btn btn-manzana" onclick="generarZIPSeleccionadas()">📦 ZIP Seleccionadas</button>
         <button class="btn btn-excel" onclick="exportarSeleccionadasExcel()">📊 Excel Seleccionadas</button>
         <button class="btn btn-primary" onclick="seleccionarTodas(true)">✅ Seleccionar todas</button>
         <button class="btn btn-warning" onclick="seleccionarTodas(false)">❌ Limpiar selección</button>
@@ -709,7 +709,7 @@
     <div class="card-body">
       <div class="stats" style="margin-bottom: 20px;">
         <div class="stat-card">
-          <div class="stat-value" id="totalExportar">359</div>
+          <div class="stat-value" id="totalExportar">0</div>
           <div class="stat-label">Facturas totales</div>
         </div>
         <div class="stat-card">
@@ -717,7 +717,7 @@
           <div class="stat-label">Manzanas</div>
         </div>
         <div class="stat-card">
-          <div class="stat-value" id="totalValorExportar">$36.465.000</div>
+          <div class="stat-value" id="totalValorExportar">$0</div>
           <div class="stat-label">Valor total</div>
         </div>
       </div>
@@ -1038,7 +1038,7 @@
     document.getElementById('totalValorExportar').innerText = '$' + total.toLocaleString('es-CO');
   }
 
-  // ========== FUNCIONES PARA GENERACIÓN POR MANZANAS ==========
+  // ========== FUNCIONES PARA GENERACIÓN POR MANZANAS (CORREGIDAS) ==========
   
   function cargarManzanas() {
     const manzanasUnicas = [...new Set(facturasGeneradas.map(f => f.manzana))].sort();
@@ -1109,9 +1109,9 @@
       document.getElementById('manzanasProgressText').innerHTML = 
         `Procesando ${manzana} (${manzanasProcesadas + 1}/${totalManzanas})...`;
       document.getElementById('manzanasProgressDetalle').innerHTML = 
-        `${facturasManzana.length} facturas`;
+        `${facturasManzana.length} facturas - Generando PDFs...`;
       
-      await generarZIPManzana(manzana, facturasManzana);
+      await generarZIPCompletoManzana(manzana, facturasManzana);
       
       manzanasProcesadas++;
       const porcentaje = (manzanasProcesadas / totalManzanas) * 100;
@@ -1122,27 +1122,31 @@
     alert(`✅ Generación completada: ${manzanasProcesadas} manzanas procesadas`);
   }
 
-  async function generarZIPManzana(manzana, facturas) {
+  async function generarZIPCompletoManzana(manzana, facturas) {
     const zip = new JSZip();
     
-    // Agregar Excel de la manzana
+    // Crear carpeta para la manzana
+    const carpetaManzana = zip.folder(manzana);
+    
+    // 1. Agregar Excel consolidado de la manzana
     const ws = XLSX.utils.json_to_sheet(facturas);
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'Facturas');
     const excelBlob = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
-    zip.file(`${manzana}_consolidado.xlsx`, excelBlob);
+    carpetaManzana.file(`${manzana}_consolidado.xlsx`, excelBlob);
     
-    // Generar PDFs individuales
-    const pdfFolder = zip.folder(manzana);
+    // 2. Crear carpeta para PDFs dentro de la manzana
+    const pdfFolder = carpetaManzana.folder('PDFs');
     
+    // 3. Generar PDFs individuales
     for (let i = 0; i < facturas.length; i++) {
       const factura = facturas[i];
       
       document.getElementById('manzanasProgressDetalle').innerHTML = 
-        `${facturas.length} facturas - Generando ${i+1}/${facturas.length}`;
+        `${facturas.length} facturas - Generando PDF ${i+1}/${facturas.length}`;
       
       const elemento = document.createElement('div');
-      elemento.innerHTML = generarHTMLFactura(factura);
+      elemento.innerHTML = generarHTMLFacturaCompleta(factura);
       elemento.style.position = 'absolute';
       elemento.style.left = '-9999px';
       elemento.style.top = '-9999px';
@@ -1154,7 +1158,9 @@
       try {
         const canvas = await html2canvas(elemento.firstChild || elemento, {
           scale: 1.5,
-          logging: false
+          logging: false,
+          allowTaint: false,
+          useCORS: true
         });
         
         const imgData = canvas.toDataURL('image/png');
@@ -1166,17 +1172,83 @@
         
         pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
         const pdfBlob = pdf.output('blob');
+        
+        // Guardar PDF con nombre formateado
         pdfFolder.file(`factura_${factura.numero}.pdf`, pdfBlob);
         
         document.body.removeChild(elemento);
+        
+        // Pequeña pausa para no saturar
+        await new Promise(resolve => setTimeout(resolve, 100));
+        
       } catch (error) {
         console.error(`Error en factura ${factura.numero}:`, error);
         document.body.removeChild(elemento);
       }
     }
     
-    const content = await zip.generateAsync({ type: 'blob' });
-    saveAs(content, `${manzana}_facturas.zip`);
+    // 4. Generar el ZIP
+    const content = await zip.generateAsync({ 
+      type: 'blob',
+      compression: 'DEFLATE',
+      compressionOptions: { level: 6 }
+    });
+    
+    // 5. Descargar el ZIP
+    saveAs(content, `${manzana}_facturas_completas.zip`);
+  }
+
+  // Función mejorada para generar HTML de factura con todos los detalles
+  function generarHTMLFacturaCompleta(factura) {
+    const fecha = new Date(factura.fecha + 'T12:00:00');
+    const fechaFormateada = fecha.toLocaleDateString('es-CO', { year: 'numeric', month: 'long', day: 'numeric' });
+    const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+    const mesTexto = meses[parseInt(factura.mes) - 1] + ' 2026';
+    
+    return `
+      <div style="font-family: 'Segoe UI', sans-serif; padding: 20px; background: white; width: 750px; margin: 0 auto; border: 1px solid #ddd; border-radius: 10px;">
+        <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px; border-bottom: 2px solid #1e3c5c; padding-bottom: 15px;">
+          <img src="https://i.postimg.cc/2yb3MyY0/LOGO-BRISAS-DEL-NORTE.png" alt="Logo Brisas del Norte" style="max-width: 150px; max-height: 60px;">
+          <div>
+            <h2 style="color: #1e3c5c; margin-bottom: 5px; font-size: 1.3rem;">CONJUNTO RESIDENCIAL CERRADO BRISAS DEL NORTE</h2>
+            <p style="color: #4a6d8c; font-size: 0.8rem;">NIT: 807.003.209-3 - Personería Jurídica No.1646 - Dic 17/1993</p>
+          </div>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; background: #f0f7ff; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+          <div><strong style="color: #1e3c5c;">Factura N°:</strong> ${factura.numero}</div>
+          <div><strong style="color: #1e3c5c;">Fecha:</strong> ${fechaFormateada}</div>
+          <div><strong style="color: #1e3c5c;">Período:</strong> ${mesTexto}</div>
+          <div><strong style="color: #1e3c5c;">Propietario:</strong> ${factura.propietario}</div>
+          <div><strong style="color: #1e3c5c;">Manzana:</strong> ${factura.manzana}</div>
+          <div><strong style="color: #1e3c5c;">Interior:</strong> ${factura.interior}</div>
+        </div>
+        
+        <h3 style="color: #1e3c5c; margin-bottom: 15px; font-size: 1.1rem;">📋 DETALLE DE FACTURACIÓN</h3>
+        <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+          <tr style="background: #1e3c5c; color: white;">
+            <th style="padding: 10px; text-align: left; border-radius: 5px 0 0 0;">Concepto</th>
+            <th style="padding: 10px; text-align: right; border-radius: 0 5px 0 0;">Valor</th>
+          </tr>
+          <tr>
+            <td style="padding: 8px; border-bottom: 1px solid #ddd;">Cuota de administración</td>
+            <td style="padding: 8px; border-bottom: 1px solid #ddd; text-align: right;">$${factura.total_mes.toLocaleString('es-CO')}</td>
+          </tr>
+        </table>
+        
+        <div style="background: #e5eff9; padding: 15px; border-radius: 8px; margin: 20px 0;">
+          <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 1.2rem;">
+            <span style="color: #1e3c5c;">TOTAL A PAGAR:</span>
+            <span style="color: #1e3c5c;">$${factura.total_mes.toLocaleString('es-CO')}</span>
+          </div>
+        </div>
+        
+        <div style="margin-top: 30px; font-size: 0.75rem; color: #666; border-top: 1px solid #ddd; padding-top: 15px;">
+          <p><strong>NOTA IMPORTANTE:</strong> Pagos en BANCOLOMBIA AHORRO # 834-000000-00. Interés por mora: 2,5% mensual.</p>
+          <p style="margin-top: 5px;">Tres (03) cuotas atrasadas: inicio de cobro jurídico.</p>
+        </div>
+      </div>
+    `;
   }
 
   function cargarTablaFacturas() {
@@ -1209,7 +1281,7 @@
     if (facturasGeneradas.length > 50) {
       const tr = document.createElement('tr');
       tr.innerHTML = `<td colspan="7" style="text-align: center; padding: 10px; background: #f8fafd;">
-        <strong>Mostrando 50 de ${facturasGeneradas.length} facturas</strong>
+        <strong>Mostrando 50 de ${facturasGeneradas.length} facturas. Use filtros para encontrar específicas.</strong>
       </td>`;
       tbody.appendChild(tr);
     }
@@ -1255,7 +1327,7 @@
     });
   }
 
-  function generarZIPVistaSeleccionadas() {
+  function generarZIPSeleccionadas() {
     if (facturasSeleccionadas.size === 0) {
       alert('Seleccione al menos una factura');
       return;
@@ -1265,24 +1337,9 @@
     const manzanasUnicas = [...new Set(seleccionadas.map(f => f.manzana))];
     
     if (manzanasUnicas.length === 1) {
-      // Si es una sola manzana, generar ZIP normal
-      const temp = facturasGeneradas;
-      facturasGeneradas = seleccionadas;
-      generarZIPManzana(manzanasUnicas[0], seleccionadas).then(() => {
-        facturasGeneradas = temp;
-      });
+      generarZIPCompletoManzana(manzanasUnicas[0], seleccionadas);
     } else {
-      // Múltiples manzanas - generar ZIPs separados
-      const temp = facturasGeneradas;
-      facturasGeneradas = seleccionadas;
-      const manzanasArray = manzanasUnicas;
-      
-      manzanasArray.forEach(async (manzana) => {
-        const facturasManzana = seleccionadas.filter(f => f.manzana === manzana);
-        await generarZIPManzana(manzana, facturasManzana);
-      });
-      
-      facturasGeneradas = temp;
+      alert('Las facturas seleccionadas son de diferentes manzanas. Use la pestaña "Generar por Manzanas" para seleccionar manzanas completas.');
     }
   }
 
@@ -1308,13 +1365,12 @@
     
     manzanasUnicas.forEach(async (manzana) => {
       const facturasManzana = facturasGeneradas.filter(f => f.manzana === manzana);
-      await generarZIPManzana(manzana, facturasManzana);
+      await generarZIPCompletoManzana(manzana, facturasManzana);
     });
   }
 
   function exportarTodoUnZIP() {
-    const temp = facturasGeneradas;
-    generarZIPManzana('TODAS_LAS_FACTURAS', temp);
+    generarZIPCompletoManzana('TODAS_LAS_FACTURAS', facturasGeneradas);
   }
 
   function exportarTodasExcel() {
@@ -1324,63 +1380,12 @@
     XLSX.writeFile(wb, `facturas_${new Date().toISOString().split('T')[0]}.xlsx`);
   }
 
-  function generarHTMLFactura(factura) {
-    const fecha = new Date(factura.fecha + 'T12:00:00');
-    const fechaFormateada = fecha.toLocaleDateString('es-CO', { year: 'numeric', month: 'long', day: 'numeric' });
-    const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-    const mesTexto = meses[parseInt(factura.mes) - 1] + ' 2026';
-    
-    return `
-      <div style="font-family: 'Segoe UI', sans-serif; padding: 20px; background: white; width: 750px; margin: 0 auto;">
-        <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px; border-bottom: 2px solid #1e3c5c; padding-bottom: 10px;">
-          <img src="https://i.postimg.cc/2yb3MyY0/LOGO-BRISAS-DEL-NORTE.png" alt="Logo" style="max-width: 150px;">
-          <div>
-            <h2 style="color: #1e3c5c; margin-bottom: 5px;">CONJUNTO RESIDENCIAL CERRADO BRISAS DEL NORTE</h2>
-            <p style="color: #4a6d8c;">NIT: 807.003.209-3 - Personería Jurídica No.1646 - Dic 17/1993</p>
-          </div>
-        </div>
-        
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; background: #f0f7ff; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
-          <div><strong>Factura N°:</strong> ${factura.numero}</div>
-          <div><strong>Fecha:</strong> ${fechaFormateada}</div>
-          <div><strong>Período:</strong> ${mesTexto}</div>
-          <div><strong>Propietario:</strong> ${factura.propietario}</div>
-          <div><strong>Manzana:</strong> ${factura.manzana}</div>
-          <div><strong>Interior:</strong> ${factura.interior}</div>
-        </div>
-        
-        <h3 style="color: #1e3c5c; margin-bottom: 15px;">📋 DETALLE DE FACTURACIÓN</h3>
-        <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
-          <tr style="background: #1e3c5c; color: white;">
-            <th style="padding: 10px; text-align: left;">Concepto</th>
-            <th style="padding: 10px; text-align: right;">Valor</th>
-          </tr>
-          <tr>
-            <td style="padding: 8px; border-bottom: 1px solid #ddd;">Cuota de administración</td>
-            <td style="padding: 8px; border-bottom: 1px solid #ddd; text-align: right;">$${factura.total_mes.toLocaleString('es-CO')}</td>
-          </tr>
-        </table>
-        
-        <div style="background: #e5eff9; padding: 15px; border-radius: 5px; margin: 20px 0;">
-          <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 1.2rem;">
-            <span>TOTAL A PAGAR:</span>
-            <span>$${factura.total_mes.toLocaleString('es-CO')}</span>
-          </div>
-        </div>
-        
-        <div style="margin-top: 30px; font-size: 0.8rem; color: #666; border-top: 1px solid #ddd; padding-top: 10px;">
-          <p><strong>NOTA:</strong> Pagos en BANCOLOMBIA AHORRO # 834-000000-00. Interés 2,5% en mora.</p>
-        </div>
-      </div>
-    `;
-  }
-
   function verFactura(numero) {
     const factura = facturasGeneradas.find(f => f.numero === numero);
     if (!factura) return;
     
     facturaActual = factura;
-    const html = generarHTMLFactura(factura);
+    const html = generarHTMLFacturaCompleta(factura);
     
     document.getElementById('facturaPreview').innerHTML = html;
     document.getElementById('facturaModal').style.display = 'flex';
@@ -1394,13 +1399,16 @@
   function imprimirFactura() {
     if (!facturaActual) return;
     
-    const contenido = generarHTMLFactura(facturaActual);
+    const contenido = generarHTMLFacturaCompleta(facturaActual);
     const ventana = window.open('', '_blank');
     ventana.document.write(`
       <html>
         <head>
-          <title>Factura N° ${facturaActual.numero}</title>
-          <style>body { font-family: 'Segoe UI', sans-serif; padding: 20px; }</style>
+          <title>Factura N° ${facturaActual.numero} - Brisas del Norte</title>
+          <style>
+            body { font-family: 'Segoe UI', sans-serif; padding: 20px; }
+            @media print { body { padding: 0; } }
+          </style>
         </head>
         <body>${contenido}</body>
       </html>
@@ -1412,7 +1420,7 @@
     if (!facturaActual) return;
     
     const elemento = document.createElement('div');
-    elemento.innerHTML = generarHTMLFactura(facturaActual);
+    elemento.innerHTML = generarHTMLFacturaCompleta(facturaActual);
     elemento.style.position = 'absolute';
     elemento.style.left = '-9999px';
     elemento.style.top = '-9999px';
@@ -1452,7 +1460,7 @@
     reporte += `Total facturado: $${total.toLocaleString('es-CO')}\n\n`;
     
     reporte += 'RESUMEN POR MANZANA:\n';
-    reporte += '-'.repeat(50) + '\n';
+    reporte += '-'.repeat(60) + '\n';
     
     manzanasUnicas.sort().forEach(manzana => {
       const facturasManzana = facturasGeneradas.filter(f => f.manzana === manzana);
