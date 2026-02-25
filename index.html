@@ -373,30 +373,67 @@
 
     <h3>📋 DETALLE DE FACTURACIÓN - MARZO 2026</h3>
     <table class="invoice-table">
-      <thead><tr><th>Concepto</th><th>Valor</th></tr></thead>
+      <thead>
+        <tr>
+          <th>Concepto</th>
+          <th>Valor</th>
+        </tr>
+      </thead>
       <tbody>
-        <tr><td>Cuota de administración</td><td id="displayCuotaAdmon">$375.000°°</td></tr>
-        <tr><td>Cuota extraordinaria</td><td id="displayCuotaExtra">$100.000°°</td></tr>
-        <tr><td>Sanciones / Multas</td><td id="displaySanciones">$50.000°°</td></tr>
-        <tr><td>Acuerdo de pago</td><td id="displayAcuerdoPago">$75.000°°</td></tr>
-        <!-- ✅ FILA "CUOTA MES" ELIMINADA -->
+        <tr>
+          <td>Cuota de administración</td>
+          <td id="displayCuotaAdmon">$375.000°°</td>
+        </tr>
+        <tr>
+          <td>Cuota extraordinaria</td>
+          <td id="displayCuotaExtra">$100.000°°</td>
+        </tr>
+        <tr>
+          <td>Sanciones / Multas</td>
+          <td id="displaySanciones">$50.000°°</td>
+        </tr>
+        <tr>
+          <td>Acuerdo de pago</td>
+          <td id="displayAcuerdoPago">$75.000°°</td>
+        </tr>
+        <!-- ✅ FILA "CUOTA MES" ELIMINADA - ya no aparece -->
       </tbody>
     </table>
 
     <div class="summary-box">
-      <div class="summary-item"><span>TOTAL MES</span><strong id="displayTotalMes">$5.000.000°°</strong></div>
-      <div class="summary-item"><span>ABONOS</span><strong id="displayAbonos">$1.800.000°°</strong></div>
-      <div class="summary-item"><span>SALDO MES</span><strong id="displaySaldoMes">$3.200.000°°</strong></div>
+      <div class="summary-item">
+        <span>TOTAL MES</span>
+        <strong id="displayTotalMes">$600.000°°</strong>
+      </div>
+      <div class="summary-item">
+        <span>ABONOS</span>
+        <strong id="displayAbonos">$1.800.000°°</strong>
+      </div>
+      <div class="summary-item">
+        <span>SALDO MES</span>
+        <strong id="displaySaldoMes">$-1.200.000°°</strong>
+      </div>
     </div>
 
     <div class="deuda-box">
       <h4>📆 DEUDA CON FECHA DE CORTE A FEBRERO</h4>
-      <div class="deuda-item"><span>Administración acumulada</span><span id="displayAdmAcum">$1.000.000°°</span></div>
-      <div class="deuda-item"><span>Cuota Extraordinaria</span><span id="displayExtraAcum">$1.000.000°°</span></div>
-      <div class="deuda-item"><span>Intereses</span><span>$0°°</span></div>
+      <div class="deuda-item">
+        <span>Administración acumulada</span>
+        <span id="displayAdmAcum">$1.000.000°°</span>
+      </div>
+      <div class="deuda-item">
+        <span>Cuota Extraordinaria</span>
+        <span id="displayExtraAcum">$1.000.000°°</span>
+      </div>
+      <div class="deuda-item">
+        <span>Intereses</span>
+        <span>$0°°</span>
+      </div>
     </div>
 
-    <div class="total-general"><strong>DEBE LA SUMA DE: <span id="displayTotal">$1.375.000°°</span></strong></div>
+    <div class="total-general">
+      <strong>DEBE LA SUMA DE: <span id="displayTotal">$800.000°°</span></strong>
+    </div>
 
     <div class="notas">
       <strong>📌 NOTA:</strong> Pagos en BANCOLOMBIA AHORRO # 834-000000-00. Interés 2,5% en mora. Tres (03) cuotas atrasadas: cobro jurídico.
@@ -429,23 +466,23 @@
     let fechaRaw = document.getElementById('fechaFactura').value;
     if (!fechaRaw) {
       const hoy = new Date();
-      fechaRaw = `${hoy.getFullYear()}-${String(hoy.getMonth()+1).padStart(2,'0')}-${String(hoy.getDate()).padStart(2,'0')}`;
+      fechaRaw = `${hoy.getFullYear()}-${String(hoy.getMonth() + 1).padStart(2, '0')}-${String(hoy.getDate()).padStart(2, '0')}`;
       document.getElementById('fechaFactura').value = fechaRaw;
     }
     const f = new Date(fechaRaw + 'T12:00:00');
-    document.getElementById('displayFecha').innerText = f.toLocaleDateString('es-CO', { year:'numeric', month:'long', day:'numeric' });
+    document.getElementById('displayFecha').innerText = f.toLocaleDateString('es-CO', { year: 'numeric', month: 'long', day: 'numeric' });
 
     // Actualizar número de factura
     document.getElementById('displayFacturaNum').innerText = document.getElementById('facturaNum').value;
 
     // Obtener todos los valores numéricos
     const c = id => parseFloat(document.getElementById(id).value) || 0;
-    
+
     const cuotaAdmon = c('cuotaAdmon');
     const cuotaExtra = c('cuotaExtra');
     const sanciones = c('sanciones');
     const acuerdoPago = c('acuerdoPago');
-    // ✅ ELIMINADA LA VARIABLE cuotaMes
+    // ✅ ELIMINADA la variable cuotaMes
     const admAcum = c('admAcumulada');
     const extraAcum = c('extraAcumulada');
     const abonos = c('abonos');
@@ -533,7 +570,7 @@
 
   window.onload = () => {
     const hoy = new Date();
-    document.getElementById('fechaFactura').value = `${hoy.getFullYear()}-${String(hoy.getMonth()+1).padStart(2,'0')}-${String(hoy.getDate()).padStart(2,'0')}`;
+    document.getElementById('fechaFactura').value = `${hoy.getFullYear()}-${String(hoy.getMonth() + 1).padStart(2, '0')}-${String(hoy.getDate()).padStart(2, '0')}`;
     actualizarFactura();
     cargarJSON();
   };
