@@ -10,7 +10,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
   <style>
-    /* Mantén todos los estilos que ya tienes */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -823,7 +822,7 @@
       document.getElementById('generacionProgressDetalle').innerHTML = `Factura N° ${factura.numero} - ${factura.propietario}`;
       
       try {
-        // Crear elemento HTML de la factura con altura automática
+        // Crear elemento HTML de la factura
         const elemento = document.createElement('div');
         elemento.innerHTML = generarFacturaCompleta(factura);
         elemento.style.position = 'absolute';
@@ -835,27 +834,34 @@
         elemento.style.boxSizing = 'border-box';
         document.body.appendChild(elemento);
         
-        // Calcular la altura real del contenido
+        // Obtener la altura REAL del contenido
         const alturaReal = elemento.scrollHeight;
+        
+        // Configurar el elemento con su altura real
         elemento.style.height = alturaReal + 'px';
+        elemento.style.overflow = 'visible';
         
-        // Esperar un momento para que se renderice
-        await new Promise(resolve => setTimeout(resolve, 300));
+        // Esperar a que se renderice completamente
+        await new Promise(resolve => setTimeout(resolve, 500));
         
-        // Generar PDF con opciones para capturar TODO el contenido
+        // Generar canvas con el tamaño exacto del contenido
         const canvas = await html2canvas(elemento, {
           scale: 2,
-          logging: false,
+          logging: true,
           allowTaint: false,
           useCORS: true,
           backgroundColor: '#ffffff',
           windowWidth: 850,
-          windowHeight: alturaReal + 50,
+          windowHeight: alturaReal + 20,
           scrollY: 0,
-          scrollX: 0
+          scrollX: 0,
+          x: 0,
+          y: 0,
+          width: elemento.offsetWidth,
+          height: alturaReal
         });
         
-        // Crear PDF con el tamaño exacto del canvas
+        // Crear PDF con las dimensiones exactas del canvas
         const imgData = canvas.toDataURL('image/png');
         const pdfWidth = canvas.width;
         const pdfHeight = canvas.height;
@@ -876,7 +882,7 @@
         document.body.removeChild(elemento);
         
         // Pequeña pausa para no saturar el navegador
-        await new Promise(resolve => setTimeout(resolve, 200));
+        await new Promise(resolve => setTimeout(resolve, 300));
         
       } catch (error) {
         console.error(`Error en factura ${factura.numero}:`, error);
@@ -920,7 +926,7 @@
     }
   }
 
-  // Función que genera la factura COMPLETA con altura automática
+  // Función que genera la factura COMPLETA
   function generarFacturaCompleta(factura) {
     const fecha = new Date(factura.fecha + 'T12:00:00');
     const fechaFormateada = fecha.toLocaleDateString('es-CO', { 
