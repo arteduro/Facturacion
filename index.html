@@ -105,6 +105,12 @@
       background: white;
     }
 
+    .form-group input[readonly] {
+      background: #e9ecef;
+      cursor: not-allowed;
+      opacity: 0.8;
+    }
+
     .form-row {
       display: flex;
       gap: 4px;
@@ -320,32 +326,32 @@
       </div>
     </div>
     <div class="form-group">
-      <label>💰 Cuota admón</label>
-      <input type="number" id="cuotaAdmon" value="375000" onchange="actualizarFactura()" onkeyup="actualizarFactura()">
+      <label>💰 Cuota admón (FIJA)</label>
+      <input type="number" id="cuotaAdmon" value="100000" readonly>
     </div>
     <div class="form-group">
       <label>💰 Cuota extra</label>
-      <input type="number" id="cuotaExtra" value="100000" onchange="actualizarFactura()" onkeyup="actualizarFactura()">
+      <input type="number" id="cuotaExtra" value="0" onchange="actualizarFactura()" onkeyup="actualizarFactura()">
     </div>
     <div class="form-group">
       <label>⚠️ Sanciones</label>
-      <input type="number" id="sanciones" value="50000" onchange="actualizarFactura()" onkeyup="actualizarFactura()">
+      <input type="number" id="sanciones" value="0" onchange="actualizarFactura()" onkeyup="actualizarFactura()">
     </div>
     <div class="form-group">
       <label>🤝 Acuerdo pago</label>
-      <input type="number" id="acuerdoPago" value="75000" onchange="actualizarFactura()" onkeyup="actualizarFactura()">
+      <input type="number" id="acuerdoPago" value="0" onchange="actualizarFactura()" onkeyup="actualizarFactura()">
     </div>
     <div class="form-group">
       <label>📊 Admón acumulada</label>
-      <input type="number" id="admAcumulada" value="1000000" onchange="actualizarFactura()" onkeyup="actualizarFactura()">
+      <input type="number" id="admAcumulada" value="0" onchange="actualizarFactura()" onkeyup="actualizarFactura()">
     </div>
     <div class="form-group">
       <label>💰 Extra acumulada</label>
-      <input type="number" id="extraAcumulada" value="1000000" onchange="actualizarFactura()" onkeyup="actualizarFactura()">
+      <input type="number" id="extraAcumulada" value="0" onchange="actualizarFactura()" onkeyup="actualizarFactura()">
     </div>
     <div class="form-group">
       <label>💵 Abonos</label>
-      <input type="number" id="abonos" value="1800000" onchange="actualizarFactura()" onkeyup="actualizarFactura()">
+      <input type="number" id="abonos" value="0" onchange="actualizarFactura()" onkeyup="actualizarFactura()">
     </div>
   </div>
 
@@ -382,36 +388,36 @@
       <tbody>
         <tr>
           <td>Cuota de administración</td>
-          <td id="displayCuotaAdmon">$375.000°°</td>
+          <td id="displayCuotaAdmon">$100.000°°</td>
         </tr>
         <tr>
           <td>Cuota extraordinaria</td>
-          <td id="displayCuotaExtra">$100.000°°</td>
+          <td id="displayCuotaExtra">$0°°</td>
         </tr>
         <tr>
           <td>Sanciones / Multas</td>
-          <td id="displaySanciones">$50.000°°</td>
+          <td id="displaySanciones">$0°°</td>
         </tr>
         <tr>
           <td>Acuerdo de pago</td>
-          <td id="displayAcuerdoPago">$75.000°°</td>
+          <td id="displayAcuerdoPago">$0°°</td>
         </tr>
-        <!-- ✅ FILA "CUOTA MES" ELIMINADA - ya no aparece -->
+        <!-- ✅ FILA "CUOTA MES" ELIMINADA -->
       </tbody>
     </table>
 
     <div class="summary-box">
       <div class="summary-item">
         <span>TOTAL MES</span>
-        <strong id="displayTotalMes">$600.000°°</strong>
+        <strong id="displayTotalMes">$100.000°°</strong>
       </div>
       <div class="summary-item">
         <span>ABONOS</span>
-        <strong id="displayAbonos">$1.800.000°°</strong>
+        <strong id="displayAbonos">$0°°</strong>
       </div>
       <div class="summary-item">
         <span>SALDO MES</span>
-        <strong id="displaySaldoMes">$-1.200.000°°</strong>
+        <strong id="displaySaldoMes">$100.000°°</strong>
       </div>
     </div>
 
@@ -419,11 +425,11 @@
       <h4>📆 DEUDA CON FECHA DE CORTE A FEBRERO</h4>
       <div class="deuda-item">
         <span>Administración acumulada</span>
-        <span id="displayAdmAcum">$1.000.000°°</span>
+        <span id="displayAdmAcum">$0°°</span>
       </div>
       <div class="deuda-item">
         <span>Cuota Extraordinaria</span>
-        <span id="displayExtraAcum">$1.000.000°°</span>
+        <span id="displayExtraAcum">$0°°</span>
       </div>
       <div class="deuda-item">
         <span>Intereses</span>
@@ -432,7 +438,7 @@
     </div>
 
     <div class="total-general">
-      <strong>DEBE LA SUMA DE: <span id="displayTotal">$800.000°°</span></strong>
+      <strong>DEBE LA SUMA DE: <span id="displayTotal">$100.000°°</span></strong>
     </div>
 
     <div class="notas">
@@ -478,16 +484,15 @@
     // Obtener todos los valores numéricos
     const c = id => parseFloat(document.getElementById(id).value) || 0;
 
-    const cuotaAdmon = c('cuotaAdmon');
+    const cuotaAdmon = 100000; // ✅ FIJA en $100,000
     const cuotaExtra = c('cuotaExtra');
     const sanciones = c('sanciones');
     const acuerdoPago = c('acuerdoPago');
-    // ✅ ELIMINADA la variable cuotaMes
     const admAcum = c('admAcumulada');
     const extraAcum = c('extraAcumulada');
     const abonos = c('abonos');
 
-    // Calcular totales - AHORA SOLO UNA VEZ LA CUOTA ADMÓN
+    // Calcular totales
     const totalConceptos = cuotaAdmon + cuotaExtra + sanciones + acuerdoPago;
     const totalGeneral = totalConceptos + admAcum + extraAcum;
     const saldo = totalGeneral - abonos;
@@ -497,7 +502,6 @@
     document.getElementById('displayCuotaExtra').innerText = formatoMoneda(cuotaExtra);
     document.getElementById('displaySanciones').innerText = formatoMoneda(sanciones);
     document.getElementById('displayAcuerdoPago').innerText = formatoMoneda(acuerdoPago);
-    // ✅ NO HAY displayCuotaMes QUE ACTUALIZAR
     document.getElementById('displayTotalMes').innerText = formatoMoneda(totalConceptos);
     document.getElementById('displayAbonos').innerText = formatoMoneda(abonos);
     document.getElementById('displaySaldoMes').innerText = formatoMoneda(saldo);
@@ -510,12 +514,23 @@
     const select = document.getElementById('propietarioSelect');
     const id = select.value;
     if (!id) {
+      // Limpiar datos del cliente
       document.getElementById('displayNombre').innerText = '---';
       document.getElementById('displayDireccion').innerText = '---';
       document.getElementById('displayManzana').innerText = '---';
       document.getElementById('displayInterior').innerText = '---';
       document.getElementById('displayMatricula').innerText = '---';
       document.getElementById('displayCodigoCatastral').innerText = '---';
+      
+      // Resetear valores modificables a 0
+      document.getElementById('cuotaExtra').value = 0;
+      document.getElementById('sanciones').value = 0;
+      document.getElementById('acuerdoPago').value = 0;
+      document.getElementById('admAcumulada').value = 0;
+      document.getElementById('extraAcumulada').value = 0;
+      document.getElementById('abonos').value = 0;
+      
+      actualizarFactura();
       return;
     }
 
@@ -528,6 +543,18 @@
       document.getElementById('displayInterior').innerText = prop.interior || '---';
       document.getElementById('displayMatricula').innerText = prop.matricula_inmobiliaria || '---';
       document.getElementById('displayCodigoCatastral').innerText = prop.codigo_catastral || '---';
+      
+      // ✅ AQUÍ PUEDES CARGAR VALORES ESPECÍFICOS DEL PROPIETARIO
+      // Por ahora los dejamos en 0, pero podrías tener campos como:
+      // prop.deudaExtra, prop.sanciones, etc. en tu JSON
+      document.getElementById('cuotaExtra').value = 0;
+      document.getElementById('sanciones').value = 0;
+      document.getElementById('acuerdoPago').value = 0;
+      document.getElementById('admAcumulada').value = 0;
+      document.getElementById('extraAcumulada').value = 0;
+      document.getElementById('abonos').value = 0;
+      
+      actualizarFactura();
     }
   }
 
