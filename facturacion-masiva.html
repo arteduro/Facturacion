@@ -1,0 +1,1049 @@
+cat > facturacion-masiva.html << 'EOF'
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Facturación Masiva - Brisas del Norte</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #eef2f6;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .header {
+      background: #1e3c5c;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 10px 10px 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header h1 {
+      font-size: 1.5rem;
+    }
+
+    .header h1 span {
+      font-size: 0.9rem;
+      font-weight: 300;
+      display: block;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    .card-header {
+      background: #f8fafd;
+      padding: 12px 15px;
+      border-bottom: 2px solid #1e3c5c;
+      font-weight: 600;
+      color: #1e3c5c;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .upload-area {
+      border: 2px dashed #cbdbe9;
+      border-radius: 10px;
+      padding: 40px;
+      text-align: center;
+      background: #f8fafd;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .upload-area:hover {
+      border-color: #1e3c5c;
+      background: #e8f0fe;
+    }
+
+    .upload-area i {
+      font-size: 48px;
+      color: #1e3c5c;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn-primary {
+      background: #1e3c5c;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #2a4a6e;
+    }
+
+    .btn-success {
+      background: #1f7b4d;
+      color: white;
+    }
+
+    .btn-success:hover {
+      background: #2a8e5a;
+    }
+
+    .btn-warning {
+      background: #dd9220;
+      color: white;
+    }
+
+    .btn-warning:hover {
+      background: #eaa52e;
+    }
+
+    .btn-danger {
+      background: #c62828;
+      color: white;
+    }
+
+    .btn-danger:hover {
+      background: #d32f2f;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+
+    th {
+      background: #1e3c5c;
+      color: white;
+      padding: 8px;
+      text-align: left;
+    }
+
+    td {
+      padding: 6px 8px;
+      border-bottom: 1px solid #d4e0ea;
+    }
+
+    tr:hover {
+      background: #f5f9ff;
+    }
+
+    .config-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .config-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .config-item label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #2c4c6b;
+      margin-bottom: 3px;
+    }
+
+    .config-item input,
+    .config-item select {
+      padding: 6px;
+      border: 1px solid #d0dfee;
+      border-radius: 4px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 20px;
+      background: #e9ecef;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 10px 0;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #1e3c5c, #2a6d9c);
+      width: 0%;
+      transition: width 0.3s;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin: 10px 0;
+    }
+
+    .stat-card {
+      background: #f8fafd;
+      border: 1px solid #cbdbe9;
+      border-radius: 5px;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1e3c5c;
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      color: #4a6d8c;
+    }
+
+    .filtros {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+
+    .filtro-input {
+      flex: 1;
+      min-width: 200px;
+      padding: 8px;
+      border: 1px solid #d0dfee;
+      border-radius: 20px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 10px;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+
+    .badge-success {
+      background: #e8f5e8;
+      color: #2e7d32;
+    }
+
+    .badge-warning {
+      background: #fff3e0;
+      color: #dd9220;
+    }
+
+    .badge-danger {
+      background: #ffebee;
+      color: #c62828;
+    }
+
+    .tabs {
+      display: flex;
+      border-bottom: 2px solid #d0dfee;
+      margin-bottom: 15px;
+    }
+
+    .tab {
+      padding: 8px 16px;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+    }
+
+    .tab.active {
+      border-bottom-color: #1e3c5c;
+      color: #1e3c5c;
+      font-weight: 600;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 10px;
+      max-width: 800px;
+      width: 90%;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    .modal-header {
+      background: #1e3c5c;
+      color: white;
+      padding: 15px;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .modal-body {
+      padding: 20px;
+    }
+
+    .modal-footer {
+      padding: 15px;
+      text-align: right;
+      border-top: 1px solid #d0dfee;
+    }
+
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="header no-print">
+    <h1>FACTURACIÓN MASIVA <span>Brisas del Norte</span></h1>
+    <div>
+      <button class="btn btn-success" onclick="window.location.href='index.html'">Factura Individual</button>
+    </div>
+  </div>
+
+  <!-- Pestañas -->
+  <div class="tabs no-print">
+    <div class="tab active" onclick="showTab('cargar')">📤 Cargar Novedades</div>
+    <div class="tab" onclick="showTab('procesar')">⚙️ Procesar Facturación</div>
+    <div class="tab" onclick="showTab('revisar')">👀 Revisar Facturas</div>
+    <div class="tab" onclick="showTab('exportar')">📦 Exportar</div>
+  </div>
+
+  <!-- Pestaña 1: Cargar Novedades -->
+  <div id="tab-cargar" class="card">
+    <div class="card-header">
+      <span>📤 Cargar archivo de novedades</span>
+      <span class="badge badge-success">Formato: Excel/CSV</span>
+    </div>
+    <div class="card-body">
+      <div class="upload-area" onclick="document.getElementById('fileInput').click()">
+        <i>📁</i>
+        <h3>Haga clic para cargar archivo</h3>
+        <p style="color: #4a6d8c;">Formatos aceptados: .xlsx, .xls, .csv</p>
+        <input type="file" id="fileInput" style="display: none;" accept=".xlsx,.xls,.csv" onchange="handleFileUpload(event)">
+      </div>
+
+      <div id="fileInfo" style="display: none; margin-top: 20px;">
+        <h4>Archivo cargado: <span id="fileName"></span></h4>
+        <div class="stats">
+          <div class="stat-card">
+            <div class="stat-value" id="totalRegistros">0</div>
+            <div class="stat-label">Total registros</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="propietariosEncontrados">0</div>
+            <div class="stat-label">Propietarios encontrados</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="propietariosNoEncontrados">0</div>
+            <div class="stat-label">No encontrados</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="totalFacturar">$0</div>
+            <div class="stat-label">Total a facturar</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pestaña 2: Procesar Facturación -->
+  <div id="tab-procesar" style="display: none;" class="card">
+    <div class="card-header">
+      <span>⚙️ Configuración de facturación</span>
+    </div>
+    <div class="card-body">
+      <div class="config-grid">
+        <div class="config-item">
+          <label>📅 Mes a facturar</label>
+          <select id="mesFacturacion">
+            <option value="1">Enero 2026</option>
+            <option value="2">Febrero 2026</option>
+            <option value="3" selected>Marzo 2026</option>
+            <option value="4">Abril 2026</option>
+            <option value="5">Mayo 2026</option>
+            <option value="6">Junio 2026</option>
+            <option value="7">Julio 2026</option>
+            <option value="8">Agosto 2026</option>
+            <option value="9">Septiembre 2026</option>
+            <option value="10">Octubre 2026</option>
+            <option value="11">Noviembre 2026</option>
+            <option value="12">Diciembre 2026</option>
+          </select>
+        </div>
+        <div class="config-item">
+          <label>💰 Cuota admón fija</label>
+          <input type="number" id="cuotaAdmonFija" value="100000" readonly>
+        </div>
+        <div class="config-item">
+          <label>📄 N° Factura inicial</label>
+          <input type="number" id="facturaInicial" value="5000">
+        </div>
+        <div class="config-item">
+          <label>📊 Tipo de facturación</label>
+          <select id="tipoFacturacion">
+            <option value="individual">Individual (una por propietario)</option>
+            <option value="consolidada">Consolidada (una por manzana)</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="margin: 20px 0;">
+        <button class="btn btn-primary" onclick="procesarFacturacion()">🔄 Procesar facturación</button>
+        <button class="btn btn-warning" onclick="simularFacturacion()">🔍 Simular</button>
+      </div>
+
+      <div id="progressContainer" style="display: none;">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <p id="progressText">Procesando 0/0 facturas...</p>
+      </div>
+
+      <div id="resultadosProceso" style="display: none;">
+        <h4>Resultados del proceso:</h4>
+        <div class="stats">
+          <div class="stat-card">
+            <div class="stat-value" id="facturasGeneradas">0</div>
+            <div class="stat-label">Facturas generadas</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="totalFacturado">$0</div>
+            <div class="stat-label">Total facturado</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="conErrores">0</div>
+            <div class="stat-label">Con errores</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="tiempoProceso">0s</div>
+            <div class="stat-label">Tiempo</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pestaña 3: Revisar Facturas -->
+  <div id="tab-revisar" style="display: none;" class="card">
+    <div class="card-header">
+      <span>👀 Revisión de facturas generadas</span>
+      <div>
+        <input type="text" class="filtro-input" placeholder="🔍 Buscar propietario..." id="filtroFacturas" onkeyup="filtrarFacturas()">
+      </div>
+    </div>
+    <div class="card-body">
+      <table id="tablaFacturas">
+        <thead>
+          <tr>
+            <th>Factura N°</th>
+            <th>Propietario</th>
+            <th>Manzana</th>
+            <th>Interior</th>
+            <th>Cuota admón</th>
+            <th>Cuota extra</th>
+            <th>Sanciones</th>
+            <th>Acuerdo</th>
+            <th>Total</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="facturasBody">
+          <tr>
+            <td colspan="11" style="text-align: center; padding: 20px;">
+              No hay facturas generadas. Cargue novedades y procese la facturación.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Pestaña 4: Exportar -->
+  <div id="tab-exportar" style="display: none;" class="card">
+    <div class="card-header">
+      <span>📦 Exportar facturas</span>
+    </div>
+    <div class="card-body">
+      <div class="config-grid">
+        <div class="config-item">
+          <label>📄 Formato de exportación</label>
+          <select id="formatoExportacion">
+            <option value="pdf">PDF (individuales)</option>
+            <option value="pdf-zip">PDF (comprimidos en ZIP)</option>
+            <option value="excel">Excel (consolidado)</option>
+            <option value="csv">CSV (para sistema contable)</option>
+            <option value="html">HTML (para imprimir)</option>
+          </select>
+        </div>
+        <div class="config-item">
+          <label>📁 Incluir</label>
+          <select id="incluirFacturas">
+            <option value="todas">Todas las facturas</option>
+            <option value="seleccionadas">Solo seleccionadas</option>
+            <option value="pendientes">Pendientes de pago</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="margin: 20px 0;">
+        <button class="btn btn-success" onclick="exportarFacturas()">📥 Exportar facturas</button>
+        <button class="btn btn-primary" onclick="generarReporte()">📊 Generar reporte</button>
+        <button class="btn btn-danger" onclick="limpiarTodo()">🗑️ Limpiar todo</button>
+      </div>
+
+      <div id="reporteGenerado" style="display: none;">
+        <h4>Reporte generado:</h4>
+        <pre id="reporteContenido" style="background: #f8fafd; padding: 10px; border-radius: 5px; max-height: 300px; overflow-y: auto;"></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de vista previa de factura -->
+  <div id="facturaModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Vista previa de factura</h3>
+      </div>
+      <div class="modal-body" id="facturaPreview">
+        <!-- Aquí se cargará la factura -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-success" onclick="imprimirFactura()">🖨️ Imprimir</button>
+        <button class="btn btn-primary" onclick="descargarPDF()">📥 Descargar PDF</button>
+        <button class="btn" onclick="cerrarModal()">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let propietariosData = [];
+  let novedadesData = [];
+  let facturasGeneradas = [];
+  let facturasSeleccionadas = new Set();
+
+  // Cargar propietarios al iniciar
+  window.onload = function() {
+    cargarPropietarios();
+  };
+
+  function showTab(tabName) {
+    // Ocultar todas las pestañas
+    document.getElementById('tab-cargar').style.display = 'none';
+    document.getElementById('tab-procesar').style.display = 'none';
+    document.getElementById('tab-revisar').style.display = 'none';
+    document.getElementById('tab-exportar').style.display = 'none';
+    
+    // Desactivar todas las tabs
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    
+    // Mostrar la pestaña seleccionada
+    document.getElementById(`tab-${tabName}`).style.display = 'block';
+    event.target.classList.add('active');
+  }
+
+  function cargarPropietarios() {
+    fetch('propietarios.json')
+      .then(response => response.json())
+      .then(data => {
+        propietariosData = data;
+        console.log(`✅ ${propietariosData.length} propietarios cargados`);
+      })
+      .catch(error => {
+        console.error('Error cargando propietarios:', error);
+        alert('Error cargando propietarios.json');
+      });
+  }
+
+  function handleFileUpload(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    document.getElementById('fileName').innerText = file.name;
+    
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      try {
+        const data = new Uint8Array(e.target.result);
+        const workbook = XLSX.read(data, { type: 'array' });
+        const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+        const jsonData = XLSX.utils.sheet_to_json(firstSheet);
+        
+        procesarNovedades(jsonData);
+      } catch (error) {
+        console.error('Error leyendo archivo:', error);
+        alert('Error al leer el archivo. Verifique el formato.');
+      }
+    };
+    reader.readAsArrayBuffer(file);
+  }
+
+  function procesarNovedades(data) {
+    novedadesData = data;
+    
+    // Estadísticas básicas
+    document.getElementById('totalRegistros').innerText = data.length;
+    
+    // Buscar propietarios en el JSON
+    let encontrados = 0;
+    let noEncontrados = 0;
+    let totalFacturar = 0;
+    
+    data.forEach(row => {
+      const propietario = propietariosData.find(p => 
+        p.propietario?.toLowerCase().includes(row.propietario?.toLowerCase() || '') ||
+        `${p.manzana} ${p.interior}`.toLowerCase().includes(row.direccion?.toLowerCase() || '')
+      );
+      
+      if (propietario) {
+        encontrados++;
+        totalFacturar += (row.cuota_extra || 0) + (row.sanciones || 0) + (row.acuerdo_pago || 0);
+      } else {
+        noEncontrados++;
+      }
+    });
+    
+    document.getElementById('propietariosEncontrados').innerText = encontrados;
+    document.getElementById('propietariosNoEncontrados').innerText = noEncontrados;
+    document.getElementById('totalFacturar').innerText = '$' + totalFacturar.toLocaleString('es-CO');
+    
+    document.getElementById('fileInfo').style.display = 'block';
+    
+    // Mostrar vista previa de novedades
+    mostrarVistaPreviaNovedades(data);
+  }
+
+  function mostrarVistaPreviaNovedades(data) {
+    const tablaNovedades = document.createElement('div');
+    tablaNovedades.innerHTML = '<h4>Vista previa de novedades:</h4>';
+    
+    const table = document.createElement('table');
+    const thead = document.createElement('thead');
+    const tbody = document.createElement('tbody');
+    
+    // Crear encabezados
+    if (data.length > 0) {
+      const headerRow = document.createElement('tr');
+      Object.keys(data[0]).forEach(key => {
+        const th = document.createElement('th');
+        th.innerText = key;
+        headerRow.appendChild(th);
+      });
+      thead.appendChild(headerRow);
+      
+      // Crear filas (máximo 5 para vista previa)
+      data.slice(0, 5).forEach(row => {
+        const tr = document.createElement('tr');
+        Object.values(row).forEach(val => {
+          const td = document.createElement('td');
+          td.innerText = val;
+          tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+      });
+    }
+    
+    table.appendChild(thead);
+    table.appendChild(tbody);
+    tablaNovedades.appendChild(table);
+    
+    // Agregar al DOM
+    const fileInfoDiv = document.getElementById('fileInfo');
+    const existingPreview = document.getElementById('vistaPreviaNovedades');
+    if (existingPreview) existingPreview.remove();
+    
+    tablaNovedades.id = 'vistaPreviaNovedades';
+    fileInfoDiv.appendChild(tablaNovedades);
+  }
+
+  function procesarFacturacion() {
+    if (novedadesData.length === 0) {
+      alert('Primero debe cargar un archivo de novedades.');
+      showTab('cargar');
+      return;
+    }
+    
+    const mes = document.getElementById('mesFacturacion').value;
+    const facturaInicial = parseInt(document.getElementById('facturaInicial').value);
+    const cuotaAdmon = 100000; // Fija
+    
+    document.getElementById('progressContainer').style.display = 'block';
+    facturasGeneradas = [];
+    
+    let procesadas = 0;
+    const total = novedadesData.length;
+    
+    // Simular procesamiento (en producción sería un bucle real)
+    const interval = setInterval(() => {
+      if (procesadas < total) {
+        const row = novedadesData[procesadas];
+        const propietario = propietariosData.find(p => 
+          p.propietario?.toLowerCase().includes(row.propietario?.toLowerCase() || '') ||
+          `${p.manzana} ${p.interior}`.toLowerCase().includes(row.direccion?.toLowerCase() || '')
+        );
+        
+        if (propietario) {
+          const factura = {
+            numero: facturaInicial + procesadas,
+            propietario: propietario.propietario,
+            manzana: propietario.manzana,
+            interior: propietario.interior,
+            matricula: propietario.matricula_inmobiliaria,
+            codigo_catastral: propietario.codigo_catastral,
+            cuota_admon: cuotaAdmon,
+            cuota_extra: row.cuota_extra || 0,
+            sanciones: row.sanciones || 0,
+            acuerdo_pago: row.acuerdo_pago || 0,
+            total_mes: cuotaAdmon + (row.cuota_extra || 0) + (row.sanciones || 0) + (row.acuerdo_pago || 0),
+            estado: 'pendiente',
+            mes: mes
+          };
+          facturasGeneradas.push(factura);
+        }
+        
+        procesadas++;
+        const porcentaje = (procesadas / total) * 100;
+        document.getElementById('progressFill').style.width = porcentaje + '%';
+        document.getElementById('progressText').innerText = `Procesando ${procesadas}/${total} facturas...`;
+      } else {
+        clearInterval(interval);
+        document.getElementById('progressContainer').style.display = 'none';
+        mostrarResultadosProceso();
+      }
+    }, 50); // Velocidad de simulación
+  }
+
+  function mostrarResultadosProceso() {
+    const total = facturasGeneradas.reduce((sum, f) => sum + f.total_mes, 0);
+    
+    document.getElementById('facturasGeneradas').innerText = facturasGeneradas.length;
+    document.getElementById('totalFacturado').innerText = '$' + total.toLocaleString('es-CO');
+    document.getElementById('conErrores').innerText = '0';
+    document.getElementById('tiempoProceso').innerText = facturasGeneradas.length * 0.05 + 's';
+    
+    document.getElementById('resultadosProceso').style.display = 'block';
+    
+    // Cargar tabla de facturas
+    cargarTablaFacturas();
+    
+    // Cambiar a la pestaña de revisar
+    document.querySelectorAll('.tab')[2].click();
+  }
+
+  function cargarTablaFacturas() {
+    const tbody = document.getElementById('facturasBody');
+    tbody.innerHTML = '';
+    
+    if (facturasGeneradas.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="11" style="text-align: center; padding: 20px;">No hay facturas generadas</td></tr>';
+      return;
+    }
+    
+    facturasGeneradas.forEach(f => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${f.numero}</td>
+        <td>${f.propietario || '---'}</td>
+        <td>${f.manzana || '---'}</td>
+        <td>${f.interior || '---'}</td>
+        <td>$${f.cuota_admon.toLocaleString('es-CO')}</td>
+        <td>$${f.cuota_extra.toLocaleString('es-CO')}</td>
+        <td>$${f.sanciones.toLocaleString('es-CO')}</td>
+        <td>$${f.acuerdo_pago.toLocaleString('es-CO')}</td>
+        <td><strong>$${f.total_mes.toLocaleString('es-CO')}</strong></td>
+        <td><span class="badge badge-warning">${f.estado}</span></td>
+        <td>
+          <button class="btn btn-primary" style="padding: 2px 5px; font-size: 0.7rem;" onclick="verFactura(${f.numero})">👁️ Ver</button>
+          <input type="checkbox" onchange="seleccionarFactura(${f.numero}, this.checked)">
+        </td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  function filtrarFacturas() {
+    const filtro = document.getElementById('filtroFacturas').value.toLowerCase();
+    const rows = document.querySelectorAll('#facturasBody tr');
+    
+    rows.forEach(row => {
+      const texto = row.innerText.toLowerCase();
+      row.style.display = texto.includes(filtro) ? '' : 'none';
+    });
+  }
+
+  function seleccionarFactura(numero, seleccionada) {
+    if (seleccionada) {
+      facturasSeleccionadas.add(numero);
+    } else {
+      facturasSeleccionadas.delete(numero);
+    }
+  }
+
+  function verFactura(numero) {
+    const factura = facturasGeneradas.find(f => f.numero === numero);
+    if (!factura) return;
+    
+    // Generar HTML de la factura
+    const fecha = new Date().toLocaleDateString('es-CO');
+    const html = `
+      <div style="font-family: 'Segoe UI', sans-serif; padding: 20px;">
+        <div style="text-align: center; border-bottom: 2px solid #1e3c5c; margin-bottom: 15px;">
+          <h2>CONJUNTO RESIDENCIAL CERRADO BRISAS DEL NORTE</h2>
+          <p>NIT: 807.003.209-3 - Personería Jurídica No.1646 - Dic 17/1993</p>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 15px;">
+          <div><strong>Factura N°:</strong> ${factura.numero}</div>
+          <div><strong>Fecha:</strong> ${fecha}</div>
+          <div><strong>Propietario:</strong> ${factura.propietario}</div>
+          <div><strong>Manzana:</strong> ${factura.manzana} ${factura.interior}</div>
+          <div><strong>Matrícula:</strong> ${factura.matricula || '---'}</div>
+          <div><strong>Código Catastral:</strong> ${factura.codigo_catastral || '---'}</div>
+        </div>
+        
+        <h3>DETALLE DE FACTURACIÓN - ${document.getElementById('mesFacturacion').selectedOptions[0].text}</h3>
+        <table style="width: 100%; border-collapse: collapse; margin: 10px 0;">
+          <tr style="background: #1e3c5c; color: white;">
+            <th style="padding: 8px; text-align: left;">Concepto</th>
+            <th style="padding: 8px; text-align: right;">Valor</th>
+          </tr>
+          <tr><td>Cuota de administración</td><td style="text-align: right;">$${factura.cuota_admon.toLocaleString('es-CO')}</td></tr>
+          <tr><td>Cuota extraordinaria</td><td style="text-align: right;">$${factura.cuota_extra.toLocaleString('es-CO')}</td></tr>
+          <tr><td>Sanciones / Multas</td><td style="text-align: right;">$${factura.sanciones.toLocaleString('es-CO')}</td></tr>
+          <tr><td>Acuerdo de pago</td><td style="text-align: right;">$${factura.acuerdo_pago.toLocaleString('es-CO')}</td></tr>
+          <tr style="background: #e5eff9; font-weight: bold;">
+            <td>TOTAL MES</td>
+            <td style="text-align: right;">$${factura.total_mes.toLocaleString('es-CO')}</td>
+          </tr>
+        </table>
+        
+        <div style="margin-top: 15px; font-size: 0.8rem; color: #666; border-top: 1px solid #ddd; padding-top: 10px;">
+          <p><strong>NOTA:</strong> Pagos en BANCOLOMBIA AHORRO # 834-000000-00. Interés 2,5% en mora. Tres (03) cuotas atrasadas: cobro jurídico.</p>
+        </div>
+      </div>
+    `;
+    
+    document.getElementById('facturaPreview').innerHTML = html;
+    document.getElementById('facturaModal').style.display = 'flex';
+  }
+
+  function cerrarModal() {
+    document.getElementById('facturaModal').style.display = 'none';
+  }
+
+  function imprimirFactura() {
+    const contenido = document.getElementById('facturaPreview').innerHTML;
+    const ventana = window.open('', '_blank');
+    ventana.document.write(`
+      <html>
+        <head>
+          <title>Factura - Brisas del Norte</title>
+          <style>
+            body { font-family: 'Segoe UI', sans-serif; padding: 20px; }
+            @media print { body { padding: 0; } }
+          </style>
+        </head>
+        <body>${contenido}</body>
+      </html>
+    `);
+    ventana.print();
+  }
+
+  function descargarPDF() {
+    const elemento = document.getElementById('facturaPreview');
+    
+    html2canvas(elemento).then(canvas => {
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jspdf.jsPDF({
+        orientation: 'portrait',
+        unit: 'px',
+        format: [canvas.width * 0.75, canvas.height * 0.75]
+      });
+      
+      pdf.addImage(imgData, 'PNG', 0, 0, canvas.width * 0.75, canvas.height * 0.75);
+      pdf.save('factura.pdf');
+    });
+  }
+
+  function exportarFacturas() {
+    const formato = document.getElementById('formatoExportacion').value;
+    
+    if (formato === 'excel') {
+      exportarAExcel();
+    } else if (formato === 'csv') {
+      exportarACSV();
+    } else if (formato === 'html') {
+      exportarAHTML();
+    } else {
+      alert('Exportación a ' + formato + ' próximamente disponible');
+    }
+  }
+
+  function exportarAExcel() {
+    const ws = XLSX.utils.json_to_sheet(facturasGeneradas);
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Facturas');
+    XLSX.writeFile(wb, 'facturas-marzo-2026.xlsx');
+  }
+
+  function exportarACSV() {
+    const ws = XLSX.utils.json_to_sheet(facturasGeneradas);
+    const csv = XLSX.utils.sheet_to_csv(ws);
+    
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'facturas-marzo-2026.csv';
+    a.click();
+  }
+
+  function exportarAHTML() {
+    let html = `
+      <html>
+      <head>
+        <title>Facturas Brisas del Norte - Marzo 2026</title>
+        <style>
+          body { font-family: 'Segoe UI', sans-serif; padding: 20px; }
+          table { border-collapse: collapse; width: 100%; }
+          th { background: #1e3c5c; color: white; padding: 8px; text-align: left; }
+          td { padding: 5px; border-bottom: 1px solid #ddd; }
+          .total { font-weight: bold; background: #e5eff9; }
+        </style>
+      </head>
+      <body>
+        <h1>Facturación Marzo 2026 - Brisas del Norte</h1>
+        <p>Fecha de generación: ${new Date().toLocaleDateString('es-CO')}</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Factura N°</th>
+              <th>Propietario</th>
+              <th>Manzana</th>
+              <th>Interior</th>
+              <th>Cuota admón</th>
+              <th>Cuota extra</th>
+              <th>Sanciones</th>
+              <th>Acuerdo</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+    `;
+    
+    let totalGeneral = 0;
+    facturasGeneradas.forEach(f => {
+      totalGeneral += f.total_mes;
+      html += `
+        <tr>
+          <td>${f.numero}</td>
+          <td>${f.propietario}</td>
+          <td>${f.manzana}</td>
+          <td>${f.interior}</td>
+          <td>$${f.cuota_admon.toLocaleString('es-CO')}</td>
+          <td>$${f.cuota_extra.toLocaleString('es-CO')}</td>
+          <td>$${f.sanciones.toLocaleString('es-CO')}</td>
+          <td>$${f.acuerdo_pago.toLocaleString('es-CO')}</td>
+          <td><strong>$${f.total_mes.toLocaleString('es-CO')}</strong></td>
+        </tr>
+      `;
+    });
+    
+    html += `
+          </tbody>
+          <tfoot>
+            <tr class="total">
+              <td colspan="8" style="text-align: right;">TOTAL GENERAL:</td>
+              <td><strong>$${totalGeneral.toLocaleString('es-CO')}</strong></td>
+            </tr>
+          </tfoot>
+        </table>
+      </body>
+      </html>
+    `;
+    
+    const blob = new Blob([html], { type: 'text/html' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'facturas-marzo-2026.html';
+    a.click();
+    
+    document.getElementById('reporteContenido').innerText = 'Reporte HTML generado con ' + facturasGeneradas.length + ' facturas';
+    document.getElementById('reporteGenerado').style.display = 'block';
+  }
+
+  function generarReporte() {
+    let reporte = '=== REPORTE DE FACTURACIÓN ===\n\n';
+    reporte += `Fecha: ${new Date().toLocaleDateString('es-CO')}\n`;
+    reporte += `Total facturas: ${facturasGeneradas.length}\n`;
+    const total = facturasGeneradas.reduce((s,f) => s + f.total_mes, 0);
+    reporte += `Total facturado: $${total.toLocaleString('es-CO')}\n\n`;
+    reporte += 'DETALLE POR PROPIETARIO:\n';
+    reporte += '-'.repeat(50) + '\n';
+    
+    facturasGeneradas.forEach(f => {
+      reporte += `${f.propietario} (${f.manzana} ${f.interior}): $${f.total_mes.toLocaleString('es-CO')}\n`;
+    });
+    
+    document.getElementById('reporteContenido').innerText = reporte;
+    document.getElementById('reporteGenerado').style.display = 'block';
+  }
+
+  function simularFacturacion() {
+    alert('Simulación: Se procesarían ' + novedadesData.length + ' facturas');
+  }
+
+  function limpiarTodo() {
+    if (confirm('¿Está seguro de limpiar todos los datos?')) {
+      novedadesData = [];
+      facturasGeneradas = [];
+      facturasSeleccionadas.clear();
+      document.getElementById('fileInfo').style.display = 'none';
+      document.getElementById('resultadosProceso').style.display = 'none';
+      document.getElementById('reporteGenerado').style.display = 'none';
+      cargarTablaFacturas();
+    }
+  }
+</script>
+</body>
+</html>
+EOF

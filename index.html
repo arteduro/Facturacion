@@ -73,6 +73,11 @@
       color: white;
     }
 
+    .btn-primary {
+      background: #1e3c5c;
+      color: white;
+    }
+
     .control-panel {
       background: #f8fafd;
       padding: 8px 12px;
@@ -303,7 +308,10 @@
 <div class="app-container">
   <div class="top-bar no-print">
     <h2>FACTURACIÓN <span>Brisas del Norte</span></h2>
-    <button class="btn btn-success" onclick="window.print()">📄 PDF</button>
+    <div>
+      <button class="btn btn-primary" onclick="window.location.href='facturacion-masiva.html'">📦 Facturación Masiva</button>
+      <button class="btn btn-success" onclick="window.print()">📄 PDF</button>
+    </div>
   </div>
 
   <div id="errorContainer" class="error-message no-print"></div>
@@ -402,7 +410,6 @@
           <td>Acuerdo de pago</td>
           <td id="displayAcuerdoPago">$0°°</td>
         </tr>
-        <!-- ✅ FILA "CUOTA MES" ELIMINADA -->
       </tbody>
     </table>
 
@@ -544,9 +551,8 @@
       document.getElementById('displayMatricula').innerText = prop.matricula_inmobiliaria || '---';
       document.getElementById('displayCodigoCatastral').innerText = prop.codigo_catastral || '---';
       
-      // ✅ AQUÍ PUEDES CARGAR VALORES ESPECÍFICOS DEL PROPIETARIO
-      // Por ahora los dejamos en 0, pero podrías tener campos como:
-      // prop.deudaExtra, prop.sanciones, etc. en tu JSON
+      // Aquí podrías cargar valores específicos del propietario
+      // si tu JSON tuviera campos como deuda_extra, sanciones, etc.
       document.getElementById('cuotaExtra').value = 0;
       document.getElementById('sanciones').value = 0;
       document.getElementById('acuerdoPago').value = 0;
