@@ -830,36 +830,56 @@
         elemento.style.top = '-9999px';
         elemento.style.width = '800px';
         elemento.style.backgroundColor = 'white';
-        elemento.style.padding = '25px';
+        elemento.style.padding = '30px';
         elemento.style.boxSizing = 'border-box';
+        elemento.style.overflow = 'visible';
+        elemento.style.display = 'block';
+        elemento.style.visibility = 'visible';
         document.body.appendChild(elemento);
         
-        // Obtener la altura REAL del contenido
-        const alturaReal = elemento.scrollHeight;
+        // Calcular altura REAL del contenido
+        const alturaReal = Math.max(
+          elemento.scrollHeight,
+          elemento.offsetHeight,
+          elemento.clientHeight
+        );
         
-        // Configurar el elemento con su altura real
-        elemento.style.height = alturaReal + 'px';
-        elemento.style.overflow = 'visible';
+        console.log(`Altura real de factura ${factura.numero}: ${alturaReal}px`);
+        
+        // Forzar que el elemento tenga su altura completa
+        elemento.style.height = 'auto';
+        elemento.style.minHeight = alturaReal + 'px';
         
         // Esperar a que se renderice completamente
-        await new Promise(resolve => setTimeout(resolve, 500));
+        await new Promise(resolve => setTimeout(resolve, 800));
         
-        // Generar canvas con el tamaño exacto del contenido
+        // Generar canvas con opciones para capturar TODO
         const canvas = await html2canvas(elemento, {
           scale: 2,
           logging: true,
           allowTaint: false,
           useCORS: true,
           backgroundColor: '#ffffff',
-          windowWidth: 850,
-          windowHeight: alturaReal + 20,
-          scrollY: 0,
+          windowWidth: 900,
+          windowHeight: alturaReal + 50,
+          scrollY: -window.scrollY,
           scrollX: 0,
           x: 0,
           y: 0,
           width: elemento.offsetWidth,
-          height: alturaReal
+          height: alturaReal,
+          onclone: (clonedDoc, element) => {
+            // Asegurar que el elemento clonado tenga el tamaño completo
+            if (element) {
+              element.style.height = alturaReal + 'px';
+              element.style.overflow = 'visible';
+              element.style.display = 'block';
+            }
+          }
         });
+        
+        // Verificar que el canvas tiene la altura correcta
+        console.log(`Canvas generado: ${canvas.width} x ${canvas.height}`);
         
         // Crear PDF con las dimensiones exactas del canvas
         const imgData = canvas.toDataURL('image/png');
@@ -867,7 +887,7 @@
         const pdfHeight = canvas.height;
         
         const pdf = new jspdf.jsPDF({
-          orientation: 'portrait',
+          orientation: pdfHeight > pdfWidth ? 'portrait' : 'landscape',
           unit: 'px',
           format: [pdfWidth, pdfHeight]
         });
@@ -876,13 +896,14 @@
         const pdfBlob = pdf.output('blob');
         
         // Agregar al ZIP con nombre descriptivo
-        pdfFolder.file(`FACTURA_${factura.numero}_${factura.manzana}_${factura.interior}.pdf`, pdfBlob);
+        const nombrePDF = `FACTURA_${factura.numero}_${factura.manzana}_${factura.interior}.pdf`;
+        pdfFolder.file(nombrePDF, pdfBlob);
         
         // Limpiar
         document.body.removeChild(elemento);
         
         // Pequeña pausa para no saturar el navegador
-        await new Promise(resolve => setTimeout(resolve, 300));
+        await new Promise(resolve => setTimeout(resolve, 500));
         
       } catch (error) {
         console.error(`Error en factura ${factura.numero}:`, error);
@@ -942,72 +963,73 @@
     const cuotaBase = 100000;
     
     return `
-      <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 750px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+      <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 750px; margin: 0 auto; background: white; padding: 35px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.15); border: 1px solid #e0e0e0;">
         <!-- Encabezado -->
-        <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 25px; border-bottom: 3px solid #1e3c5c; padding-bottom: 20px;">
-          <img src="https://i.postimg.cc/2yb3MyY0/LOGO-BRISAS-DEL-NORTE.png" alt="Logo" style="max-width: 150px; max-height: 70px;">
-          <div>
-            <h1 style="color: #1e3c5c; margin: 0; font-size: 1.4rem;">CONJUNTO RESIDENCIAL CERRADO BRISAS DEL NORTE</h1>
-            <p style="color: #4a6d8c; margin: 5px 0 0; font-size: 0.9rem;">NIT: 807.003.209-3 - Personería Jurídica No.1646 - Dic 17/1993</p>
+        <div style="display: flex; align-items: center; gap: 25px; margin-bottom: 25px; border-bottom: 4px solid #1e3c5c; padding-bottom: 20px;">
+          <img src="https://i.postimg.cc/2yb3MyY0/LOGO-BRISAS-DEL-NORTE.png" alt="Logo Brisas del Norte" style="max-width: 160px; max-height: 80px; object-fit: contain;">
+          <div style="flex: 1;">
+            <h1 style="color: #1e3c5c; margin: 0 0 8px 0; font-size: 1.5rem; font-weight: 700;">CONJUNTO RESIDENCIAL CERRADO BRISAS DEL NORTE</h1>
+            <p style="color: #4a6d8c; margin: 0; font-size: 0.9rem; line-height: 1.4;">NIT: 807.003.209-3 - Personería Jurídica No.1646 - Dic 17/1993</p>
           </div>
         </div>
         
         <!-- Información de la factura -->
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; background: #f0f7ff; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
-          <div><strong>Factura N°:</strong> ${factura.numero}</div>
-          <div><strong>Fecha:</strong> ${fechaFormateada}</div>
-          <div><strong>Período:</strong> ${mesTexto}</div>
-          <div><strong>Propietario:</strong> ${factura.propietario}</div>
-          <div><strong>Manzana:</strong> ${factura.manzana}</div>
-          <div><strong>Interior:</strong> ${factura.interior}</div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; background: #f0f7ff; padding: 20px; border-radius: 10px; margin-bottom: 25px; border: 1px solid #cbdbe9;">
+          <div><span style="color: #1e3c5c; font-weight: 700;">Factura N°:</span> <span style="font-weight: 600;">${factura.numero}</span></div>
+          <div><span style="color: #1e3c5c; font-weight: 700;">Fecha:</span> <span style="font-weight: 600;">${fechaFormateada}</span></div>
+          <div><span style="color: #1e3c5c; font-weight: 700;">Período:</span> <span style="font-weight: 600;">${mesTexto}</span></div>
+          <div><span style="color: #1e3c5c; font-weight: 700;">Propietario:</span> <span style="font-weight: 600;">${factura.propietario}</span></div>
+          <div><span style="color: #1e3c5c; font-weight: 700;">Manzana:</span> <span style="font-weight: 600;">${factura.manzana}</span></div>
+          <div><span style="color: #1e3c5c; font-weight: 700;">Interior:</span> <span style="font-weight: 600;">${factura.interior}</span></div>
         </div>
         
         <!-- Detalle de facturación -->
-        <h2 style="color: #1e3c5c; font-size: 1.2rem; margin-bottom: 15px;">📋 DETALLE DE FACTURACIÓN</h2>
+        <h2 style="color: #1e3c5c; font-size: 1.2rem; margin-bottom: 15px; padding-bottom: 8px; border-bottom: 2px solid #FFD700;">📋 DETALLE DE FACTURACIÓN</h2>
         
         <table style="width: 100%; border-collapse: collapse; margin-bottom: 25px;">
           <thead>
             <tr style="background: #1e3c5c; color: white;">
-              <th style="padding: 12px; text-align: left;">Concepto</th>
-              <th style="padding: 12px; text-align: right;">Valor</th>
+              <th style="padding: 12px 15px; text-align: left; border-radius: 8px 0 0 0;">Concepto</th>
+              <th style="padding: 12px 15px; text-align: right; border-radius: 0 8px 0 0;">Valor</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td style="padding: 12px; border-bottom: 1px solid #ddd;">Cuota de administración</td>
-              <td style="padding: 12px; border-bottom: 1px solid #ddd; text-align: right;">$${cuotaBase.toLocaleString('es-CO')}</td>
+            <tr style="background: #f9f9f9;">
+              <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef;">Cuota de administración</td>
+              <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef; text-align: right; font-weight: 600;">$${cuotaBase.toLocaleString('es-CO')}</td>
             </tr>
             ${factura.cuota_extra > 0 ? `
             <tr>
-              <td style="padding: 12px; border-bottom: 1px solid #ddd;">Cuota extraordinaria</td>
-              <td style="padding: 12px; border-bottom: 1px solid #ddd; text-align: right;">$${factura.cuota_extra.toLocaleString('es-CO')}</td>
+              <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef;">Cuota extraordinaria</td>
+              <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef; text-align: right; font-weight: 600;">$${factura.cuota_extra.toLocaleString('es-CO')}</td>
             </tr>` : ''}
             ${factura.sanciones > 0 ? `
-            <tr>
-              <td style="padding: 12px; border-bottom: 1px solid #ddd;">Sanciones / Multas</td>
-              <td style="padding: 12px; border-bottom: 1px solid #ddd; text-align: right;">$${factura.sanciones.toLocaleString('es-CO')}</td>
+            <tr style="background: #f9f9f9;">
+              <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef;">Sanciones / Multas</td>
+              <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef; text-align: right; font-weight: 600;">$${factura.sanciones.toLocaleString('es-CO')}</td>
             </tr>` : ''}
             ${factura.acuerdo_pago > 0 ? `
             <tr>
-              <td style="padding: 12px; border-bottom: 1px solid #ddd;">Acuerdo de pago</td>
-              <td style="padding: 12px; border-bottom: 1px solid #ddd; text-align: right;">$${factura.acuerdo_pago.toLocaleString('es-CO')}</td>
+              <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef;">Acuerdo de pago</td>
+              <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef; text-align: right; font-weight: 600;">$${factura.acuerdo_pago.toLocaleString('es-CO')}</td>
             </tr>` : ''}
           </tbody>
         </table>
         
-        <!-- Total -->
-        <div style="background: #e5eff9; padding: 20px; border-radius: 8px; margin: 25px 0;">
+        <!-- Total a pagar -->
+        <div style="background: #e5eff9; padding: 20px; border-radius: 10px; margin: 25px 0; border-left: 6px solid #1e3c5c;">
           <div style="display: flex; justify-content: space-between; align-items: center;">
-            <span style="color: #1e3c5c; font-size: 1.3rem; font-weight: bold;">TOTAL A PAGAR:</span>
-            <span style="color: #1e3c5c; font-size: 1.8rem; font-weight: bold;">$${factura.total_mes.toLocaleString('es-CO')}</span>
+            <span style="color: #1e3c5c; font-size: 1.4rem; font-weight: 700;">TOTAL A PAGAR:</span>
+            <span style="color: #1e3c5c; font-size: 2rem; font-weight: 800;">$${factura.total_mes.toLocaleString('es-CO')}</span>
           </div>
         </div>
         
-        <!-- Notas -->
-        <div style="margin-top: 30px; font-size: 0.8rem; color: #666; border-top: 1px solid #ddd; padding-top: 20px;">
-          <p><strong>NOTA IMPORTANTE:</strong> Pagos en BANCOLOMBIA AHORRO # 834-000000-00</p>
-          <p>Interés por mora: 2.5% mensual. Tres (03) cuotas atrasadas: inicio de cobro jurídico.</p>
-          <p style="text-align: center; color: #1e3c5c; margin-top: 15px;">✨ ¡Gracias por su puntualidad! ✨</p>
+        <!-- Notas y condiciones -->
+        <div style="margin-top: 30px; font-size: 0.8rem; color: #4a6d8c; border-top: 1px dashed #cbdbe9; padding-top: 20px;">
+          <p style="margin: 5px 0;"><span style="font-weight: 700;">📌 NOTA IMPORTANTE:</span> Los pagos deben realizarse en BANCOLOMBIA AHORRO # 834-000000-00</p>
+          <p style="margin: 5px 0;"><span style="font-weight: 700;">💰 Interés por mora:</span> 2.5% mensual sobre saldos vencidos</p>
+          <p style="margin: 5px 0;"><span style="font-weight: 700;">⚖️ Cobro jurídico:</span> A partir de tres (03) cuotas atrasadas</p>
+          <p style="margin: 15px 0 5px 0; text-align: center; color: #1e3c5c; font-size: 0.9rem;">✨ ¡Gracias por su puntualidad! ✨</p>
         </div>
       </div>
     `;
