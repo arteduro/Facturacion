@@ -1,4 +1,3 @@
-cat > facturacion-masiva.html << 'EOF'
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -34,6 +33,8 @@ cat > facturacion-masiva.html << 'EOF'
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
     .header h1 {
@@ -44,6 +45,44 @@ cat > facturacion-masiva.html << 'EOF'
       font-size: 0.9rem;
       font-weight: 300;
       display: block;
+    }
+
+    .btn {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: #1e3c5c;
+      color: white;
+      border: 1px solid #FFD700;
+    }
+
+    .btn-success {
+      background: #1f7b4d;
+      color: white;
+    }
+
+    .btn-warning {
+      background: #dd9220;
+      color: white;
+    }
+
+    .btn-danger {
+      background: #c62828;
+      color: white;
+    }
+
+    .btn-menu {
+      background: #FFD700;
+      color: #1e3c5c;
     }
 
     .card {
@@ -63,6 +102,8 @@ cat > facturacion-masiva.html << 'EOF'
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
     .card-body {
@@ -90,71 +131,22 @@ cat > facturacion-masiva.html << 'EOF'
       margin-bottom: 10px;
     }
 
-    .btn {
-      padding: 8px 16px;
-      border: none;
-      border-radius: 5px;
+    .file-types {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+
+    .file-type-badge {
+      background: rgba(30,60,92,0.1);
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.8rem;
       font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .btn-primary {
-      background: #1e3c5c;
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background: #2a4a6e;
-    }
-
-    .btn-success {
-      background: #1f7b4d;
-      color: white;
-    }
-
-    .btn-success:hover {
-      background: #2a8e5a;
-    }
-
-    .btn-warning {
-      background: #dd9220;
-      color: white;
-    }
-
-    .btn-warning:hover {
-      background: #eaa52e;
-    }
-
-    .btn-danger {
-      background: #c62828;
-      color: white;
-    }
-
-    .btn-danger:hover {
-      background: #d32f2f;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.85rem;
-    }
-
-    th {
-      background: #1e3c5c;
-      color: white;
-      padding: 8px;
-      text-align: left;
-    }
-
-    td {
-      padding: 6px 8px;
-      border-bottom: 1px solid #d4e0ea;
-    }
-
-    tr:hover {
-      background: #f5f9ff;
+      color: #1e3c5c;
+      border: 1px solid #1e3c5c;
     }
 
     .config-grid {
@@ -178,9 +170,10 @@ cat > facturacion-masiva.html << 'EOF'
 
     .config-item input,
     .config-item select {
-      padding: 6px;
+      padding: 8px;
       border: 1px solid #d0dfee;
-      border-radius: 4px;
+      border-radius: 20px;
+      font-size: 0.9rem;
     }
 
     .progress-bar {
@@ -225,19 +218,26 @@ cat > facturacion-masiva.html << 'EOF'
       color: #4a6d8c;
     }
 
-    .filtros {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 15px;
-      flex-wrap: wrap;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
     }
 
-    .filtro-input {
-      flex: 1;
-      min-width: 200px;
+    th {
+      background: #1e3c5c;
+      color: white;
       padding: 8px;
-      border: 1px solid #d0dfee;
-      border-radius: 20px;
+      text-align: left;
+    }
+
+    td {
+      padding: 6px 8px;
+      border-bottom: 1px solid #d4e0ea;
+    }
+
+    tr:hover {
+      background: #f5f9ff;
     }
 
     .badge {
@@ -258,15 +258,12 @@ cat > facturacion-masiva.html << 'EOF'
       color: #dd9220;
     }
 
-    .badge-danger {
-      background: #ffebee;
-      color: #c62828;
-    }
-
     .tabs {
       display: flex;
       border-bottom: 2px solid #d0dfee;
       margin-bottom: 15px;
+      flex-wrap: wrap;
+      gap: 5px;
     }
 
     .tab {
@@ -321,24 +318,25 @@ cat > facturacion-masiva.html << 'EOF'
       border-top: 1px solid #d0dfee;
     }
 
-    @media print {
-      .no-print {
-        display: none !important;
-      }
+    @media (max-width: 768px) {
+      .header { flex-direction: column; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .tab { padding: 5px 10px; font-size: 0.8rem; }
     }
   </style>
 </head>
 <body>
 <div class="container">
-  <div class="header no-print">
-    <h1>FACTURACIÓN MASIVA <span>Brisas del Norte</span></h1>
-    <div>
-      <button class="btn btn-success" onclick="window.location.href='index.html'">Factura Individual</button>
+  <div class="header">
+    <h1>📦 FACTURACIÓN MASIVA <span>Brisas del Norte</span></h1>
+    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+      <a href="index.html" class="btn btn-menu">🏠 MENÚ PRINCIPAL</a>
+      <a href="factura-individual.html" class="btn btn-primary">🧾 FACTURA INDIVIDUAL</a>
     </div>
   </div>
 
   <!-- Pestañas -->
-  <div class="tabs no-print">
+  <div class="tabs">
     <div class="tab active" onclick="showTab('cargar')">📤 Cargar Novedades</div>
     <div class="tab" onclick="showTab('procesar')">⚙️ Procesar Facturación</div>
     <div class="tab" onclick="showTab('revisar')">👀 Revisar Facturas</div>
@@ -349,14 +347,21 @@ cat > facturacion-masiva.html << 'EOF'
   <div id="tab-cargar" class="card">
     <div class="card-header">
       <span>📤 Cargar archivo de novedades</span>
-      <span class="badge badge-success">Formato: Excel/CSV</span>
+      <div class="file-types">
+        <span class="file-type-badge">📊 Excel (.xlsx, .xls)</span>
+        <span class="file-type-badge">📄 CSV (.csv)</span>
+        <span class="file-type-badge">📝 TXT (.txt)</span>
+      </div>
     </div>
     <div class="card-body">
       <div class="upload-area" onclick="document.getElementById('fileInput').click()">
-        <i>📁</i>
+        <div style="font-size: 48px;">📂</div>
         <h3>Haga clic para cargar archivo</h3>
-        <p style="color: #4a6d8c;">Formatos aceptados: .xlsx, .xls, .csv</p>
-        <input type="file" id="fileInput" style="display: none;" accept=".xlsx,.xls,.csv" onchange="handleFileUpload(event)">
+        <p style="color: #4a6d8c;">Formatos aceptados: .xlsx, .xls, .csv, .txt</p>
+        <p style="color: #4a6d8c; font-size: 0.8rem; margin-top: 10px;">
+          Formato TXT: propietario,direccion,cuota_extra,sanciones,acuerdo_pago,observaciones
+        </p>
+        <input type="file" id="fileInput" style="display: none;" accept=".xlsx,.xls,.csv,.txt" onchange="handleFileUpload(event)">
       </div>
 
       <div id="fileInfo" style="display: none; margin-top: 20px;">
@@ -507,7 +512,6 @@ cat > facturacion-masiva.html << 'EOF'
           <label>📄 Formato de exportación</label>
           <select id="formatoExportacion">
             <option value="pdf">PDF (individuales)</option>
-            <option value="pdf-zip">PDF (comprimidos en ZIP)</option>
             <option value="excel">Excel (consolidado)</option>
             <option value="csv">CSV (para sistema contable)</option>
             <option value="html">HTML (para imprimir)</option>
@@ -518,7 +522,6 @@ cat > facturacion-masiva.html << 'EOF'
           <select id="incluirFacturas">
             <option value="todas">Todas las facturas</option>
             <option value="seleccionadas">Solo seleccionadas</option>
-            <option value="pendientes">Pendientes de pago</option>
           </select>
         </div>
       </div>
@@ -542,9 +545,7 @@ cat > facturacion-masiva.html << 'EOF'
       <div class="modal-header">
         <h3>Vista previa de factura</h3>
       </div>
-      <div class="modal-body" id="facturaPreview">
-        <!-- Aquí se cargará la factura -->
-      </div>
+      <div class="modal-body" id="facturaPreview"></div>
       <div class="modal-footer">
         <button class="btn btn-success" onclick="imprimirFactura()">🖨️ Imprimir</button>
         <button class="btn btn-primary" onclick="descargarPDF()">📥 Descargar PDF</button>
@@ -560,22 +561,18 @@ cat > facturacion-masiva.html << 'EOF'
   let facturasGeneradas = [];
   let facturasSeleccionadas = new Set();
 
-  // Cargar propietarios al iniciar
   window.onload = function() {
     cargarPropietarios();
   };
 
   function showTab(tabName) {
-    // Ocultar todas las pestañas
     document.getElementById('tab-cargar').style.display = 'none';
     document.getElementById('tab-procesar').style.display = 'none';
     document.getElementById('tab-revisar').style.display = 'none';
     document.getElementById('tab-exportar').style.display = 'none';
     
-    // Desactivar todas las tabs
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
     
-    // Mostrar la pestaña seleccionada
     document.getElementById(`tab-${tabName}`).style.display = 'block';
     event.target.classList.add('active');
   }
@@ -599,30 +596,57 @@ cat > facturacion-masiva.html << 'EOF'
 
     document.getElementById('fileName').innerText = file.name;
     
-    const reader = new FileReader();
-    reader.onload = function(e) {
-      try {
-        const data = new Uint8Array(e.target.result);
-        const workbook = XLSX.read(data, { type: 'array' });
-        const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
-        const jsonData = XLSX.utils.sheet_to_json(firstSheet);
-        
-        procesarNovedades(jsonData);
-      } catch (error) {
-        console.error('Error leyendo archivo:', error);
-        alert('Error al leer el archivo. Verifique el formato.');
-      }
-    };
-    reader.readAsArrayBuffer(file);
+    const fileExtension = file.name.split('.').pop().toLowerCase();
+    
+    if (fileExtension === 'txt') {
+      // Procesar archivo TXT
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const contenido = e.target.result;
+        procesarArchivoTXT(contenido);
+      };
+      reader.readAsText(file);
+    } else {
+      // Procesar Excel o CSV
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const data = new Uint8Array(e.target.result);
+          const workbook = XLSX.read(data, { type: 'array' });
+          const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+          const jsonData = XLSX.utils.sheet_to_json(firstSheet);
+          procesarNovedades(jsonData);
+        } catch (error) {
+          console.error('Error leyendo archivo:', error);
+          alert('Error al leer el archivo. Verifique el formato.');
+        }
+      };
+      reader.readAsArrayBuffer(file);
+    }
+  }
+
+  function procesarArchivoTXT(contenido) {
+    const lineas = contenido.split('\n').filter(linea => linea.trim() !== '');
+    const headers = lineas[0].split(',').map(h => h.trim());
+    
+    const data = [];
+    for (let i = 1; i < lineas.length; i++) {
+      const valores = lineas[i].split(',').map(v => v.trim());
+      const row = {};
+      headers.forEach((header, index) => {
+        row[header] = valores[index] || '';
+      });
+      data.push(row);
+    }
+    
+    procesarNovedades(data);
   }
 
   function procesarNovedades(data) {
     novedadesData = data;
     
-    // Estadísticas básicas
     document.getElementById('totalRegistros').innerText = data.length;
     
-    // Buscar propietarios en el JSON
     let encontrados = 0;
     let noEncontrados = 0;
     let totalFacturar = 0;
@@ -635,7 +659,9 @@ cat > facturacion-masiva.html << 'EOF'
       
       if (propietario) {
         encontrados++;
-        totalFacturar += (row.cuota_extra || 0) + (row.sanciones || 0) + (row.acuerdo_pago || 0);
+        totalFacturar += (parseFloat(row.cuota_extra) || 0) + 
+                        (parseFloat(row.sanciones) || 0) + 
+                        (parseFloat(row.acuerdo_pago) || 0);
       } else {
         noEncontrados++;
       }
@@ -646,8 +672,6 @@ cat > facturacion-masiva.html << 'EOF'
     document.getElementById('totalFacturar').innerText = '$' + totalFacturar.toLocaleString('es-CO');
     
     document.getElementById('fileInfo').style.display = 'block';
-    
-    // Mostrar vista previa de novedades
     mostrarVistaPreviaNovedades(data);
   }
 
@@ -659,7 +683,6 @@ cat > facturacion-masiva.html << 'EOF'
     const thead = document.createElement('thead');
     const tbody = document.createElement('tbody');
     
-    // Crear encabezados
     if (data.length > 0) {
       const headerRow = document.createElement('tr');
       Object.keys(data[0]).forEach(key => {
@@ -669,7 +692,6 @@ cat > facturacion-masiva.html << 'EOF'
       });
       thead.appendChild(headerRow);
       
-      // Crear filas (máximo 5 para vista previa)
       data.slice(0, 5).forEach(row => {
         const tr = document.createElement('tr');
         Object.values(row).forEach(val => {
@@ -685,7 +707,6 @@ cat > facturacion-masiva.html << 'EOF'
     table.appendChild(tbody);
     tablaNovedades.appendChild(table);
     
-    // Agregar al DOM
     const fileInfoDiv = document.getElementById('fileInfo');
     const existingPreview = document.getElementById('vistaPreviaNovedades');
     if (existingPreview) existingPreview.remove();
@@ -703,7 +724,7 @@ cat > facturacion-masiva.html << 'EOF'
     
     const mes = document.getElementById('mesFacturacion').value;
     const facturaInicial = parseInt(document.getElementById('facturaInicial').value);
-    const cuotaAdmon = 100000; // Fija
+    const cuotaAdmon = 100000;
     
     document.getElementById('progressContainer').style.display = 'block';
     facturasGeneradas = [];
@@ -711,7 +732,6 @@ cat > facturacion-masiva.html << 'EOF'
     let procesadas = 0;
     const total = novedadesData.length;
     
-    // Simular procesamiento (en producción sería un bucle real)
     const interval = setInterval(() => {
       if (procesadas < total) {
         const row = novedadesData[procesadas];
@@ -729,10 +749,10 @@ cat > facturacion-masiva.html << 'EOF'
             matricula: propietario.matricula_inmobiliaria,
             codigo_catastral: propietario.codigo_catastral,
             cuota_admon: cuotaAdmon,
-            cuota_extra: row.cuota_extra || 0,
-            sanciones: row.sanciones || 0,
-            acuerdo_pago: row.acuerdo_pago || 0,
-            total_mes: cuotaAdmon + (row.cuota_extra || 0) + (row.sanciones || 0) + (row.acuerdo_pago || 0),
+            cuota_extra: parseFloat(row.cuota_extra) || 0,
+            sanciones: parseFloat(row.sanciones) || 0,
+            acuerdo_pago: parseFloat(row.acuerdo_pago) || 0,
+            total_mes: cuotaAdmon + (parseFloat(row.cuota_extra) || 0) + (parseFloat(row.sanciones) || 0) + (parseFloat(row.acuerdo_pago) || 0),
             estado: 'pendiente',
             mes: mes
           };
@@ -748,7 +768,7 @@ cat > facturacion-masiva.html << 'EOF'
         document.getElementById('progressContainer').style.display = 'none';
         mostrarResultadosProceso();
       }
-    }, 50); // Velocidad de simulación
+    }, 50);
   }
 
   function mostrarResultadosProceso() {
@@ -760,11 +780,7 @@ cat > facturacion-masiva.html << 'EOF'
     document.getElementById('tiempoProceso').innerText = facturasGeneradas.length * 0.05 + 's';
     
     document.getElementById('resultadosProceso').style.display = 'block';
-    
-    // Cargar tabla de facturas
     cargarTablaFacturas();
-    
-    // Cambiar a la pestaña de revisar
     document.querySelectorAll('.tab')[2].click();
   }
 
@@ -821,13 +837,12 @@ cat > facturacion-masiva.html << 'EOF'
     const factura = facturasGeneradas.find(f => f.numero === numero);
     if (!factura) return;
     
-    // Generar HTML de la factura
     const fecha = new Date().toLocaleDateString('es-CO');
     const html = `
       <div style="font-family: 'Segoe UI', sans-serif; padding: 20px;">
         <div style="text-align: center; border-bottom: 2px solid #1e3c5c; margin-bottom: 15px;">
           <h2>CONJUNTO RESIDENCIAL CERRADO BRISAS DEL NORTE</h2>
-          <p>NIT: 807.003.209-3 - Personería Jurídica No.1646 - Dic 17/1993</p>
+          <p>NIT: 807.003.209-3 - Personería Jurídica No.1646</p>
         </div>
         
         <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 15px;">
@@ -835,15 +850,13 @@ cat > facturacion-masiva.html << 'EOF'
           <div><strong>Fecha:</strong> ${fecha}</div>
           <div><strong>Propietario:</strong> ${factura.propietario}</div>
           <div><strong>Manzana:</strong> ${factura.manzana} ${factura.interior}</div>
-          <div><strong>Matrícula:</strong> ${factura.matricula || '---'}</div>
-          <div><strong>Código Catastral:</strong> ${factura.codigo_catastral || '---'}</div>
         </div>
         
-        <h3>DETALLE DE FACTURACIÓN - ${document.getElementById('mesFacturacion').selectedOptions[0].text}</h3>
+        <h3>DETALLE DE FACTURACIÓN</h3>
         <table style="width: 100%; border-collapse: collapse; margin: 10px 0;">
           <tr style="background: #1e3c5c; color: white;">
-            <th style="padding: 8px; text-align: left;">Concepto</th>
-            <th style="padding: 8px; text-align: right;">Valor</th>
+            <th style="padding: 8px;">Concepto</th>
+            <th style="padding: 8px;">Valor</th>
           </tr>
           <tr><td>Cuota de administración</td><td style="text-align: right;">$${factura.cuota_admon.toLocaleString('es-CO')}</td></tr>
           <tr><td>Cuota extraordinaria</td><td style="text-align: right;">$${factura.cuota_extra.toLocaleString('es-CO')}</td></tr>
@@ -855,8 +868,8 @@ cat > facturacion-masiva.html << 'EOF'
           </tr>
         </table>
         
-        <div style="margin-top: 15px; font-size: 0.8rem; color: #666; border-top: 1px solid #ddd; padding-top: 10px;">
-          <p><strong>NOTA:</strong> Pagos en BANCOLOMBIA AHORRO # 834-000000-00. Interés 2,5% en mora. Tres (03) cuotas atrasadas: cobro jurídico.</p>
+        <div style="margin-top: 15px; font-size: 0.8rem; color: #666;">
+          <p><strong>NOTA:</strong> Pagos en BANCOLOMBIA AHORRO # 834-000000-00. Interés 2,5% en mora.</p>
         </div>
       </div>
     `;
@@ -876,10 +889,7 @@ cat > facturacion-masiva.html << 'EOF'
       <html>
         <head>
           <title>Factura - Brisas del Norte</title>
-          <style>
-            body { font-family: 'Segoe UI', sans-serif; padding: 20px; }
-            @media print { body { padding: 0; } }
-          </style>
+          <style>body { font-family: 'Segoe UI', sans-serif; padding: 20px; }</style>
         </head>
         <body>${contenido}</body>
       </html>
@@ -913,7 +923,7 @@ cat > facturacion-masiva.html << 'EOF'
     } else if (formato === 'html') {
       exportarAHTML();
     } else {
-      alert('Exportación a ' + formato + ' próximamente disponible');
+      alert('Exportación a PDF próximamente disponible');
     }
   }
 
@@ -921,7 +931,7 @@ cat > facturacion-masiva.html << 'EOF'
     const ws = XLSX.utils.json_to_sheet(facturasGeneradas);
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'Facturas');
-    XLSX.writeFile(wb, 'facturas-marzo-2026.xlsx');
+    XLSX.writeFile(wb, 'facturas.xlsx');
   }
 
   function exportarACSV() {
@@ -932,7 +942,7 @@ cat > facturacion-masiva.html << 'EOF'
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'facturas-marzo-2026.csv';
+    a.download = 'facturas.csv';
     a.click();
   }
 
@@ -940,61 +950,41 @@ cat > facturacion-masiva.html << 'EOF'
     let html = `
       <html>
       <head>
-        <title>Facturas Brisas del Norte - Marzo 2026</title>
+        <title>Facturas Brisas del Norte</title>
         <style>
-          body { font-family: 'Segoe UI', sans-serif; padding: 20px; }
+          body { font-family: 'Segoe UI', sans-serif; }
           table { border-collapse: collapse; width: 100%; }
-          th { background: #1e3c5c; color: white; padding: 8px; text-align: left; }
+          th { background: #1e3c5c; color: white; padding: 8px; }
           td { padding: 5px; border-bottom: 1px solid #ddd; }
-          .total { font-weight: bold; background: #e5eff9; }
         </style>
       </head>
       <body>
-        <h1>Facturación Marzo 2026 - Brisas del Norte</h1>
-        <p>Fecha de generación: ${new Date().toLocaleDateString('es-CO')}</p>
+        <h1>Facturación</h1>
         <table>
           <thead>
             <tr>
               <th>Factura N°</th>
               <th>Propietario</th>
               <th>Manzana</th>
-              <th>Interior</th>
-              <th>Cuota admón</th>
-              <th>Cuota extra</th>
-              <th>Sanciones</th>
-              <th>Acuerdo</th>
               <th>Total</th>
             </tr>
           </thead>
           <tbody>
     `;
     
-    let totalGeneral = 0;
     facturasGeneradas.forEach(f => {
-      totalGeneral += f.total_mes;
       html += `
         <tr>
           <td>${f.numero}</td>
           <td>${f.propietario}</td>
-          <td>${f.manzana}</td>
-          <td>${f.interior}</td>
-          <td>$${f.cuota_admon.toLocaleString('es-CO')}</td>
-          <td>$${f.cuota_extra.toLocaleString('es-CO')}</td>
-          <td>$${f.sanciones.toLocaleString('es-CO')}</td>
-          <td>$${f.acuerdo_pago.toLocaleString('es-CO')}</td>
-          <td><strong>$${f.total_mes.toLocaleString('es-CO')}</strong></td>
+          <td>${f.manzana} ${f.interior}</td>
+          <td>$${f.total_mes.toLocaleString('es-CO')}</td>
         </tr>
       `;
     });
     
     html += `
           </tbody>
-          <tfoot>
-            <tr class="total">
-              <td colspan="8" style="text-align: right;">TOTAL GENERAL:</td>
-              <td><strong>$${totalGeneral.toLocaleString('es-CO')}</strong></td>
-            </tr>
-          </tfoot>
         </table>
       </body>
       </html>
@@ -1004,11 +994,8 @@ cat > facturacion-masiva.html << 'EOF'
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'facturas-marzo-2026.html';
+    a.download = 'facturas.html';
     a.click();
-    
-    document.getElementById('reporteContenido').innerText = 'Reporte HTML generado con ' + facturasGeneradas.length + ' facturas';
-    document.getElementById('reporteGenerado').style.display = 'block';
   }
 
   function generarReporte() {
@@ -1046,4 +1033,3 @@ cat > facturacion-masiva.html << 'EOF'
 </script>
 </body>
 </html>
-EOF
