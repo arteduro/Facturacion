@@ -10,7 +10,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
   <style>
-    /* Mantén todos los estilos igual que antes */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -100,11 +99,6 @@
 
     .btn-zip {
       background: #7b1fa2;
-      color: white;
-    }
-
-    .btn-print {
-      background: #0288d1;
       color: white;
     }
 
@@ -274,101 +268,6 @@
       border-left: 4px solid #2e7d32;
     }
 
-    .manzana-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 15px;
-      margin: 20px 0;
-    }
-
-    .manzana-card {
-      background: linear-gradient(135deg, #1e3c5c, #2a4a6e);
-      color: white;
-      padding: 15px;
-      border-radius: 10px;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.3s;
-      border: 2px solid transparent;
-    }
-
-    .manzana-card:hover {
-      transform: translateY(-5px);
-      border-color: #FFD700;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    }
-
-    .manzana-card.selected {
-      background: linear-gradient(135deg, #2a4a6e, #1e3c5c);
-      border-color: #FFD700;
-      box-shadow: 0 0 15px #FFD700;
-    }
-
-    .manzana-card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 5px;
-    }
-
-    .manzana-card p {
-      font-size: 0.9rem;
-      opacity: 0.9;
-    }
-
-    .manzana-card .badge {
-      background: #FFD700;
-      color: #1e3c5c;
-      padding: 3px 8px;
-      border-radius: 15px;
-      font-size: 0.8rem;
-      margin-top: 8px;
-      display: inline-block;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.85rem;
-    }
-
-    th {
-      background: #1e3c5c;
-      color: white;
-      padding: 8px;
-      text-align: left;
-    }
-
-    td {
-      padding: 6px 8px;
-      border-bottom: 1px solid #d4e0ea;
-    }
-
-    tr:hover {
-      background: #f5f9ff;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 2px 6px;
-      border-radius: 10px;
-      font-size: 0.7rem;
-      font-weight: 600;
-    }
-
-    .badge-success {
-      background: #e8f5e8;
-      color: #2e7d32;
-    }
-
-    .badge-warning {
-      background: #fff3e0;
-      color: #dd9220;
-    }
-
-    .badge-info {
-      background: #e1f5fe;
-      color: #0288d1;
-    }
-
     .tabs {
       display: flex;
       border-bottom: 2px solid #d0dfee;
@@ -492,7 +391,6 @@
       .stats { grid-template-columns: repeat(2, 1fr); }
       .tab { padding: 5px 10px; font-size: 0.8rem; }
       .action-buttons .btn { min-width: 100%; }
-      .manzana-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -506,11 +404,11 @@
     </div>
   </div>
 
-  <!-- Pestañas simplificadas - Enfocadas en IMPRIMIR -->
+  <!-- Pestañas -->
   <div class="tabs">
     <div class="tab active" onclick="showTab('cargar')">📤 1. Cargar Novedades</div>
     <div class="tab" onclick="showTab('procesar')">⚙️ 2. Procesar Facturación</div>
-    <div class="tab" onclick="showTab('imprimir')">🖨️ 3. GENERAR FACTURAS PARA IMPRIMIR</div>
+    <div class="tab" onclick="showTab('generar')">🖨️ 3. GENERAR FACTURAS PDF</div>
   </div>
 
   <!-- Pestaña 1: Cargar Novedades -->
@@ -619,25 +517,15 @@
             <div class="stat-label">Total facturado</div>
           </div>
         </div>
-
-        <!-- Botón principal para generar facturas para imprimir -->
-        <div style="text-align: center; margin: 30px 0;">
-          <button class="btn btn-impresion" onclick="generarTodasLasFacturasParaImprimir()" style="background: #d32f2f; font-size: 1.5rem; padding: 20px 40px;">
-            <span style="font-size: 2rem;">🖨️</span> GENERAR FACTURAS PARA IMPRIMIR
-          </button>
-          <p style="color: #4a6d8c; margin-top: 15px;">
-            Se generará un ZIP con TODAS las facturas listas para imprimir (igual que la factura individual)
-          </p>
-        </div>
       </div>
     </div>
   </div>
 
-  <!-- Pestaña 3: GENERAR FACTURAS PARA IMPRIMIR (NUEVA) -->
-  <div id="tab-imprimir" style="display: none;" class="card">
+  <!-- Pestaña 3: GENERAR FACTURAS PDF -->
+  <div id="tab-generar" style="display: none;" class="card">
     <div class="card-header" style="background: #d32f2f; color: white;">
-      <span>🖨️ GENERAR FACTURAS PARA IMPRIMIR</span>
-      <span class="badge badge-warning">Total: <span id="totalFacturasImprimir">0</span> facturas</span>
+      <span>🖨️ GENERAR FACTURAS PDF</span>
+      <span class="badge badge-warning">Total: <span id="totalFacturasGenerar">0</span> facturas</span>
     </div>
     <div class="card-body">
       <div class="stats" style="margin-bottom: 20px;">
@@ -651,55 +539,32 @@
         </div>
       </div>
 
-      <!-- Opciones de generación -->
-      <div style="background: #f8fafd; padding: 20px; border-radius: 10px; margin: 20px 0;">
-        <h3 style="color: #1e3c5c; margin-bottom: 20px;">📋 OPCIONES DE GENERACIÓN</h3>
-        
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 20px;">
-          <div>
-            <label style="font-weight: 600; color: #2c4c6b;">📁 Agrupar por:</label>
-            <select id="agruparPor" style="width: 100%; padding: 8px; margin-top: 5px;">
-              <option value="manzana">Manzana (Recomendado)</option>
-              <option value="todas">Todas en un ZIP</option>
-            </select>
-          </div>
-          <div>
-            <label style="font-weight: 600; color: #2c4c6b;">📄 Incluir:</label>
-            <select id="incluirEnImpresion" style="width: 100%; padding: 8px; margin-top: 5px;">
-              <option value="todas">Todas las facturas</option>
-              <option value="seleccionadas">Solo seleccionadas</option>
-            </select>
-          </div>
-        </div>
-
-        <div style="text-align: center;">
-          <button class="btn btn-impresion" onclick="generarFacturasImpresion()" style="background: #d32f2f; font-size: 1.3rem; padding: 15px 30px;">
-            <span style="font-size: 1.8rem;">🖨️</span> GENERAR FACTURAS PARA IMPRIMIR
-          </button>
-        </div>
+      <!-- Botón principal -->
+      <div style="text-align: center; margin: 30px 0;">
+        <button class="btn btn-impresion" onclick="generarTodasLasFacturas()" style="background: #d32f2f; font-size: 1.5rem; padding: 20px 40px;">
+          <span style="font-size: 2rem;">🖨️</span> GENERAR TODAS LAS FACTURAS EN PDF
+        </button>
+        <p style="color: #4a6d8c; margin-top: 15px;">
+          Se generará un ZIP con TODAS las facturas listas para imprimir
+        </p>
       </div>
 
       <!-- Barra de progreso -->
-      <div id="impresionProgress" style="display: none; margin-top: 30px;">
-        <h4 style="color: #1e3c5c;">Generando facturas para imprimir...</h4>
+      <div id="generacionProgress" style="display: none; margin-top: 30px;">
+        <h4 style="color: #1e3c5c;">Generando facturas...</h4>
         <div class="progress-bar" style="height: 30px;">
-          <div class="progress-fill" id="impresionProgressFill" style="width: 0%; background: #d32f2f;"></div>
+          <div class="progress-fill" id="generacionProgressFill" style="width: 0%; background: #d32f2f;"></div>
         </div>
-        <p id="impresionProgressText" style="margin-top: 10px; font-weight: bold;">Preparando...</p>
-        <p id="impresionProgressDetalle" style="color: #666;"></p>
+        <p id="generacionProgressText" style="margin-top: 10px; font-weight: bold;">Preparando...</p>
+        <p id="generacionProgressDetalle" style="color: #666;"></p>
       </div>
 
-      <!-- Lista de facturas para seleccionar -->
+      <!-- Lista de facturas -->
       <div style="margin-top: 30px;">
-        <h4 style="color: #1e3c5c;">Seleccionar facturas:</h4>
-        <div style="margin: 15px 0; display: flex; gap: 10px; flex-wrap: wrap;">
-          <button class="btn btn-primary" onclick="seleccionarTodasImpresion(true)">✅ Seleccionar todas</button>
-          <button class="btn btn-warning" onclick="seleccionarTodasImpresion(false)">❌ Limpiar selección</button>
-        </div>
-        <table id="tablaFacturasImpresion">
+        <h4 style="color: #1e3c5c;">Facturas generadas:</h4>
+        <table id="tablaFacturas">
           <thead>
             <tr>
-              <th><input type="checkbox" id="selectAllImpresion" onchange="seleccionarTodasImpresion(this.checked)"></th>
               <th>Factura N°</th>
               <th>Propietario</th>
               <th>Manzana</th>
@@ -707,29 +572,14 @@
               <th>Total</th>
             </tr>
           </thead>
-          <tbody id="facturasImpresionBody">
+          <tbody id="facturasBody">
             <tr>
-              <td colspan="6" style="text-align: center; padding: 20px;">
+              <td colspan="5" style="text-align: center; padding: 20px;">
                 No hay facturas generadas. Primero procese la facturación.
               </td>
             </tr>
           </tbody>
         </table>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal de vista previa de factura -->
-  <div id="facturaModal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3>Vista previa de factura</h3>
-      </div>
-      <div class="modal-body" id="facturaPreview"></div>
-      <div class="modal-footer">
-        <button class="btn btn-pdf" onclick="descargarPDFActual()">📥 Descargar PDF</button>
-        <button class="btn btn-success" onclick="imprimirFactura()">🖨️ Imprimir</button>
-        <button class="btn" onclick="cerrarModal()">Cerrar</button>
       </div>
     </div>
   </div>
@@ -739,7 +589,6 @@
   let propietariosData = [];
   let novedadesData = [];
   let facturasGeneradas = [];
-  let facturasSeleccionadas = new Set();
 
   window.onload = function() {
     cargarPropietarios();
@@ -748,15 +597,15 @@
   function showTab(tabName) {
     document.getElementById('tab-cargar').style.display = 'none';
     document.getElementById('tab-procesar').style.display = 'none';
-    document.getElementById('tab-imprimir').style.display = 'none';
+    document.getElementById('tab-generar').style.display = 'none';
     
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
     
     document.getElementById(`tab-${tabName}`).style.display = 'block';
     event.target.classList.add('active');
     
-    if (tabName === 'imprimir') {
-      cargarTablaImpresion();
+    if (tabName === 'generar') {
+      cargarTablaFacturas();
     }
   }
 
@@ -908,7 +757,6 @@
     
     document.getElementById('progressContainer').style.display = 'block';
     facturasGeneradas = [];
-    facturasSeleccionadas.clear();
     
     let procesadas = 0;
     const total = novedadesData.length;
@@ -953,10 +801,10 @@
         mostrarResultadosProceso(tiempoSegundos);
         
         // Actualizar estadísticas
-        actualizarEstadisticasImpresion();
+        actualizarEstadisticas();
         
         setTimeout(() => {
-          showTab('imprimir');
+          showTab('generar');
         }, 500);
       }
     }, 30);
@@ -971,26 +819,25 @@
     document.getElementById('resultadosProceso').style.display = 'block';
   }
 
-  function actualizarEstadisticasImpresion() {
+  function actualizarEstadisticas() {
     document.getElementById('totalFacturasDisp').innerText = facturasGeneradas.length;
-    document.getElementById('totalFacturasImprimir').innerText = facturasGeneradas.length;
+    document.getElementById('totalFacturasGenerar').innerText = facturasGeneradas.length;
     const total = facturasGeneradas.reduce((sum, f) => sum + f.total_mes, 0);
     document.getElementById('totalValorDisp').innerText = '$' + total.toLocaleString('es-CO');
   }
 
-  function cargarTablaImpresion() {
-    const tbody = document.getElementById('facturasImpresionBody');
+  function cargarTablaFacturas() {
+    const tbody = document.getElementById('facturasBody');
     tbody.innerHTML = '';
     
     if (facturasGeneradas.length === 0) {
-      tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 20px;">No hay facturas generadas</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; padding: 20px;">No hay facturas generadas</td></tr>';
       return;
     }
     
-    facturasGeneradas.forEach(f => {
+    facturasGeneradas.slice(0, 50).forEach(f => {
       const tr = document.createElement('tr');
       tr.innerHTML = `
-        <td><input type="checkbox" onchange="seleccionarFacturaImpresion(${f.numero}, this.checked)" ${facturasSeleccionadas.has(f.numero) ? 'checked' : ''}></td>
         <td>${f.numero}</td>
         <td>${f.propietario || '---'}</td>
         <td>${f.manzana || '---'}</td>
@@ -1000,126 +847,57 @@
       tbody.appendChild(tr);
     });
     
-    const selectAllCheckbox = document.getElementById('selectAllImpresion');
-    if (selectAllCheckbox) {
-      selectAllCheckbox.checked = facturasSeleccionadas.size === facturasGeneradas.length;
-    }
-    
-    actualizarEstadisticasImpresion();
+    actualizarEstadisticas();
   }
 
-  function seleccionarTodasImpresion(checked) {
-    facturasSeleccionadas.clear();
-    if (checked) {
-      facturasGeneradas.forEach(f => {
-        facturasSeleccionadas.add(f.numero);
-      });
-    }
-    
-    cargarTablaImpresion();
-  }
-
-  function seleccionarFacturaImpresion(numero, seleccionada) {
-    if (seleccionada) {
-      facturasSeleccionadas.add(numero);
-    } else {
-      facturasSeleccionadas.delete(numero);
-    }
-    
-    const selectAllCheckbox = document.getElementById('selectAllImpresion');
-    if (selectAllCheckbox) {
-      selectAllCheckbox.checked = facturasSeleccionadas.size === facturasGeneradas.length;
-    }
-  }
-
-  // ========== FUNCIÓN PRINCIPAL: GENERAR FACTURAS PARA IMPRIMIR ==========
+  // ========== FUNCIÓN PRINCIPAL: GENERAR TODAS LAS FACTURAS EN PDF ==========
   
-  async function generarFacturasImpresion() {
-    const agruparPor = document.getElementById('agruparPor').value;
-    const incluir = document.getElementById('incluirEnImpresion').value;
-    
-    let facturasAProcesar = facturasGeneradas;
-    if (incluir === 'seleccionadas') {
-      facturasAProcesar = facturasGeneradas.filter(f => facturasSeleccionadas.has(f.numero));
-      if (facturasAProcesar.length === 0) {
-        alert('No hay facturas seleccionadas');
-        return;
-      }
-    }
-    
-    if (facturasAProcesar.length === 0) {
+  async function generarTodasLasFacturas() {
+    if (facturasGeneradas.length === 0) {
       alert('No hay facturas para generar');
       return;
     }
     
-    if (agruparPor === 'manzana') {
-      await generarPorManzanas(facturasAProcesar);
-    } else {
-      await generarUnZIP(facturasAProcesar, 'TODAS_LAS_FACTURAS');
-    }
-  }
-
-  async function generarPorManzanas(facturas) {
-    const manzanasUnicas = [...new Set(facturas.map(f => f.manzana))];
-    
-    if (!confirm(`Se generarán ${manzanasUnicas.length} ZIPs con facturas para imprimir. ¿Continuar?`)) {
+    if (!confirm(`Se generarán ${facturasGeneradas.length} facturas en PDF dentro de un ZIP. ¿Continuar?`)) {
       return;
     }
     
-    document.getElementById('impresionProgress').style.display = 'block';
-    document.getElementById('impresionProgressFill').style.width = '0%';
+    // Mostrar progreso
+    document.getElementById('generacionProgress').style.display = 'block';
+    document.getElementById('generacionProgressFill').style.width = '0%';
+    document.getElementById('generacionProgressText').innerHTML = 'Iniciando generación...';
     
-    let procesadas = 0;
-    const total = manzanasUnicas.length;
-    
-    for (const manzana of manzanasUnicas) {
-      const facturasManzana = facturas.filter(f => f.manzana === manzana);
-      
-      document.getElementById('impresionProgressText').innerHTML = 
-        `Procesando ${manzana} (${procesadas + 1}/${total})...`;
-      document.getElementById('impresionProgressDetalle').innerHTML = 
-        `${facturasManzana.length} facturas - Generando PDFs...`;
-      
-      await generarUnZIP(facturasManzana, manzana);
-      
-      procesadas++;
-      const porcentaje = (procesadas / total) * 100;
-      document.getElementById('impresionProgressFill').style.width = porcentaje + '%';
-    }
-    
-    document.getElementById('impresionProgress').style.display = 'none';
-    alert(`✅ Proceso completado: ${procesadas} manzanas procesadas`);
-  }
-
-  async function generarUnZIP(facturas, nombre) {
     const zip = new JSZip();
-    
-    // Crear carpeta para PDFs
     const pdfFolder = zip.folder('facturas_para_imprimir');
     
-    // Generar cada factura en PDF
-    for (let i = 0; i < facturas.length; i++) {
-      const factura = facturas[i];
+    // Generar cada factura
+    for (let i = 0; i < facturasGeneradas.length; i++) {
+      const factura = facturasGeneradas[i];
       
-      document.getElementById('impresionProgressDetalle').innerHTML = 
-        `${facturas.length} facturas - Generando PDF ${i+1}/${facturas.length} (Factura N° ${factura.numero})`;
-      
-      const elemento = document.createElement('div');
-      elemento.innerHTML = generarFacturaParaImprimir(factura);
-      elemento.style.position = 'absolute';
-      elemento.style.left = '-9999px';
-      elemento.style.top = '-9999px';
-      elemento.style.width = '800px';
-      elemento.style.backgroundColor = 'white';
-      elemento.style.padding = '20px';
-      document.body.appendChild(elemento);
+      const porcentaje = ((i + 1) / facturasGeneradas.length) * 100;
+      document.getElementById('generacionProgressFill').style.width = porcentaje + '%';
+      document.getElementById('generacionProgressText').innerHTML = `Generando factura ${i+1} de ${facturasGeneradas.length}`;
+      document.getElementById('generacionProgressDetalle').innerHTML = `Factura N° ${factura.numero} - ${factura.propietario}`;
       
       try {
-        const canvas = await html2canvas(elemento.firstChild || elemento, {
+        // Crear elemento HTML de la factura
+        const elemento = document.createElement('div');
+        elemento.innerHTML = generarFacturaHTML(factura);
+        elemento.style.position = 'absolute';
+        elemento.style.left = '-9999px';
+        elemento.style.top = '-9999px';
+        elemento.style.width = '800px';
+        elemento.style.backgroundColor = 'white';
+        elemento.style.padding = '20px';
+        document.body.appendChild(elemento);
+        
+        // Generar PDF
+        const canvas = await html2canvas(elemento, {
           scale: 2,
           logging: false,
           allowTaint: false,
-          useCORS: true
+          useCORS: true,
+          backgroundColor: '#ffffff'
         });
         
         const imgData = canvas.toDataURL('image/png');
@@ -1132,26 +910,28 @@
         pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
         const pdfBlob = pdf.output('blob');
         
-        // Guardar PDF con nombre formateado para impresión
-        pdfFolder.file(`FACTURA_${factura.numero}_${factura.manzana}_${factura.interior}.pdf`, pdfBlob);
+        // Agregar al ZIP
+        pdfFolder.file(`FACTURA_${factura.numero}_${factura.manzana}.pdf`, pdfBlob);
         
+        // Limpiar
         document.body.removeChild(elemento);
         
         // Pequeña pausa
-        await new Promise(resolve => setTimeout(resolve, 150));
+        await new Promise(resolve => setTimeout(resolve, 100));
         
       } catch (error) {
         console.error(`Error en factura ${factura.numero}:`, error);
-        document.body.removeChild(elemento);
       }
     }
     
     // Agregar Excel de respaldo
-    const ws = XLSX.utils.json_to_sheet(facturas);
+    const ws = XLSX.utils.json_to_sheet(facturasGeneradas);
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'Facturas');
     const excelBlob = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
     zip.file('lista_facturas.xlsx', excelBlob);
+    
+    document.getElementById('generacionProgressText').innerHTML = 'Comprimiendo archivos...';
     
     // Generar ZIP
     const content = await zip.generateAsync({ 
@@ -1160,18 +940,23 @@
       compressionOptions: { level: 6 }
     });
     
-    saveAs(content, `${nombre}_facturas_para_imprimir.zip`);
+    saveAs(content, `TODAS_FACTURAS_${new Date().toISOString().split('T')[0]}.zip`);
+    
+    document.getElementById('generacionProgress').style.display = 'none';
+    alert(`✅ Proceso completado: ${facturasGeneradas.length} facturas generadas en ZIP`);
   }
 
-  // Función que genera EXACTAMENTE la misma factura que la individual
-  function generarFacturaParaImprimir(factura) {
+  // Función que genera la factura con el MISMO diseño que la individual
+  function generarFacturaHTML(factura) {
     const fecha = new Date(factura.fecha + 'T12:00:00');
     const fechaFormateada = fecha.toLocaleDateString('es-CO', { year: 'numeric', month: 'long', day: 'numeric' });
     const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
     const mesTexto = meses[parseInt(factura.mes) - 1] + ' 2026';
     
+    const cuotaBase = factura.total_mes - factura.cuota_extra - factura.sanciones - factura.acuerdo_pago;
+    
     return `
-      <div style="font-family: 'Segoe UI', Arial, sans-serif; padding: 25px; background: white; width: 750px; margin: 0 auto; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+      <div style="font-family: 'Segoe UI', Arial, sans-serif; padding: 30px; background: white; width: 750px; margin: 0 auto; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
         <!-- Header con logo -->
         <div style="display: flex; align-items: center; gap: 25px; margin-bottom: 25px; border-bottom: 3px solid #1e3c5c; padding-bottom: 15px;">
           <img src="https://i.postimg.cc/2yb3MyY0/LOGO-BRISAS-DEL-NORTE.png" alt="Logo Brisas del Norte" style="max-width: 160px; max-height: 70px;">
@@ -1203,7 +988,7 @@
           <tbody>
             <tr>
               <td style="padding: 10px; border-bottom: 1px solid #ddd;">Cuota de administración</td>
-              <td style="padding: 10px; border-bottom: 1px solid #ddd; text-align: right;">$${(factura.total_mes - factura.cuota_extra - factura.sanciones - factura.acuerdo_pago).toLocaleString('es-CO')}</td>
+              <td style="padding: 10px; border-bottom: 1px solid #ddd; text-align: right;">$${cuotaBase.toLocaleString('es-CO')}</td>
             </tr>
             ${factura.cuota_extra > 0 ? `<tr><td style="padding: 10px; border-bottom: 1px solid #ddd;">Cuota extraordinaria</td><td style="padding: 10px; border-bottom: 1px solid #ddd; text-align: right;">$${factura.cuota_extra.toLocaleString('es-CO')}</td></tr>` : ''}
             ${factura.sanciones > 0 ? `<tr><td style="padding: 10px; border-bottom: 1px solid #ddd;">Sanciones / Multas</td><td style="padding: 10px; border-bottom: 1px solid #ddd; text-align: right;">$${factura.sanciones.toLocaleString('es-CO')}</td></tr>` : ''}
@@ -1228,16 +1013,8 @@
     `;
   }
 
-  function generarTodasLasFacturasParaImprimir() {
-    generarFacturasImpresion();
-  }
-
   function simularFacturacion() {
     alert('Función de simulación');
-  }
-
-  function cerrarModal() {
-    document.getElementById('facturaModal').style.display = 'none';
   }
 </script>
 </body>
