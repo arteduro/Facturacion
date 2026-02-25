@@ -10,7 +10,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
   <style>
-    /* (Mantén todos los estilos igual que en tu código actual) */
+    /* (Mantén todos los estilos igual que antes) */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -452,8 +452,9 @@
   <div class="tabs">
     <div class="tab active" onclick="showTab('cargar')">📤 1. Cargar Novedades</div>
     <div class="tab" onclick="showTab('procesar')">⚙️ 2. Procesar Facturación</div>
-    <div class="tab" onclick="showTab('revisar')">👀 3. Revisar Facturas</div>
-    <div class="tab" onclick="showTab('exportar')">📦 4. Exportar Todo</div>
+    <div class="tab" onclick="showTab('generar')">📄 3. Generar Facturas</div>
+    <div class="tab" onclick="showTab('revisar')">👀 4. Revisar Facturas</div>
+    <div class="tab" onclick="showTab('exportar')">📦 5. Exportar Todo</div>
   </div>
 
   <!-- Pestaña 1: Cargar Novedades -->
@@ -570,30 +571,67 @@
             <div class="stat-label">Tiempo</div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
 
-        <!-- BOTONES PARA GENERAR FACTURAS MASIVAS -->
-        <div style="text-align: center; margin: 30px 0 20px;">
-          <h3 style="color: #1e3c5c; margin-bottom: 20px;">📄 GENERAR FACTURAS MASIVAS</h3>
-          <div class="action-buttons">
-            <button class="btn btn-pdf" onclick="generarTodasPDFUnico()" style="background: #d32f2f;">
-              <span style="font-size: 1.2rem;">📄</span> GENERAR PDF ÚNICO
-            </button>
-            <button class="btn btn-zip" onclick="generarTodasZIP()" style="background: #7b1fa2;">
-              <span style="font-size: 1.2rem;">📦</span> GENERAR ZIP
-            </button>
-            <button class="btn btn-excel" onclick="exportarTodasExcel()" style="background: #2e7d32;">
-              <span style="font-size: 1.2rem;">📊</span> GENERAR EXCEL
-            </button>
-            <button class="btn btn-print" onclick="showTab('revisar')" style="background: #0288d1;">
-              <span style="font-size: 1.2rem;">👀</span> REVISAR FACTURAS
-            </button>
+  <!-- Pestaña 3: Generar Facturas -->
+  <div id="tab-generar" style="display: none;" class="card">
+    <div class="card-header">
+      <span>📄 Generar Facturas Masivas</span>
+    </div>
+    <div class="card-body">
+      <div class="stats" style="margin-bottom: 20px;">
+        <div class="stat-card">
+          <div class="stat-value" id="totalFacturasGenerar">359</div>
+          <div class="stat-label">Facturas disponibles</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="totalValorGenerar">$36.465.000</div>
+          <div class="stat-label">Valor total</div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin: 30px 0;">
+        <h3 style="color: #1e3c5c; margin-bottom: 30px;">📋 OPCIONES DE GENERACIÓN MASIVA</h3>
+        
+        <div class="config-grid" style="margin-bottom: 30px;">
+          <div class="config-item">
+            <label>📄 Formato de generación</label>
+            <select id="formatoGeneracion">
+              <option value="pdf-unico">PDF ÚNICO (Todas las facturas)</option>
+              <option value="pdf-individual">PDF (archivos individuales)</option>
+              <option value="pdf-zip">ZIP con PDFs individuales</option>
+              <option value="excel">Excel (consolidado)</option>
+              <option value="ambos">PDF ÚNICO + Excel</option>
+            </select>
           </div>
+          <div class="config-item">
+            <label>📁 Incluir</label>
+            <select id="incluirGeneracion">
+              <option value="todas">Todas las facturas</option>
+              <option value="seleccionadas">Solo seleccionadas</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn btn-pdf" onclick="procesarGeneracionMasiva()" style="background: #d32f2f; font-size: 1.1rem; padding: 15px 30px;">
+            <span style="font-size: 1.5rem;">📄</span> GENERAR FACTURAS AHORA
+          </button>
+        </div>
+
+        <div id="generacionProgress" style="display: none; margin-top: 20px;">
+          <div class="progress-bar">
+            <div class="progress-fill" id="generacionFill" style="width: 0%;"></div>
+          </div>
+          <p id="generacionText">Generando facturas 0/359...</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Pestaña 3: Revisar Facturas -->
+  <!-- Pestaña 4: Revisar Facturas -->
   <div id="tab-revisar" style="display: none;" class="card">
     <div class="card-header">
       <span>👀 Revisión de facturas generadas</span>
@@ -631,7 +669,7 @@
     </div>
   </div>
 
-  <!-- Pestaña 4: Exportar Todo -->
+  <!-- Pestaña 5: Exportar Todo -->
   <div id="tab-exportar" style="display: none;" class="card">
     <div class="card-header">
       <span>📦 Exportar todas las facturas</span>
@@ -639,11 +677,11 @@
     <div class="card-body">
       <div class="stats" style="margin-bottom: 20px;">
         <div class="stat-card">
-          <div class="stat-value" id="totalExportar">0</div>
+          <div class="stat-value" id="totalExportar">359</div>
           <div class="stat-label">Facturas para exportar</div>
         </div>
         <div class="stat-card">
-          <div class="stat-value" id="totalValorExportar">$0</div>
+          <div class="stat-value" id="totalValorExportar">$36.465.000</div>
           <div class="stat-label">Valor total</div>
         </div>
       </div>
@@ -653,6 +691,7 @@
           <label>📄 Formato de exportación</label>
           <select id="formatoExportacion">
             <option value="pdf-unico">PDF ÚNICO (Todas las facturas)</option>
+            <option value="pdf-individual">PDF (archivos individuales)</option>
             <option value="pdf-zip">ZIP con PDFs individuales</option>
             <option value="excel">Excel (consolidado)</option>
             <option value="csv">CSV (para sistema contable)</option>
@@ -710,6 +749,7 @@
   function showTab(tabName) {
     document.getElementById('tab-cargar').style.display = 'none';
     document.getElementById('tab-procesar').style.display = 'none';
+    document.getElementById('tab-generar').style.display = 'none';
     document.getElementById('tab-revisar').style.display = 'none';
     document.getElementById('tab-exportar').style.display = 'none';
     
@@ -718,7 +758,9 @@
     document.getElementById(`tab-${tabName}`).style.display = 'block';
     event.target.classList.add('active');
     
-    if (tabName === 'exportar') {
+    if (tabName === 'generar') {
+      actualizarEstadisticasGenerar();
+    } else if (tabName === 'exportar') {
       actualizarEstadisticasExportar();
     } else if (tabName === 'revisar') {
       cargarTablaFacturas();
@@ -921,6 +963,15 @@
         const tiempoSegundos = ((endTime - startTime) / 1000).toFixed(1);
         
         mostrarResultadosProceso(tiempoSegundos);
+        
+        // Actualizar estadísticas de generar
+        actualizarEstadisticasGenerar();
+        actualizarEstadisticasExportar();
+        
+        // Cambiar a pestaña de generar
+        setTimeout(() => {
+          showTab('generar');
+        }, 500);
       }
     }, 30);
   }
@@ -934,12 +985,12 @@
     document.getElementById('tiempoProceso').innerText = tiempo + 's';
     
     document.getElementById('resultadosProceso').style.display = 'block';
-    actualizarEstadisticasExportar();
-    
-    // Scroll suave hasta los botones de generación
-    setTimeout(() => {
-      document.querySelector('#resultadosProceso .action-buttons').scrollIntoView({ behavior: 'smooth' });
-    }, 100);
+  }
+
+  function actualizarEstadisticasGenerar() {
+    document.getElementById('totalFacturasGenerar').innerText = facturasGeneradas.length;
+    const total = facturasGeneradas.reduce((sum, f) => sum + f.total_mes, 0);
+    document.getElementById('totalValorGenerar').innerText = '$' + total.toLocaleString('es-CO');
   }
 
   function actualizarEstadisticasExportar() {
@@ -948,38 +999,47 @@
     document.getElementById('totalValorExportar').innerText = '$' + total.toLocaleString('es-CO');
   }
 
-  // ========== FUNCIONES DE GENERACIÓN MASIVA ==========
+  // ========== FUNCIONES DE GENERACIÓN MASIVA CORREGIDAS ==========
   
-  async function generarTodasPDFUnico() {
+  async function procesarGeneracionMasiva() {
     if (facturasGeneradas.length === 0) {
-      alert('No hay facturas para generar');
+      alert('No hay facturas generadas. Primero procese la facturación.');
       return;
     }
     
-    const totalFacturas = facturasGeneradas.length;
-    alert(`⏳ Generando PDF ÚNICO con ${totalFacturas} facturas...`);
+    const formato = document.getElementById('formatoGeneracion').value;
+    const incluir = document.getElementById('incluirGeneracion').value;
+    
+    if (formato === 'pdf-unico') {
+      await generarPDFUnico(incluir === 'seleccionadas');
+    } else if (formato === 'pdf-individual') {
+      await generarPDFIndividuales(incluir === 'seleccionadas');
+    } else if (formato === 'pdf-zip') {
+      await generarZIP(incluir === 'seleccionadas');
+    } else if (formato === 'excel') {
+      generarExcel(incluir === 'seleccionadas');
+    } else if (formato === 'ambos') {
+      await generarPDFUnico(incluir === 'seleccionadas');
+      generarExcel(incluir === 'seleccionadas');
+    }
+  }
+
+  async function generarPDFUnico(soloSeleccionadas = false) {
+    let facturasAProcesar = facturasGeneradas;
+    if (soloSeleccionadas) {
+      facturasAProcesar = facturasGeneradas.filter(f => facturasSeleccionadas.has(f.numero));
+      if (facturasAProcesar.length === 0) {
+        alert('No hay facturas seleccionadas');
+        return;
+      }
+    }
+    
+    const totalFacturas = facturasAProcesar.length;
     
     // Mostrar progreso
-    const progressDiv = document.createElement('div');
-    progressDiv.style.position = 'fixed';
-    progressDiv.style.top = '50%';
-    progressDiv.style.left = '50%';
-    progressDiv.style.transform = 'translate(-50%, -50%)';
-    progressDiv.style.backgroundColor = 'white';
-    progressDiv.style.padding = '20px';
-    progressDiv.style.borderRadius = '10px';
-    progressDiv.style.boxShadow = '0 0 20px rgba(0,0,0,0.3)';
-    progressDiv.style.zIndex = '2000';
-    progressDiv.innerHTML = `
-      <div style="text-align: center;">
-        <h3 style="color: #1e3c5c;">Generando PDF Único</h3>
-        <div style="width: 300px; height: 20px; background: #e9ecef; border-radius: 10px; margin: 15px 0;">
-          <div id="progressBarFill" style="width: 0%; height: 100%; background: #d32f2f; border-radius: 10px; transition: width 0.3s;"></div>
-        </div>
-        <p id="progressBarText">Preparando factura 0/${totalFacturas}...</p>
-      </div>
-    `;
-    document.body.appendChild(progressDiv);
+    document.getElementById('generacionProgress').style.display = 'block';
+    document.getElementById('generacionFill').style.width = '0%';
+    document.getElementById('generacionText').innerText = `Preparando facturas 0/${totalFacturas}...`;
     
     // Crear contenedor para todas las facturas
     const contenedor = document.createElement('div');
@@ -990,31 +1050,38 @@
     document.body.appendChild(contenedor);
     
     // Agregar todas las facturas al contenedor
-    for (let i = 0; i < facturasGeneradas.length; i++) {
-      const factura = facturasGeneradas[i];
+    for (let i = 0; i < facturasAProcesar.length; i++) {
+      const factura = facturasAProcesar[i];
       const facturaDiv = document.createElement('div');
       facturaDiv.innerHTML = generarHTMLFactura(factura);
-      facturaDiv.style.marginBottom = '20px';
-      facturaDiv.style.pageBreakAfter = i < facturasGeneradas.length - 1 ? 'always' : 'auto';
+      facturaDiv.style.marginBottom = '30px';
+      facturaDiv.style.pageBreakAfter = i < facturasAProcesar.length - 1 ? 'always' : 'auto';
+      facturaDiv.style.padding = '10px';
+      facturaDiv.style.border = '1px solid #ddd';
       contenedor.appendChild(facturaDiv);
       
       // Actualizar progreso
       const porcentaje = ((i + 1) / totalFacturas) * 100;
-      document.getElementById('progressBarFill').style.width = porcentaje + '%';
-      document.getElementById('progressBarText').innerText = `Preparando factura ${i+1}/${totalFacturas}...`;
+      document.getElementById('generacionFill').style.width = porcentaje + '%';
+      document.getElementById('generacionText').innerText = `Preparando factura ${i+1}/${totalFacturas}...`;
+      
+      // Permitir que el navegador procese
+      await new Promise(resolve => setTimeout(resolve, 10));
     }
     
-    document.getElementById('progressBarText').innerText = 'Generando PDF...';
+    document.getElementById('generacionText').innerText = `Generando PDF con ${totalFacturas} facturas...`;
     
     // Generar PDF con todas las facturas
-    await html2canvas(contenedor, {
-      scale: 1.5,
-      logging: false,
-      allowTaint: false,
-      useCORS: true,
-      windowWidth: 800,
-      windowHeight: contenedor.scrollHeight
-    }).then(canvas => {
+    try {
+      const canvas = await html2canvas(contenedor, {
+        scale: 1.2,
+        logging: false,
+        allowTaint: false,
+        useCORS: true,
+        windowWidth: 800,
+        windowHeight: contenedor.scrollHeight
+      });
+      
       const imgData = canvas.toDataURL('image/png');
       
       // Crear PDF con tamaño adecuado
@@ -1025,144 +1092,43 @@
       });
       
       pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
-      pdf.save(`Todas_Las_Facturas_${new Date().toISOString().split('T')[0]}.pdf`);
+      pdf.save(`Facturas_${new Date().toISOString().split('T')[0]}.pdf`);
       
       document.body.removeChild(contenedor);
-      document.body.removeChild(progressDiv);
+      document.getElementById('generacionProgress').style.display = 'none';
       alert(`✅ PDF ÚNICO generado con ${totalFacturas} facturas`);
-    }).catch(error => {
+    } catch (error) {
       console.error('Error generando PDF:', error);
       document.body.removeChild(contenedor);
-      document.body.removeChild(progressDiv);
-      alert('❌ Error generando PDF. Intente con ZIP en su lugar.');
-    });
+      document.getElementById('generacionProgress').style.display = 'none';
+      alert('❌ Error generando PDF. Intente con otra opción.');
+    }
   }
 
-  async function generarSeleccionadasPDFUnico() {
-    if (facturasSeleccionadas.size === 0) {
-      alert('Seleccione al menos una factura');
-      return;
+  async function generarPDFIndividuales(soloSeleccionadas = false) {
+    let facturasAProcesar = facturasGeneradas;
+    if (soloSeleccionadas) {
+      facturasAProcesar = facturasGeneradas.filter(f => facturasSeleccionadas.has(f.numero));
+      if (facturasAProcesar.length === 0) {
+        alert('No hay facturas seleccionadas');
+        return;
+      }
     }
     
-    const seleccionadas = facturasGeneradas.filter(f => facturasSeleccionadas.has(f.numero));
-    const totalSeleccionadas = seleccionadas.length;
-    
-    alert(`⏳ Generando PDF ÚNICO con ${totalSeleccionadas} facturas seleccionadas...`);
+    const totalFacturas = facturasAProcesar.length;
     
     // Mostrar progreso
-    const progressDiv = document.createElement('div');
-    progressDiv.style.position = 'fixed';
-    progressDiv.style.top = '50%';
-    progressDiv.style.left = '50%';
-    progressDiv.style.transform = 'translate(-50%, -50%)';
-    progressDiv.style.backgroundColor = 'white';
-    progressDiv.style.padding = '20px';
-    progressDiv.style.borderRadius = '10px';
-    progressDiv.style.boxShadow = '0 0 20px rgba(0,0,0,0.3)';
-    progressDiv.style.zIndex = '2000';
-    progressDiv.innerHTML = `
-      <div style="text-align: center;">
-        <h3 style="color: #1e3c5c;">Generando PDF Seleccionadas</h3>
-        <div style="width: 300px; height: 20px; background: #e9ecef; border-radius: 10px; margin: 15px 0;">
-          <div id="progressBarFill" style="width: 0%; height: 100%; background: #d32f2f; border-radius: 10px; transition: width 0.3s;"></div>
-        </div>
-        <p id="progressBarText">Preparando factura 0/${totalSeleccionadas}...</p>
-      </div>
-    `;
-    document.body.appendChild(progressDiv);
+    document.getElementById('generacionProgress').style.display = 'block';
+    document.getElementById('generacionFill').style.width = '0%';
+    document.getElementById('generacionText').innerText = `Generando facturas 0/${totalFacturas}...`;
     
-    // Crear contenedor
-    const contenedor = document.createElement('div');
-    contenedor.style.position = 'absolute';
-    contenedor.style.left = '-9999px';
-    contenedor.style.top = '-9999px';
-    contenedor.style.width = '800px';
-    document.body.appendChild(contenedor);
-    
-    for (let i = 0; i < seleccionadas.length; i++) {
-      const factura = seleccionadas[i];
-      const facturaDiv = document.createElement('div');
-      facturaDiv.innerHTML = generarHTMLFactura(factura);
-      facturaDiv.style.marginBottom = '20px';
-      facturaDiv.style.pageBreakAfter = i < seleccionadas.length - 1 ? 'always' : 'auto';
-      contenedor.appendChild(facturaDiv);
+    for (let i = 0; i < facturasAProcesar.length; i++) {
+      const factura = facturasAProcesar[i];
       
-      const porcentaje = ((i + 1) / totalSeleccionadas) * 100;
-      document.getElementById('progressBarFill').style.width = porcentaje + '%';
-      document.getElementById('progressBarText').innerText = `Preparando factura ${i+1}/${totalSeleccionadas}...`;
-    }
-    
-    document.getElementById('progressBarText').innerText = 'Generando PDF...';
-    
-    await html2canvas(contenedor, {
-      scale: 1.5,
-      logging: false,
-      windowWidth: 800,
-      windowHeight: contenedor.scrollHeight
-    }).then(canvas => {
-      const imgData = canvas.toDataURL('image/png');
-      const pdf = new jspdf.jsPDF({
-        orientation: 'portrait',
-        unit: 'px',
-        format: [canvas.width, canvas.height]
-      });
-      
-      pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
-      pdf.save(`Facturas_Seleccionadas_${new Date().toISOString().split('T')[0]}.pdf`);
-      
-      document.body.removeChild(contenedor);
-      document.body.removeChild(progressDiv);
-      alert(`✅ PDF ÚNICO generado con ${totalSeleccionadas} facturas seleccionadas`);
-    });
-  }
-
-  async function generarTodasZIP() {
-    if (facturasGeneradas.length === 0) {
-      alert('No hay facturas para generar');
-      return;
-    }
-    
-    const totalFacturas = facturasGeneradas.length;
-    alert(`⏳ Generando ZIP con ${totalFacturas} facturas... Esto puede tomar unos momentos.`);
-    
-    const zip = new JSZip();
-    
-    // Mostrar progreso
-    const progressDiv = document.createElement('div');
-    progressDiv.style.position = 'fixed';
-    progressDiv.style.top = '50%';
-    progressDiv.style.left = '50%';
-    progressDiv.style.transform = 'translate(-50%, -50%)';
-    progressDiv.style.backgroundColor = 'white';
-    progressDiv.style.padding = '20px';
-    progressDiv.style.borderRadius = '10px';
-    progressDiv.style.boxShadow = '0 0 20px rgba(0,0,0,0.3)';
-    progressDiv.style.zIndex = '2000';
-    progressDiv.innerHTML = `
-      <div style="text-align: center;">
-        <h3 style="color: #1e3c5c;">Generando ZIP</h3>
-        <div style="width: 300px; height: 20px; background: #e9ecef; border-radius: 10px; margin: 15px 0;">
-          <div id="zipProgressFill" style="width: 0%; height: 100%; background: #7b1fa2; border-radius: 10px; transition: width 0.3s;"></div>
-        </div>
-        <p id="zipProgressText">Generando PDF 0/${totalFacturas}...</p>
-      </div>
-    `;
-    document.body.appendChild(progressDiv);
-    
-    // Agregar Excel consolidado
-    const ws = XLSX.utils.json_to_sheet(facturasGeneradas);
-    const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, 'Facturas');
-    const excelBlob = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
-    zip.file('Consolidado_Facturas.xlsx', excelBlob);
-    
-    // Agregar PDFs individuales
-    for (let i = 0; i < facturasGeneradas.length; i++) {
-      const factura = facturasGeneradas[i];
-      
+      // Actualizar progreso
       const porcentaje = ((i + 1) / totalFacturas) * 100;
-      document.getElementById('zipProgressFill').style.width = porcentaje + '%';
-      document.getElementById('zipProgressText').innerText = `Generando PDF ${i+1}/${totalFacturas}...`;
+      document.getElementById('generacionFill').style.width = porcentaje + '%';
+      document.getElementById('generacionText').innerText = `Generando factura ${i+1}/${totalFacturas}: ${factura.numero}`;
       
       const elemento = document.createElement('div');
       elemento.innerHTML = generarHTMLFactura(factura);
@@ -1172,10 +1138,83 @@
       elemento.style.width = '800px';
       document.body.appendChild(elemento);
       
-      await html2canvas(elemento.firstChild, {
-        scale: 1.5,
-        logging: false
-      }).then(canvas => {
+      try {
+        const canvas = await html2canvas(elemento.firstChild, {
+          scale: 1.5,
+          logging: false
+        });
+        
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jspdf.jsPDF({
+          orientation: 'portrait',
+          unit: 'px',
+          format: [canvas.width, canvas.height]
+        });
+        
+        pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
+        pdf.save(`Factura_${factura.numero}.pdf`);
+        document.body.removeChild(elemento);
+        
+        // Pequeña pausa entre facturas
+        await new Promise(resolve => setTimeout(resolve, 500));
+      } catch (error) {
+        console.error('Error generando PDF individual:', error);
+        document.body.removeChild(elemento);
+      }
+    }
+    
+    document.getElementById('generacionProgress').style.display = 'none';
+    alert(`✅ ${totalFacturas} facturas generadas en PDF individuales`);
+  }
+
+  async function generarZIP(soloSeleccionadas = false) {
+    let facturasAProcesar = facturasGeneradas;
+    if (soloSeleccionadas) {
+      facturasAProcesar = facturasGeneradas.filter(f => facturasSeleccionadas.has(f.numero));
+      if (facturasAProcesar.length === 0) {
+        alert('No hay facturas seleccionadas');
+        return;
+      }
+    }
+    
+    const totalFacturas = facturasAProcesar.length;
+    
+    // Mostrar progreso
+    document.getElementById('generacionProgress').style.display = 'block';
+    document.getElementById('generacionFill').style.width = '0%';
+    document.getElementById('generacionText').innerText = `Preparando ZIP 0/${totalFacturas}...`;
+    
+    const zip = new JSZip();
+    
+    // Agregar Excel consolidado
+    const ws = XLSX.utils.json_to_sheet(facturasAProcesar);
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Facturas');
+    const excelBlob = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+    zip.file('Consolidado_Facturas.xlsx', excelBlob);
+    
+    // Agregar PDFs individuales
+    for (let i = 0; i < facturasAProcesar.length; i++) {
+      const factura = facturasAProcesar[i];
+      
+      const porcentaje = ((i + 1) / totalFacturas) * 100;
+      document.getElementById('generacionFill').style.width = porcentaje + '%';
+      document.getElementById('generacionText').innerText = `Generando PDF ${i+1}/${totalFacturas}: ${factura.numero}`;
+      
+      const elemento = document.createElement('div');
+      elemento.innerHTML = generarHTMLFactura(factura);
+      elemento.style.position = 'absolute';
+      elemento.style.left = '-9999px';
+      elemento.style.top = '-9999px';
+      elemento.style.width = '800px';
+      document.body.appendChild(elemento);
+      
+      try {
+        const canvas = await html2canvas(elemento.firstChild, {
+          scale: 1.5,
+          logging: false
+        });
+        
         const imgData = canvas.toDataURL('image/png');
         const pdf = new jspdf.jsPDF({
           orientation: 'portrait',
@@ -1186,42 +1225,48 @@
         const pdfBlob = pdf.output('blob');
         zip.file(`Facturas_PDF/Factura_${factura.numero}.pdf`, pdfBlob);
         document.body.removeChild(elemento);
-      });
+      } catch (error) {
+        console.error('Error generando PDF para ZIP:', error);
+        document.body.removeChild(elemento);
+      }
     }
     
-    document.body.removeChild(progressDiv);
+    document.getElementById('generacionText').innerText = `Comprimiendo archivos...`;
     
     zip.generateAsync({ type: 'blob' }).then(content => {
-      saveAs(content, `Todas_Las_Facturas_${new Date().toISOString().split('T')[0]}.zip`);
-      alert(`✅ ZIP generado con ${totalFacturas} facturas en PDF + Excel consolidado`);
+      saveAs(content, `Facturas_${new Date().toISOString().split('T')[0]}.zip`);
+      document.getElementById('generacionProgress').style.display = 'none';
+      alert(`✅ ZIP generado con ${totalFacturas} facturas + Excel consolidado`);
     });
   }
 
-  function exportarTodasExcel() {
-    if (facturasGeneradas.length === 0) {
-      alert('No hay facturas para exportar');
-      return;
+  function generarExcel(soloSeleccionadas = false) {
+    let facturasAProcesar = facturasGeneradas;
+    if (soloSeleccionadas) {
+      facturasAProcesar = facturasGeneradas.filter(f => facturasSeleccionadas.has(f.numero));
+      if (facturasAProcesar.length === 0) {
+        alert('No hay facturas seleccionadas');
+        return;
+      }
     }
     
-    const ws = XLSX.utils.json_to_sheet(facturasGeneradas);
+    const ws = XLSX.utils.json_to_sheet(facturasAProcesar);
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'Facturas');
     XLSX.writeFile(wb, `Facturas_${new Date().toISOString().split('T')[0]}.xlsx`);
-    alert(`✅ Excel generado con ${facturasGeneradas.length} facturas`);
+    alert(`✅ Excel generado con ${facturasAProcesar.length} facturas`);
+  }
+
+  function generarSeleccionadasPDFUnico() {
+    generarPDFUnico(true);
   }
 
   function exportarSeleccionadasExcel() {
-    if (facturasSeleccionadas.size === 0) {
-      alert('Seleccione al menos una factura');
-      return;
-    }
-    
-    const seleccionadas = facturasGeneradas.filter(f => facturasSeleccionadas.has(f.numero));
-    const ws = XLSX.utils.json_to_sheet(seleccionadas);
-    const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, 'Facturas');
-    XLSX.writeFile(wb, 'Facturas_Seleccionadas.xlsx');
-    alert(`✅ Excel generado con ${seleccionadas.length} facturas seleccionadas`);
+    generarExcel(true);
+  }
+
+  function generarTodasZIP() {
+    generarZIP(false);
   }
 
   function cargarTablaFacturas() {
@@ -1427,29 +1472,24 @@
   function exportarFacturas() {
     const formato = document.getElementById('formatoExportacion').value;
     const incluir = document.getElementById('incluirExportacion').value;
+    const soloSeleccionadas = incluir === 'seleccionadas';
     
     if (formato === 'pdf-unico') {
-      if (incluir === 'seleccionadas') {
-        generarSeleccionadasPDFUnico();
-      } else {
-        generarTodasPDFUnico();
-      }
+      generarPDFUnico(soloSeleccionadas);
+    } else if (formato === 'pdf-individual') {
+      generarPDFIndividuales(soloSeleccionadas);
     } else if (formato === 'pdf-zip') {
-      generarTodasZIP();
+      generarZIP(soloSeleccionadas);
     } else if (formato === 'excel') {
-      if (incluir === 'seleccionadas') {
-        exportarSeleccionadasExcel();
-      } else {
-        exportarTodasExcel();
-      }
+      generarExcel(soloSeleccionadas);
     } else if (formato === 'csv') {
-      const facturasAExportar = incluir === 'seleccionadas' 
-        ? facturasGeneradas.filter(f => facturasSeleccionadas.has(f.numero))
-        : facturasGeneradas;
-      
-      if (facturasAExportar.length === 0) {
-        alert('No hay facturas para exportar');
-        return;
+      let facturasAExportar = facturasGeneradas;
+      if (soloSeleccionadas) {
+        facturasAExportar = facturasGeneradas.filter(f => facturasSeleccionadas.has(f.numero));
+        if (facturasAExportar.length === 0) {
+          alert('No hay facturas seleccionadas');
+          return;
+        }
       }
       
       const ws = XLSX.utils.json_to_sheet(facturasAExportar);
@@ -1498,7 +1538,9 @@
       document.getElementById('fileInfo').style.display = 'none';
       document.getElementById('resultadosProceso').style.display = 'none';
       document.getElementById('reporteGenerado').style.display = 'none';
+      document.getElementById('generacionProgress').style.display = 'none';
       cargarTablaFacturas();
+      actualizarEstadisticasGenerar();
       actualizarEstadisticasExportar();
       
       // Volver a la pestaña de cargar
