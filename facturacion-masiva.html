@@ -334,6 +334,17 @@
       .tab { padding: 5px 10px; font-size: 0.8rem; }
       .action-buttons .btn { min-width: 100%; }
     }
+
+    /* Estilos específicos para la factura */
+    .factura-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
   </style>
 </head>
 <body>
@@ -792,7 +803,7 @@
     actualizarEstadisticas();
   }
 
-  // ========== FUNCIÓN PRINCIPAL: GENERAR FACTURAS COMPLETAS EN PDF ==========
+  // ========== SOLUCIÓN RADICAL: GENERAR PDF POR PARTES ==========
   
   async function generarTodasLasFacturas() {
     if (facturasGeneradas.length === 0) {
@@ -812,6 +823,9 @@
     const zip = new JSZip();
     const pdfFolder = zip.folder('facturas_para_imprimir');
     
+    // Altura máxima de página para PDF (en píxeles a 72 DPI)
+    const MAX_PAGE_HEIGHT = 1056; // Aproximadamente 11 pulgadas
+    
     // Generar cada factura
     for (let i = 0; i < facturasGeneradas.length; i++) {
       const factura = facturasGeneradas[i];
@@ -822,92 +836,111 @@
       document.getElementById('generacionProgressDetalle').innerHTML = `Factura N° ${factura.numero} - ${factura.propietario}`;
       
       try {
-        // Crear elemento HTML de la factura
-        const elemento = document.createElement('div');
-        elemento.innerHTML = generarFacturaCompleta(factura);
-        elemento.style.position = 'absolute';
-        elemento.style.left = '-9999px';
-        elemento.style.top = '-9999px';
-        elemento.style.width = '800px';
-        elemento.style.backgroundColor = 'white';
-        elemento.style.padding = '30px';
-        elemento.style.boxSizing = 'border-box';
-        elemento.style.overflow = 'visible';
-        elemento.style.display = 'block';
-        elemento.style.visibility = 'visible';
-        document.body.appendChild(elemento);
+        // Crear el HTML de la factura
+        const htmlFactura = generarFacturaHTML(factura);
         
-        // Calcular altura REAL del contenido
-        const alturaReal = Math.max(
-          elemento.scrollHeight,
-          elemento.offsetHeight,
-          elemento.clientHeight
-        );
+        // Crear elemento contenedor
+        const contenedor = document.createElement('div');
+        contenedor.innerHTML = htmlFactura;
+        contenedor.style.position = 'absolute';
+        contenedor.style.left = '-9999px';
+        contenedor.style.top = '-9999px';
+        contenedor.style.width = '800px';
+        contenedor.style.backgroundColor = 'white';
+        document.body.appendChild(contenedor);
         
-        console.log(`Altura real de factura ${factura.numero}: ${alturaReal}px`);
+        // Obtener el elemento de la factura
+        const elementoFactura = contenedor.firstChild;
         
-        // Forzar que el elemento tenga su altura completa
-        elemento.style.height = 'auto';
-        elemento.style.minHeight = alturaReal + 'px';
+        // Medir la altura real del contenido
+        const alturaTotal = elementoFactura.scrollHeight;
+        console.log(`Factura ${factura.numero}: altura total ${alturaTotal}px`);
         
-        // Esperar a que se renderice completamente
-        await new Promise(resolve => setTimeout(resolve, 800));
-        
-        // Generar canvas con opciones para capturar TODO
-        const canvas = await html2canvas(elemento, {
-          scale: 2,
-          logging: true,
-          allowTaint: false,
-          useCORS: true,
-          backgroundColor: '#ffffff',
-          windowWidth: 900,
-          windowHeight: alturaReal + 50,
-          scrollY: -window.scrollY,
-          scrollX: 0,
-          x: 0,
-          y: 0,
-          width: elemento.offsetWidth,
-          height: alturaReal,
-          onclone: (clonedDoc, element) => {
-            // Asegurar que el elemento clonado tenga el tamaño completo
-            if (element) {
-              element.style.height = alturaReal + 'px';
-              element.style.overflow = 'visible';
-              element.style.display = 'block';
+        // Si la altura es menor que el máximo, generar PDF normal
+        if (alturaTotal <= MAX_PAGE_HEIGHT) {
+          // Generar PDF normal
+          const canvas = await html2canvas(elementoFactura, {
+            scale: 2,
+            logging: false,
+            backgroundColor: '#ffffff',
+            windowWidth: 850
+          });
+          
+          const imgData = canvas.toDataURL('image/png');
+          const pdfWidth = canvas.width;
+          const pdfHeight = canvas.height;
+          
+          const pdf = new jspdf.jsPDF({
+            orientation: 'portrait',
+            unit: 'px',
+            format: [pdfWidth, pdfHeight]
+          });
+          
+          pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+          const pdfBlob = pdf.output('blob');
+          pdfFolder.file(`FACTURA_${factura.numero}_${factura.manzana}_${factura.interior}.pdf`, pdfBlob);
+        } else {
+          // Altura excede el máximo - dividir en múltiples páginas
+          console.log(`Factura ${factura.numero} requiere múltiples páginas`);
+          
+          // Crear un PDF con múltiples páginas
+          const pdf = new jspdf.jsPDF({
+            orientation: 'portrait',
+            unit: 'px',
+            format: [800, MAX_PAGE_HEIGHT]
+          });
+          
+          // Calcular número de páginas
+          const numPaginas = Math.ceil(alturaTotal / MAX_PAGE_HEIGHT);
+          
+          for (let pagina = 0; pagina < numPaginas; pagina++) {
+            // Crear un clon de la factura para esta página
+            const clonFactura = document.createElement('div');
+            clonFactura.innerHTML = htmlFactura;
+            clonFactura.style.width = '800px';
+            clonFactura.style.backgroundColor = 'white';
+            clonFactura.style.position = 'absolute';
+            clonFactura.style.left = '-9999px';
+            clonFactura.style.top = '-9999px';
+            clonFactura.style.marginTop = `-${pagina * MAX_PAGE_HEIGHT}px`;
+            document.body.appendChild(clonFactura);
+            
+            // Capturar solo la parte visible de esta página
+            const canvas = await html2canvas(clonFactura, {
+              scale: 2,
+              logging: false,
+              backgroundColor: '#ffffff',
+              windowWidth: 850,
+              windowHeight: MAX_PAGE_HEIGHT,
+              y: pagina * MAX_PAGE_HEIGHT,
+              height: MAX_PAGE_HEIGHT
+            });
+            
+            const imgData = canvas.toDataURL('image/png');
+            
+            if (pagina === 0) {
+              // Primera página
+              pdf.addImage(imgData, 'PNG', 0, 0, 800, MAX_PAGE_HEIGHT);
+            } else {
+              // Páginas siguientes
+              pdf.addPage();
+              pdf.addImage(imgData, 'PNG', 0, 0, 800, MAX_PAGE_HEIGHT);
             }
+            
+            document.body.removeChild(clonFactura);
           }
-        });
+          
+          const pdfBlob = pdf.output('blob');
+          pdfFolder.file(`FACTURA_${factura.numero}_${factura.manzana}_${factura.interior}.pdf`, pdfBlob);
+        }
         
-        // Verificar que el canvas tiene la altura correcta
-        console.log(`Canvas generado: ${canvas.width} x ${canvas.height}`);
+        document.body.removeChild(contenedor);
         
-        // Crear PDF con las dimensiones exactas del canvas
-        const imgData = canvas.toDataURL('image/png');
-        const pdfWidth = canvas.width;
-        const pdfHeight = canvas.height;
-        
-        const pdf = new jspdf.jsPDF({
-          orientation: pdfHeight > pdfWidth ? 'portrait' : 'landscape',
-          unit: 'px',
-          format: [pdfWidth, pdfHeight]
-        });
-        
-        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-        const pdfBlob = pdf.output('blob');
-        
-        // Agregar al ZIP con nombre descriptivo
-        const nombrePDF = `FACTURA_${factura.numero}_${factura.manzana}_${factura.interior}.pdf`;
-        pdfFolder.file(nombrePDF, pdfBlob);
-        
-        // Limpiar
-        document.body.removeChild(elemento);
-        
-        // Pequeña pausa para no saturar el navegador
-        await new Promise(resolve => setTimeout(resolve, 500));
+        // Pequeña pausa
+        await new Promise(resolve => setTimeout(resolve, 300));
         
       } catch (error) {
         console.error(`Error en factura ${factura.numero}:`, error);
-        // Continuar con la siguiente factura
       }
     }
     
@@ -924,7 +957,6 @@
     
     document.getElementById('generacionProgressText').innerHTML = 'Comprimiendo archivos...';
     
-    // Generar ZIP
     try {
       const content = await zip.generateAsync({ 
         type: 'blob',
@@ -947,8 +979,7 @@
     }
   }
 
-  // Función que genera la factura COMPLETA
-  function generarFacturaCompleta(factura) {
+  function generarFacturaHTML(factura) {
     const fecha = new Date(factura.fecha + 'T12:00:00');
     const fechaFormateada = fecha.toLocaleDateString('es-CO', { 
       year: 'numeric', 
@@ -963,7 +994,7 @@
     const cuotaBase = 100000;
     
     return `
-      <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 750px; margin: 0 auto; background: white; padding: 35px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.15); border: 1px solid #e0e0e0;">
+      <div class="factura-container" style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 750px; margin: 0 auto; background: white; padding: 35px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.15); border: 1px solid #e0e0e0;">
         <!-- Encabezado -->
         <div style="display: flex; align-items: center; gap: 25px; margin-bottom: 25px; border-bottom: 4px solid #1e3c5c; padding-bottom: 20px;">
           <img src="https://i.postimg.cc/2yb3MyY0/LOGO-BRISAS-DEL-NORTE.png" alt="Logo Brisas del Norte" style="max-width: 160px; max-height: 80px; object-fit: contain;">
