@@ -6,7 +6,9 @@
     "propietario": "WILLIAM PINZON",
     "matricula_inmobiliaria": "260-140971",
     "codigo_catastral": "01-04-0511-0001-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 2,
@@ -15,7 +17,9 @@
     "propietario": "NOHEMI PEREZ",
     "matricula_inmobiliaria": "260-140972",
     "codigo_catastral": "01-04-0511-0002-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 3,
@@ -24,7 +28,9 @@
     "propietario": "OFFIR FLOREZ",
     "matricula_inmobiliaria": "260-140973",
     "codigo_catastral": "01-04-0511-0003-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 4,
@@ -33,7 +39,9 @@
     "propietario": "CRUZ GARCIA",
     "matricula_inmobiliaria": "260-140974",
     "codigo_catastral": "01-04-0511-0004-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 5,
@@ -42,7 +50,9 @@
     "propietario": "LUIS JESUS BOTELLO",
     "matricula_inmobiliaria": "260-140975",
     "codigo_catastral": "01-04-0511-0005-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 6,
@@ -51,7 +61,9 @@
     "propietario": "LUIS JESUS BOTELLO",
     "matricula_inmobiliaria": "260-140976",
     "codigo_catastral": "01-04-0511-0006-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 7,
@@ -60,7 +72,9 @@
     "propietario": "REINALDO ROJAS",
     "matricula_inmobiliaria": "260-140977",
     "codigo_catastral": "01-04-0511-0007-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 8,
@@ -69,7 +83,9 @@
     "propietario": "EDINSON CARRASCAL",
     "matricula_inmobiliaria": "260-140978",
     "codigo_catastral": "01-04-0511-0008-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 9,
@@ -78,7 +94,9 @@
     "propietario": "ALVARO DIAZ LAGUADO",
     "matricula_inmobiliaria": "260-140979",
     "codigo_catastral": "01-04-0511-0009-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 10,
@@ -87,7 +105,9 @@
     "propietario": "JOHANA OSORIO",
     "matricula_inmobiliaria": null,
     "codigo_catastral": null,
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 11,
@@ -96,7 +116,9 @@
     "propietario": "ABELARDO MARQUEZ",
     "matricula_inmobiliaria": "260-36 140980",
     "codigo_catastral": "01-04-0425-0036-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 12,
@@ -105,7 +127,9 @@
     "propietario": "NOHEMI MONCADA",
     "matricula_inmobiliaria": "260-37 140981",
     "codigo_catastral": "01-04-0425-0037-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 13,
@@ -114,7 +138,9 @@
     "propietario": "ELICINIA ROLON",
     "matricula_inmobiliaria": "260-38 140982",
     "codigo_catastral": "01-04-0425-0038-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 14,
@@ -123,7 +149,9 @@
     "propietario": "PABLO SANABRIA",
     "matricula_inmobiliaria": "260-39 140983",
     "codigo_catastral": "01-04-0425-0039-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 15,
@@ -132,7 +160,9 @@
     "propietario": "CRISTIAN TORRES",
     "matricula_inmobiliaria": "260-40 140984",
     "codigo_catastral": "01-04-0425-0040-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 16,
@@ -141,7 +171,9 @@
     "propietario": "CONSUELO BECERRA",
     "matricula_inmobiliaria": "260-41 140985",
     "codigo_catastral": "01-04-0425-0041-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 17,
@@ -150,7 +182,9 @@
     "propietario": "DORIS CASTELLANOS",
     "matricula_inmobiliaria": "260-42 140986",
     "codigo_catastral": "01-04-0425-0042-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 18,
@@ -159,7 +193,9 @@
     "propietario": "DIOSELINA CACERES",
     "matricula_inmobiliaria": "260-43 140987",
     "codigo_catastral": "01-04-0425-0043-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 19,
@@ -168,7 +204,9 @@
     "propietario": "MIGUEL GOMEZ",
     "matricula_inmobiliaria": "260-44 140988",
     "codigo_catastral": "01-04-0425-0044-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 20,
@@ -177,7 +215,9 @@
     "propietario": "NOHEMI MONCADA",
     "matricula_inmobiliaria": "260-45 140989",
     "codigo_catastral": "01-04-0425-0045-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 21,
@@ -186,7 +226,9 @@
     "propietario": "EDUARDO GOMEZ",
     "matricula_inmobiliaria": "260-46 140990",
     "codigo_catastral": "01-04-0425-0046-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 22,
@@ -195,7 +237,9 @@
     "propietario": "ADELSO CORTES",
     "matricula_inmobiliaria": "260-47 140991",
     "codigo_catastral": "01-04-0425-0047-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 23,
@@ -204,7 +248,9 @@
     "propietario": "IDALID SUELTA / MARLON VELASQUEZ",
     "matricula_inmobiliaria": "260-48 140992",
     "codigo_catastral": "01-04-0425-0048-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 24,
@@ -213,7 +259,9 @@
     "propietario": "DIEGO BERNAL",
     "matricula_inmobiliaria": "260-49 140993",
     "codigo_catastral": "01-04-0425-0049-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 25,
@@ -222,7 +270,9 @@
     "propietario": "JOSUE LUGO",
     "matricula_inmobiliaria": "260-50 140994",
     "codigo_catastral": "01-04-0425-0050-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 26,
@@ -231,7 +281,9 @@
     "propietario": "ABEL ANTONIO PARADA",
     "matricula_inmobiliaria": "260-51 140995",
     "codigo_catastral": "01-04-0425-0051-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 27,
@@ -240,7 +292,9 @@
     "propietario": "NANCY BLANCO",
     "matricula_inmobiliaria": "260-52 140996",
     "codigo_catastral": "01-04-0425-0052-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 28,
@@ -249,7 +303,9 @@
     "propietario": "CARMEN RODRIGUEZ",
     "matricula_inmobiliaria": "260-53 140997",
     "codigo_catastral": "01-04-0425-0053-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 29,
@@ -258,7 +314,9 @@
     "propietario": "GRACIELA RIVERA / REINALDO VERA",
     "matricula_inmobiliaria": "260-54 140998",
     "codigo_catastral": "01-04-0425-0054-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 30,
@@ -267,7 +325,9 @@
     "propietario": "ROSA ELCIDA CASTELLANOS",
     "matricula_inmobiliaria": "260-55 140999",
     "codigo_catastral": "01-04-0425-0055-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 31,
@@ -276,7 +336,9 @@
     "propietario": "ZENAIDA BOTELLO",
     "matricula_inmobiliaria": "260-56 141000",
     "codigo_catastral": "01-04-0425-0056-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 32,
@@ -285,7 +347,9 @@
     "propietario": "SULAY BUSTOS",
     "matricula_inmobiliaria": "260-57 141001",
     "codigo_catastral": "01-04-0425-0057-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 33,
@@ -294,7 +358,9 @@
     "propietario": "TERESA GARCIA",
     "matricula_inmobiliaria": "260-58 141002",
     "codigo_catastral": "01-04-0425-0058-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 34,
@@ -303,7 +369,9 @@
     "propietario": "RUBEN GOMEZ",
     "matricula_inmobiliaria": "260-59 141003",
     "codigo_catastral": "01-04-0425-0059-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 35,
@@ -312,7 +380,9 @@
     "propietario": "OSCAR IVAN CHACON",
     "matricula_inmobiliaria": "260-60 141004",
     "codigo_catastral": "01-04-0425-0060-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 36,
@@ -321,7 +391,9 @@
     "propietario": "CARLOS GRANADOS",
     "matricula_inmobiliaria": "260-61 141005",
     "codigo_catastral": "01-04-0425-0061-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 37,
@@ -330,7 +402,9 @@
     "propietario": "LUIS PINILLA",
     "matricula_inmobiliaria": "260-62 141006",
     "codigo_catastral": "01-04-0425-0062-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 38,
@@ -339,7 +413,9 @@
     "propietario": "RAFAEL FLORES",
     "matricula_inmobiliaria": "260-63 141007",
     "codigo_catastral": "01-04-0425-0063-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 39,
@@ -348,7 +424,9 @@
     "propietario": null,
     "matricula_inmobiliaria": "260-64 141008",
     "codigo_catastral": "01-04-0425-0064-000",
-    "novedad": "Casa sin propietario"
+    "novedad": "Casa sin propietario",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 40,
@@ -357,7 +435,9 @@
     "propietario": "CARLOS IGUERA",
     "matricula_inmobiliaria": "260-141009",
     "codigo_catastral": "01-04-0512-0001-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 41,
@@ -366,7 +446,9 @@
     "propietario": "NANCY CONTRERAS",
     "matricula_inmobiliaria": "260-141010",
     "codigo_catastral": "01-04-0512-0002-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 42,
@@ -375,7 +457,9 @@
     "propietario": "CRUZ DELINA PARADA",
     "matricula_inmobiliaria": "260-141011",
     "codigo_catastral": "01-04-0512-0003-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 43,
@@ -384,7 +468,9 @@
     "propietario": "JORGE RANGEL",
     "matricula_inmobiliaria": "260-141012",
     "codigo_catastral": "01-04-0512-0004-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 44,
@@ -393,7 +479,9 @@
     "propietario": "GLADYS MELO",
     "matricula_inmobiliaria": "260-141013",
     "codigo_catastral": "01-04-0512-0005-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 45,
@@ -402,7 +490,9 @@
     "propietario": "ARBEY SARMIENTO",
     "matricula_inmobiliaria": "260-141014",
     "codigo_catastral": "01-04-0512-0006-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 46,
@@ -411,7 +501,9 @@
     "propietario": "JOSE GREGORIO SIERRA",
     "matricula_inmobiliaria": "260-141016",
     "codigo_catastral": "01-04-0513-0001-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 47,
@@ -420,7 +512,9 @@
     "propietario": "ANGELA RAMIREZ",
     "matricula_inmobiliaria": "260-141017",
     "codigo_catastral": "01-04-0513-0002-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 48,
@@ -429,7 +523,9 @@
     "propietario": "RAUL PEÑARANDA",
     "matricula_inmobiliaria": "260-141018",
     "codigo_catastral": "01-04-0513-0003-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 49,
@@ -438,7 +534,9 @@
     "propietario": "SAMUEL MARTINEZ",
     "matricula_inmobiliaria": "260-141019",
     "codigo_catastral": "01-04-0513-0004-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 50,
@@ -447,7 +545,9 @@
     "propietario": "IDULFO TARAZONA",
     "matricula_inmobiliaria": "260-141020",
     "codigo_catastral": "01-04-0513-0005-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 51,
@@ -456,7 +556,9 @@
     "propietario": "NUBIA TORRES",
     "matricula_inmobiliaria": "260-141021",
     "codigo_catastral": "01-04-0513-0006-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 52,
@@ -465,7 +567,9 @@
     "propietario": "SEBASTIAN VILLAMIZAR",
     "matricula_inmobiliaria": "260-141022",
     "codigo_catastral": "01-04-0513-0007-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 53,
@@ -474,7 +578,9 @@
     "propietario": "LUDY TRUJILLO",
     "matricula_inmobiliaria": "260-141023",
     "codigo_catastral": "01-04-0513-0008-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 54,
@@ -483,7 +589,9 @@
     "propietario": "CONSUELO BECERRA",
     "matricula_inmobiliaria": "260-141024",
     "codigo_catastral": "01-04-0513-0009-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 55,
@@ -492,7 +600,9 @@
     "propietario": "ANA RAMOS",
     "matricula_inmobiliaria": "260-141025",
     "codigo_catastral": "01-04-0513-0010-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 56,
@@ -501,7 +611,9 @@
     "propietario": "VALENTINA COTAMO",
     "matricula_inmobiliaria": "260-141026",
     "codigo_catastral": "01-04-0514-0001-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 57,
@@ -510,7 +622,9 @@
     "propietario": "JUDITH SANGUINO",
     "matricula_inmobiliaria": "260-141027",
     "codigo_catastral": "01-04-0514-0002-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 58,
@@ -519,7 +633,9 @@
     "propietario": "LUIS FERNANDO ORTEGA",
     "matricula_inmobiliaria": "260-141028",
     "codigo_catastral": "01-04-0514-0003-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 59,
@@ -528,7 +644,9 @@
     "propietario": "BLANCA HERNANDEZ",
     "matricula_inmobiliaria": "260-141029",
     "codigo_catastral": "01-04-0514-0004-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 60,
@@ -537,7 +655,9 @@
     "propietario": "LEIDY KARINA VANEGAS",
     "matricula_inmobiliaria": "260-141030",
     "codigo_catastral": "01-04-0514-0005-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 61,
@@ -546,7 +666,9 @@
     "propietario": "PATRICIA LAZARO CONTRERAS",
     "matricula_inmobiliaria": "260-141031",
     "codigo_catastral": "01-04-0514-0006-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 62,
@@ -555,7 +677,9 @@
     "propietario": "FREDDY DIAZ / NUBIA LOBO",
     "matricula_inmobiliaria": "260-141032",
     "codigo_catastral": "01-04-0514-0007-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 63,
@@ -564,7 +688,9 @@
     "propietario": "CARLOS AREVALO",
     "matricula_inmobiliaria": "260-141033",
     "codigo_catastral": "01-04-0514-0008-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 64,
@@ -573,7 +699,9 @@
     "propietario": "FABIO BARRIOS",
     "matricula_inmobiliaria": "260-141034",
     "codigo_catastral": "01-04-0514-0009-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 65,
@@ -582,7 +710,9 @@
     "propietario": "JULIAN GELVES",
     "matricula_inmobiliaria": "260-141036",
     "codigo_catastral": "01-04-0515-0001-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 66,
@@ -591,7 +721,9 @@
     "propietario": "MARLENI GONZALES",
     "matricula_inmobiliaria": "260-141037",
     "codigo_catastral": "01-04-0515-0002-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 67,
@@ -600,7 +732,9 @@
     "propietario": "RAUL CALDERON",
     "matricula_inmobiliaria": "260-141038",
     "codigo_catastral": "01-04-0515-0003-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 68,
@@ -609,7 +743,9 @@
     "propietario": "ROSALBA LOPEZ",
     "matricula_inmobiliaria": "260-141039",
     "codigo_catastral": "01-04-0515-0004-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 69,
@@ -618,7 +754,9 @@
     "propietario": "FRANCY MONTAÑO",
     "matricula_inmobiliaria": "260-141040",
     "codigo_catastral": "01-04-0515-0005-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 70,
@@ -627,7 +765,9 @@
     "propietario": "FRANCY MONTAÑO",
     "matricula_inmobiliaria": "260-141040",
     "codigo_catastral": "01-04-0515-0005-000",
-    "novedad": "Comparte matrícula con MZ-06 INT-05"
+    "novedad": "Comparte matrícula con MZ-06 INT-05",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 71,
@@ -636,7 +776,9 @@
     "propietario": "ERIKA BLANCO",
     "matricula_inmobiliaria": "260-141041",
     "codigo_catastral": "01-04-0515-0006-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 72,
@@ -645,7 +787,9 @@
     "propietario": "ZAIDA DAVILA FLOREZ",
     "matricula_inmobiliaria": "260-141042",
     "codigo_catastral": "01-04-0515-0007-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 73,
@@ -654,7 +798,9 @@
     "propietario": "CIRO MENDOZA",
     "matricula_inmobiliaria": "260-141043",
     "codigo_catastral": "01-04-0515-0008-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 74,
@@ -663,7 +809,9 @@
     "propietario": "LUIS CARLOS RODRIGUEZ",
     "matricula_inmobiliaria": "260-141044",
     "codigo_catastral": "01-04-0515-0009-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 75,
@@ -672,7 +820,9 @@
     "propietario": "ALEJANDRA MARTINEZ",
     "matricula_inmobiliaria": "260-141045",
     "codigo_catastral": "01-04-0431-0001-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 76,
@@ -681,7 +831,9 @@
     "propietario": "MARITZA PANQUEVA",
     "matricula_inmobiliaria": "260-141046",
     "codigo_catastral": "01-04-0431-0002-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 77,
@@ -690,7 +842,9 @@
     "propietario": "LEIDY XIOMARA PACHECO",
     "matricula_inmobiliaria": "260-141047",
     "codigo_catastral": "01-04-0431-0003-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 78,
@@ -699,7 +853,9 @@
     "propietario": "JOSE GREGORIO GELVEZ",
     "matricula_inmobiliaria": "260-141048",
     "codigo_catastral": "01-04-0431-0004-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 79,
@@ -708,7 +864,9 @@
     "propietario": "MARIELA MENESES",
     "matricula_inmobiliaria": "260-141049",
     "codigo_catastral": "01-04-0431-0005-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 80,
@@ -717,7 +875,9 @@
     "propietario": "GUILLERMINA CAMPOS",
     "matricula_inmobiliaria": "260-141050",
     "codigo_catastral": "01-04-0431-0006-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 81,
@@ -726,7 +886,9 @@
     "propietario": "GIOVANNY RAMIREZ",
     "matricula_inmobiliaria": "260-141051",
     "codigo_catastral": "01-04-0431-0007-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 82,
@@ -735,7 +897,9 @@
     "propietario": "JAIME DE LOS RIOS",
     "matricula_inmobiliaria": "260-141052",
     "codigo_catastral": "01-04-0431-0008-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 83,
@@ -744,7 +908,9 @@
     "propietario": "EMISAEL ASCANIO",
     "matricula_inmobiliaria": "260-141053",
     "codigo_catastral": "01-04-0431-0009-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 84,
@@ -753,7 +919,9 @@
     "propietario": "JESUS RANGEL",
     "matricula_inmobiliaria": "260-141054",
     "codigo_catastral": "01-04-0431-0010-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 85,
@@ -762,7 +930,9 @@
     "propietario": "GIOVANNI GARCIA",
     "matricula_inmobiliaria": "260-141055",
     "codigo_catastral": "01-04-0432-0001-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 86,
@@ -771,7 +941,9 @@
     "propietario": "JESUS DE MARIA RUIZ",
     "matricula_inmobiliaria": "260-141056",
     "codigo_catastral": "01-04-0432-0002-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 87,
@@ -780,7 +952,9 @@
     "propietario": "LORENA BOTELLO",
     "matricula_inmobiliaria": "260-141057",
     "codigo_catastral": "01-04-0432-0003-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 88,
@@ -789,7 +963,9 @@
     "propietario": "NIDIA JORDAN",
     "matricula_inmobiliaria": "260-141058",
     "codigo_catastral": "01-04-0432-0004-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 89,
@@ -798,7 +974,9 @@
     "propietario": "MARIA CARRILLO",
     "matricula_inmobiliaria": "260-141059",
     "codigo_catastral": "01-04-0432-0005-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 90,
@@ -807,7 +985,9 @@
     "propietario": "ANDREA FLOREZ",
     "matricula_inmobiliaria": "260-141060",
     "codigo_catastral": "01-04-0432-0006-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 91,
@@ -816,7 +996,9 @@
     "propietario": "LEONOR GALVIS",
     "matricula_inmobiliaria": "260-141061",
     "codigo_catastral": "01-04-0432-0007-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 92,
@@ -825,7 +1007,9 @@
     "propietario": "MARTHA CECILIA MAYORGA",
     "matricula_inmobiliaria": "260-141062",
     "codigo_catastral": "01-04-0432-0008-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 93,
@@ -834,7 +1018,9 @@
     "propietario": "ROBERTO ARMANDO GELVEZ",
     "matricula_inmobiliaria": "260-141063",
     "codigo_catastral": "01-04-0432-0009-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 94,
@@ -843,7 +1029,9 @@
     "propietario": "VICTOR ALVAREZ",
     "matricula_inmobiliaria": "260-141064",
     "codigo_catastral": "01-04-0432-0010-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 95,
@@ -852,7 +1040,9 @@
     "propietario": "WILMER RAMIREZ",
     "matricula_inmobiliaria": "260-141065",
     "codigo_catastral": "01-04-0433-0001-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 96,
@@ -861,7 +1051,9 @@
     "propietario": "ESMERALDA ALVARADO",
     "matricula_inmobiliaria": "260-141066",
     "codigo_catastral": "01-04-0433-0002-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 97,
@@ -870,7 +1062,9 @@
     "propietario": "ISMAEL ENRIQUE TORRADO",
     "matricula_inmobiliaria": "260-141067",
     "codigo_catastral": "01-04-0433-0003-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 98,
@@ -879,7 +1073,9 @@
     "propietario": "CIRO BALMACEDA CASTILLA",
     "matricula_inmobiliaria": "260-141068",
     "codigo_catastral": "01-04-0433-0004-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 99,
@@ -888,7 +1084,9 @@
     "propietario": "EDELFINA GIL",
     "matricula_inmobiliaria": "260-142443",
     "codigo_catastral": "01-04-0266-0001-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 100,
@@ -897,7 +1095,9 @@
     "propietario": "GUSTAVO CASTILLA",
     "matricula_inmobiliaria": "260-142444",
     "codigo_catastral": "01-04-0266-0002-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 101,
@@ -906,7 +1106,9 @@
     "propietario": "CARLOS QUINTERO",
     "matricula_inmobiliaria": "260-142445",
     "codigo_catastral": "01-04-0266-0003-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 102,
@@ -915,7 +1117,9 @@
     "propietario": "JORGE JIMENEZ",
     "matricula_inmobiliaria": "260-142445",
     "codigo_catastral": "01-04-0266-0003-000",
-    "novedad": "Comparte matrícula con MZ-11 INT-03"
+    "novedad": "Comparte matrícula con MZ-11 INT-03",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 103,
@@ -924,7 +1128,9 @@
     "propietario": "JORGE JIMENEZ",
     "matricula_inmobiliaria": "260-142445",
     "codigo_catastral": "01-04-0266-0003-000",
-    "novedad": "Comparte matrícula con MZ-11 INT-03"
+    "novedad": "Comparte matrícula con MZ-11 INT-03",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 104,
@@ -933,7 +1139,9 @@
     "propietario": "MARIA DE LOS ANGELES ORTIZ",
     "matricula_inmobiliaria": "260-142446",
     "codigo_catastral": "01-04-0266-0004-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 105,
@@ -942,7 +1150,9 @@
     "propietario": "JULIO HERNANDEZ",
     "matricula_inmobiliaria": "260-142447",
     "codigo_catastral": "01-04-0266-0005-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 106,
@@ -951,7 +1161,9 @@
     "propietario": "LUDY COTE",
     "matricula_inmobiliaria": "260-142448",
     "codigo_catastral": "01-04-0266-0006-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 107,
@@ -960,7 +1172,9 @@
     "propietario": "RUBEN ALBA",
     "matricula_inmobiliaria": "260-142449",
     "codigo_catastral": "01-04-0266-0007-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 108,
@@ -969,7 +1183,9 @@
     "propietario": "CLARA BUITRAGO",
     "matricula_inmobiliaria": "260-142450",
     "codigo_catastral": "01-04-0266-0008-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 109,
@@ -978,7 +1194,9 @@
     "propietario": "ANA CONTRERAS / ROBIN KELIN",
     "matricula_inmobiliaria": "260-142451",
     "codigo_catastral": "01-04-0266-0009-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 110,
@@ -987,7 +1205,9 @@
     "propietario": "ANGEL BUITRAGO",
     "matricula_inmobiliaria": "260-142452",
     "codigo_catastral": "01-04-0266-0010-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 111,
@@ -996,7 +1216,9 @@
     "propietario": "JOSE VALOIS",
     "matricula_inmobiliaria": "260-142453",
     "codigo_catastral": "01-04-0266-0011-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 112,
@@ -1005,7 +1227,9 @@
     "propietario": "MIRIAM HERNANDEZ",
     "matricula_inmobiliaria": "260-142454",
     "codigo_catastral": "01-04-0266-0012-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 113,
@@ -1014,7 +1238,9 @@
     "propietario": "MARIA ALEJANDRA MONCADA",
     "matricula_inmobiliaria": "260-142455",
     "codigo_catastral": "01-04-0266-0013-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 114,
@@ -1023,7 +1249,9 @@
     "propietario": "AZUCENA JAIMES",
     "matricula_inmobiliaria": "260-142457",
     "codigo_catastral": "01-04-0435-0001-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 115,
@@ -1032,7 +1260,9 @@
     "propietario": "CANDY ALEXANDRA ACEVEDO HERRERA",
     "matricula_inmobiliaria": "260-142458",
     "codigo_catastral": "01-04-0435-0002-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 116,
@@ -1041,7 +1271,9 @@
     "propietario": "MARITZA DUARTE",
     "matricula_inmobiliaria": "260-142459",
     "codigo_catastral": "01-04-0435-0003-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 117,
@@ -1050,7 +1282,9 @@
     "propietario": "DIANA AMAYA",
     "matricula_inmobiliaria": "260-142460",
     "codigo_catastral": "01-04-0435-0004-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 118,
@@ -1059,7 +1293,9 @@
     "propietario": "ESTELA CARDENAS",
     "matricula_inmobiliaria": "260-142461",
     "codigo_catastral": "01-04-0435-0005-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 119,
@@ -1068,7 +1304,9 @@
     "propietario": "LUCY CASTELLANOS",
     "matricula_inmobiliaria": "260-142462",
     "codigo_catastral": "01-04-0435-0006-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 120,
@@ -1077,7 +1315,9 @@
     "propietario": "MANUEL GONZALES",
     "matricula_inmobiliaria": "260-142463",
     "codigo_catastral": "01-04-0435-0007-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 121,
@@ -1086,7 +1326,9 @@
     "propietario": "BELCY PEÑALOZA",
     "matricula_inmobiliaria": "260-142464",
     "codigo_catastral": "01-04-0435-0008-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 122,
@@ -1095,7 +1337,9 @@
     "propietario": "FANNY RANGEL",
     "matricula_inmobiliaria": "260-142465",
     "codigo_catastral": "01-04-0435-0009-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 123,
@@ -1104,7 +1348,9 @@
     "propietario": "ALIRIO BELTRAN",
     "matricula_inmobiliaria": "260-142466",
     "codigo_catastral": "01-04-0435-0010-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 124,
@@ -1113,7 +1359,9 @@
     "propietario": "WILSON DURAN",
     "matricula_inmobiliaria": "260-142467",
     "codigo_catastral": "01-04-0435-0011-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 125,
@@ -1122,7 +1370,9 @@
     "propietario": "CONSUELO BECERRA",
     "matricula_inmobiliaria": "260-142468",
     "codigo_catastral": "01-04-0435-0012-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 126,
@@ -1131,7 +1381,9 @@
     "propietario": "ALIRIO PEREZ",
     "matricula_inmobiliaria": "260-142469",
     "codigo_catastral": "01-04-0435-0013-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 127,
@@ -1140,7 +1392,9 @@
     "propietario": "RUTH MARGARITA SANCHEZ",
     "matricula_inmobiliaria": "260-142470",
     "codigo_catastral": "01-04-0435-0014-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 128,
@@ -1149,7 +1403,9 @@
     "propietario": "MARIELA MENESES",
     "matricula_inmobiliaria": "260-142471",
     "codigo_catastral": "01-04-0435-0015-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 129,
@@ -1158,7 +1414,9 @@
     "propietario": "YANETH MANRIQUE",
     "matricula_inmobiliaria": "260-142472",
     "codigo_catastral": "01-04-0435-0016-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 130,
@@ -1167,7 +1425,9 @@
     "propietario": "DORIS MALAVER",
     "matricula_inmobiliaria": "260-142473",
     "codigo_catastral": "01-04-0436-0001-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 131,
@@ -1176,7 +1436,9 @@
     "propietario": "ROXANA LOZANO",
     "matricula_inmobiliaria": "260-142474",
     "codigo_catastral": "01-04-0436-0002-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 132,
@@ -1185,7 +1447,9 @@
     "propietario": "MARIA ISABEL RODRIGUEZ",
     "matricula_inmobiliaria": "260-142475",
     "codigo_catastral": "01-04-0436-0003-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 133,
@@ -1194,7 +1458,9 @@
     "propietario": "JAVIER GARZON",
     "matricula_inmobiliaria": "260-142476",
     "codigo_catastral": "01-04-0436-0004-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 134,
@@ -1203,7 +1469,9 @@
     "propietario": "MARIA DE LA CRUZ TORRES GARCIA",
     "matricula_inmobiliaria": "260-142477",
     "codigo_catastral": "01-04-0436-0005-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 135,
@@ -1212,7 +1480,9 @@
     "propietario": "LEIDY PEÑALOZA",
     "matricula_inmobiliaria": "260-142478",
     "codigo_catastral": "01-04-0436-0006-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 136,
@@ -1221,7 +1491,9 @@
     "propietario": "CARMEN CECILIA SANCHEZ",
     "matricula_inmobiliaria": "260-142479",
     "codigo_catastral": "01-04-0436-0007-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 137,
@@ -1230,7 +1502,9 @@
     "propietario": "IDULFO TARAZONA",
     "matricula_inmobiliaria": "260-142480",
     "codigo_catastral": "01-04-0436-0008-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 138,
@@ -1239,7 +1513,9 @@
     "propietario": "YESID HERNANDEZ",
     "matricula_inmobiliaria": "260-142481",
     "codigo_catastral": "01-04-0436-0009-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 139,
@@ -1248,7 +1524,9 @@
     "propietario": "CARLOS MENDOZA",
     "matricula_inmobiliaria": "260-142483",
     "codigo_catastral": "01-04-0437-0001-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 140,
@@ -1257,7 +1535,9 @@
     "propietario": "ROBERTO GALVIS",
     "matricula_inmobiliaria": "260-142484",
     "codigo_catastral": "01-04-0437-0002-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 141,
@@ -1266,7 +1546,9 @@
     "propietario": "GLADIS SOLIS",
     "matricula_inmobiliaria": "260-142485",
     "codigo_catastral": "01-04-0437-0003-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 142,
@@ -1275,7 +1557,9 @@
     "propietario": "MANUEL PINEDA",
     "matricula_inmobiliaria": "260-142486",
     "codigo_catastral": "01-04-0437-0004-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 143,
@@ -1284,7 +1568,9 @@
     "propietario": "ORLANDO FUYA",
     "matricula_inmobiliaria": "260-142487",
     "codigo_catastral": "01-04-0437-0005-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 144,
@@ -1293,7 +1579,9 @@
     "propietario": "SONIA LEON",
     "matricula_inmobiliaria": "260-142488",
     "codigo_catastral": "01-04-0437-0006-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 145,
@@ -1302,7 +1590,9 @@
     "propietario": "NUVIA ESTELLA GOMEZ SANDOVAL",
     "matricula_inmobiliaria": "260-142489",
     "codigo_catastral": "01-04-0437-0007-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 146,
@@ -1311,7 +1601,9 @@
     "propietario": "FABIO VELANDIA",
     "matricula_inmobiliaria": "260-142490",
     "codigo_catastral": "01-04-0437-0008-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 147,
@@ -1320,7 +1612,9 @@
     "propietario": "JOEL CORTEZ",
     "matricula_inmobiliaria": "260-142491",
     "codigo_catastral": "01-04-0437-0009-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 148,
@@ -1329,7 +1623,9 @@
     "propietario": "RUTH PEREZ",
     "matricula_inmobiliaria": "260-142492",
     "codigo_catastral": "01-04-0437-0010-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 149,
@@ -1338,7 +1634,9 @@
     "propietario": "EMILSE SANCHEZ",
     "matricula_inmobiliaria": "260-142493",
     "codigo_catastral": "01-04-0437-0011-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 150,
@@ -1347,7 +1645,9 @@
     "propietario": "MANUEL PINEDA",
     "matricula_inmobiliaria": "260-142494",
     "codigo_catastral": "01-04-0437-0012-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 151,
@@ -1356,7 +1656,9 @@
     "propietario": "DIOCELINA AYALA",
     "matricula_inmobiliaria": "260-142495",
     "codigo_catastral": "01-04-0437-0013-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 152,
@@ -1365,7 +1667,9 @@
     "propietario": "YANETH TORRADO",
     "matricula_inmobiliaria": "260-142496",
     "codigo_catastral": "01-04-0437-0014-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 153,
@@ -1374,7 +1678,9 @@
     "propietario": "ALFREDO AMAYA",
     "matricula_inmobiliaria": "260-142497",
     "codigo_catastral": "01-04-0437-0015-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 154,
@@ -1383,7 +1689,9 @@
     "propietario": "MANUEL PINEDA",
     "matricula_inmobiliaria": "260-142498",
     "codigo_catastral": "01-04-0437-0016-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 155,
@@ -1392,7 +1700,9 @@
     "propietario": "MARILCE PEREZ",
     "matricula_inmobiliaria": "260-142500",
     "codigo_catastral": "01-04-0438-0001-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 156,
@@ -1401,7 +1711,9 @@
     "propietario": "OSCAR CONTRERAS",
     "matricula_inmobiliaria": "260-142501",
     "codigo_catastral": "01-04-0438-0002-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 157,
@@ -1410,7 +1722,9 @@
     "propietario": "MARIBEL CABALLERO",
     "matricula_inmobiliaria": "260-142502",
     "codigo_catastral": "01-04-0438-0003-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 158,
@@ -1419,7 +1733,9 @@
     "propietario": "JESUS RIVERA",
     "matricula_inmobiliaria": "260-142503",
     "codigo_catastral": "01-04-0438-0004-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 159,
@@ -1428,7 +1744,9 @@
     "propietario": "ISABEL SANCHEZ SANCHEZ",
     "matricula_inmobiliaria": "260-142504",
     "codigo_catastral": "01-04-0438-0005-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 160,
@@ -1437,7 +1755,9 @@
     "propietario": "SONIA LEON MARTINEZ",
     "matricula_inmobiliaria": "260-142505",
     "codigo_catastral": "01-04-0438-0006-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 161,
@@ -1446,7 +1766,9 @@
     "propietario": "ESPERANZA LEAL",
     "matricula_inmobiliaria": "260-142506",
     "codigo_catastral": "01-04-0438-0007-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 162,
@@ -1455,7 +1777,9 @@
     "propietario": "ANA MARTINEZ",
     "matricula_inmobiliaria": "260-142507",
     "codigo_catastral": "01-04-0438-0008-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 163,
@@ -1464,7 +1788,9 @@
     "propietario": "WILLIAM SUESCUM",
     "matricula_inmobiliaria": "260-142508",
     "codigo_catastral": "01-04-0438-0009-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 164,
@@ -1473,7 +1799,9 @@
     "propietario": "ANA ROSA RIVERA PABON",
     "matricula_inmobiliaria": "260-142509",
     "codigo_catastral": "01-04-0438-0010-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 165,
@@ -1482,7 +1810,9 @@
     "propietario": "MARILCE PEREZ",
     "matricula_inmobiliaria": "260-142510",
     "codigo_catastral": "01-04-0378-0001-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 166,
@@ -1491,7 +1821,9 @@
     "propietario": "CONSUELO MARTINEZ/ARMANDO GUZMAN",
     "matricula_inmobiliaria": "260-142511",
     "codigo_catastral": "01-04-0378-0002-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 167,
@@ -1500,7 +1832,9 @@
     "propietario": "EDITH ESPITIA",
     "matricula_inmobiliaria": "260-142512",
     "codigo_catastral": "01-04-0378-0003-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 168,
@@ -1509,7 +1843,9 @@
     "propietario": "ELIANA GOMEZ",
     "matricula_inmobiliaria": "260-142513",
     "codigo_catastral": "01-04-0378-0004-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 169,
@@ -1518,7 +1854,9 @@
     "propietario": "LUIS HERNANDEZ",
     "matricula_inmobiliaria": "260-142514",
     "codigo_catastral": "01-04-0378-0005-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 170,
@@ -1527,7 +1865,9 @@
     "propietario": "OCTAVIO POLENTINO",
     "matricula_inmobiliaria": "260-142515",
     "codigo_catastral": "01-04-0378-0006-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 171,
@@ -1536,7 +1876,9 @@
     "propietario": "GREGORIO CONTRERAS",
     "matricula_inmobiliaria": "260-142516",
     "codigo_catastral": "01-04-0378-0007-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 172,
@@ -1545,7 +1887,9 @@
     "propietario": "FRANCELINA RAMIREZ",
     "matricula_inmobiliaria": "260-142517",
     "codigo_catastral": "01-04-0378-0008-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 173,
@@ -1554,7 +1898,9 @@
     "propietario": "PEDRO MORA",
     "matricula_inmobiliaria": "260-142518",
     "codigo_catastral": "01-04-0378-0009-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 174,
@@ -1563,7 +1909,9 @@
     "propietario": "ISMAEL CALIXTO",
     "matricula_inmobiliaria": "260-142519",
     "codigo_catastral": "01-04-0378-0010-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 175,
@@ -1572,7 +1920,9 @@
     "propietario": "JORGE VILLAMIL VILLAMIZAR",
     "matricula_inmobiliaria": "260-142520",
     "codigo_catastral": "01-04-0378-0011-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 176,
@@ -1581,7 +1931,9 @@
     "propietario": "OSCAR CONTRERAS",
     "matricula_inmobiliaria": "260-142521",
     "codigo_catastral": "01-04-0378-0012-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 177,
@@ -1590,7 +1942,9 @@
     "propietario": "JAVIER CONTRERAS",
     "matricula_inmobiliaria": "260-142522",
     "codigo_catastral": "01-04-0378-0013-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 178,
@@ -1599,7 +1953,9 @@
     "propietario": "FRANCY LOREIDEY SANCHEZ",
     "matricula_inmobiliaria": "260-142523",
     "codigo_catastral": "01-04-0378-0014-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 179,
@@ -1608,7 +1964,9 @@
     "propietario": "NORALBA PEREZ",
     "matricula_inmobiliaria": "260-142524",
     "codigo_catastral": "01-04-0378-0015-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 180,
@@ -1617,7 +1975,9 @@
     "propietario": "ZENAIDA TORRES",
     "matricula_inmobiliaria": "260-142525",
     "codigo_catastral": "01-04-0378-0016-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 181,
@@ -1626,7 +1986,9 @@
     "propietario": "ELBA CASTRO",
     "matricula_inmobiliaria": "260-142526",
     "codigo_catastral": "01-04-0750-0001-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 182,
@@ -1635,7 +1997,9 @@
     "propietario": "NOHEMI MONCADA",
     "matricula_inmobiliaria": "260-142527",
     "codigo_catastral": "01-04-0750-0002-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 183,
@@ -1644,7 +2008,9 @@
     "propietario": "CARMEN PEREZ",
     "matricula_inmobiliaria": "260-142528",
     "codigo_catastral": "01-04-0750-0003-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 184,
@@ -1653,7 +2019,9 @@
     "propietario": "CIRO DIAZ RODRIGUEZ",
     "matricula_inmobiliaria": "260-142529",
     "codigo_catastral": "01-04-0750-0004-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 185,
@@ -1662,7 +2030,9 @@
     "propietario": "LUCY PAYARES",
     "matricula_inmobiliaria": "260-142530",
     "codigo_catastral": "01-04-0750-0005-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 186,
@@ -1671,7 +2041,9 @@
     "propietario": "LINA ALBARRACIN",
     "matricula_inmobiliaria": "260-142531",
     "codigo_catastral": "01-04-0750-0006-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 187,
@@ -1680,7 +2052,9 @@
     "propietario": "MARIA ROSARIO RIZO",
     "matricula_inmobiliaria": "260-142532",
     "codigo_catastral": "01-04-0750-0007-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 188,
@@ -1689,7 +2063,9 @@
     "propietario": "ADRIANA DURAN",
     "matricula_inmobiliaria": "260-142533",
     "codigo_catastral": "01-04-0750-0008-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 189,
@@ -1698,7 +2074,9 @@
     "propietario": "EMELINDA TRIGOS",
     "matricula_inmobiliaria": "260-142534",
     "codigo_catastral": "01-04-0750-0009-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 190,
@@ -1707,7 +2085,9 @@
     "propietario": "ISABEL QUINTERO",
     "matricula_inmobiliaria": "260-142535",
     "codigo_catastral": null,
-    "novedad": "Código catastral incompleto"
+    "novedad": "Código catastral incompleto",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 191,
@@ -1716,7 +2096,9 @@
     "propietario": "CLAUDIA QUIROZ",
     "matricula_inmobiliaria": "260-142537",
     "codigo_catastral": "01-04-0751-0001-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 192,
@@ -1725,7 +2107,9 @@
     "propietario": "JUAN PABLO AMAYA",
     "matricula_inmobiliaria": "260-142538",
     "codigo_catastral": "01-04-0751-0002-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 193,
@@ -1734,7 +2118,9 @@
     "propietario": "AURA MARIA SANTIAGO",
     "matricula_inmobiliaria": "260-142539",
     "codigo_catastral": "01-04-0751-0003-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 194,
@@ -1743,7 +2129,9 @@
     "propietario": "MAYRA SERRANO",
     "matricula_inmobiliaria": "260-142540",
     "codigo_catastral": "01-04-0751-0004-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 195,
@@ -1752,7 +2140,9 @@
     "propietario": "GREICY VILLAN",
     "matricula_inmobiliaria": "260-142541",
     "codigo_catastral": "01-04-0751-0005-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 196,
@@ -1761,7 +2151,9 @@
     "propietario": "ANIBAL VERA",
     "matricula_inmobiliaria": "260-142542",
     "codigo_catastral": "01-04-0751-0006-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 197,
@@ -1770,7 +2162,9 @@
     "propietario": "JUAN CARLOS CAMACHO",
     "matricula_inmobiliaria": "260-142543",
     "codigo_catastral": "01-04-0751-0007-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 198,
@@ -1779,7 +2173,9 @@
     "propietario": "ANA DOLORES REYES",
     "matricula_inmobiliaria": "260-142544",
     "codigo_catastral": "01-04-0751-0008-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 199,
@@ -1788,7 +2184,9 @@
     "propietario": "LINA ALBARRACIN",
     "matricula_inmobiliaria": "260-142545",
     "codigo_catastral": "01-04-0751-0009-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 200,
@@ -1797,7 +2195,9 @@
     "propietario": "MARTHA CANO",
     "matricula_inmobiliaria": "260-142546",
     "codigo_catastral": "01-04-0751-0010-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 201,
@@ -1806,7 +2206,9 @@
     "propietario": "WILLIAM TORRES",
     "matricula_inmobiliaria": "260-142547",
     "codigo_catastral": "01-04-0751-0011-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 202,
@@ -1815,7 +2217,9 @@
     "propietario": "ALVARO DELGADO",
     "matricula_inmobiliaria": "260-142548",
     "codigo_catastral": "01-04-0751-0012-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 203,
@@ -1824,7 +2228,9 @@
     "propietario": "ALVARO DELGADO",
     "matricula_inmobiliaria": "260-142549",
     "codigo_catastral": null,
-    "novedad": "Código catastral incompleto"
+    "novedad": "Código catastral incompleto",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 204,
@@ -1833,7 +2239,9 @@
     "propietario": "JUAN LEON",
     "matricula_inmobiliaria": "260-142550",
     "codigo_catastral": null,
-    "novedad": "Código catastral incompleto"
+    "novedad": "Código catastral incompleto",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 205,
@@ -1842,7 +2250,9 @@
     "propietario": "HERNAN ALFONSO ARIZA",
     "matricula_inmobiliaria": "260-142551",
     "codigo_catastral": null,
-    "novedad": "Código catastral incompleto"
+    "novedad": "Código catastral incompleto",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 206,
@@ -1851,7 +2261,9 @@
     "propietario": "GLADIS BELEN IBARRA",
     "matricula_inmobiliaria": "260-142552",
     "codigo_catastral": null,
-    "novedad": "Código catastral incompleto"
+    "novedad": "Código catastral incompleto",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 207,
@@ -1860,7 +2272,9 @@
     "propietario": "MARIA EUGENIA RODRIGUEZ",
     "matricula_inmobiliaria": "260-142553",
     "codigo_catastral": "01-04-0752-0000-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 208,
@@ -1869,7 +2283,9 @@
     "propietario": "ESPERANZA VILLAMIZAR",
     "matricula_inmobiliaria": "260-142554",
     "codigo_catastral": "01-04-0752-0001-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 209,
@@ -1878,7 +2294,9 @@
     "propietario": "CARMEN ELVIRA GONZALEZ",
     "matricula_inmobiliaria": "260-142555",
     "codigo_catastral": "01-04-0752-0002-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 210,
@@ -1887,7 +2305,9 @@
     "propietario": "ELIODORO RODRIGUEZ PABON",
     "matricula_inmobiliaria": "260-142556",
     "codigo_catastral": "01-04-0752-0003-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 211,
@@ -1896,7 +2316,9 @@
     "propietario": "MICHEL TRUJILLO",
     "matricula_inmobiliaria": "260-142557",
     "codigo_catastral": "01-04-0752-0004-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 212,
@@ -1905,7 +2327,9 @@
     "propietario": "KATHERINE TORRES",
     "matricula_inmobiliaria": "260-142558",
     "codigo_catastral": "01-04-0752-0005-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 213,
@@ -1914,7 +2338,9 @@
     "propietario": "GLADIS CHONA",
     "matricula_inmobiliaria": "260-142559",
     "codigo_catastral": "01-04-0752-0006-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 214,
@@ -1923,7 +2349,9 @@
     "propietario": "LUIS RAMON PALENCIA",
     "matricula_inmobiliaria": "260-142560",
     "codigo_catastral": "01-04-0752-0007-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 215,
@@ -1932,7 +2360,9 @@
     "propietario": "JAIRO LOBO",
     "matricula_inmobiliaria": "260-142561",
     "codigo_catastral": "01-04-0752-0008-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 216,
@@ -1941,7 +2371,9 @@
     "propietario": "ANA ELBA DIAZ",
     "matricula_inmobiliaria": "260-142562",
     "codigo_catastral": "01-04-0752-0009-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 217,
@@ -1950,7 +2382,9 @@
     "propietario": "YANET SUESCUM",
     "matricula_inmobiliaria": "260-142563",
     "codigo_catastral": "01-04-0752-0010-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 218,
@@ -1959,7 +2393,9 @@
     "propietario": "DAGOBERTO AMAYA",
     "matricula_inmobiliaria": "260-142564",
     "codigo_catastral": "01-04-0752-0011-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 219,
@@ -1968,7 +2404,9 @@
     "propietario": "ROSA DURAN",
     "matricula_inmobiliaria": "260-142565",
     "codigo_catastral": "01-04-0752-0012-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 220,
@@ -1977,7 +2415,9 @@
     "propietario": "DORIS GONZALES",
     "matricula_inmobiliaria": "260-142566",
     "codigo_catastral": null,
-    "novedad": "Código catastral incompleto"
+    "novedad": "Código catastral incompleto",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 221,
@@ -1986,7 +2426,9 @@
     "propietario": "ANA OLIVA RAMOS",
     "matricula_inmobiliaria": "260-142567",
     "codigo_catastral": null,
-    "novedad": "Código catastral incompleto"
+    "novedad": "Código catastral incompleto",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 222,
@@ -1995,7 +2437,9 @@
     "propietario": "CONSUELO BECERRA",
     "matricula_inmobiliaria": "260-142568",
     "codigo_catastral": null,
-    "novedad": "Código catastral incompleto"
+    "novedad": "Código catastral incompleto",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 223,
@@ -2004,7 +2448,9 @@
     "propietario": "JAIRO AGRINZONES",
     "matricula_inmobiliaria": "260-185360",
     "codigo_catastral": "01-04-1082-0001-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 224,
@@ -2013,7 +2459,9 @@
     "propietario": "BEATRIZ CASTELLANOS",
     "matricula_inmobiliaria": "260-185361",
     "codigo_catastral": null,
-    "novedad": "Código catastral incompleto"
+    "novedad": "Código catastral incompleto",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 225,
@@ -2022,7 +2470,9 @@
     "propietario": "ALFREDO OMAÑA",
     "matricula_inmobiliaria": "260-185362",
     "codigo_catastral": null,
-    "novedad": "Código catastral incompleto"
+    "novedad": "Código catastral incompleto",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 226,
@@ -2031,7 +2481,9 @@
     "propietario": "CRISTIAN VERA",
     "matricula_inmobiliaria": "260-185363",
     "codigo_catastral": null,
-    "novedad": "Código catastral incompleto"
+    "novedad": "Código catastral incompleto",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 227,
@@ -2040,7 +2492,9 @@
     "propietario": "WILSON BOLIVAR",
     "matricula_inmobiliaria": "260-185364",
     "codigo_catastral": null,
-    "novedad": "Código catastral incompleto"
+    "novedad": "Código catastral incompleto",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 228,
@@ -2049,7 +2503,9 @@
     "propietario": "YOLIMAR MONCADA",
     "matricula_inmobiliaria": "260-185365",
     "codigo_catastral": null,
-    "novedad": "Código catastral incompleto"
+    "novedad": "Código catastral incompleto",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 229,
@@ -2058,7 +2514,9 @@
     "propietario": "MARCELINA RIDRIGUEZ",
     "matricula_inmobiliaria": "260-185366",
     "codigo_catastral": null,
-    "novedad": "Código catastral incompleto"
+    "novedad": "Código catastral incompleto",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 230,
@@ -2067,7 +2525,9 @@
     "propietario": "EUCARIS CAMPO",
     "matricula_inmobiliaria": "260-142594",
     "codigo_catastral": "01-04-1084-0001-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 231,
@@ -2076,7 +2536,9 @@
     "propietario": "ELIZABETH ANTELIZ",
     "matricula_inmobiliaria": "260-142595",
     "codigo_catastral": "01-04-1084-0002-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 232,
@@ -2085,7 +2547,9 @@
     "propietario": "ALBERTO DUQUE",
     "matricula_inmobiliaria": "260-142596",
     "codigo_catastral": "01-04-1084-0003-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 233,
@@ -2094,7 +2558,9 @@
     "propietario": "NEHEMIAS GUTIERREZ",
     "matricula_inmobiliaria": "260-142597",
     "codigo_catastral": "01-04-1084-0004-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 234,
@@ -2103,7 +2569,9 @@
     "propietario": "HUGO BRICEÑO",
     "matricula_inmobiliaria": "260-142598",
     "codigo_catastral": "01-04-1084-0005-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 235,
@@ -2112,7 +2580,9 @@
     "propietario": "CARMEN ROSA PARADA C",
     "matricula_inmobiliaria": "260-142599",
     "codigo_catastral": "01-04-1084-0006-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 236,
@@ -2121,7 +2591,9 @@
     "propietario": "DIANA CALIXTO",
     "matricula_inmobiliaria": "260-142600",
     "codigo_catastral": "01-04-1084-0007-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 237,
@@ -2130,7 +2602,9 @@
     "propietario": "JULIE DISNEY PORTILLO",
     "matricula_inmobiliaria": "260-142601",
     "codigo_catastral": "01-04-1084-0008-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 238,
@@ -2139,7 +2613,9 @@
     "propietario": "ALIX CASTELLANOS",
     "matricula_inmobiliaria": "260-142602",
     "codigo_catastral": "01-04-1084-0009-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 239,
@@ -2148,7 +2624,9 @@
     "propietario": "HUGO LEON",
     "matricula_inmobiliaria": "260-142603",
     "codigo_catastral": "01-04-1084-0010-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 240,
@@ -2157,7 +2635,9 @@
     "propietario": "ANA OLIVA RAMOS",
     "matricula_inmobiliaria": null,
     "codigo_catastral": "01-04-1084-0011-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 241,
@@ -2166,7 +2646,9 @@
     "propietario": "ARACELI MERCHAN",
     "matricula_inmobiliaria": null,
     "codigo_catastral": "01-04-1084-0012-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 242,
@@ -2175,7 +2657,9 @@
     "propietario": "ALBA SILVA",
     "matricula_inmobiliaria": null,
     "codigo_catastral": "01-04-1084-0013-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 243,
@@ -2184,7 +2668,9 @@
     "propietario": "MARINA OJEDA",
     "matricula_inmobiliaria": "260-142604",
     "codigo_catastral": "01-04-1085-0001-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 244,
@@ -2193,7 +2679,9 @@
     "propietario": "MARIA VALVINA VERA",
     "matricula_inmobiliaria": "260-142605",
     "codigo_catastral": "01-04-1085-0002-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 245,
@@ -2202,7 +2690,9 @@
     "propietario": "CARLOS JULIO ALVARES",
     "matricula_inmobiliaria": "260-142606",
     "codigo_catastral": "01-04-1085-0003-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 246,
@@ -2211,7 +2701,9 @@
     "propietario": "ANDRES LOPEZ",
     "matricula_inmobiliaria": "260-142607",
     "codigo_catastral": "01-04-1085-0004-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 247,
@@ -2220,7 +2712,9 @@
     "propietario": "EDUARDO ROLON",
     "matricula_inmobiliaria": "260-142608",
     "codigo_catastral": "01-04-1085-0005-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 248,
@@ -2229,7 +2723,9 @@
     "propietario": "GRACIELA DUQUE",
     "matricula_inmobiliaria": "260-142609",
     "codigo_catastral": "01-04-1085-0006-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 249,
@@ -2238,7 +2734,9 @@
     "propietario": "CRISTIAN GRANADOS",
     "matricula_inmobiliaria": "260-142610",
     "codigo_catastral": "01-04-1085-0007-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 250,
@@ -2247,7 +2745,9 @@
     "propietario": "ESPERANZA CORDERO",
     "matricula_inmobiliaria": "260-142611",
     "codigo_catastral": "01-04-1085-0008-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 251,
@@ -2256,7 +2756,9 @@
     "propietario": "VANESSA SANTIAGO / RONNY AVENDAÑO",
     "matricula_inmobiliaria": "260-142612",
     "codigo_catastral": "01-04-1085-0009-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 252,
@@ -2265,7 +2767,9 @@
     "propietario": "JORGE SANTIAGO",
     "matricula_inmobiliaria": "260-142614",
     "codigo_catastral": "01-04-1085-0010-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 253,
@@ -2274,7 +2778,9 @@
     "propietario": "MARTHA SANCHEZ",
     "matricula_inmobiliaria": "260-142615",
     "codigo_catastral": "01-04-1085-0011-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 254,
@@ -2283,7 +2789,9 @@
     "propietario": "NUBIA MARIA SANDOVAL",
     "matricula_inmobiliaria": "260-142616",
     "codigo_catastral": "01-04-1085-0012-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 255,
@@ -2292,7 +2800,9 @@
     "propietario": "ALFONSO ZAMBRANO",
     "matricula_inmobiliaria": "260-142614",
     "codigo_catastral": "01-04-1086-0001-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 256,
@@ -2301,7 +2811,9 @@
     "propietario": "CARLOS FLOREZ",
     "matricula_inmobiliaria": "260-142615",
     "codigo_catastral": "01-04-1086-0002-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 257,
@@ -2310,7 +2822,9 @@
     "propietario": "CARMEN ROSA CALIXTO",
     "matricula_inmobiliaria": "260-142616",
     "codigo_catastral": "01-04-1086-0003-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 258,
@@ -2319,7 +2833,9 @@
     "propietario": "CARMEN ROSA CALIXTO",
     "matricula_inmobiliaria": "260-142616",
     "codigo_catastral": "01-04-1086-0003-000",
-    "novedad": "Comparte matrícula con MZ-23 INT-03"
+    "novedad": "Comparte matrícula con MZ-23 INT-03",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 259,
@@ -2328,7 +2844,9 @@
     "propietario": "ING CELIS",
     "matricula_inmobiliaria": "260-142616",
     "codigo_catastral": "01-04-1086-0003-000",
-    "novedad": "Comparte matrícula con MZ-23 INT-03"
+    "novedad": "Comparte matrícula con MZ-23 INT-03",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 260,
@@ -2337,7 +2855,9 @@
     "propietario": "JOSE VARGAS",
     "matricula_inmobiliaria": "260-142617",
     "codigo_catastral": "01-04-1086-0004-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 261,
@@ -2346,7 +2866,9 @@
     "propietario": "JOSE ALIRIO PEDRAZA",
     "matricula_inmobiliaria": "260-142618",
     "codigo_catastral": "01-04-1086-0005-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 262,
@@ -2355,7 +2877,9 @@
     "propietario": "ELIECER JACOME",
     "matricula_inmobiliaria": "260-142619",
     "codigo_catastral": "01-04-1086-0006-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 263,
@@ -2364,7 +2888,9 @@
     "propietario": "ORLANDO DELGADO",
     "matricula_inmobiliaria": "260-142620",
     "codigo_catastral": "01-04-1086-0007-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 264,
@@ -2373,7 +2899,9 @@
     "propietario": "NORAIMA GOMEZ",
     "matricula_inmobiliaria": "260-142621",
     "codigo_catastral": "01-04-1086-0008-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 265,
@@ -2382,7 +2910,9 @@
     "propietario": "LEIDY KARINA VANEGAS",
     "matricula_inmobiliaria": "260-142622",
     "codigo_catastral": "01-04-1086-0009-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 266,
@@ -2391,7 +2921,9 @@
     "propietario": "SANDRA DUARTE",
     "matricula_inmobiliaria": "260-142623",
     "codigo_catastral": "01-04-1086-0010-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 267,
@@ -2400,7 +2932,9 @@
     "propietario": "NUBIA CASTELLANOS",
     "matricula_inmobiliaria": "260-142624",
     "codigo_catastral": "01-04-1086-0011-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 268,
@@ -2409,7 +2943,9 @@
     "propietario": "MARLENE CONTRERAS",
     "matricula_inmobiliaria": "260-142625",
     "codigo_catastral": "01-04-1086-0012-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 269,
@@ -2418,7 +2954,9 @@
     "propietario": "YULLI BOLIVAR",
     "matricula_inmobiliaria": "260-142624",
     "codigo_catastral": "01-04-1087-0001-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 270,
@@ -2427,7 +2965,9 @@
     "propietario": "HUMBERTO MEZA",
     "matricula_inmobiliaria": "260-142625",
     "codigo_catastral": "01-04-1087-0002-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 271,
@@ -2436,7 +2976,9 @@
     "propietario": "ADRIANA ZAMBRANO",
     "matricula_inmobiliaria": "260-142626",
     "codigo_catastral": "01-04-1087-0003-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 272,
@@ -2445,7 +2987,9 @@
     "propietario": "OMAIRA CASTELLANOS",
     "matricula_inmobiliaria": "260-142627",
     "codigo_catastral": "01-04-1087-0004-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 273,
@@ -2454,7 +2998,9 @@
     "propietario": "LUIS CORREA",
     "matricula_inmobiliaria": "260-142628",
     "codigo_catastral": "01-04-1087-0005-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 274,
@@ -2463,7 +3009,9 @@
     "propietario": "JORGE ENRIQUE MENDOZA",
     "matricula_inmobiliaria": "260-142629",
     "codigo_catastral": "01-04-1087-0006-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 275,
@@ -2472,7 +3020,9 @@
     "propietario": "ANA CECILIA SOLANO",
     "matricula_inmobiliaria": "260-142630",
     "codigo_catastral": "01-04-1087-0007-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 276,
@@ -2481,7 +3031,9 @@
     "propietario": "CARMEN EMILIA VELASCO",
     "matricula_inmobiliaria": "260-142631",
     "codigo_catastral": "01-04-1087-0008-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 277,
@@ -2490,7 +3042,9 @@
     "propietario": "WILLIAN SARMIENTO",
     "matricula_inmobiliaria": "260-142632",
     "codigo_catastral": "01-04-1087-0009-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 278,
@@ -2499,7 +3053,9 @@
     "propietario": "LORENA PEREZ",
     "matricula_inmobiliaria": "260-142633",
     "codigo_catastral": "01-04-1087-0010-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 279,
@@ -2508,7 +3064,9 @@
     "propietario": "GLADIS MOLINA",
     "matricula_inmobiliaria": "260-142634",
     "codigo_catastral": "01-04-1087-0011-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 280,
@@ -2517,7 +3075,9 @@
     "propietario": "NUBIA CASTELLANOS",
     "matricula_inmobiliaria": "260-142635",
     "codigo_catastral": "01-04-1087-0012-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 281,
@@ -2526,7 +3086,9 @@
     "propietario": "VICTOR CASTELLANOS",
     "matricula_inmobiliaria": "260-142636",
     "codigo_catastral": "01-04-1087-0013-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 282,
@@ -2535,7 +3097,9 @@
     "propietario": "ANA CONTRERAS",
     "matricula_inmobiliaria": "260-142637",
     "codigo_catastral": "01-04-1088-0000-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 283,
@@ -2544,7 +3108,9 @@
     "propietario": "TERESA SARMIENTO",
     "matricula_inmobiliaria": "260-142638",
     "codigo_catastral": null,
-    "novedad": "Código catastral incompleto"
+    "novedad": "Código catastral incompleto",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 284,
@@ -2553,7 +3119,9 @@
     "propietario": "LIGIA CONTRERAS",
     "matricula_inmobiliaria": "260-142639",
     "codigo_catastral": null,
-    "novedad": "Código catastral incompleto"
+    "novedad": "Código catastral incompleto",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 285,
@@ -2562,7 +3130,9 @@
     "propietario": "PATRICIA CACIQUE",
     "matricula_inmobiliaria": "260-142640",
     "codigo_catastral": null,
-    "novedad": "Código catastral incompleto"
+    "novedad": "Código catastral incompleto",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 286,
@@ -2571,7 +3141,9 @@
     "propietario": "JOSE DE LA CRUZ DIAZ",
     "matricula_inmobiliaria": "260-142641",
     "codigo_catastral": null,
-    "novedad": "Código catastral incompleto"
+    "novedad": "Código catastral incompleto",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 287,
@@ -2580,7 +3152,9 @@
     "propietario": "GLIDO GUIZA",
     "matricula_inmobiliaria": "260-142642",
     "codigo_catastral": null,
-    "novedad": "Código catastral incompleto"
+    "novedad": "Código catastral incompleto",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 288,
@@ -2589,7 +3163,9 @@
     "propietario": "MARIA ALEJANDRA SILVA",
     "matricula_inmobiliaria": "260-142643",
     "codigo_catastral": "01-04-0371-0001-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 289,
@@ -2598,7 +3174,9 @@
     "propietario": "MARIAM SANTIAGO",
     "matricula_inmobiliaria": "260-142645",
     "codigo_catastral": "01-04-0371-0002-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 290,
@@ -2607,7 +3185,9 @@
     "propietario": "CRISTOBAL MONCADA",
     "matricula_inmobiliaria": "260-142646",
     "codigo_catastral": "01-04-0371-0003-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 291,
@@ -2616,7 +3196,9 @@
     "propietario": "MARIA FERNANDA GONZALEZ",
     "matricula_inmobiliaria": "260-142647",
     "codigo_catastral": "01-04-0371-0004-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 292,
@@ -2625,7 +3207,9 @@
     "propietario": "LUZ ELENA DIAZ",
     "matricula_inmobiliaria": "260-142648",
     "codigo_catastral": "01-04-0371-0005-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 293,
@@ -2634,7 +3218,9 @@
     "propietario": "NANCY RODRIGUEZ",
     "matricula_inmobiliaria": "260-142649",
     "codigo_catastral": "01-04-0371-0006-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 294,
@@ -2643,7 +3229,9 @@
     "propietario": "INGRI GRISALES",
     "matricula_inmobiliaria": "260-142650",
     "codigo_catastral": "01-04-0371-0007-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 295,
@@ -2652,7 +3240,9 @@
     "propietario": "EVA VASQUEZ",
     "matricula_inmobiliaria": "260-142651",
     "codigo_catastral": "01-04-0371-0008-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 296,
@@ -2661,7 +3251,9 @@
     "propietario": "ASTRID ORTEGA",
     "matricula_inmobiliaria": "260-142652",
     "codigo_catastral": "01-04-0371-0009-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 297,
@@ -2670,7 +3262,9 @@
     "propietario": "GERMAN CELIS",
     "matricula_inmobiliaria": "260-142654",
     "codigo_catastral": "01-04-0371-0010-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 298,
@@ -2679,7 +3273,9 @@
     "propietario": "ROSA ELENA ROSO",
     "matricula_inmobiliaria": "260-142655",
     "codigo_catastral": "01-04-0371-0011-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 299,
@@ -2688,7 +3284,9 @@
     "propietario": "ISMAEL CALIXTO",
     "matricula_inmobiliaria": "260-142656",
     "codigo_catastral": "01-04-0371-0012-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 300,
@@ -2697,7 +3295,9 @@
     "propietario": "OSCAR ALBERTO PEÑARANDA",
     "matricula_inmobiliaria": "260-142659",
     "codigo_catastral": "01-04-0497-0001-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 301,
@@ -2706,7 +3306,9 @@
     "propietario": "LEONOR PEREZ",
     "matricula_inmobiliaria": "260-142660",
     "codigo_catastral": "01-04-0497-0002-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 302,
@@ -2715,7 +3317,9 @@
     "propietario": "SANDRA VELASQUEZ",
     "matricula_inmobiliaria": "260-142661",
     "codigo_catastral": "01-04-0497-0003-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 303,
@@ -2724,7 +3328,9 @@
     "propietario": "LORENA TORRES RAMIRES",
     "matricula_inmobiliaria": "260-142662",
     "codigo_catastral": "01-04-0497-0004-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 304,
@@ -2733,7 +3339,9 @@
     "propietario": "PEDRO SANCHEZ GONZALES",
     "matricula_inmobiliaria": "260-142663",
     "codigo_catastral": "01-04-0497-0005-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 305,
@@ -2742,7 +3350,9 @@
     "propietario": "ROSALBA PARADA",
     "matricula_inmobiliaria": "260-142664",
     "codigo_catastral": "01-04-0497-0006-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 306,
@@ -2751,7 +3361,9 @@
     "propietario": "MARY LUZ LARROTA",
     "matricula_inmobiliaria": "260-142665",
     "codigo_catastral": "01-04-0497-0007-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 307,
@@ -2760,7 +3372,9 @@
     "propietario": "CARLOS CASTILLO",
     "matricula_inmobiliaria": "260-142666",
     "codigo_catastral": "01-04-0497-0008-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 308,
@@ -2769,7 +3383,9 @@
     "propietario": "EFIGENIA BENAVIDES",
     "matricula_inmobiliaria": "260-142667",
     "codigo_catastral": "01-04-0497-0009-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 309,
@@ -2778,7 +3394,9 @@
     "propietario": "MILLER FERNANDO RINCON",
     "matricula_inmobiliaria": "260-142669",
     "codigo_catastral": "01-04-0498-0001-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 310,
@@ -2787,7 +3405,9 @@
     "propietario": "MARIA CRISTINA FLOREZ",
     "matricula_inmobiliaria": "260-142670",
     "codigo_catastral": "01-04-0498-0002-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 311,
@@ -2796,7 +3416,9 @@
     "propietario": "CASILDA CELIS",
     "matricula_inmobiliaria": "260-142671",
     "codigo_catastral": "01-04-0498-0003-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 312,
@@ -2805,7 +3427,9 @@
     "propietario": "OSCAR MORANTES",
     "matricula_inmobiliaria": "260-142672",
     "codigo_catastral": "01-04-0498-0004-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 313,
@@ -2814,7 +3438,9 @@
     "propietario": "OFELIA / ROBERTO GALVIS ACTUALIZAR",
     "matricula_inmobiliaria": "260-142673",
     "codigo_catastral": "01-04-0498-0005-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 314,
@@ -2823,7 +3449,9 @@
     "propietario": "CARMEN PEREZ",
     "matricula_inmobiliaria": "260-142674",
     "codigo_catastral": "01-04-0498-0006-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 315,
@@ -2832,7 +3460,9 @@
     "propietario": "GERALDIN RODRIGUEZ",
     "matricula_inmobiliaria": "260-142675",
     "codigo_catastral": "01-04-0498-0007-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 316,
@@ -2841,7 +3471,9 @@
     "propietario": "TERESA FLORES",
     "matricula_inmobiliaria": "260-142676",
     "codigo_catastral": "01-04-0498-0008-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 317,
@@ -2850,7 +3482,9 @@
     "propietario": "VICTOR MENDOZA",
     "matricula_inmobiliaria": "260-142677",
     "codigo_catastral": "01-04-0498-0009-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 318,
@@ -2859,7 +3493,9 @@
     "propietario": "LUZ MARINA HERRERA",
     "matricula_inmobiliaria": "260-142678",
     "codigo_catastral": "01-04-0498-0010-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 319,
@@ -2868,7 +3504,9 @@
     "propietario": "EMERITA PUENTES",
     "matricula_inmobiliaria": "260-142679",
     "codigo_catastral": "01-04-0498-0011-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 320,
@@ -2877,7 +3515,9 @@
     "propietario": "ANA CECILIA SOLANO",
     "matricula_inmobiliaria": "260-142680",
     "codigo_catastral": "01-04-0498-0012-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 321,
@@ -2886,7 +3526,9 @@
     "propietario": "ALFONSO BECERRA",
     "matricula_inmobiliaria": "260-142681",
     "codigo_catastral": "01-04-0498-0013-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 322,
@@ -2895,7 +3537,9 @@
     "propietario": "OMAR AVELLANEDA",
     "matricula_inmobiliaria": "260-142683",
     "codigo_catastral": "01-04-0499-0001-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 323,
@@ -2904,7 +3548,9 @@
     "propietario": "MARIA ANTONIA WALTEROS",
     "matricula_inmobiliaria": "260-142684",
     "codigo_catastral": "01-04-0499-0002-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 324,
@@ -2913,7 +3559,9 @@
     "propietario": "JOSE VICENTE CORTEZ / AURELIA ORTIZ",
     "matricula_inmobiliaria": "260-142685",
     "codigo_catastral": "01-04-0499-0003-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 325,
@@ -2922,7 +3570,9 @@
     "propietario": "GUSTAVO SOLANO",
     "matricula_inmobiliaria": "260-142686",
     "codigo_catastral": "01-04-0499-0004-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 326,
@@ -2931,7 +3581,9 @@
     "propietario": "JOSE ROJAS MARTINEZ",
     "matricula_inmobiliaria": "260-142687",
     "codigo_catastral": "01-04-0499-0005-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 327,
@@ -2940,7 +3592,9 @@
     "propietario": "MARLENY VELASQUEZ",
     "matricula_inmobiliaria": "260-142688",
     "codigo_catastral": "01-04-0499-0006-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 328,
@@ -2949,7 +3603,9 @@
     "propietario": "CRISTINA PEREZ",
     "matricula_inmobiliaria": "260-142689",
     "codigo_catastral": "01-04-0499-0007-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 329,
@@ -2958,7 +3614,9 @@
     "propietario": "MARTA STELLA DELGADO",
     "matricula_inmobiliaria": "260-142690",
     "codigo_catastral": "01-04-0499-0008-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 330,
@@ -2967,7 +3625,9 @@
     "propietario": "GRICELDA BECERRA",
     "matricula_inmobiliaria": "260-142691",
     "codigo_catastral": "01-04-0499-0009-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 331,
@@ -2976,7 +3636,9 @@
     "propietario": "SIMON BOLIVAR",
     "matricula_inmobiliaria": "260-142692",
     "codigo_catastral": "01-04-0499-0010-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 332,
@@ -2985,7 +3647,9 @@
     "propietario": "NELSON ADOLFO NUNCIRA CARDENAS",
     "matricula_inmobiliaria": "260-142693",
     "codigo_catastral": "01-04-0499-0011-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 333,
@@ -2994,7 +3658,9 @@
     "propietario": "FABIOLA ARENAS",
     "matricula_inmobiliaria": "260-142694",
     "codigo_catastral": "01-04-0499-0012-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 334,
@@ -3003,7 +3669,9 @@
     "propietario": "NUBIA COMBARIZA",
     "matricula_inmobiliaria": "260-142695",
     "codigo_catastral": "01-04-0499-0013-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 335,
@@ -3012,7 +3680,9 @@
     "propietario": "ELIODORO RODRIGUEZ PABON",
     "matricula_inmobiliaria": null,
     "codigo_catastral": "01-04-0500-0001-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 336,
@@ -3021,7 +3691,9 @@
     "propietario": "JESUS MORA",
     "matricula_inmobiliaria": "260-178447",
     "codigo_catastral": "01-04-0500-0002-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 337,
@@ -3030,7 +3702,9 @@
     "propietario": "EDUARDO MEDINA",
     "matricula_inmobiliaria": "260-178448",
     "codigo_catastral": "01-04-0500-0003-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 338,
@@ -3039,7 +3713,9 @@
     "propietario": "LEONOR MEDINA",
     "matricula_inmobiliaria": "260-178449",
     "codigo_catastral": "01-04-0500-0004-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 339,
@@ -3048,7 +3724,9 @@
     "propietario": "JOCKSAN AGUIAR",
     "matricula_inmobiliaria": "260-178450",
     "codigo_catastral": "01-04-0500-0005-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 340,
@@ -3057,7 +3735,9 @@
     "propietario": "MARIA OLIVA MORGADO / EDGAR DANIEL ROLON CARRILLO",
     "matricula_inmobiliaria": "260-178451",
     "codigo_catastral": "01-04-0500-0006-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 341,
@@ -3066,7 +3746,9 @@
     "propietario": "GUSTAVO TRUJILLO",
     "matricula_inmobiliaria": "260-178452",
     "codigo_catastral": "01-04-0500-0007-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 342,
@@ -3075,7 +3757,9 @@
     "propietario": "ZENAIDA LAGOS",
     "matricula_inmobiliaria": "260-178453",
     "codigo_catastral": "01-04-0500-0008-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 343,
@@ -3084,7 +3768,9 @@
     "propietario": "JAVIER SANDOVAL",
     "matricula_inmobiliaria": "260-178454",
     "codigo_catastral": "01-04-0500-0009-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 344,
@@ -3093,7 +3779,9 @@
     "propietario": "LUZ ESTELA NIÑO",
     "matricula_inmobiliaria": "260-178455",
     "codigo_catastral": "01-04-0500-0010-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 345,
@@ -3102,7 +3790,9 @@
     "propietario": "NOHORA RINCON",
     "matricula_inmobiliaria": "260-178456",
     "codigo_catastral": "01-04-0500-0011-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 346,
@@ -3111,7 +3801,9 @@
     "propietario": "MARLENY RINCON RAMIREZ",
     "matricula_inmobiliaria": "260-178457",
     "codigo_catastral": "01-04-0500-0012-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 347,
@@ -3120,7 +3812,9 @@
     "propietario": "WILMAR JESUS PARADA GOMEZ",
     "matricula_inmobiliaria": "260-178458",
     "codigo_catastral": "01-04-0500-0013-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 348,
@@ -3129,7 +3823,9 @@
     "propietario": "LILIANA JARAMILLO",
     "matricula_inmobiliaria": "260-142702",
     "codigo_catastral": "01-04-0393-0001-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 349,
@@ -3138,7 +3834,9 @@
     "propietario": "NUBIA LOZANO",
     "matricula_inmobiliaria": "260-142703",
     "codigo_catastral": "01-04-0393-0002-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 350,
@@ -3147,7 +3845,9 @@
     "propietario": "RICHARD CASADIEGOS",
     "matricula_inmobiliaria": "260-142704",
     "codigo_catastral": "01-04-0393-0003-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 351,
@@ -3156,7 +3856,9 @@
     "propietario": "NIDIA AMAYA",
     "matricula_inmobiliaria": "260-142705",
     "codigo_catastral": "01-04-0393-0004-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 352,
@@ -3165,7 +3867,9 @@
     "propietario": "DIEGO CAICEDO",
     "matricula_inmobiliaria": "260-142706",
     "codigo_catastral": "01-04-0393-0005-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 353,
@@ -3174,7 +3878,9 @@
     "propietario": "ANA MARIA CONTRERAS GALVIS",
     "matricula_inmobiliaria": "260-142707",
     "codigo_catastral": "01-04-0393-0006-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 354,
@@ -3183,7 +3889,9 @@
     "propietario": "SONIA GARCIA",
     "matricula_inmobiliaria": "260-142708",
     "codigo_catastral": "01-04-0393-0007-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 355,
@@ -3192,7 +3900,9 @@
     "propietario": "IRENE PALACIO",
     "matricula_inmobiliaria": "260-142709",
     "codigo_catastral": "01-04-0393-0008-000",
-    "novedad": ""
+    "novedad": "",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 356,
@@ -3201,7 +3911,9 @@
     "propietario": null,
     "matricula_inmobiliaria": null,
     "codigo_catastral": "01-04-1084-0003-?",
-    "novedad": "Sin propietario y sin matrícula"
+    "novedad": "Sin propietario y sin matrícula",
+    "saldo_actual": 0,
+    "historial_pagos": []
   },
   {
     "id": 357,
@@ -3210,6 +3922,8 @@
     "propietario": null,
     "matricula_inmobiliaria": null,
     "codigo_catastral": "01-04-1084-0003-?",
-    "novedad": "Sin propietario y sin matrícula"
+    "novedad": "Sin propietario y sin matrícula",
+    "saldo_actual": 0,
+    "historial_pagos": []
   }
 ]
