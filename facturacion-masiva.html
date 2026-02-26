@@ -328,6 +328,64 @@
       border-top: 1px solid #d0dfee;
     }
 
+    .factura-preview {
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+      background: white;
+    }
+
+    .factura-preview h2 {
+      color: #1e3c5c;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .factura-preview .header-factura {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #1e3c5c;
+      padding-bottom: 10px;
+    }
+
+    .factura-preview .logo-factura {
+      max-width: 150px;
+    }
+
+    .factura-preview .info-cliente {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      background: #f0f7ff;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .factura-preview .tabla-factura {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+
+    .factura-preview .tabla-factura th {
+      background: #1e3c5c;
+      color: white;
+      padding: 8px;
+    }
+
+    .factura-preview .tabla-factura td {
+      padding: 6px 8px;
+      border-bottom: 1px solid #d4e0ea;
+    }
+
+    .factura-preview .total-factura {
+      text-align: right;
+      font-size: 1.2rem;
+      margin: 15px 0;
+    }
+
     @media (max-width: 768px) {
       .header { flex-direction: column; }
       .stats { grid-template-columns: repeat(2, 1fr); }
@@ -369,7 +427,7 @@
         <h3>Haga clic para cargar archivo</h3>
         <p style="color: #4a6d8c;">Formatos aceptados: .xlsx, .xls, .csv, .txt</p>
         <p style="color: #4a6d8c; font-size: 0.8rem; margin-top: 10px;">
-          Formato esperado: propietario,direccion,cuota_extra,sanciones,acuerdo_pago,observaciones
+          Nuevo formato: propietario,direccion,pago_mes,cuota_extra,sanciones,acuerdo_pago,observaciones
         </p>
         <input type="file" id="fileInput" style="display: none;" accept=".xlsx,.xls,.csv,.txt" onchange="handleFileUpload(event)">
       </div>
@@ -487,7 +545,7 @@
           <span style="font-size: 2rem;">🖨️</span> GENERAR TODAS LAS FACTURAS EN PDF
         </button>
         <p style="color: #4a6d8c; margin-top: 15px;">
-          Se generará un ZIP con TODAS las facturas listas para imprimir
+          Se generará un ZIP con TODAS las facturas (incluye saldos pendientes)
         </p>
       </div>
 
@@ -556,11 +614,33 @@
       .then(response => response.json())
       .then(data => {
         propietariosData = data;
+        // Cargar saldos guardados en localStorage
+        const saldosGuardados = localStorage.getItem('saldosPropietarios');
+        if (saldosGuardados) {
+          const saldos = JSON.parse(saldosGuardados);
+          // Actualizar propietariosData con los saldos guardados
+          propietariosData = propietariosData.map(p => {
+            const saldoGuardado = saldos.find(s => s.id === p.id);
+            if (saldoGuardado) {
+              return { ...p, ...saldoGuardado };
+            }
+            return p;
+          });
+        }
         console.log(`✅ ${propietariosData.length} propietarios cargados`);
       })
       .catch(error => {
         console.error('Error cargando propietarios:', error);
       });
+  }
+
+  function guardarSaldos() {
+    const saldosAGuardar = propietariosData.map(p => ({
+      id: p.id,
+      saldo_actual: p.saldo_actual || 0,
+      historial_pagos: p.historial_pagos || []
+    }));
+    localStorage.setItem('saldosPropietarios', JSON.stringify(saldosAGuardar));
   }
 
   function handleFileUpload(event) {
@@ -695,7 +775,13 @@
     
     const mes = document.getElementById('mesFacturacion').value;
     const facturaInicial = parseInt(document.getElementById('facturaInicial').value);
-    const cuotaAdmon = 100000;
+    const cuotaBase = 100000;
+    
+    const nombresMeses = [
+      'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+      'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+    ];
+    const nombreMes = nombresMeses[parseInt(mes) - 1] + ' 2026';
     
     document.getElementById('progressContainer').style.display = 'block';
     facturasGeneradas = [];
@@ -713,15 +799,48 @@
         );
         
         if (propietario) {
+          // Asegurar que el propietario tenga los campos de saldo
+          if (!propietario.saldo_actual) propietario.saldo_actual = 0;
+          if (!propietario.historial_pagos) propietario.historial_pagos = [];
+          
+          const pagoMes = parseFloat(row.pago_mes) || 0;
+          const saldoAnterior = propietario.saldo_actual || 0;
+          
+          // Calcular total de este mes
+          const totalFacturaMes = cuotaBase + 
+                                 (parseFloat(row.cuota_extra) || 0) + 
+                                 (parseFloat(row.sanciones) || 0) + 
+                                 (parseFloat(row.acuerdo_pago) || 0);
+          
+          // Total a pagar (incluye saldo anterior)
+          const totalAPagar = totalFacturaMes + saldoAnterior;
+          
+          // Calcular nuevo saldo después del pago
+          const nuevoSaldo = Math.max(0, totalAPagar - pagoMes);
+          
+          // Actualizar el propietario con el nuevo saldo
+          propietario.saldo_actual = nuevoSaldo;
+          propietario.historial_pagos.push({
+            mes: nombreMes,
+            facturado: totalAPagar,
+            pagado: pagoMes,
+            saldo: nuevoSaldo,
+            fecha: new Date().toISOString().split('T')[0]
+          });
+          
           const factura = {
             numero: facturaInicial + procesadas,
             propietario: propietario.propietario || 'Sin nombre',
             manzana: propietario.manzana || '---',
             interior: propietario.interior || '---',
             direccion: `${propietario.manzana || ''} ${propietario.interior || ''}`.trim() || '---',
-            total_mes: cuotaAdmon + (parseFloat(row.cuota_extra) || 0) + (parseFloat(row.sanciones) || 0) + (parseFloat(row.acuerdo_pago) || 0),
+            total_factura_mes: totalFacturaMes,
+            saldo_anterior: saldoAnterior,
+            total_a_pagar: totalAPagar,
+            pago_recibido: pagoMes,
+            saldo_pendiente: nuevoSaldo,
             fecha: new Date().toISOString().split('T')[0],
-            mes: mes,
+            mes: nombreMes,
             cuota_extra: parseFloat(row.cuota_extra) || 0,
             sanciones: parseFloat(row.sanciones) || 0,
             acuerdo_pago: parseFloat(row.acuerdo_pago) || 0
@@ -736,6 +855,9 @@
       } else {
         clearInterval(interval);
         document.getElementById('progressContainer').style.display = 'none';
+        
+        // Guardar saldos actualizados
+        guardarSaldos();
         
         const endTime = Date.now();
         const tiempoSegundos = ((endTime - startTime) / 1000).toFixed(1);
@@ -753,7 +875,7 @@
   }
 
   function mostrarResultadosProceso(tiempo) {
-    const total = facturasGeneradas.reduce((sum, f) => sum + f.total_mes, 0);
+    const total = facturasGeneradas.reduce((sum, f) => sum + f.total_a_pagar, 0);
     
     document.getElementById('facturasGeneradas').innerText = facturasGeneradas.length;
     document.getElementById('totalFacturado').innerText = '$' + total.toLocaleString('es-CO');
@@ -764,7 +886,7 @@
   function actualizarEstadisticas() {
     document.getElementById('totalFacturasDisp').innerText = facturasGeneradas.length;
     document.getElementById('totalFacturasGenerar').innerText = facturasGeneradas.length;
-    const total = facturasGeneradas.reduce((sum, f) => sum + f.total_mes, 0);
+    const total = facturasGeneradas.reduce((sum, f) => sum + f.total_a_pagar, 0);
     document.getElementById('totalValorDisp').innerText = '$' + total.toLocaleString('es-CO');
   }
 
@@ -784,7 +906,7 @@
         <td>${f.propietario || '---'}</td>
         <td>${f.manzana || '---'}</td>
         <td>${f.interior || '---'}</td>
-        <td><strong>$${f.total_mes.toLocaleString('es-CO')}</strong></td>
+        <td><strong>$${f.total_a_pagar.toLocaleString('es-CO')}</strong></td>
       `;
       tbody.appendChild(tr);
     });
@@ -830,7 +952,7 @@
         elemento.style.top = '-9999px';
         elemento.style.width = '800px';
         elemento.style.backgroundColor = 'white';
-        elemento.style.padding = '30px';
+        elemento.style.padding = '25px';
         elemento.style.boxSizing = 'border-box';
         elemento.style.overflow = 'visible';
         elemento.style.display = 'block';
@@ -844,8 +966,6 @@
           elemento.clientHeight
         );
         
-        console.log(`Altura real de factura ${factura.numero}: ${alturaReal}px`);
-        
         // Forzar que el elemento tenga su altura completa
         elemento.style.height = 'auto';
         elemento.style.minHeight = alturaReal + 'px';
@@ -856,7 +976,7 @@
         // Generar canvas con opciones para capturar TODO
         const canvas = await html2canvas(elemento, {
           scale: 2,
-          logging: true,
+          logging: false,
           allowTaint: false,
           useCORS: true,
           backgroundColor: '#ffffff',
@@ -869,7 +989,6 @@
           width: elemento.offsetWidth,
           height: alturaReal,
           onclone: (clonedDoc, element) => {
-            // Asegurar que el elemento clonado tenga el tamaño completo
             if (element) {
               element.style.height = alturaReal + 'px';
               element.style.overflow = 'visible';
@@ -877,9 +996,6 @@
             }
           }
         });
-        
-        // Verificar que el canvas tiene la altura correcta
-        console.log(`Canvas generado: ${canvas.width} x ${canvas.height}`);
         
         // Crear PDF con las dimensiones exactas del canvas
         const imgData = canvas.toDataURL('image/png');
@@ -907,13 +1023,26 @@
         
       } catch (error) {
         console.error(`Error en factura ${factura.numero}:`, error);
-        // Continuar con la siguiente factura
       }
     }
     
-    // Agregar Excel de respaldo
+    // Agregar Excel de respaldo con la nueva información
     try {
-      const ws = XLSX.utils.json_to_sheet(facturasGeneradas);
+      const excelData = facturasGeneradas.map(f => ({
+        'Factura N°': f.numero,
+        'Propietario': f.propietario,
+        'Manzana': f.manzana,
+        'Interior': f.interior,
+        'Saldo Anterior': f.saldo_anterior,
+        'Total Mes': f.total_factura_mes,
+        'Total a Pagar': f.total_a_pagar,
+        'Pago Recibido': f.pago_recibido,
+        'Saldo Pendiente': f.saldo_pendiente,
+        'Mes': f.mes,
+        'Fecha': f.fecha
+      }));
+      
+      const ws = XLSX.utils.json_to_sheet(excelData);
       const wb = XLSX.utils.book_new();
       XLSX.utils.book_append_sheet(wb, ws, 'Facturas');
       const excelBlob = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
@@ -947,7 +1076,7 @@
     }
   }
 
-  // Función que genera la factura COMPLETA
+  // Función que genera la factura COMPLETA con saldos
   function generarFacturaCompleta(factura) {
     const fecha = new Date(factura.fecha + 'T12:00:00');
     const fechaFormateada = fecha.toLocaleDateString('es-CO', { 
@@ -956,14 +1085,8 @@
       day: 'numeric' 
     });
     
-    const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 
-                   'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-    const mesTexto = meses[parseInt(factura.mes) - 1] + ' 2026';
-    
-    const cuotaBase = 100000;
-    
     return `
-      <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 750px; margin: 0 auto; background: white; padding: 35px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.15); border: 1px solid #e0e0e0;">
+      <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 750px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.15); border: 1px solid #e0e0e0;">
         <!-- Encabezado -->
         <div style="display: flex; align-items: center; gap: 25px; margin-bottom: 25px; border-bottom: 4px solid #1e3c5c; padding-bottom: 20px;">
           <img src="https://i.postimg.cc/2yb3MyY0/LOGO-BRISAS-DEL-NORTE.png" alt="Logo Brisas del Norte" style="max-width: 160px; max-height: 80px; object-fit: contain;">
@@ -977,11 +1100,18 @@
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; background: #f0f7ff; padding: 20px; border-radius: 10px; margin-bottom: 25px; border: 1px solid #cbdbe9;">
           <div><span style="color: #1e3c5c; font-weight: 700;">Factura N°:</span> <span style="font-weight: 600;">${factura.numero}</span></div>
           <div><span style="color: #1e3c5c; font-weight: 700;">Fecha:</span> <span style="font-weight: 600;">${fechaFormateada}</span></div>
-          <div><span style="color: #1e3c5c; font-weight: 700;">Período:</span> <span style="font-weight: 600;">${mesTexto}</span></div>
+          <div><span style="color: #1e3c5c; font-weight: 700;">Período:</span> <span style="font-weight: 600;">${factura.mes}</span></div>
           <div><span style="color: #1e3c5c; font-weight: 700;">Propietario:</span> <span style="font-weight: 600;">${factura.propietario}</span></div>
           <div><span style="color: #1e3c5c; font-weight: 700;">Manzana:</span> <span style="font-weight: 600;">${factura.manzana}</span></div>
           <div><span style="color: #1e3c5c; font-weight: 700;">Interior:</span> <span style="font-weight: 600;">${factura.interior}</span></div>
         </div>
+        
+        <!-- SALDO ANTERIOR (si existe) -->
+        ${factura.saldo_anterior > 0 ? `
+        <div style="background: #fff3e0; padding: 15px; margin-bottom: 20px; border-left: 4px solid #ff9800; border-radius: 5px;">
+          <strong style="color: #e65100;">SALDO PENDIENTE DEL MES ANTERIOR:</strong> 
+          <span style="font-size: 1.2rem; font-weight: bold; color: #e65100; float: right;">$${factura.saldo_anterior.toLocaleString('es-CO')}</span>
+        </div>` : ''}
         
         <!-- Detalle de facturación -->
         <h2 style="color: #1e3c5c; font-size: 1.2rem; margin-bottom: 15px; padding-bottom: 8px; border-bottom: 2px solid #FFD700;">📋 DETALLE DE FACTURACIÓN</h2>
@@ -996,7 +1126,7 @@
           <tbody>
             <tr style="background: #f9f9f9;">
               <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef;">Cuota de administración</td>
-              <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef; text-align: right; font-weight: 600;">$${cuotaBase.toLocaleString('es-CO')}</td>
+              <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef; text-align: right; font-weight: 600;">$${100000..toLocaleString('es-CO')}</td>
             </tr>
             ${factura.cuota_extra > 0 ? `
             <tr>
@@ -1013,15 +1143,41 @@
               <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef;">Acuerdo de pago</td>
               <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef; text-align: right; font-weight: 600;">$${factura.acuerdo_pago.toLocaleString('es-CO')}</td>
             </tr>` : ''}
+            ${factura.saldo_anterior > 0 ? `
+            <tr style="background: #fff3e0;">
+              <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef;"><strong>SALDO ANTERIOR</strong></td>
+              <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef; text-align: right; font-weight: 600; color: #e65100;">$${factura.saldo_anterior.toLocaleString('es-CO')}</td>
+            </tr>` : ''}
           </tbody>
         </table>
         
-        <!-- Total a pagar -->
-        <div style="background: #e5eff9; padding: 20px; border-radius: 10px; margin: 25px 0; border-left: 6px solid #1e3c5c;">
-          <div style="display: flex; justify-content: space-between; align-items: center;">
-            <span style="color: #1e3c5c; font-size: 1.4rem; font-weight: 700;">TOTAL A PAGAR:</span>
-            <span style="color: #1e3c5c; font-size: 2rem; font-weight: 800;">$${factura.total_mes.toLocaleString('es-CO')}</span>
+        <!-- PAGO RECIBIDO (si existe) -->
+        ${factura.pago_recibido > 0 ? `
+        <div style="background: #e8f5e8; padding: 15px; margin: 15px 0; border-left: 4px solid #2e7d32; border-radius: 5px;">
+          <strong style="color: #2e7d32;">PAGO RECIBIDO:</strong>
+          <span style="font-size: 1.2rem; font-weight: bold; color: #2e7d32; float: right;">$${factura.pago_recibido.toLocaleString('es-CO')}</span>
+        </div>` : ''}
+        
+        <!-- TOTALES -->
+        <div style="background: ${factura.saldo_pendiente > 0 ? '#ffebee' : '#e5eff9'}; padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 6px solid ${factura.saldo_pendiente > 0 ? '#c62828' : '#1e3c5c'};">
+          <div style="display: flex; justify-content: space-between; font-size: 1.1rem; margin-bottom: 10px;">
+            <span><strong>TOTAL A PAGAR ESTE MES:</strong></span>
+            <span><strong>$${factura.total_a_pagar.toLocaleString('es-CO')}</strong></span>
           </div>
+          ${factura.pago_recibido > 0 ? `
+          <div style="display: flex; justify-content: space-between; margin-top: 10px; padding-top: 10px; border-top: 1px dashed #ccc;">
+            <span><strong>MENOS PAGO RECIBIDO:</strong></span>
+            <span><strong>-$${factura.pago_recibido.toLocaleString('es-CO')}</strong></span>
+          </div>` : ''}
+          ${factura.saldo_pendiente > 0 ? `
+          <div style="display: flex; justify-content: space-between; margin-top: 15px; padding-top: 10px; border-top: 2px solid #c62828; color: #c62828; font-size: 1.2rem;">
+            <span><strong>SALDO PENDIENTE PARA PRÓXIMO MES:</strong></span>
+            <span><strong>$${factura.saldo_pendiente.toLocaleString('es-CO')}</strong></span>
+          </div>` : ''}
+          ${factura.saldo_pendiente === 0 ? `
+          <div style="display: flex; justify-content: space-between; margin-top: 15px; padding-top: 10px; border-top: 2px solid #2e7d32; color: #2e7d32;">
+            <span><strong>¡CUOTA PAGADA COMPLETAMENTE!</strong></span>
+          </div>` : ''}
         </div>
         
         <!-- Notas y condiciones -->
@@ -1036,7 +1192,25 @@
   }
 
   function simularFacturacion() {
-    alert('Función de simulación');
+    if (novedadesData.length === 0) {
+      alert('Primero cargue un archivo');
+      return;
+    }
+    
+    const totalFacturas = novedadesData.length;
+    const conPagos = novedadesData.filter(r => parseFloat(r.pago_mes) > 0).length;
+    const conCuotaExtra = novedadesData.filter(r => parseFloat(r.cuota_extra) > 0).length;
+    const conSanciones = novedadesData.filter(r => parseFloat(r.sanciones) > 0).length;
+    
+    alert(`🔍 SIMULACIÓN:
+    
+📄 Archivo: ${document.getElementById('fileName').innerText}
+📊 Total registros: ${totalFacturas}
+💰 Con pagos: ${conPagos}
+➕ Con cuota extra: ${conCuotaExtra}
+⚠️ Con sanciones: ${conSanciones}
+
+✅ Archivo válido para procesar (incluye manejo de saldos)`);
   }
 </script>
 </body>
