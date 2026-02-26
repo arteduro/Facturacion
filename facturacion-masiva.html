@@ -328,64 +328,6 @@
       border-top: 1px solid #d0dfee;
     }
 
-    .factura-preview {
-      font-family: 'Segoe UI', sans-serif;
-      padding: 20px;
-      background: white;
-    }
-
-    .factura-preview h2 {
-      color: #1e3c5c;
-      text-align: center;
-      margin-bottom: 10px;
-    }
-
-    .factura-preview .header-factura {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      margin-bottom: 20px;
-      border-bottom: 2px solid #1e3c5c;
-      padding-bottom: 10px;
-    }
-
-    .factura-preview .logo-factura {
-      max-width: 150px;
-    }
-
-    .factura-preview .info-cliente {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      background: #f0f7ff;
-      padding: 15px;
-      border-radius: 10px;
-      margin-bottom: 20px;
-    }
-
-    .factura-preview .tabla-factura {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 15px 0;
-    }
-
-    .factura-preview .tabla-factura th {
-      background: #1e3c5c;
-      color: white;
-      padding: 8px;
-    }
-
-    .factura-preview .tabla-factura td {
-      padding: 6px 8px;
-      border-bottom: 1px solid #d4e0ea;
-    }
-
-    .factura-preview .total-factura {
-      text-align: right;
-      font-size: 1.2rem;
-      margin: 15px 0;
-    }
-
     @media (max-width: 768px) {
       .header { flex-direction: column; }
       .stats { grid-template-columns: repeat(2, 1fr); }
@@ -818,6 +760,11 @@
           // Calcular nuevo saldo después del pago
           const nuevoSaldo = Math.max(0, totalAPagar - pagoMes);
           
+          // Obtener el mes anterior del historial si existe
+          const mesAnterior = propietario.historial_pagos?.length > 0 
+            ? propietario.historial_pagos[propietario.historial_pagos.length - 1].mes 
+            : null;
+          
           // Actualizar el propietario con el nuevo saldo
           propietario.saldo_actual = nuevoSaldo;
           propietario.historial_pagos.push({
@@ -836,6 +783,7 @@
             direccion: `${propietario.manzana || ''} ${propietario.interior || ''}`.trim() || '---',
             total_factura_mes: totalFacturaMes,
             saldo_anterior: saldoAnterior,
+            mes_anterior: mesAnterior,
             total_a_pagar: totalAPagar,
             pago_recibido: pagoMes,
             saldo_pendiente: nuevoSaldo,
@@ -1076,7 +1024,8 @@
     }
   }
 
-  // Función que genera la factura COMPLETA con saldos
+  // ========== FUNCIÓN CORREGIDA: GENERAR FACTURA COMPLETA (sin mostrar pagos) ==========
+  
   function generarFacturaCompleta(factura) {
     const fecha = new Date(factura.fecha + 'T12:00:00');
     const fechaFormateada = fecha.toLocaleDateString('es-CO', { 
@@ -1106,17 +1055,10 @@
           <div><span style="color: #1e3c5c; font-weight: 700;">Interior:</span> <span style="font-weight: 600;">${factura.interior}</span></div>
         </div>
         
-        <!-- SALDO ANTERIOR (si existe) -->
-        ${factura.saldo_anterior > 0 ? `
-        <div style="background: #fff3e0; padding: 15px; margin-bottom: 20px; border-left: 4px solid #ff9800; border-radius: 5px;">
-          <strong style="color: #e65100;">SALDO PENDIENTE DEL MES ANTERIOR:</strong> 
-          <span style="font-size: 1.2rem; font-weight: bold; color: #e65100; float: right;">$${factura.saldo_anterior.toLocaleString('es-CO')}</span>
-        </div>` : ''}
-        
         <!-- Detalle de facturación -->
         <h2 style="color: #1e3c5c; font-size: 1.2rem; margin-bottom: 15px; padding-bottom: 8px; border-bottom: 2px solid #FFD700;">📋 DETALLE DE FACTURACIÓN</h2>
         
-        <table style="width: 100%; border-collapse: collapse; margin-bottom: 25px;">
+        <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
           <thead>
             <tr style="background: #1e3c5c; color: white;">
               <th style="padding: 12px 15px; text-align: left; border-radius: 8px 0 0 0;">Concepto</th>
@@ -1124,64 +1066,50 @@
             </tr>
           </thead>
           <tbody>
+            <!-- SALDO ANTERIOR (solo si existe) -->
+            ${factura.saldo_anterior > 0 ? `
+            <tr style="background: #fff3e0;">
+              <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef;"><strong>Saldo anterior (${factura.mes_anterior || 'mes anterior'})</strong></td>
+              <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef; text-align: right; font-weight: 600; color: #e65100;">$${factura.saldo_anterior.toLocaleString('es-CO')}</td>
+            </tr>` : ''}
+            
+            <!-- Cuota de administración del mes actual -->
             <tr style="background: #f9f9f9;">
-              <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef;">Cuota de administración</td>
+              <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef;">Cuota de administración (${factura.mes})</td>
               <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef; text-align: right; font-weight: 600;">$${100000..toLocaleString('es-CO')}</td>
             </tr>
+            
+            <!-- Cuota extra (si existe para el mes actual) -->
             ${factura.cuota_extra > 0 ? `
             <tr>
               <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef;">Cuota extraordinaria</td>
               <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef; text-align: right; font-weight: 600;">$${factura.cuota_extra.toLocaleString('es-CO')}</td>
             </tr>` : ''}
+            
+            <!-- Sanciones (si existen para el mes actual) -->
             ${factura.sanciones > 0 ? `
             <tr style="background: #f9f9f9;">
               <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef;">Sanciones / Multas</td>
               <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef; text-align: right; font-weight: 600;">$${factura.sanciones.toLocaleString('es-CO')}</td>
             </tr>` : ''}
+            
+            <!-- Acuerdo de pago (si existe para el mes actual) -->
             ${factura.acuerdo_pago > 0 ? `
             <tr>
               <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef;">Acuerdo de pago</td>
               <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef; text-align: right; font-weight: 600;">$${factura.acuerdo_pago.toLocaleString('es-CO')}</td>
             </tr>` : ''}
-            ${factura.saldo_anterior > 0 ? `
-            <tr style="background: #fff3e0;">
-              <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef;"><strong>SALDO ANTERIOR</strong></td>
-              <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef; text-align: right; font-weight: 600; color: #e65100;">$${factura.saldo_anterior.toLocaleString('es-CO')}</td>
-            </tr>` : ''}
+            
+            <!-- LÍNEA DE TOTAL A PAGAR -->
+            <tr style="background: #e5eff9; font-weight: bold;">
+              <td style="padding: 15px 15px; border-top: 2px solid #1e3c5c; border-bottom: 2px solid #1e3c5c;">TOTAL A PAGAR</td>
+              <td style="padding: 15px 15px; border-top: 2px solid #1e3c5c; border-bottom: 2px solid #1e3c5c; text-align: right;">$${factura.total_a_pagar.toLocaleString('es-CO')}</td>
+            </tr>
           </tbody>
         </table>
         
-        <!-- PAGO RECIBIDO (si existe) -->
-        ${factura.pago_recibido > 0 ? `
-        <div style="background: #e8f5e8; padding: 15px; margin: 15px 0; border-left: 4px solid #2e7d32; border-radius: 5px;">
-          <strong style="color: #2e7d32;">PAGO RECIBIDO:</strong>
-          <span style="font-size: 1.2rem; font-weight: bold; color: #2e7d32; float: right;">$${factura.pago_recibido.toLocaleString('es-CO')}</span>
-        </div>` : ''}
-        
-        <!-- TOTALES -->
-        <div style="background: ${factura.saldo_pendiente > 0 ? '#ffebee' : '#e5eff9'}; padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 6px solid ${factura.saldo_pendiente > 0 ? '#c62828' : '#1e3c5c'};">
-          <div style="display: flex; justify-content: space-between; font-size: 1.1rem; margin-bottom: 10px;">
-            <span><strong>TOTAL A PAGAR ESTE MES:</strong></span>
-            <span><strong>$${factura.total_a_pagar.toLocaleString('es-CO')}</strong></span>
-          </div>
-          ${factura.pago_recibido > 0 ? `
-          <div style="display: flex; justify-content: space-between; margin-top: 10px; padding-top: 10px; border-top: 1px dashed #ccc;">
-            <span><strong>MENOS PAGO RECIBIDO:</strong></span>
-            <span><strong>-$${factura.pago_recibido.toLocaleString('es-CO')}</strong></span>
-          </div>` : ''}
-          ${factura.saldo_pendiente > 0 ? `
-          <div style="display: flex; justify-content: space-between; margin-top: 15px; padding-top: 10px; border-top: 2px solid #c62828; color: #c62828; font-size: 1.2rem;">
-            <span><strong>SALDO PENDIENTE PARA PRÓXIMO MES:</strong></span>
-            <span><strong>$${factura.saldo_pendiente.toLocaleString('es-CO')}</strong></span>
-          </div>` : ''}
-          ${factura.saldo_pendiente === 0 ? `
-          <div style="display: flex; justify-content: space-between; margin-top: 15px; padding-top: 10px; border-top: 2px solid #2e7d32; color: #2e7d32;">
-            <span><strong>¡CUOTA PAGADA COMPLETAMENTE!</strong></span>
-          </div>` : ''}
-        </div>
-        
         <!-- Notas y condiciones -->
-        <div style="margin-top: 30px; font-size: 0.8rem; color: #4a6d8c; border-top: 1px dashed #cbdbe9; padding-top: 20px;">
+        <div style="margin-top: 20px; font-size: 0.8rem; color: #4a6d8c; border-top: 1px dashed #cbdbe9; padding-top: 20px;">
           <p style="margin: 5px 0;"><span style="font-weight: 700;">📌 NOTA IMPORTANTE:</span> Los pagos deben realizarse en BANCOLOMBIA AHORRO # 834-000000-00</p>
           <p style="margin: 5px 0;"><span style="font-weight: 700;">💰 Interés por mora:</span> 2.5% mensual sobre saldos vencidos</p>
           <p style="margin: 5px 0;"><span style="font-weight: 700;">⚖️ Cobro jurídico:</span> A partir de tres (03) cuotas atrasadas</p>
