@@ -369,7 +369,7 @@
         <h3>Haga clic para cargar archivo</h3>
         <p style="color: #4a6d8c;">Formatos aceptados: .xlsx, .xls, .csv, .txt</p>
         <p style="color: #4a6d8c; font-size: 0.8rem; margin-top: 10px;">
-          Nuevo formato: propietario,direccion,pago_mes,cuota_extra,sanciones,acuerdo_pago,observaciones
+          Formato: propietario,direccion,pago_mes,cuota_extra,sanciones,acuerdo_pago,observaciones
         </p>
         <input type="file" id="fileInput" style="display: none;" accept=".xlsx,.xls,.csv,.txt" onchange="handleFileUpload(event)">
       </div>
@@ -487,7 +487,7 @@
           <span style="font-size: 2rem;">🖨️</span> GENERAR TODAS LAS FACTURAS EN PDF
         </button>
         <p style="color: #4a6d8c; margin-top: 15px;">
-          Se generará un ZIP con TODAS las facturas (incluye saldos pendientes)
+          Se generará un ZIP con TODAS las facturas (saldos desde Google Sheets)
         </p>
       </div>
 
@@ -528,6 +528,13 @@
 </div>
 
 <script>
+  // ===== CONFIGURACIÓN SHEETDB =====
+  const SHEETDB_APP_ID = 'u1isouefcaro1';
+  const SHEETDB_TOKEN = 'fmqycvr0ty1ptkadi4s8kj9u6el99zlokcvzxqk5';
+  const SHEETDB_URL_READ = `https://sheetdb.io/api/v1/${SHEETDB_APP_ID}`;
+  const SHEETDB_URL_WRITE = `https://sheetdb.io/api/v1/${SHEETDB_APP_ID}?bearer_token=${SHEETDB_TOKEN}`;
+  // ================================
+
   let propietariosData = [];
   let novedadesData = [];
   let facturasGeneradas = [];
@@ -551,39 +558,76 @@
     }
   }
 
-  function cargarPropietarios() {
-    fetch('propietarios.json')
-      .then(response => response.json())
-      .then(data => {
-        propietariosData = data;
-        // Cargar saldos guardados en localStorage
-        const saldosGuardados = localStorage.getItem('saldosPropietarios');
-        if (saldosGuardados) {
-          const saldos = JSON.parse(saldosGuardados);
-          // Actualizar propietariosData con los saldos guardados
-          propietariosData = propietariosData.map(p => {
-            const saldoGuardado = saldos.find(s => s.id === p.id);
-            if (saldoGuardado) {
-              return { ...p, ...saldoGuardado };
-            }
-            return p;
-          });
-        }
-        console.log(`✅ ${propietariosData.length} propietarios cargados`);
-      })
-      .catch(error => {
-        console.error('Error cargando propietarios:', error);
+  // ===== FUNCIONES SHEETDB =====
+  async function cargarPropietarios() {
+    try {
+      // 1. Cargar propietarios desde JSON
+      const response = await fetch('propietarios.json');
+      propietariosData = await response.json();
+      
+      // 2. Cargar saldos desde SheetDB
+      console.log('Cargando saldos desde SheetDB...');
+      const saldosResponse = await fetch(SHEETDB_URL_READ);
+      const saldosData = await saldosResponse.json();
+      
+      // 3. Crear un mapa de saldos por propietario
+      const saldosMap = {};
+      saldosData.forEach(row => {
+        const key = `${row.propietario}_${row.manzana}_${row.interior}`;
+        saldosMap[key] = parseFloat(row.saldo_anterior_febrero) || 0;
       });
+      
+      // 4. Asignar saldos a cada propietario
+      propietariosData = propietariosData.map(p => {
+        const key = `${p.propietario}_${p.manzana}_${p.interior}`;
+        p.saldo_actual = saldosMap[key] || 0;
+        p.historial_pagos = p.historial_pagos || [];
+        return p;
+      });
+      
+      console.log(`✅ ${propietariosData.length} propietarios cargados`);
+      console.log('Saldos cargados desde SheetDB');
+      
+    } catch (error) {
+      console.error('Error cargando propietarios:', error);
+      alert('Error cargando datos. Verifique la conexión con SheetDB.');
+    }
   }
 
-  function guardarSaldos() {
-    const saldosAGuardar = propietariosData.map(p => ({
-      id: p.id,
-      saldo_actual: p.saldo_actual || 0,
-      historial_pagos: p.historial_pagos || []
+  async function guardarSaldos() {
+    console.log('Guardando saldos en SheetDB...');
+    
+    // Preparar los datos para actualizar
+    const updates = propietariosData.map(p => ({
+      propietario: p.propietario || '',
+      manzana: p.manzana || '',
+      interior: p.interior || '',
+      saldo_anterior_febrero: (p.saldo_actual || 0).toString(),
+      mes: p.historial_pagos?.length > 0 
+        ? p.historial_pagos[p.historial_pagos.length - 1].mes 
+        : 'Febrero 2026',
+      ultima_actualizacion: new Date().toISOString().split('T')[0]
     }));
-    localStorage.setItem('saldosPropietarios', JSON.stringify(saldosAGuardar));
+    
+    try {
+      // SheetDB soporta actualización masiva con PATCH
+      const response = await fetch(SHEETDB_URL_WRITE, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updates)
+      });
+      
+      if (response.ok) {
+        console.log('✅ Saldos guardados en SheetDB');
+      } else {
+        const errorText = await response.text();
+        console.error('Error guardando en SheetDB:', errorText);
+      }
+    } catch (error) {
+      console.error('Error en guardarSaldos:', error);
+    }
   }
+  // =============================
 
   function handleFileUpload(event) {
     const file = event.target.files[0];
@@ -708,7 +752,7 @@
     fileInfoDiv.appendChild(tablaNovedades);
   }
 
-  function procesarFacturacion() {
+  async function procesarFacturacion() {
     if (novedadesData.length === 0) {
       alert('Primero debe cargar un archivo de novedades.');
       showTab('cargar');
@@ -804,20 +848,18 @@
         clearInterval(interval);
         document.getElementById('progressContainer').style.display = 'none';
         
-        // Guardar saldos actualizados
-        guardarSaldos();
-        
-        const endTime = Date.now();
-        const tiempoSegundos = ((endTime - startTime) / 1000).toFixed(1);
-        
-        mostrarResultadosProceso(tiempoSegundos);
-        
-        // Actualizar estadísticas
-        actualizarEstadisticas();
-        
-        setTimeout(() => {
-          showTab('generar');
-        }, 500);
+        // Guardar saldos en SheetDB
+        guardarSaldos().then(() => {
+          const endTime = Date.now();
+          const tiempoSegundos = ((endTime - startTime) / 1000).toFixed(1);
+          
+          mostrarResultadosProceso(tiempoSegundos);
+          actualizarEstadisticas();
+          
+          setTimeout(() => {
+            showTab('generar');
+          }, 500);
+        });
       }
     }, 30);
   }
@@ -1024,7 +1066,7 @@
     }
   }
 
-  // ========== FUNCIÓN CORREGIDA: GENERAR FACTURA COMPLETA (sin mostrar pagos) ==========
+  // ========== FUNCIÓN CORREGIDA: GENERAR FACTURA COMPLETA ==========
   
   function generarFacturaCompleta(factura) {
     const fecha = new Date(factura.fecha + 'T12:00:00');
@@ -1138,7 +1180,7 @@
 ➕ Con cuota extra: ${conCuotaExtra}
 ⚠️ Con sanciones: ${conSanciones}
 
-✅ Archivo válido para procesar (incluye manejo de saldos)`);
+✅ Archivo válido para procesar (saldos desde Google Sheets)`);
   }
 </script>
 </body>
