@@ -528,9 +528,9 @@
 </div>
 
 <script>
-  // ===== CONFIGURACIÓN SHEETDB =====
-  const SHEETDB_APP_ID = 'u1isouefcaro1';
-  const SHEETDB_TOKEN = 'fmqycvr0ty1ptkadi4s8kj9u6el99zlokcvzxqk5';
+  // ===== CONFIGURACIÓN SHEETDB ACTUALIZADA =====
+  const SHEETDB_APP_ID = 'o3kglpevo1cag';
+  const SHEETDB_TOKEN = 'rmb9lzoyh59ldgedlmdgxy7dqcpfb5t3h8rnb992';
   const SHEETDB_URL_READ = `https://sheetdb.io/api/v1/${SHEETDB_APP_ID}`;
   const SHEETDB_URL_WRITE = `https://sheetdb.io/api/v1/${SHEETDB_APP_ID}?bearer_token=${SHEETDB_TOKEN}`;
   // ================================
@@ -570,6 +570,8 @@
       const saldosResponse = await fetch(SHEETDB_URL_READ);
       const saldosData = await saldosResponse.json();
       
+      console.log(`📊 Recibidos ${saldosData.length} registros de SheetDB`);
+      
       // 3. Crear un mapa de saldos por propietario
       const saldosMap = {};
       saldosData.forEach(row => {
@@ -580,13 +582,12 @@
       // 4. Asignar saldos a cada propietario (NO acumular, solo asignar el valor actual)
       propietariosData = propietariosData.map(p => {
         const key = `${(p.propietario || '').trim()}_${(p.manzana || '').trim()}_${(p.interior || '').trim()}`;
-        p.saldo_actual = saldosMap[key] || 0; // ← SOLO ASIGNA, NO SUMA
+        p.saldo_actual = saldosMap[key] || 0;
         p.historial_pagos = p.historial_pagos || [];
         return p;
       });
       
       console.log(`✅ ${propietariosData.length} propietarios cargados`);
-      console.log('Saldos cargados desde SheetDB:');
       console.log('Ejemplo - WILLIAM PINZON:', propietariosData.find(p => p.propietario === 'WILLIAM PINZON')?.saldo_actual);
       
     } catch (error) {
@@ -598,26 +599,21 @@
   async function guardarSaldos() {
     console.log('Guardando saldos en SheetDB...');
     
-    // Obtener todos los registros actuales de SheetDB para conocer sus IDs
     try {
+      // 1. Obtener TODOS los registros actuales de SheetDB para conocer sus IDs
       const response = await fetch(SHEETDB_URL_READ);
       const registrosActuales = await response.json();
       
-      // Crear un mapa de los registros actuales para búsqueda rápida
-      const mapaRegistros = {};
-      registrosActuales.forEach((registro, index) => {
-        const key = `${(registro.propietario || '').trim()}_${(registro.manzana || '').trim()}_${(registro.interior || '').trim()}`;
-        // SheetDB usa IDs basados en la posición (1-indexed), la primera fila de datos es ID 2
-        mapaRegistros[key] = {
-          id: index + 2, // +2 porque la fila 1 son encabezados
-          registro: registro
-        };
-      });
+      console.log(`📊 Registros actuales en SheetDB: ${registrosActuales.length}`);
       
-      // Actualizar cada propietario
+      // 2. Para cada propietario, buscar su registro correspondiente y actualizar
       for (const propietario of propietariosData) {
-        const key = `${(propietario.propietario || '').trim()}_${(propietario.manzana || '').trim()}_${(propietario.interior || '').trim()}`;
-        const registroExistente = mapaRegistros[key];
+        // Buscar en los registros actuales por propietario, manzana e interior
+        const registroExistente = registrosActuales.find(r => 
+          r.propietario?.trim() === propietario.propietario?.trim() &&
+          r.manzana?.trim() === propietario.manzana?.trim() &&
+          r.interior?.trim() === propietario.interior?.trim()
+        );
         
         const nuevoSaldo = (propietario.saldo_actual || 0).toString();
         const mesActual = propietario.historial_pagos?.length > 0 
@@ -625,8 +621,14 @@
           : 'Febrero 2026';
         
         if (registroExistente) {
-          // ACTUALIZAR: Reemplazar el valor completamente
-          const updateUrl = `${SHEETDB_URL_WRITE}/id/${registroExistente.id}`;
+          // El ID es la posición de la fila en la hoja + 1 (SheetDB usa índices base 1)
+          const rowId = registrosActuales.indexOf(registroExistente) + 1;
+          
+          console.log(`🔄 Actualizando ${propietario.propietario} (ID: ${rowId}): $${nuevoSaldo}`);
+          
+          // Actualizar usando el ID de la fila
+          const updateUrl = `https://sheetdb.io/api/v1/${SHEETDB_APP_ID}/id/${rowId}?bearer_token=${SHEETDB_TOKEN}`;
+          
           const updateResponse = await fetch(updateUrl, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
@@ -638,29 +640,17 @@
           });
           
           if (updateResponse.ok) {
-            console.log(`✅ Saldo actualizado para ${propietario.propietario}: $${nuevoSaldo} (era $${registroExistente.registro.saldo_anterior_febrero})`);
+            console.log(`✅ Actualizado ${propietario.propietario}: $${nuevoSaldo}`);
           } else {
-            console.error(`❌ Error actualizando ${propietario.propietario}`);
+            const errorText = await updateResponse.text();
+            console.error(`❌ Error actualizando ${propietario.propietario}:`, errorText);
           }
         } else {
-          // INSERTAR: Si no existe (no debería pasar con tus datos)
-          console.log(`⚠️ Propietario ${propietario.propietario} no encontrado en SheetDB, insertando...`);
-          await fetch(SHEETDB_URL_WRITE, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              propietario: propietario.propietario || '',
-              manzana: propietario.manzana || '',
-              interior: propietario.interior || '',
-              saldo_anterior_febrero: nuevoSaldo,
-              mes: mesActual,
-              ultima_actualizacion: new Date().toISOString().split('T')[0]
-            })
-          });
+          console.log(`⚠️ No se encontró registro para ${propietario.propietario} en SheetDB`);
         }
       }
       
-      console.log('✅ Todos los saldos actualizados correctamente en SheetDB');
+      console.log('✅ Proceso de guardado completado');
       
     } catch (error) {
       console.error('Error en guardarSaldos:', error);
@@ -829,7 +819,7 @@
           if (!propietario.historial_pagos) propietario.historial_pagos = [];
           
           const pagoMes = parseFloat(row.pago_mes) || 0;
-          const saldoAnterior = propietario.saldo_actual || 0; // ← SE TOMA EL SALDO ACTUAL DE SHEETDB
+          const saldoAnterior = propietario.saldo_actual || 0;
           
           // Calcular total de este mes (cuota base + extras)
           const totalFacturaMes = cuotaBase + 
