@@ -563,6 +563,9 @@
     try {
       console.log('🔄 Cargando saldos actualizados desde SheetDB...');
       const response = await fetch(SHEETDB_URL_READ);
+      if (!response.ok) {
+        throw new Error(`Error al leer SheetDB: ${response.status}`);
+      }
       const saldosData = await response.json();
       
       // Crear mapa de saldos
@@ -611,17 +614,24 @@
     }
   }
 
+  // ===== FUNCIÓN CORREGIDA PARA GUARDAR EN SHEETDB =====
   async function guardarSaldos() {
     console.log('Guardando saldos en SheetDB...');
     
     try {
-      // Obtener TODOS los registros actuales de SheetDB
+      // 1. Obtener TODOS los registros actuales de SheetDB
       const response = await fetch(SHEETDB_URL_READ);
+      if (!response.ok) {
+        throw new Error(`Error al leer SheetDB: ${response.status}`);
+      }
       const registrosActuales = await response.json();
       
       console.log(`📊 Registros actuales en SheetDB: ${registrosActuales.length}`);
       
-      // Para CADA propietario, buscar su registro y actualizar
+      // 2. Para CADA propietario, buscar su registro y actualizar
+      let actualizados = 0;
+      let errores = 0;
+      
       for (const propietario of propietariosData) {
         // Buscar el registro exacto por propietario, manzana e interior
         const registroExistente = registrosActuales.find(r => 
@@ -630,46 +640,70 @@
           r.interior?.trim() === propietario.interior?.trim()
         );
         
+        if (!registroExistente) {
+          console.log(`⚠️ No se encontró registro para ${propietario.propietario}`);
+          continue;
+        }
+        
+        // El ID en SheetDB es la posición en el array + 1 (SheetDB usa índices base 1)
+        const rowId = registrosActuales.indexOf(registroExistente) + 1;
         const nuevoSaldo = (propietario.saldo_actual || 0).toString();
+        
+        // Obtener el mes actual del historial
         const mesActual = propietario.historial_pagos?.length > 0 
           ? propietario.historial_pagos[propietario.historial_pagos.length - 1].mes 
           : 'Febrero 2026';
         
-        if (registroExistente) {
-          // Calcular el ID de la fila (posición en el array + 1)
-          const rowId = registrosActuales.indexOf(registroExistente) + 1;
-          
-          console.log(`🔄 Actualizando ${propietario.propietario} (ID: ${rowId}): $${nuevoSaldo}`);
-          
-          // Construir la URL de actualización con el token
-          const updateUrl = `https://sheetdb.io/api/v1/${SHEETDB_APP_ID}/id/${rowId}?bearer_token=${SHEETDB_TOKEN}`;
-          
-          // Enviar la actualización a SheetDB (PATCH)
+        // 🔴 FORMATO CORRECTO SEGÚN DOCUMENTACIÓN DE SHEETDB
+        const updateUrl = `https://sheetdb.io/api/v1/${SHEETDB_APP_ID}/id/${rowId}?bearer_token=${SHEETDB_TOKEN}`;
+        
+        console.log(`🔄 Actualizando ${propietario.propietario} (ID: ${rowId}): $${nuevoSaldo}`);
+        
+        try {
           const updateResponse = await fetch(updateUrl, {
             method: 'PATCH',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
             body: JSON.stringify({
-              saldo_anterior_febrero: nuevoSaldo,
-              mes: mesActual,
-              ultima_actualizacion: new Date().toISOString().split('T')[0]
+              "saldo_anterior_febrero": nuevoSaldo,
+              "mes": mesActual,
+              "ultima_actualizacion": new Date().toISOString().split('T')[0]
             })
           });
           
           if (updateResponse.ok) {
-            console.log(`✅ Actualizado ${propietario.propietario}: $${nuevoSaldo}`);
+            const result = await updateResponse.json();
+            console.log(`✅ Actualizado ${propietario.propietario}:`, result);
+            actualizados++;
           } else {
             const errorText = await updateResponse.text();
-            console.error(`❌ Error actualizando ${propietario.propietario}:`, errorText);
+            console.error(`❌ Error HTTP ${updateResponse.status} actualizando ${propietario.propietario}:`, errorText);
+            errores++;
+            
+            // Si es error 401, el token puede haber expirado
+            if (updateResponse.status === 401) {
+              console.error('🔴 El token puede haber expirado. Regenera el token en SheetDB.');
+            }
           }
-        } else {
-          console.log(`⚠️ No se encontró registro para ${propietario.propietario} en SheetDB`);
+        } catch (fetchError) {
+          console.error(`❌ Error de red al actualizar ${propietario.propietario}:`, fetchError);
+          errores++;
         }
       }
       
-      console.log('✅ Proceso de guardado completado');
+      console.log(`✅ Proceso completado: ${actualizados} actualizados, ${errores} errores`);
+      
+      if (errores > 0) {
+        alert(`⚠️ Se actualizaron ${actualizados} registros en SheetDB, pero hubo ${errores} errores. Revisa la consola para más detalles.`);
+      } else {
+        alert(`✅ ${actualizados} saldos actualizados correctamente en SheetDB`);
+      }
       
     } catch (error) {
-      console.error('Error en guardarSaldos:', error);
+      console.error('Error general en guardarSaldos:', error);
+      alert('Error al guardar en SheetDB. Revisa la consola.');
     }
   }
 
