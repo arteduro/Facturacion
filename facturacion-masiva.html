@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes"/>
-  <title>Facturación Masiva - Brisas del Norte</title>
+  <title>Facturación Masiva - Brisas del Norte (Tamaño Carta corregido)</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -965,6 +965,7 @@
   }
 
   // ========== FUNCIÓN PRINCIPAL: GENERAR FACTURAS EN PDF ==========
+  // Versión corregida con TAMAÑO CARTA FIJO (216 x 279 mm)
   async function generarTodasLasFacturas() {
     if (facturasGeneradas.length === 0) {
       alert('No hay facturas para generar');
@@ -1027,16 +1028,37 @@
         });
         
         const imgData = canvas.toDataURL('image/png');
-        const pdfWidth = canvas.width;
-        const pdfHeight = canvas.height;
         
+        // ===== CÓDIGO CORREGIDO: TAMAÑO CARTA FIJO =====
+        // Crear PDF en tamaño CARTA (216mm x 279mm)
         const pdf = new jspdf.jsPDF({
-          orientation: pdfHeight > pdfWidth ? 'portrait' : 'landscape',
-          unit: 'px',
-          format: [pdfWidth, pdfHeight]
+          orientation: 'portrait',
+          unit: 'mm',
+          format: [216, 279]  // ✅ TAMAÑO CARTA ESTÁNDAR
         });
+
+        // Calcular dimensiones para ajustar la imagen al ancho de la página
+        const pageWidth = 216; // mm
+        const pageHeight = 279; // mm
+        const margin = 10; // mm
+
+        // Calcular escala para que la imagen quepa en el ancho de la página (con márgenes)
+        const imgWidth = pageWidth - (margin * 2);
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+        // Verificar si la imagen excede la altura de la página
+        if (imgHeight > (pageHeight - (margin * 2))) {
+          // Si es muy alta, escalar para que quepa en la altura
+          const scaleFactor = (pageHeight - (margin * 2)) / imgHeight;
+          const adjustedWidth = imgWidth * scaleFactor;
+          pdf.addImage(imgData, 'PNG', margin, margin, adjustedWidth, pageHeight - (margin * 2));
+        } else {
+          // Si cabe normalmente, centrar verticalmente
+          const yPos = margin + ((pageHeight - (margin * 2) - imgHeight) / 2);
+          pdf.addImage(imgData, 'PNG', margin, yPos, imgWidth, imgHeight);
+        }
+        // ===== FIN CÓDIGO CORREGIDO =====
         
-        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
         const pdfBlob = pdf.output('blob');
         
         const nombrePDF = `FACTURA_${factura.numero}_${factura.manzana}_${factura.interior}.pdf`;
@@ -1088,7 +1110,7 @@
       
       saveAs(content, nombreArchivo);
       document.getElementById('generacionProgress').style.display = 'none';
-      alert(`✅ ¡PROCESO COMPLETADO! Se generaron ${facturasGeneradas.length} facturas en PDF`);
+      alert(`✅ ¡PROCESO COMPLETADO! Se generaron ${facturasGeneradas.length} facturas en PDF (tamaño CARTA 216x279 mm)`);
       
     } catch (error) {
       console.error('Error generando ZIP:', error);
