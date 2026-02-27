@@ -10,7 +10,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
   <style>
-    /* (Mantén todos los estilos igual que antes) */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -622,8 +621,9 @@
       
       console.log(`📊 Registros actuales en SheetDB: ${registrosActuales.length}`);
       
-      // Para cada propietario, buscar su registro y actualizar
+      // Para CADA propietario, buscar su registro y actualizar
       for (const propietario of propietariosData) {
+        // Buscar el registro exacto por propietario, manzana e interior
         const registroExistente = registrosActuales.find(r => 
           r.propietario?.trim() === propietario.propietario?.trim() &&
           r.manzana?.trim() === propietario.manzana?.trim() &&
@@ -636,12 +636,15 @@
           : 'Febrero 2026';
         
         if (registroExistente) {
+          // Calcular el ID de la fila (posición en el array + 1)
           const rowId = registrosActuales.indexOf(registroExistente) + 1;
           
           console.log(`🔄 Actualizando ${propietario.propietario} (ID: ${rowId}): $${nuevoSaldo}`);
           
+          // Construir la URL de actualización con el token
           const updateUrl = `https://sheetdb.io/api/v1/${SHEETDB_APP_ID}/id/${rowId}?bearer_token=${SHEETDB_TOKEN}`;
           
+          // Enviar la actualización a SheetDB (PATCH)
           const updateResponse = await fetch(updateUrl, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
@@ -652,11 +655,14 @@
             })
           });
           
-          if (!updateResponse.ok) {
-            console.error(`❌ Error actualizando ${propietario.propietario}`);
+          if (updateResponse.ok) {
+            console.log(`✅ Actualizado ${propietario.propietario}: $${nuevoSaldo}`);
+          } else {
+            const errorText = await updateResponse.text();
+            console.error(`❌ Error actualizando ${propietario.propietario}:`, errorText);
           }
         } else {
-          console.log(`⚠️ No se encontró registro para ${propietario.propietario}`);
+          console.log(`⚠️ No se encontró registro para ${propietario.propietario} en SheetDB`);
         }
       }
       
@@ -790,7 +796,7 @@
     fileInfoDiv.appendChild(tablaNovedades);
   }
 
-  // ===== FUNCIÓN PRINCIPAL DE FACTURACIÓN (CORREGIDA) =====
+  // ===== FUNCIÓN PRINCIPAL DE FACTURACIÓN =====
   async function procesarFacturacion() {
     if (novedadesData.length === 0) {
       alert('Primero debe cargar un archivo de novedades.');
@@ -835,7 +841,7 @@
           if (!propietario.historial_pagos) propietario.historial_pagos = [];
           
           const pagoMes = parseFloat(row.pago_mes) || 0;
-          // 🔴 TOMAMOS EL SALDO QUE ACABAMOS DE CARGAR DE SHEETDB
+          // TOMAMOS EL SALDO QUE ACABAMOS DE CARGAR DE SHEETDB
           const saldoAnterior = propietario.saldo_actual || 0;
           
           // Calcular total de este mes (cuota base + extras)
@@ -844,7 +850,7 @@
                                  (parseFloat(row.sanciones) || 0) + 
                                  (parseFloat(row.acuerdo_pago) || 0);
           
-          // 🟢 TOTAL A PAGAR = SALDO ANTERIOR + LO DE ESTE MES
+          // TOTAL A PAGAR = SALDO ANTERIOR + LO DE ESTE MES
           const totalAPagar = totalFacturaMes + saldoAnterior;
           
           // Calcular nuevo saldo después del pago (para el PRÓXIMO mes)
@@ -904,7 +910,7 @@
         clearInterval(interval);
         document.getElementById('progressContainer').style.display = 'none';
         
-        // Guardar los NUEVOS saldos en SheetDB
+        // 3. Guardar los NUEVOS saldos en SheetDB
         console.log('💾 PASO 3: Guardando nuevos saldos en SheetDB...');
         await guardarSaldos();
         
