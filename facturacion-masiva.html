@@ -10,6 +10,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
   <style>
+    /* (Mantén todos los estilos igual que antes) */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -528,7 +529,7 @@
 </div>
 
 <script>
-  // ===== CONFIGURACIÓN SHEETDB ACTUALIZADA =====
+  // ===== CONFIGURACIÓN SHEETDB =====
   const SHEETDB_APP_ID = 'o3kglpevo1cag';
   const SHEETDB_TOKEN = 'rmb9lzoyh59ldgedlmdgxy7dqcpfb5t3h8rnb992';
   const SHEETDB_URL_READ = `https://sheetdb.io/api/v1/${SHEETDB_APP_ID}`;
@@ -558,7 +559,35 @@
     }
   }
 
-  // ===== FUNCIONES SHEETDB =====
+  // ===== FUNCIÓN PARA CARGAR SALDOS ACTUALIZADOS DESDE SHEETDB =====
+  async function cargarSaldosActuales() {
+    try {
+      console.log('🔄 Cargando saldos actualizados desde SheetDB...');
+      const response = await fetch(SHEETDB_URL_READ);
+      const saldosData = await response.json();
+      
+      // Crear mapa de saldos
+      const saldosMap = {};
+      saldosData.forEach(row => {
+        const key = `${(row.propietario || '').trim()}_${(row.manzana || '').trim()}_${(row.interior || '').trim()}`;
+        saldosMap[key] = parseFloat(row.saldo_anterior_febrero) || 0;
+      });
+      
+      // Actualizar saldos en propietariosData
+      propietariosData = propietariosData.map(p => {
+        const key = `${(p.propietario || '').trim()}_${(p.manzana || '').trim()}_${(p.interior || '').trim()}`;
+        p.saldo_actual = saldosMap[key] || 0;
+        return p;
+      });
+      
+      console.log('✅ Saldos actualizados desde SheetDB');
+      return true;
+    } catch (error) {
+      console.error('❌ Error cargando saldos actuales:', error);
+      return false;
+    }
+  }
+
   async function cargarPropietarios() {
     try {
       // 1. Cargar propietarios desde JSON
@@ -566,23 +595,10 @@
       propietariosData = await response.json();
       
       // 2. Cargar saldos desde SheetDB
-      console.log('Cargando saldos desde SheetDB...');
-      const saldosResponse = await fetch(SHEETDB_URL_READ);
-      const saldosData = await saldosResponse.json();
+      await cargarSaldosActuales();
       
-      console.log(`📊 Recibidos ${saldosData.length} registros de SheetDB`);
-      
-      // 3. Crear un mapa de saldos por propietario
-      const saldosMap = {};
-      saldosData.forEach(row => {
-        const key = `${(row.propietario || '').trim()}_${(row.manzana || '').trim()}_${(row.interior || '').trim()}`;
-        saldosMap[key] = parseFloat(row.saldo_anterior_febrero) || 0;
-      });
-      
-      // 4. Asignar saldos a cada propietario (NO acumular, solo asignar el valor actual)
+      // 3. Inicializar historial de pagos
       propietariosData = propietariosData.map(p => {
-        const key = `${(p.propietario || '').trim()}_${(p.manzana || '').trim()}_${(p.interior || '').trim()}`;
-        p.saldo_actual = saldosMap[key] || 0;
         p.historial_pagos = p.historial_pagos || [];
         return p;
       });
@@ -600,15 +616,14 @@
     console.log('Guardando saldos en SheetDB...');
     
     try {
-      // 1. Obtener TODOS los registros actuales de SheetDB para conocer sus IDs
+      // Obtener TODOS los registros actuales de SheetDB
       const response = await fetch(SHEETDB_URL_READ);
       const registrosActuales = await response.json();
       
       console.log(`📊 Registros actuales en SheetDB: ${registrosActuales.length}`);
       
-      // 2. Para cada propietario, buscar su registro correspondiente y actualizar
+      // Para cada propietario, buscar su registro y actualizar
       for (const propietario of propietariosData) {
-        // Buscar en los registros actuales por propietario, manzana e interior
         const registroExistente = registrosActuales.find(r => 
           r.propietario?.trim() === propietario.propietario?.trim() &&
           r.manzana?.trim() === propietario.manzana?.trim() &&
@@ -621,12 +636,10 @@
           : 'Febrero 2026';
         
         if (registroExistente) {
-          // El ID es la posición de la fila en la hoja + 1 (SheetDB usa índices base 1)
           const rowId = registrosActuales.indexOf(registroExistente) + 1;
           
           console.log(`🔄 Actualizando ${propietario.propietario} (ID: ${rowId}): $${nuevoSaldo}`);
           
-          // Actualizar usando el ID de la fila
           const updateUrl = `https://sheetdb.io/api/v1/${SHEETDB_APP_ID}/id/${rowId}?bearer_token=${SHEETDB_TOKEN}`;
           
           const updateResponse = await fetch(updateUrl, {
@@ -639,14 +652,11 @@
             })
           });
           
-          if (updateResponse.ok) {
-            console.log(`✅ Actualizado ${propietario.propietario}: $${nuevoSaldo}`);
-          } else {
-            const errorText = await updateResponse.text();
-            console.error(`❌ Error actualizando ${propietario.propietario}:`, errorText);
+          if (!updateResponse.ok) {
+            console.error(`❌ Error actualizando ${propietario.propietario}`);
           }
         } else {
-          console.log(`⚠️ No se encontró registro para ${propietario.propietario} en SheetDB`);
+          console.log(`⚠️ No se encontró registro para ${propietario.propietario}`);
         }
       }
       
@@ -656,7 +666,6 @@
       console.error('Error en guardarSaldos:', error);
     }
   }
-  // =============================
 
   function handleFileUpload(event) {
     const file = event.target.files[0];
@@ -781,12 +790,17 @@
     fileInfoDiv.appendChild(tablaNovedades);
   }
 
+  // ===== FUNCIÓN PRINCIPAL DE FACTURACIÓN (CORREGIDA) =====
   async function procesarFacturacion() {
     if (novedadesData.length === 0) {
       alert('Primero debe cargar un archivo de novedades.');
       showTab('cargar');
       return;
     }
+    
+    // 1. ANTES DE PROCESAR, CARGAR LOS SALDOS MÁS RECIENTES DE SHEETDB
+    console.log('🔍 PASO 1: Cargando saldos actuales desde SheetDB...');
+    await cargarSaldosActuales();
     
     const mes = document.getElementById('mesFacturacion').value;
     const facturaInicial = parseInt(document.getElementById('facturaInicial').value);
@@ -805,7 +819,10 @@
     const total = novedadesData.length;
     const startTime = Date.now();
     
-    const interval = setInterval(() => {
+    console.log('📊 PASO 2: Procesando facturas con saldos:');
+    console.log('Ejemplo WILLIAM PINZON - Saldo actual:', propietariosData.find(p => p.propietario === 'WILLIAM PINZON')?.saldo_actual);
+    
+    const interval = setInterval(async () => {
       if (procesadas < total) {
         const row = novedadesData[procesadas];
         const propietario = propietariosData.find(p => 
@@ -814,11 +831,11 @@
         );
         
         if (propietario) {
-          // Asegurar que el propietario tenga los campos de saldo
-          if (!propietario.saldo_actual) propietario.saldo_actual = 0;
+          // Asegurar que el propietario tenga historial
           if (!propietario.historial_pagos) propietario.historial_pagos = [];
           
           const pagoMes = parseFloat(row.pago_mes) || 0;
+          // 🔴 TOMAMOS EL SALDO QUE ACABAMOS DE CARGAR DE SHEETDB
           const saldoAnterior = propietario.saldo_actual || 0;
           
           // Calcular total de este mes (cuota base + extras)
@@ -827,18 +844,18 @@
                                  (parseFloat(row.sanciones) || 0) + 
                                  (parseFloat(row.acuerdo_pago) || 0);
           
-          // Total a pagar (incluye saldo anterior)
+          // 🟢 TOTAL A PAGAR = SALDO ANTERIOR + LO DE ESTE MES
           const totalAPagar = totalFacturaMes + saldoAnterior;
           
           // Calcular nuevo saldo después del pago (para el PRÓXIMO mes)
           const nuevoSaldo = Math.max(0, totalAPagar - pagoMes);
           
-          // Obtener el mes anterior del historial si existe
+          // Obtener el mes anterior del historial
           const mesAnterior = propietario.historial_pagos?.length > 0 
             ? propietario.historial_pagos[propietario.historial_pagos.length - 1].mes 
             : 'Febrero 2026';
           
-          // Actualizar el propietario con el NUEVO saldo (para el próximo mes)
+          // Actualizar el propietario con el NUEVO saldo
           propietario.saldo_actual = nuevoSaldo;
           propietario.historial_pagos.push({
             mes: nombreMes,
@@ -867,6 +884,16 @@
             acuerdo_pago: parseFloat(row.acuerdo_pago) || 0
           };
           facturasGeneradas.push(factura);
+          
+          if (procesadas === 0) {
+            console.log('📋 PRIMERA FACTURA - WILLIAM PINZON:', {
+              saldo_anterior: saldoAnterior,
+              total_factura_mes: totalFacturaMes,
+              total_a_pagar: totalAPagar,
+              pago: pagoMes,
+              nuevo_saldo: nuevoSaldo
+            });
+          }
         }
         
         procesadas++;
@@ -877,18 +904,19 @@
         clearInterval(interval);
         document.getElementById('progressContainer').style.display = 'none';
         
-        // Guardar los NUEVOS saldos en SheetDB (reemplazando los anteriores)
-        guardarSaldos().then(() => {
-          const endTime = Date.now();
-          const tiempoSegundos = ((endTime - startTime) / 1000).toFixed(1);
-          
-          mostrarResultadosProceso(tiempoSegundos);
-          actualizarEstadisticas();
-          
-          setTimeout(() => {
-            showTab('generar');
-          }, 500);
-        });
+        // Guardar los NUEVOS saldos en SheetDB
+        console.log('💾 PASO 3: Guardando nuevos saldos en SheetDB...');
+        await guardarSaldos();
+        
+        const endTime = Date.now();
+        const tiempoSegundos = ((endTime - startTime) / 1000).toFixed(1);
+        
+        mostrarResultadosProceso(tiempoSegundos);
+        actualizarEstadisticas();
+        
+        setTimeout(() => {
+          showTab('generar');
+        }, 500);
       }
     }, 30);
   }
@@ -933,8 +961,7 @@
     actualizarEstadisticas();
   }
 
-  // ========== FUNCIÓN PRINCIPAL: GENERAR FACTURAS COMPLETAS EN PDF ==========
-  
+  // ========== FUNCIÓN PRINCIPAL: GENERAR FACTURAS EN PDF ==========
   async function generarTodasLasFacturas() {
     if (facturasGeneradas.length === 0) {
       alert('No hay facturas para generar');
@@ -945,7 +972,6 @@
       return;
     }
     
-    // Mostrar progreso
     document.getElementById('generacionProgress').style.display = 'block';
     document.getElementById('generacionProgressFill').style.width = '0%';
     document.getElementById('generacionProgressText').innerHTML = 'Iniciando generación...';
@@ -953,7 +979,6 @@
     const zip = new JSZip();
     const pdfFolder = zip.folder('facturas_para_imprimir');
     
-    // Generar cada factura
     for (let i = 0; i < facturasGeneradas.length; i++) {
       const factura = facturasGeneradas[i];
       
@@ -963,7 +988,6 @@
       document.getElementById('generacionProgressDetalle').innerHTML = `Factura N° ${factura.numero} - ${factura.propietario}`;
       
       try {
-        // Crear elemento HTML de la factura
         const elemento = document.createElement('div');
         elemento.innerHTML = generarFacturaCompleta(factura);
         elemento.style.position = 'absolute';
@@ -974,25 +998,19 @@
         elemento.style.padding = '25px';
         elemento.style.boxSizing = 'border-box';
         elemento.style.overflow = 'visible';
-        elemento.style.display = 'block';
-        elemento.style.visibility = 'visible';
         document.body.appendChild(elemento);
         
-        // Calcular altura REAL del contenido
         const alturaReal = Math.max(
           elemento.scrollHeight,
           elemento.offsetHeight,
           elemento.clientHeight
         );
         
-        // Forzar que el elemento tenga su altura completa
         elemento.style.height = 'auto';
         elemento.style.minHeight = alturaReal + 'px';
         
-        // Esperar a que se renderice completamente
         await new Promise(resolve => setTimeout(resolve, 800));
         
-        // Generar canvas con opciones para capturar TODO
         const canvas = await html2canvas(elemento, {
           scale: 2,
           logging: false,
@@ -1001,22 +1019,10 @@
           backgroundColor: '#ffffff',
           windowWidth: 900,
           windowHeight: alturaReal + 50,
-          scrollY: -window.scrollY,
-          scrollX: 0,
-          x: 0,
-          y: 0,
           width: elemento.offsetWidth,
-          height: alturaReal,
-          onclone: (clonedDoc, element) => {
-            if (element) {
-              element.style.height = alturaReal + 'px';
-              element.style.overflow = 'visible';
-              element.style.display = 'block';
-            }
-          }
+          height: alturaReal
         });
         
-        // Crear PDF con las dimensiones exactas del canvas
         const imgData = canvas.toDataURL('image/png');
         const pdfWidth = canvas.width;
         const pdfHeight = canvas.height;
@@ -1030,14 +1036,10 @@
         pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
         const pdfBlob = pdf.output('blob');
         
-        // Agregar al ZIP con nombre descriptivo
         const nombrePDF = `FACTURA_${factura.numero}_${factura.manzana}_${factura.interior}.pdf`;
         pdfFolder.file(nombrePDF, pdfBlob);
         
-        // Limpiar
         document.body.removeChild(elemento);
-        
-        // Pequeña pausa para no saturar el navegador
         await new Promise(resolve => setTimeout(resolve, 500));
         
       } catch (error) {
@@ -1045,7 +1047,6 @@
       }
     }
     
-    // Agregar Excel de respaldo con la nueva información
     try {
       const excelData = facturasGeneradas.map(f => ({
         'Factura N°': f.numero,
@@ -1072,7 +1073,6 @@
     
     document.getElementById('generacionProgressText').innerHTML = 'Comprimiendo archivos...';
     
-    // Generar ZIP
     try {
       const content = await zip.generateAsync({ 
         type: 'blob',
@@ -1084,7 +1084,6 @@
       const nombreArchivo = `TODAS_FACTURAS_${fecha.getFullYear()}-${(fecha.getMonth()+1).toString().padStart(2,'0')}-${fecha.getDate().toString().padStart(2,'0')}.zip`;
       
       saveAs(content, nombreArchivo);
-      
       document.getElementById('generacionProgress').style.display = 'none';
       alert(`✅ ¡PROCESO COMPLETADO! Se generaron ${facturasGeneradas.length} facturas en PDF`);
       
@@ -1095,8 +1094,6 @@
     }
   }
 
-  // ========== FUNCIÓN CORREGIDA: GENERAR FACTURA COMPLETA ==========
-  
   function generarFacturaCompleta(factura) {
     const fecha = new Date(factura.fecha + 'T12:00:00');
     const fechaFormateada = fecha.toLocaleDateString('es-CO', { 
@@ -1107,7 +1104,6 @@
     
     return `
       <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 750px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.15); border: 1px solid #e0e0e0;">
-        <!-- Encabezado -->
         <div style="display: flex; align-items: center; gap: 25px; margin-bottom: 25px; border-bottom: 4px solid #1e3c5c; padding-bottom: 20px;">
           <img src="https://i.postimg.cc/2yb3MyY0/LOGO-BRISAS-DEL-NORTE.png" alt="Logo Brisas del Norte" style="max-width: 160px; max-height: 80px; object-fit: contain;">
           <div style="flex: 1;">
@@ -1116,7 +1112,6 @@
           </div>
         </div>
         
-        <!-- Información de la factura -->
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; background: #f0f7ff; padding: 20px; border-radius: 10px; margin-bottom: 25px; border: 1px solid #cbdbe9;">
           <div><span style="color: #1e3c5c; font-weight: 700;">Factura N°:</span> <span style="font-weight: 600;">${factura.numero}</span></div>
           <div><span style="color: #1e3c5c; font-weight: 700;">Fecha:</span> <span style="font-weight: 600;">${fechaFormateada}</span></div>
@@ -1126,7 +1121,6 @@
           <div><span style="color: #1e3c5c; font-weight: 700;">Interior:</span> <span style="font-weight: 600;">${factura.interior}</span></div>
         </div>
         
-        <!-- Detalle de facturación -->
         <h2 style="color: #1e3c5c; font-size: 1.2rem; margin-bottom: 15px; padding-bottom: 8px; border-bottom: 2px solid #FFD700;">📋 DETALLE DE FACTURACIÓN</h2>
         
         <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
@@ -1137,41 +1131,35 @@
             </tr>
           </thead>
           <tbody>
-            <!-- SALDO ANTERIOR (solo si existe) -->
             ${factura.saldo_anterior > 0 ? `
             <tr style="background: #fff3e0;">
               <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef;"><strong>Saldo anterior (${factura.mes_anterior || 'mes anterior'})</strong></td>
               <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef; text-align: right; font-weight: 600; color: #e65100;">$${factura.saldo_anterior.toLocaleString('es-CO')}</td>
             </tr>` : ''}
             
-            <!-- Cuota de administración del mes actual -->
             <tr style="background: #f9f9f9;">
               <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef;">Cuota de administración (${factura.mes})</td>
               <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef; text-align: right; font-weight: 600;">$${100000..toLocaleString('es-CO')}</td>
             </tr>
             
-            <!-- Cuota extra (si existe para el mes actual) -->
             ${factura.cuota_extra > 0 ? `
             <tr>
               <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef;">Cuota extraordinaria</td>
               <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef; text-align: right; font-weight: 600;">$${factura.cuota_extra.toLocaleString('es-CO')}</td>
             </tr>` : ''}
             
-            <!-- Sanciones (si existen para el mes actual) -->
             ${factura.sanciones > 0 ? `
             <tr style="background: #f9f9f9;">
               <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef;">Sanciones / Multas</td>
               <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef; text-align: right; font-weight: 600;">$${factura.sanciones.toLocaleString('es-CO')}</td>
             </tr>` : ''}
             
-            <!-- Acuerdo de pago (si existe para el mes actual) -->
             ${factura.acuerdo_pago > 0 ? `
             <tr>
               <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef;">Acuerdo de pago</td>
               <td style="padding: 12px 15px; border-bottom: 1px solid #e0e7ef; text-align: right; font-weight: 600;">$${factura.acuerdo_pago.toLocaleString('es-CO')}</td>
             </tr>` : ''}
             
-            <!-- LÍNEA DE TOTAL A PAGAR -->
             <tr style="background: #e5eff9; font-weight: bold;">
               <td style="padding: 15px 15px; border-top: 2px solid #1e3c5c; border-bottom: 2px solid #1e3c5c;">TOTAL A PAGAR</td>
               <td style="padding: 15px 15px; border-top: 2px solid #1e3c5c; border-bottom: 2px solid #1e3c5c; text-align: right;">$${factura.total_a_pagar.toLocaleString('es-CO')}</td>
@@ -1179,7 +1167,6 @@
           </tbody>
         </table>
         
-        <!-- Notas y condiciones -->
         <div style="margin-top: 20px; font-size: 0.8rem; color: #4a6d8c; border-top: 1px dashed #cbdbe9; padding-top: 20px;">
           <p style="margin: 5px 0;"><span style="font-weight: 700;">📌 NOTA IMPORTANTE:</span> Los pagos deben realizarse en BANCOLOMBIA AHORRO # 834-000000-00</p>
           <p style="margin: 5px 0;"><span style="font-weight: 700;">💰 Interés por mora:</span> 2.5% mensual sobre saldos vencidos</p>
