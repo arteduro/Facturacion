@@ -573,20 +573,21 @@
       // 3. Crear un mapa de saldos por propietario
       const saldosMap = {};
       saldosData.forEach(row => {
-        const key = `${row.propietario}_${row.manzana}_${row.interior}`;
+        const key = `${(row.propietario || '').trim()}_${(row.manzana || '').trim()}_${(row.interior || '').trim()}`;
         saldosMap[key] = parseFloat(row.saldo_anterior_febrero) || 0;
       });
       
-      // 4. Asignar saldos a cada propietario
+      // 4. Asignar saldos a cada propietario (NO acumular, solo asignar el valor actual)
       propietariosData = propietariosData.map(p => {
-        const key = `${p.propietario}_${p.manzana}_${p.interior}`;
-        p.saldo_actual = saldosMap[key] || 0;
+        const key = `${(p.propietario || '').trim()}_${(p.manzana || '').trim()}_${(p.interior || '').trim()}`;
+        p.saldo_actual = saldosMap[key] || 0; // ← SOLO ASIGNA, NO SUMA
         p.historial_pagos = p.historial_pagos || [];
         return p;
       });
       
       console.log(`✅ ${propietariosData.length} propietarios cargados`);
-      console.log('Saldos cargados desde SheetDB');
+      console.log('Saldos cargados desde SheetDB:');
+      console.log('Ejemplo - WILLIAM PINZON:', propietariosData.find(p => p.propietario === 'WILLIAM PINZON')?.saldo_actual);
       
     } catch (error) {
       console.error('Error cargando propietarios:', error);
@@ -597,32 +598,70 @@
   async function guardarSaldos() {
     console.log('Guardando saldos en SheetDB...');
     
-    // Preparar los datos para actualizar
-    const updates = propietariosData.map(p => ({
-      propietario: p.propietario || '',
-      manzana: p.manzana || '',
-      interior: p.interior || '',
-      saldo_anterior_febrero: (p.saldo_actual || 0).toString(),
-      mes: p.historial_pagos?.length > 0 
-        ? p.historial_pagos[p.historial_pagos.length - 1].mes 
-        : 'Febrero 2026',
-      ultima_actualizacion: new Date().toISOString().split('T')[0]
-    }));
-    
+    // Obtener todos los registros actuales de SheetDB para conocer sus IDs
     try {
-      // SheetDB soporta actualización masiva con PATCH
-      const response = await fetch(SHEETDB_URL_WRITE, {
-        method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(updates)
+      const response = await fetch(SHEETDB_URL_READ);
+      const registrosActuales = await response.json();
+      
+      // Crear un mapa de los registros actuales para búsqueda rápida
+      const mapaRegistros = {};
+      registrosActuales.forEach((registro, index) => {
+        const key = `${(registro.propietario || '').trim()}_${(registro.manzana || '').trim()}_${(registro.interior || '').trim()}`;
+        // SheetDB usa IDs basados en la posición (1-indexed), la primera fila de datos es ID 2
+        mapaRegistros[key] = {
+          id: index + 2, // +2 porque la fila 1 son encabezados
+          registro: registro
+        };
       });
       
-      if (response.ok) {
-        console.log('✅ Saldos guardados en SheetDB');
-      } else {
-        const errorText = await response.text();
-        console.error('Error guardando en SheetDB:', errorText);
+      // Actualizar cada propietario
+      for (const propietario of propietariosData) {
+        const key = `${(propietario.propietario || '').trim()}_${(propietario.manzana || '').trim()}_${(propietario.interior || '').trim()}`;
+        const registroExistente = mapaRegistros[key];
+        
+        const nuevoSaldo = (propietario.saldo_actual || 0).toString();
+        const mesActual = propietario.historial_pagos?.length > 0 
+          ? propietario.historial_pagos[propietario.historial_pagos.length - 1].mes 
+          : 'Febrero 2026';
+        
+        if (registroExistente) {
+          // ACTUALIZAR: Reemplazar el valor completamente
+          const updateUrl = `${SHEETDB_URL_WRITE}/id/${registroExistente.id}`;
+          const updateResponse = await fetch(updateUrl, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              saldo_anterior_febrero: nuevoSaldo,
+              mes: mesActual,
+              ultima_actualizacion: new Date().toISOString().split('T')[0]
+            })
+          });
+          
+          if (updateResponse.ok) {
+            console.log(`✅ Saldo actualizado para ${propietario.propietario}: $${nuevoSaldo} (era $${registroExistente.registro.saldo_anterior_febrero})`);
+          } else {
+            console.error(`❌ Error actualizando ${propietario.propietario}`);
+          }
+        } else {
+          // INSERTAR: Si no existe (no debería pasar con tus datos)
+          console.log(`⚠️ Propietario ${propietario.propietario} no encontrado en SheetDB, insertando...`);
+          await fetch(SHEETDB_URL_WRITE, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              propietario: propietario.propietario || '',
+              manzana: propietario.manzana || '',
+              interior: propietario.interior || '',
+              saldo_anterior_febrero: nuevoSaldo,
+              mes: mesActual,
+              ultima_actualizacion: new Date().toISOString().split('T')[0]
+            })
+          });
+        }
       }
+      
+      console.log('✅ Todos los saldos actualizados correctamente en SheetDB');
+      
     } catch (error) {
       console.error('Error en guardarSaldos:', error);
     }
@@ -790,9 +829,9 @@
           if (!propietario.historial_pagos) propietario.historial_pagos = [];
           
           const pagoMes = parseFloat(row.pago_mes) || 0;
-          const saldoAnterior = propietario.saldo_actual || 0;
+          const saldoAnterior = propietario.saldo_actual || 0; // ← SE TOMA EL SALDO ACTUAL DE SHEETDB
           
-          // Calcular total de este mes
+          // Calcular total de este mes (cuota base + extras)
           const totalFacturaMes = cuotaBase + 
                                  (parseFloat(row.cuota_extra) || 0) + 
                                  (parseFloat(row.sanciones) || 0) + 
@@ -801,15 +840,15 @@
           // Total a pagar (incluye saldo anterior)
           const totalAPagar = totalFacturaMes + saldoAnterior;
           
-          // Calcular nuevo saldo después del pago
+          // Calcular nuevo saldo después del pago (para el PRÓXIMO mes)
           const nuevoSaldo = Math.max(0, totalAPagar - pagoMes);
           
           // Obtener el mes anterior del historial si existe
           const mesAnterior = propietario.historial_pagos?.length > 0 
             ? propietario.historial_pagos[propietario.historial_pagos.length - 1].mes 
-            : null;
+            : 'Febrero 2026';
           
-          // Actualizar el propietario con el nuevo saldo
+          // Actualizar el propietario con el NUEVO saldo (para el próximo mes)
           propietario.saldo_actual = nuevoSaldo;
           propietario.historial_pagos.push({
             mes: nombreMes,
@@ -848,7 +887,7 @@
         clearInterval(interval);
         document.getElementById('progressContainer').style.display = 'none';
         
-        // Guardar saldos en SheetDB
+        // Guardar los NUEVOS saldos en SheetDB (reemplazando los anteriores)
         guardarSaldos().then(() => {
           const endTime = Date.now();
           const tiempoSegundos = ((endTime - startTime) / 1000).toFixed(1);
